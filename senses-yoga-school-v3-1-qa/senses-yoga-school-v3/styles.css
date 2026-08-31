@@ -1,0 +1,46 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display+SC:wght@400;700&display=swap');
+:root{--purple:#320840;--deep-purple:#1F0044;--yellow:#FAC700;--cream:#f7f1e5;--paper:#fffaf0;--earth:#6f5743;--sage:#aab5a2;--charcoal:#241f25;--line:#ded2bd;--forest:#320840}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--charcoal);font:19px/1.58 "Crimson Text",Georgia,serif}
+a{color:inherit}.wrap{width:min(1180px,88vw);margin:auto}.eyebrow,.nav a,.button,.kicker{font:500 11px/1.2 "Cinzel",serif;text-transform:uppercase;letter-spacing:.13em}.eyebrow{color:var(--earth);margin-bottom:18px}
+header{position:sticky;top:0;z-index:20;background:rgba(251,248,241,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.navbar{min-height:76px;display:flex;align-items:center;gap:28px}.brand{text-decoration:none;margin-right:auto}.brand strong{display:block;font:700 20px/1 "Playfair Display SC";letter-spacing:.06em}.brand small{font:500 9px "Cinzel";letter-spacing:.22em}.nav{display:flex;gap:21px}.nav a{text-decoration:none}.actions{display:flex;gap:12px;align-items:center}.button{display:inline-block;text-decoration:none;padding:13px 18px;border:1px solid var(--forest);background:var(--forest);color:#fff}.button.ghost{background:transparent;color:var(--forest)}.menu{display:none}
+.hero{padding:105px 0 70px;min-height:76vh;background:linear-gradient(125deg,var(--cream),var(--paper))}.hero h1,h1,h2{font-family:"Playfair Display SC";line-height:1.04;margin:0}.hero h1{font-size:clamp(48px,7.4vw,104px);letter-spacing:-.025em;max-width:1080px}.hero p{font-size:26px;max-width:730px;margin:30px 0}.hero .kicker{margin-top:72px}
+section{padding:85px 0;border-top:1px solid var(--line)}h1{font-size:clamp(45px,6vw,80px)}h2{font-size:clamp(35px,4.4vw,62px);margin-bottom:24px}h3{font:600 23px "Cinzel";line-height:1.25}.lead{font-size:25px;max-width:800px}.two{display:grid;grid-template-columns:1fr 1fr;gap:8vw}.cards{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:45px}.card{padding:38px 30px;min-height:300px;border-right:1px solid var(--line)}.card:last-child{border:0}.card .num{font:400 10px "Cinzel";letter-spacing:.15em}.card b{font-weight:400;font-style:italic}.dark{background:var(--forest);color:var(--cream)}.dark .eyebrow{color:var(--sage)}.quote{font:400 clamp(40px,6vw,76px)/1.12 "Playfair Display SC";border-left:1px solid var(--sage);padding-left:7vw}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 50px;margin:40px 0}.grid3 b{font-family:"Cinzel";font-size:14px}.panel{padding:36px;background:var(--cream);border:1px solid var(--line)}.crumb{padding:28px 0 0;font:500 10px "Cinzel";text-transform:uppercase;letter-spacing:.12em}.pagehero{padding:65px 0 70px}.pagehero p{font-size:25px;max-width:780px}.program{padding:35px 0;border-top:1px solid var(--line)}.program h3{margin-bottom:8px}.support{background:var(--cream)}footer{background:var(--charcoal);color:var(--cream);padding:48px 0;font-size:16px}footer .wrap{display:flex;justify-content:space-between;gap:30px}footer strong{font:700 18px "Playfair Display SC"}footer a{text-decoration:none}
+@media(max-width:900px){.nav,.actions{display:none}.menu{display:block;background:none;border:0;font:500 11px "Cinzel";text-transform:uppercase}.nav.open{display:flex;position:absolute;top:76px;left:0;right:0;padding:28px 6vw;background:var(--paper);flex-direction:column;border-bottom:1px solid var(--line)}.two{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){body{font-size:18px}.wrap{width:88vw}.hero{padding-top:70px}.hero h1{font-size:43px}.hero p,.lead,.pagehero p{font-size:22px}.cards,.grid3{grid-template-columns:1fr}.card{min-height:0;border-right:0;border-bottom:1px solid var(--line)}footer .wrap{flex-direction:column}}
+
+.brand img{display:block;width:142px;height:auto}
+.hero{position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-8vw;bottom:-17vw;width:46vw;height:46vw;border:1px solid rgba(50,8,64,.12);border-radius:50%;pointer-events:none}
+.sun-rule{height:5px;background:var(--yellow);width:72px;margin:22px 0}
+.accent-band{background:var(--yellow);color:var(--purple)}
+.accent-band .eyebrow{color:var(--purple)}
+
+.photo-wide{width:100%;height:clamp(320px,48vw,650px);object-fit:cover;display:block}
+.photo-card{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.figure{margin:0}.figure figcaption{font:400 12px/1.4 "Cinzel";letter-spacing:.06em;padding-top:10px;color:var(--earth)}
+.image-split{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center}
+@media(max-width:760px){.image-split{grid-template-columns:1fr}}
+
+.gallery-grid{columns:3 280px;column-gap:22px}
+.gallery-item{break-inside:avoid;margin:0 0 22px}
+.gallery-item img{width:100%;height:auto;display:block}
+.gallery-item figcaption{font:400 11px/1.5 "Cinzel";letter-spacing:.05em;color:var(--earth);padding:8px 0 2px}
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.photo-strip img{width:100%;height:360px;object-fit:cover;display:block}
+@media(max-width:760px){.photo-strip{grid-template-columns:1fr}.photo-strip img{height:auto}}
+
+/* V3.1 QA */
+a:focus-visible,button:focus-visible{outline:3px solid #FAC700;outline-offset:4px}
+img{max-width:100%}
+@media(max-width:900px){
+  .nav{align-items:flex-start;gap:16px}
+  .nav nav{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:flex-end}
+}
+@media(max-width:620px){
+  .nav{display:block}
+  .nav nav{justify-content:flex-start;margin-top:14px}
+  .nav nav a{padding:5px 0}
+  h1{overflow-wrap:break-word}
+}
