@@ -1,7 +1,7 @@
 const m=document.querySelector('.menu'),n=document.querySelector('.nav');if(m&&n){m.onclick=()=>{n.classList.toggle('open');m.setAttribute('aria-expanded',n.classList.contains('open'))}}
 
-// Shared visual layers: yellow atmosphere, responsive structure, breathing space, depth, and solar portal.
-['senses-yellow.css','mobile-media.css','breathe.css','depth.css','portal.css'].forEach(href=>{
+// Shared visual layers: yellow atmosphere, responsive structure, breathing space, depth, solar threshold, and Vedic visual language.
+['senses-yellow.css','mobile-media.css','breathe.css','depth.css','portal.css','archetypes.css'].forEach(href=>{
   const link=document.createElement('link');
   link.rel='stylesheet';
   link.href=href;
@@ -16,7 +16,6 @@ const living=document.querySelector('.portal-living');
 if(gate&&sun&&worldEnter){
   const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Sparse living sparks around the solar threshold.
   if(!reduceMotion){
     const count=window.innerWidth<760?14:24;
     for(let i=0;i<count;i++){
@@ -44,11 +43,7 @@ if(gate&&sun&&worldEnter){
     if(animate&&!reduceMotion){gate.classList.add('is-returning');setTimeout(()=>gate.classList.remove('is-returning'),1100)}
   };
 
-  const revealLiving=()=>{
-    gate.setAttribute('data-stage','living');
-    living?.setAttribute('aria-hidden','false');
-  };
-
+  const revealLiving=()=>{gate.setAttribute('data-stage','living');living?.setAttribute('aria-hidden','false')};
   const enterSite=()=>{
     if(gate.classList.contains('is-entering')) return;
     if(reduceMotion){gate.setAttribute('aria-hidden','true');unlock();return}
@@ -62,7 +57,6 @@ if(gate&&sun&&worldEnter){
   cue?.addEventListener('click',revealLiving);
   worldEnter.addEventListener('click',enterSite);
 
-  // The navigation logo always returns to the solar threshold.
   document.querySelectorAll('a.brand').forEach(brand=>{
     brand.addEventListener('click',e=>{
       e.preventDefault();
