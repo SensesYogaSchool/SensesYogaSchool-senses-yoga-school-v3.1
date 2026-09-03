@@ -58,3 +58,58 @@
   .hero-visual .present-image{height:min(132vw,590px)}
   .navbar{min-height:70px}
 }
+
+
+/* V3.8 · full-width mobile navigation */
+@media (max-width:760px){
+  html.menu-open,body.menu-open{overflow:hidden!important;overscroll-behavior:none}
+  .navbar{min-height:76px!important}
+  .brand{width:58px!important;max-width:58px!important}
+  .brand img{content:url("assets/senses-sun.png");width:58px!important;height:58px!important;object-fit:contain}
+  .menu{position:relative;z-index:1002;min-width:68px;text-align:right}
+  .nav{
+    position:fixed!important;
+    inset:76px 0 0!important;
+    transform:none!important;
+    width:100%!important;
+    max-width:none!important;
+    height:calc(100dvh - 76px)!important;
+    padding:20px 7vw 132px!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain;
+    background:#FAC700!important;
+    border:0!important;
+    border-top:1px solid rgba(50,8,64,.25)!important;
+    z-index:1000!important
+  }
+  .nav.open{display:grid!important;align-content:start}
+  .navbar.menu-open .actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:1001;
+    padding:16px 7vw calc(16px + env(safe-area-inset-bottom));
+    background:#FAC700;
+    border-top:1px solid rgba(50,8,64,.25)
+  }
+  .navbar.menu-open .actions a{
+    display:grid;
+    place-items:center;
+    min-height:48px;
+    padding:12px;
+    border:1px solid var(--purple);
+    font:600 11px/1.2 "Cinzel",serif;
+    letter-spacing:.1em;
+    text-decoration:none;
+    text-transform:uppercase
+  }
+  .navbar.menu-open .actions .button{background:var(--purple);color:#fff}
+}
+@media (max-width:480px){
+  .navbar{min-height:70px!important}
+  .nav{inset:70px 0 0!important;height:calc(100dvh - 70px)!important}
+}
