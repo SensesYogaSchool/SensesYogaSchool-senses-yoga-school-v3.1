@@ -1,0 +1,38 @@
+/* Senses Yellow — warm, powerful global identity */
+:root{
+  --purple:#320840;
+  --deep-purple:#1F0044;
+  --yellow:#FAC700;
+  --gold:#9c6a00;
+  --cream:#FAC700;
+  --paper:#FAC700;
+  --earth:#5c3f00;
+  --sage:#f4df7a;
+  --charcoal:#24161f;
+  --line:rgba(50,8,64,.28);
+  --forest:#320840;
+  --manuscript:#f7d95c;
+}
+html,body{background:var(--yellow);color:var(--charcoal)}
+body{background:linear-gradient(180deg,#FAC700 0%,#F8C400 58%,#F2B900 100%)}
+header{background:rgba(250,199,0,.96);border-color:rgba(50,8,64,.32);backdrop-filter:blur(14px)}
+.hero,.pagehero,section,.support,.panel,.manuscript,.founder-section,.archive-section,.field-hero,.field-principle,.heroic-fragment{background:transparent}
+.hero{background:radial-gradient(circle at 82% 18%,rgba(255,244,174,.55),transparent 28%),linear-gradient(145deg,#FFD62F 0%,#FAC700 46%,#EDB900 100%)}
+.eyebrow,.figure figcaption,.gallery-item figcaption,.journal-source,.journal-kind,.journal-ledger time{color:#5f4100}
+.button{background:var(--purple);border-color:var(--purple);color:#fff8d2}.button.ghost{background:transparent;color:var(--purple);border-color:var(--purple)}
+a{text-decoration-color:rgba(50,8,64,.55)}
+.accent-band{background:var(--purple);color:#FFE05A}.accent-band .eyebrow{color:#FFE05A}
+.dark,.dark-journal,footer{background:var(--purple);color:#FFF4B1}
+.dark .eyebrow,.dark-journal .eyebrow{color:#FFE05A}
+.quote{border-left-color:#FFE05A}
+.panel{background:rgba(255,233,111,.34);border-color:rgba(50,8,64,.32)}
+.program,.grid3>p,.grid3>div,.journey-step,.journal-ledger article{border-color:rgba(50,8,64,.26)}
+.tradition-frame,.journey-gallery figure{background:rgba(255,238,137,.28);border-color:rgba(50,8,64,.3)}
+.heroic-fragment{background:linear-gradient(180deg,rgba(255,230,91,.5),rgba(246,190,0,.38));border-color:rgba(50,8,64,.26)}
+.heroic-fragment .journal-quote{color:var(--purple)}
+.journal-moment.photo-journal:before{background:linear-gradient(180deg,rgba(50,8,64,.02) 18%,rgba(50,8,64,.82) 100%)}
+.journal-moment.photo-journal{color:#fff7c7}
+.nav a,.menu{color:var(--purple)}
+.nav.open{background:#FAC700!important}
+footer a{color:#FFF4B1}
+::selection{background:var(--purple);color:#FFE35D}
