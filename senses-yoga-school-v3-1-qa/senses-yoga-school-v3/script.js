@@ -1,3 +1,6 @@
+const brandMark=document.querySelector('.brand img');
+if(brandMark){brandMark.src='assets/senses-sun.png';brandMark.alt='Senses Yoga School sun logo'}
+
 const m=document.querySelector('.menu'),n=document.querySelector('.nav'),a=document.querySelector('.actions'),bar=document.querySelector('.navbar');
 
 if(m&&n&&bar){
