@@ -1,153 +1,60 @@
-/* Mobile photography pass — let the real Senses Yoga images carry the story.
-   Loaded after styles.css via script.js so these rules only refine mobile presentation. */
+/* Mobile photography + structural pass — calm navigation, readable type, generous images. */
 
 @media (max-width: 760px) {
-  /* Give image-led sections more room than text-led sections. */
-  .image-split,
-  .tradition-grid,
-  .founder-grid {
-    gap: 36px;
-  }
+  /* The header becomes one quiet row. Navigation only appears after Menu is touched. */
+  header{position:sticky;top:0;z-index:900;background:rgba(250,199,0,.97)}
+  .navbar{position:relative;width:90vw;min-height:76px;margin:0 auto;display:grid!important;grid-template-columns:1fr auto!important;align-items:center;gap:18px;padding:10px 0!important}
+  .brand{width:104px;max-width:104px;display:block}
+  .brand img{width:100%;height:auto;display:block}
+  .menu{display:block!important;justify-self:end;border:0;background:transparent;padding:12px 0;font:600 11px/1.2 "Cinzel",serif;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);cursor:pointer}
+  .nav{display:none!important;position:absolute!important;top:100%;left:50%;transform:translateX(-50%);width:100vw;background:#FAC700!important;border-top:1px solid rgba(50,8,64,.25);border-bottom:1px solid rgba(50,8,64,.25);padding:10px 7vw 18px;box-sizing:border-box;z-index:999}
+  .nav.open{display:grid!important;grid-template-columns:1fr!important;gap:0!important}
+  .nav a{display:block!important;width:100%;padding:15px 0!important;border-bottom:1px solid rgba(50,8,64,.18);font:600 12px/1.25 "Cinzel",serif!important;letter-spacing:.08em!important;text-transform:uppercase;text-align:left;white-space:normal!important}
+  .nav a:last-child{border-bottom:0}
+  .actions{display:none!important}
+
+  /* Never fracture display words on a phone. */
+  h1,h2,h3,.quote,.journal-quote,.mission-statement{overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+  .pagehero h1{font-size:clamp(40px,11vw,62px);line-height:.98;text-wrap:balance}
+
+  .image-split,.tradition-grid,.founder-grid,.two,.journey-line{grid-template-columns:1fr!important;gap:36px}
+  .grid3{grid-template-columns:1fr!important;gap:0!important}
+  .grid3>p,.grid3>div{padding:34px 0;border-bottom:1px solid rgba(50,8,64,.22)}
 
   /* Primary documentary images become generous, cinematic frames. */
-  .photo-wide {
-    width: 100vw;
-    max-width: none;
-    height: clamp(420px, 112vw, 680px);
-    margin-left: calc(50% - 50vw);
-    object-fit: cover;
-  }
+  .photo-wide{width:100vw;max-width:none;height:clamp(420px,112vw,680px);margin-left:calc(50% - 50vw);object-fit:cover}
+  .photo-card{width:100%;aspect-ratio:4/5;object-fit:cover}
 
-  .photo-card {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-  }
+  .gallery-grid{columns:1;column-gap:0}
+  .gallery-item{margin:0 0 34px}
+  .gallery-item img{width:100vw;max-width:none;height:auto;margin-left:calc(50% - 50vw);display:block}
+  .gallery-item figcaption{padding-top:11px}
 
-  /* Masonry is beautiful on desktop, but too fragmented on a phone. */
-  .gallery-grid {
-    columns: 1;
-    column-gap: 0;
-  }
+  .photo-strip{grid-template-columns:1fr;gap:26px}
+  .photo-strip img{width:100vw;max-width:none;height:auto;max-height:78vh;margin-left:calc(50% - 50vw);object-fit:cover}
 
-  .gallery-item {
-    margin: 0 0 34px;
-  }
+  .founder-grid{grid-template-columns:1fr}
+  .founder-portrait{width:min(94vw,620px);margin-left:auto;margin-right:auto}
+  .founder-portrait img{width:100%;max-height:none;aspect-ratio:4/5;object-fit:cover;object-position:center top}
 
-  .gallery-item img {
-    width: 100vw;
-    max-width: none;
-    height: auto;
-    margin-left: calc(50% - 50vw);
-    display: block;
-  }
+  .journey-gallery{grid-template-columns:1fr;gap:28px}
+  .journey-gallery figure{padding:0;border:0;background:transparent}
+  .journey-gallery img{width:100vw;max-width:none;height:auto;max-height:80vh;margin-left:calc(50% - 50vw);object-fit:cover}
+  .journey-gallery figcaption{padding:12px 0 0}
 
-  .gallery-item figcaption {
-    padding-top: 11px;
-  }
+  .hero-grid .hero-visual{min-height:520px;margin-top:18px}
+  .hero-visual .present-image{width:100%;height:clamp(470px,128vw,640px);margin-left:0;border-radius:140px 140px 0 0;object-fit:cover}
+  .hero-visual .tradition-image{width:38%;bottom:-14px;left:-2vw;border-width:6px}
 
-  /* Photo strips become an editorial vertical sequence instead of thumbnails. */
-  .photo-strip {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
+  .tradition-frame{padding:10px}
+  .tradition-frame img{width:100%;height:auto}
 
-  .photo-strip img {
-    width: 100vw;
-    max-width: none;
-    height: auto;
-    max-height: 78vh;
-    margin-left: calc(50% - 50vw);
-    object-fit: cover;
-  }
-
-  /* Founder and apprenticeship imagery should feel like portraits, not cards. */
-  .founder-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .founder-portrait {
-    width: min(94vw, 620px);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .founder-portrait img {
-    width: 100%;
-    max-height: none;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center top;
-  }
-
-  .journey-gallery {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .journey-gallery figure {
-    padding: 0;
-    border: 0;
-    background: transparent;
-  }
-
-  .journey-gallery img {
-    width: 100vw;
-    max-width: none;
-    height: auto;
-    max-height: 80vh;
-    margin-left: calc(50% - 50vw);
-    object-fit: cover;
-  }
-
-  .journey-gallery figcaption {
-    padding: 12px 0 0;
-  }
-
-  /* Homepage hero photography gets substantially more presence on phones. */
-  .hero-grid .hero-visual {
-    min-height: 520px;
-    margin-top: 18px;
-  }
-
-  .hero-visual .present-image {
-    width: 100%;
-    height: clamp(470px, 128vw, 640px);
-    margin-left: 0;
-    border-radius: 140px 140px 0 0;
-    object-fit: cover;
-  }
-
-  .hero-visual .tradition-image {
-    width: 38%;
-    bottom: -14px;
-    left: -2vw;
-    border-width: 6px;
-  }
-
-  /* Framed tradition imagery should stay large and legible. */
-  .tradition-frame {
-    padding: 10px;
-  }
-
-  .tradition-frame img {
-    width: 100%;
-    height: auto;
-  }
+  footer .wrap{display:grid!important;grid-template-columns:1fr!important;gap:28px}
 }
 
 @media (max-width: 480px) {
-  /* Slightly reduce copy density around the larger photography. */
-  section {
-    padding-top: 68px;
-    padding-bottom: 68px;
-  }
-
-  .hero-grid .hero-visual {
-    min-height: 500px;
-  }
-
-  .hero-visual .present-image {
-    height: min(132vw, 590px);
-  }
+  section{padding-top:68px;padding-bottom:68px}
+  .hero-grid .hero-visual{min-height:500px}
+  .hero-visual .present-image{height:min(132vw,590px)}
+  .navbar{min-height:70px}
 }
