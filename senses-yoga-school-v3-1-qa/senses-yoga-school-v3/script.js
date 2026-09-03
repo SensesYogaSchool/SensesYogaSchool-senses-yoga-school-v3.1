@@ -42,13 +42,11 @@ if(gate&&sun&&worldEnter){
     living?.setAttribute('aria-hidden','true');
     lock();
     if(animate&&!reduceMotion){gate.classList.add('is-returning');setTimeout(()=>gate.classList.remove('is-returning'),1100)}
-    setTimeout(()=>sun.focus({preventScroll:true}),animate?700:80);
   };
 
   const revealLiving=()=>{
     gate.setAttribute('data-stage','living');
     living?.setAttribute('aria-hidden','false');
-    setTimeout(()=>worldEnter.focus({preventScroll:true}),reduceMotion?20:950);
   };
 
   const enterSite=()=>{
