@@ -23,7 +23,7 @@ if(m&&n&&bar){
 ['senses-yellow.css','mobile-media.css','breathe.css','depth.css','portal.css','archetypes.css'].forEach(href=>{
   const link=document.createElement('link');
   link.rel='stylesheet';
-  link.href=href;
+  link.href=`${href}?v=3.8`;
   document.head.appendChild(link);
 });
 
