@@ -1,0 +1,56 @@
+/* Vedic visual language + Heroic Yogi archetypal teachers */
+
+/* Once the solar threshold is crossed, the site becomes manuscript-like rather than repeating the orb. */
+.worldview-hero:after{display:none!important}
+.worldview-hero:before{content:"";position:absolute;right:-7vw;top:8%;width:min(48vw,620px);aspect-ratio:1;background:repeating-conic-gradient(from 45deg,rgba(50,8,64,.08) 0 1deg,transparent 1deg 15deg);clip-path:polygon(50% 0,61% 31%,100% 50%,69% 61%,50% 100%,39% 69%,0 50%,31% 39%);opacity:.42;transform:rotate(7deg);pointer-events:none}
+.worldview-hero .wrap{position:relative;z-index:2}
+
+/* Header wordmark: the existing Senses mark remains, with the school name treated as typography. */
+.brand{position:relative;display:flex!important;align-items:center;gap:11px;text-decoration:none!important}
+.brand:after{content:"SENSES YOGA SCHOOL";font:600 10px/1.25 "Cinzel",serif;letter-spacing:.12em;color:var(--purple);width:108px}
+
+/* The menu carries one drifting sun watermark only while it is open. */
+@media(max-width:760px){
+ .brand{width:220px!important;max-width:220px!important}
+ .brand img{width:72px!important;flex:0 0 72px}
+ .brand:after{font-size:9px;width:116px;letter-spacing:.1em}
+ .navbar{grid-template-columns:minmax(0,1fr) auto!important}
+ .nav.open{overflow:hidden;min-height:430px;align-content:start;isolation:isolate}
+ .nav.open:before{content:"";position:absolute;z-index:-1;width:min(82vw,520px);aspect-ratio:1;right:-28vw;top:8%;background:url("assets/senses-yoga-logo.png") center/contain no-repeat;opacity:.07;filter:sepia(1) saturate(.7);pointer-events:none;animation:menu-sun-drift 12s ease-in-out infinite alternate}
+ .nav.open a{position:relative;z-index:2}
+ @keyframes menu-sun-drift{from{transform:translate3d(-8px,-6px,0) rotate(-2deg)}to{transform:translate3d(18px,22px,0) rotate(3deg)}}
+}
+
+/* Archetypal teachers section */
+.archetype-library{position:relative;background:linear-gradient(180deg,rgba(255,229,87,.3),rgba(239,185,0,.18));overflow:hidden}
+.archetype-library:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 49.8%,rgba(50,8,64,.08) 50%,transparent 50.2%);pointer-events:none}
+.archetype-intro{max-width:930px;margin-bottom:58px}
+.archetype-intro h2{max-width:12ch;font-size:clamp(42px,6vw,78px)}
+.archetype-intro p{max-width:790px;font-size:clamp(20px,2vw,27px);line-height:1.62}
+.archetype-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,42px)}
+.archetype-card{margin:0;position:relative;background:rgba(255,239,139,.34);border:1px solid rgba(50,8,64,.24);box-shadow:0 22px 60px rgba(50,8,64,.09);overflow:hidden}
+.archetype-card .archetype-image{position:relative;aspect-ratio:4/5;overflow:hidden;background:#dca900}
+.archetype-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) sepia(.06);transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .8s ease}
+.archetype-card:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 38%,rgba(50,8,64,.02) 62%,rgba(50,8,64,.08) 100%)}
+.archetype-copy{position:relative;z-index:2;padding:28px 28px 32px}
+.archetype-copy .archetype-name{font:400 clamp(27px,2.7vw,38px)/1.05 "Playfair Display SC",serif;color:var(--purple);margin:0 0 10px}
+.archetype-copy .archetype-quality{font:600 9px/1.4 "Cinzel",serif;letter-spacing:.14em;text-transform:uppercase;color:#684300;margin-bottom:17px}
+.archetype-copy p{font-size:18px;line-height:1.55;margin:0}
+.archetype-note{margin-top:36px;font-size:14px;line-height:1.55;opacity:.78;max-width:850px}
+.archetype-note a{text-underline-offset:4px}
+@media(hover:hover){.archetype-card:hover img{transform:scale(1.035);filter:saturate(1) sepia(0)}}
+
+/* A compact Vedic ornament used between long-form chapters. */
+.vedic-divider{display:flex;align-items:center;gap:18px;margin:44px 0;color:var(--purple);opacity:.68}
+.vedic-divider:before,.vedic-divider:after{content:"";height:1px;background:currentColor;flex:1}.vedic-divider span{width:13px;height:13px;border:1px solid currentColor;transform:rotate(45deg)}
+
+@media(max-width:900px){.archetype-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){
+ .worldview-hero:before{width:88vw;right:-42vw;top:12%;opacity:.24}
+ .archetype-grid{grid-template-columns:1fr;gap:34px}
+ .archetype-card{width:calc(100% + 8vw);margin-left:-4vw}
+ .archetype-copy{padding:25px 24px 30px}
+ .archetype-card .archetype-image{aspect-ratio:4/5}
+ .archetype-intro{margin-bottom:44px}
+}
+@media(prefers-reduced-motion:reduce){.nav.open:before{animation:none}.archetype-card img{transition:none}}
