@@ -1,4 +1,20 @@
-const m=document.querySelector('.menu'),n=document.querySelector('.nav');if(m&&n){m.onclick=()=>{n.classList.toggle('open');m.setAttribute('aria-expanded',n.classList.contains('open'))}}
+const m=document.querySelector('.menu'),n=document.querySelector('.nav'),a=document.querySelector('.actions'),bar=document.querySelector('.navbar');
+
+if(m&&n&&bar){
+  const setMenu=open=>{
+    n.classList.toggle('open',open);
+    bar.classList.toggle('menu-open',open);
+    document.documentElement.classList.toggle('menu-open',open);
+    document.body.classList.toggle('menu-open',open);
+    m.setAttribute('aria-expanded',String(open));
+    m.textContent=open?'Close':'Menu';
+  };
+
+  m.addEventListener('click',()=>setMenu(!n.classList.contains('open')));
+  [...n.querySelectorAll('a'),...(a?[...a.querySelectorAll('a')]:[])].forEach(link=>link.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false)});
+  window.addEventListener('resize',()=>{if(window.innerWidth>760)setMenu(false)});
+}
 
 // Shared visual layers: yellow atmosphere, responsive structure, breathing space, depth, solar threshold, and Vedic visual language.
 ['senses-yellow.css','mobile-media.css','breathe.css','depth.css','portal.css','archetypes.css'].forEach(href=>{
