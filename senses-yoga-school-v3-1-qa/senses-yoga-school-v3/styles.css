@@ -97,3 +97,7 @@ img{max-width:100%}
 /* V3.7 · compact live agenda */
 .calendar-frame iframe{height:520px}
 @media(max-width:760px){.calendar-frame iframe{height:460px}}
+
+
+/* V3.8 · standalone sun brand mark */
+.brand img{content:url("assets/senses-sun.png");width:64px;height:64px;object-fit:contain}
