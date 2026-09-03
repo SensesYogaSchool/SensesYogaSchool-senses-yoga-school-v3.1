@@ -30,9 +30,24 @@ a{text-decoration-color:rgba(50,8,64,.55)}
 .tradition-frame,.journey-gallery figure{background:rgba(255,238,137,.28);border-color:rgba(50,8,64,.3)}
 .heroic-fragment{background:linear-gradient(180deg,rgba(255,230,91,.5),rgba(246,190,0,.38));border-color:rgba(50,8,64,.26)}
 .heroic-fragment .journal-quote{color:var(--purple)}
-.journal-moment.photo-journal:before{background:linear-gradient(180deg,rgba(50,8,64,.02) 18%,rgba(50,8,64,.82) 100%)}
+.journal-moment.photo-journal:before{background:linear-gradient(180deg,rgba(31,0,68,.16) 8%,rgba(31,0,68,.48) 48%,rgba(31,0,68,.88) 100%)}
 .journal-moment.photo-journal{color:#fff7c7}
+.journal-moment.photo-journal .eyebrow,.journal-moment.photo-journal .journal-source,.journal-moment.photo-journal .journal-kind{color:#FFE35D;text-shadow:0 2px 16px rgba(31,0,68,.7)}
+.journal-moment.photo-journal .journal-quote,.journal-moment.photo-journal p{color:#FFF8D7;text-shadow:0 2px 18px rgba(31,0,68,.6)}
+.journal-moment.photo-journal .journal-link{color:#FFE35D}
+.twisted-muse-crop{transform:scale(1.09);transform-origin:center center}
 .nav a,.menu{color:var(--purple)}
 .nav.open{background:#FAC700!important}
 footer a{color:#FFF4B1}
+
+/* Trust and relationship signals */
+.trust-band{background:var(--purple)!important;color:#FFF4B1}
+.trust-band .eyebrow{color:#FFE35D}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,227,93,.25);border:1px solid rgba(255,227,93,.25);margin-top:42px}
+.trust-item{background:var(--purple);padding:34px 28px;min-height:215px}
+.trust-item strong{display:block;font:600 15px/1.35 "Cinzel",serif;letter-spacing:.06em;color:#FFE35D;margin-bottom:12px}
+.trust-item p{margin:0;color:#FFF4B1;font-size:18px;line-height:1.5}
+.trust-status{display:inline-block;margin-bottom:18px;font:500 9px/1.2 "Cinzel",serif;letter-spacing:.13em;text-transform:uppercase;color:#FFF4B1;opacity:.76}
+@media(max-width:900px){.trust-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.trust-grid{grid-template-columns:1fr}.trust-item{min-height:0;padding:30px 26px}.twisted-muse-crop{transform:scale(1.14);transform-origin:center 44%}}
 ::selection{background:var(--purple);color:#FFE35D}
