@@ -19,11 +19,11 @@ if(m&&n&&bar){
   window.addEventListener('resize',()=>{if(window.innerWidth>760)setMenu(false)});
 }
 
-// Shared visual layers: yellow atmosphere, responsive structure, breathing space, depth, solar threshold, and Vedic visual language.
-['senses-yellow.css','mobile-media.css','breathe.css','depth.css','portal.css','archetypes.css'].forEach(href=>{
+// Shared visual layers, followed by the final responsive polish layer.
+['senses-yellow.css','mobile-media.css','breathe.css','depth.css','portal.css','archetypes.css','mobile-polish.css'].forEach(href=>{
   const link=document.createElement('link');
   link.rel='stylesheet';
-  link.href=`${href}?v=3.8`;
+  link.href=`${href}?v=3.9`;
   document.head.appendChild(link);
 });
 
