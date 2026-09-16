@@ -1,0 +1,54 @@
+/* V3.2 September mobile + desktop polish */
+html,body{overflow-x:hidden}
+.home-photo-hero{background:#FAC700;color:#241f25}
+.home-photo-hero .home-hero-media{position:absolute;inset:0;z-index:0}
+.home-photo-hero .home-hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+.home-photo-hero .home-hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(250,199,0,.94) 0%,rgba(250,199,0,.82) 48%,rgba(50,8,64,.22) 100%)}
+.home-hero-content{position:relative;z-index:2}
+.home-photo-hero .hero-copy{max-width:760px}
+.home-photo-hero .eyebrow,.home-photo-hero .sanskrit-note{color:#320840}
+.home-photo-hero .text-link{color:#320840}
+
+/* Keep the transitional statement compact rather than creating a full-screen void. */
+.accent-band{padding:58px 0!important;min-height:0!important}
+.accent-band .pull-verse{margin:0 auto!important}
+.accent-band .pull-verse small{color:#320840;opacity:.8}
+
+/* Tradition section no longer depends on a remote Google Sites image. */
+.home-tradition-copy{max-width:860px;margin:auto;text-align:left}
+.home-tradition-copy .eyebrow{justify-content:flex-start}
+
+/* Support cards */
+.support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:36px}
+.support-card{padding:30px;border:1px solid #ded2bd;background:#fffaf0}
+.support-card h3{margin-top:0}
+.support-card .button{margin-top:8px}
+
+@media(max-width:900px){
+  .home-photo-hero{min-height:auto;padding:72px 0 64px}
+  .home-photo-hero .home-hero-media{opacity:.28}
+  .home-photo-hero .home-hero-shade{background:rgba(250,199,0,.86)}
+  .home-photo-hero h1{font-size:clamp(42px,10vw,64px);line-height:1.02}
+  .accent-band{padding:42px 0!important}
+  .accent-band .pull-verse{font-size:clamp(27px,7vw,40px)}
+  .support-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:560px){
+  header .navbar{min-height:72px;gap:14px}
+  .brand img{width:132px}
+  .menu{font-size:12px;letter-spacing:.16em;padding:12px 0}
+  section{padding:58px 0}
+  .home-photo-hero{padding:58px 0 50px}
+  .home-photo-hero h1{font-size:40px}
+  .home-photo-hero p{font-size:20px;margin:22px 0}
+  .hero-actions{gap:14px}
+  .hero-actions .button,.hero-actions .text-link{width:100%;text-align:center}
+  .four-foundations .foundation{padding:24px 6vw}
+  .accent-band{padding:34px 0!important}
+  .accent-band .pull-verse{font-size:27px;line-height:1.18}
+  .accent-band .pull-verse small{margin-top:14px;font-size:9px;line-height:1.6}
+  h2{font-size:36px;line-height:1.05}
+  .pagehero{padding:48px 0 52px}
+  .support-card{padding:24px 20px}
+}
