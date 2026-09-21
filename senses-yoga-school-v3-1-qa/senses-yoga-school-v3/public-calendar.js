@@ -51,7 +51,13 @@
       rsvp.rel = "noopener";
       rsvp.textContent = "RSVP ↗";
       rsvp.style.marginLeft = "12px";
-      popup.append(rsvp);
+      const checkIn = document.createElement("a");
+      checkIn.href = "https://docs.google.com/forms/d/10vaQVnl1i0eFEc3cvkKUmjn59J7oKTLXx4l5YYctV_A/viewform";
+      checkIn.target = "_blank";
+      checkIn.rel = "noopener";
+      checkIn.textContent = "Post-session check-in ↗";
+      checkIn.style.marginLeft = "12px";
+      popup.append(rsvp, checkIn);
       const icon = L.divIcon({ className: "senses-map-pin", html: '<span aria-hidden="true">✦</span>', iconSize: [34, 34], iconAnchor: [17, 17] });
       return L.marker([place.lat, place.lon], { icon }).addTo(map).bindPopup(popup);
     });
@@ -116,7 +122,12 @@
     apple.href = appleLink(event);
     apple.download = "senses-yoga-" + stamp(event.start) + ".ics";
     apple.textContent = "Add to Apple";
-    actions.append(rsvp, google, apple);
+    const checkIn = document.createElement("a");
+    checkIn.href = "https://docs.google.com/forms/d/10vaQVnl1i0eFEc3cvkKUmjn59J7oKTLXx4l5YYctV_A/viewform";
+    checkIn.target = "_blank";
+    checkIn.rel = "noopener";
+    checkIn.textContent = "Post-session check-in";
+    actions.append(rsvp, checkIn, google, apple);
     card.append(date, details, actions);
     mount.append(card);
   }
