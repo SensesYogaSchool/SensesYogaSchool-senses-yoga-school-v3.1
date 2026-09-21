@@ -1,11 +1,11 @@
-/* Curated public events. Replace this list with the dedicated public feed when available. */
+/* Curated public events reviewed against Google Calendar September 21, 2026. */
 (() => {
   const mount = document.getElementById("public-events");
   if (!mount) return;
   const series = [
-    { title: "Yoga For Life · Sherman Park", place: "Sherman Park, Milwaukee, WI", first: "2026-09-21", count: 4, hour: 14, minute: 45, duration: 60, kind: "Yoga For Life" },
-    { title: "YAGI Community Wellness Session", place: "2713 W Richardson Pl, Milwaukee, WI 53208", first: "2026-09-23", count: 4, hour: 10, minute: 0, duration: 180, kind: "YAGI" },
-    { title: "Yoga For Life · Darius Simmons Garden", place: "2571 N 2nd St, Milwaukee, WI 53212", first: "2026-09-25", count: 4, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" }
+    { title: "Yoga For Life · Sherman Park", place: "Sherman Park, Milwaukee, WI", first: "2026-09-21", count: 8, hour: 14, minute: 45, duration: 60, kind: "Yoga For Life" },
+    { title: "YAGI Community Wellness Session", place: "2713 W Richardson Pl, Milwaukee, WI 53208", first: "2026-09-23", count: 8, hour: 10, minute: 0, duration: 180, kind: "YAGI" },
+    { title: "Yoga For Life · Darius Simmons Garden", place: "2571 N 2nd St, Milwaukee, WI 53212", first: "2026-09-25", count: 8, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" }
   ];
   const venues = [
     { name: "Sherman Park", address: "Sherman Park, 3000 N Sherman Blvd, Milwaukee, WI 53210", lat: 43.0733764, lon: -87.9658620 },
@@ -45,16 +45,15 @@
       link.rel = "noopener";
       link.textContent = "Directions ↗";
       popup.append(heading, address, link);
-      if (["Sherman Park", "YAGI Legacy Garden", "Darius Simmons Garden / All Peoples"].includes(place.name)) {
-        const rsvp = document.createElement("a");
-        rsvp.href = place.name === "YAGI Legacy Garden"
-          ? "https://www.signupgenius.com/go/10C054DA5A92BA3F9C16-61993676-yoga#/"
-          : "mailto:luan@sensesyoga.org?subject=" + encodeURIComponent("RSVP: " + place.name);
-        rsvp.textContent = "RSVP ↗";
-        rsvp.style.marginLeft = "12px";
-        popup.append(rsvp);
-      }
-      return L.marker([place.lat, place.lon]).addTo(map).bindPopup(popup);
+      const rsvp = document.createElement("a");
+      rsvp.href = "https://form.typeform.com/to/TTvNJuX1";
+      rsvp.target = "_blank";
+      rsvp.rel = "noopener";
+      rsvp.textContent = "RSVP ↗";
+      rsvp.style.marginLeft = "12px";
+      popup.append(rsvp);
+      const icon = L.divIcon({ className: "senses-map-pin", html: '<span aria-hidden="true">✦</span>', iconSize: [34, 34], iconAnchor: [17, 17] });
+      return L.marker([place.lat, place.lon], { icon }).addTo(map).bindPopup(popup);
     });
     map.fitBounds(L.featureGroup(pins).getBounds().pad(0.12));
   }
@@ -62,7 +61,8 @@
     const day = new Date(item.first + "T12:00:00Z");
     day.setUTCDate(day.getUTCDate() + week * 7);
     const date = day.toISOString().slice(0, 10);
-    const start = new Date(date + "T" + String(item.hour).padStart(2, "0") + ":" + String(item.minute).padStart(2, "0") + ":00-05:00");
+    const offset = date >= "2026-11-01" ? "-06:00" : "-05:00";
+    const start = new Date(date + "T" + String(item.hour).padStart(2, "0") + ":" + String(item.minute).padStart(2, "0") + ":00" + offset);
     return { ...item, start, end: new Date(start.getTime() + item.duration * 60000) };
   })).filter(event => event.end > new Date()).sort((a, b) => a.start - b.start);
 
@@ -103,9 +103,7 @@
     const actions = document.createElement("div");
     actions.className = "public-event-actions";
     const rsvp = document.createElement("a");
-    rsvp.href = event.kind === "YAGI"
-      ? "https://www.signupgenius.com/go/10C054DA5A92BA3F9C16-61993676-yoga#/"
-      : "mailto:luan@sensesyoga.org?subject=" + encodeURIComponent("RSVP: " + event.title + " · " + dateText.format(event.start));
+    rsvp.href = "https://form.typeform.com/to/TTvNJuX1";
     rsvp.target = "_blank";
     rsvp.rel = "noopener";
     rsvp.textContent = "RSVP";
