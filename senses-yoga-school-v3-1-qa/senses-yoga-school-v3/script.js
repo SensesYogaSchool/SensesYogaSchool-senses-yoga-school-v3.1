@@ -2,6 +2,17 @@ const menu = document.querySelector('.menu');
 const nav = document.querySelector('.nav');
 
 if (menu && nav) {
+  nav.id ||= 'site-navigation';
+  menu.setAttribute('aria-controls', nav.id);
+  for (const [href, label] of [['calendar.html', 'Calendar'], ['support.html', 'Support']]) {
+    if (!nav.querySelector(`a[href="${href}"]`)) {
+      const link = document.createElement('a');
+      link.href = href;
+      link.textContent = label;
+      link.className = 'mobile-nav-link';
+      nav.append(link);
+    }
+  }
   menu.addEventListener('click', () => {
     nav.classList.toggle('open');
     menu.setAttribute('aria-expanded', nav.classList.contains('open'));
@@ -15,22 +26,46 @@ const honorEnter = document.querySelector('#honor-enter');
 
 if (honorGate && honorOrb && honorText && honorEnter) {
   document.body.classList.add('honor-open');
+  honorGate.setAttribute('aria-label', 'Enter Senses Yoga School');
+  const background = [...document.body.children].filter(el => el !== honorGate);
+  background.forEach(el => { el.inert = true; });
   honorOrb.focus();
 
   honorOrb.addEventListener('click', () => {
     honorText.hidden = false;
     honorGate.classList.add('revealed');
+    honorGate.removeAttribute('aria-label');
     honorOrb.setAttribute('aria-expanded', 'true');
-    honorText.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    honorEnter.focus();
   });
 
-  honorEnter.addEventListener('click', () => {
+  const enterSchool = () => {
+    if (honorGate.classList.contains('departing')) return;
     honorGate.classList.add('departing');
     document.body.classList.remove('honor-open');
     window.setTimeout(() => {
       honorGate.hidden = true;
+      background.forEach(el => { el.inert = false; });
       document.querySelector('header a, main a, main button')?.focus();
     }, 520);
+  };
+  honorEnter.addEventListener('click', enterSchool);
+  honorGate.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      enterSchool();
+    }
+    if (event.key === 'Tab') {
+      const controls = honorText.hidden ? [honorOrb] : [honorOrb, honorEnter];
+      const current = controls.indexOf(document.activeElement);
+      if (event.shiftKey && current <= 0) {
+        event.preventDefault();
+        controls.at(-1).focus();
+      } else if (!event.shiftKey && current === controls.length - 1) {
+        event.preventDefault();
+        controls[0].focus();
+      }
+    }
   });
 }
 

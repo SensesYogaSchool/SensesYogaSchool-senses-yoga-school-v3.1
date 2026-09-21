@@ -155,4 +155,8 @@ main:before{content:"SĀDHANĀ  ·  SVĀDHYĀYA  ·  SEVĀ  ·  SAṄGHA";displa
 @media(max-width:850px){.heroic-stage{width:min(740px,92vw);grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto;gap:18px}.heroic-center{grid-column:1/-1;grid-row:1;min-height:460px}.heroic-portrait,.portrait-ganesha,.portrait-shiva,.portrait-shakti,.portrait-krishna,.portrait-hanuman,.portrait-rama,.portrait-sita{grid-column:auto;grid-row:auto;width:100%}.heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:250px}.heroic-portrait figcaption{min-height:54px}.heroic-center h1{font-size:58px}}
 @media(max-width:580px){.heroic-home-hero{padding:20px 0}.heroic-stage{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.heroic-center{padding:47px 22px;min-height:0}.heroic-center h1{font-size:clamp(42px,12vw,58px)}.heroic-invocation{font-size:21px}.heroic-center .hero-actions{flex-direction:column}.heroic-mantra{font-size:9px;letter-spacing:.05em}.heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:clamp(215px,57vw,310px)}.heroic-portrait strong{font-size:12px}.heroic-portrait span{font-size:14px}.heroic-art-note{padding:0 5vw}}
 @media(prefers-reduced-motion:reduce){.heroic-portrait{transition:none}}
+
+/* V3.14 · keep primary actions in the compact navigation */
+.mobile-nav-link{display:none!important}
+@media(max-width:980px){.nav.open .mobile-nav-link{display:block!important;font-weight:600}}
 @media(prefers-reduced-motion:reduce){.honor-orb:before,.honor-orb:after{animation:none}.honor-text{animation:none}}
