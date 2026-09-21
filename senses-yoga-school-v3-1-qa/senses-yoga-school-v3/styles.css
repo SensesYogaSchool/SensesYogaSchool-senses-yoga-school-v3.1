@@ -175,8 +175,8 @@ main:before{content:"SĀDHANĀ  ·  SVĀDHYĀYA  ·  SEVĀ  ·  SAṄGHA";displa
 /* Compact mobile masthead and opening tableau */
 @media(max-width:580px){
   header .navbar{width:90vw;min-height:68px;gap:12px}
-  header .brand{display:block;max-width:74px;flex:0 0 74px}
-  header .brand img{width:74px;max-width:100%;height:auto}
+  header .brand{display:block;width:60px;max-width:60px;flex:0 0 60px;overflow:hidden}
+  header .brand img{display:block;width:60px;max-width:60px;height:58px;object-fit:contain}
   header .menu{margin-left:auto;padding:10px 4px;font-size:11px;letter-spacing:.12em}
   header .nav.open{top:68px;max-height:calc(100dvh - 68px);overflow-y:auto}
   .heroic-home-hero{padding:16px 0 28px}
