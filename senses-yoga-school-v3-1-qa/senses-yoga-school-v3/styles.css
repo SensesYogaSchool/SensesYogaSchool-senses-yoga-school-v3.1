@@ -171,3 +171,21 @@ main:before{content:"SĀDHANĀ  ·  SVĀDHYĀYA  ·  SEVĀ  ·  SAṄGHA";displa
 .site-photo-banner figcaption small{color:#d7c8ae;font:italic 15px/1.4 "Crimson Text",serif}
 @media(max-width:650px){.site-photo-matte{min-height:0}.site-photo-matte img,.photo-home .site-photo-matte img{max-height:72vh}.site-photo-banner figcaption{display:block}.site-photo-banner figcaption small{display:block;margin-top:4px}}
 @media(prefers-reduced-motion:reduce){.honor-orb:before,.honor-orb:after{animation:none}.honor-text{animation:none}}
+
+/* Compact mobile masthead and opening tableau */
+@media(max-width:580px){
+  header .navbar{width:90vw;min-height:68px;gap:12px}
+  header .brand{display:block;max-width:74px;flex:0 0 74px}
+  header .brand img{width:74px;max-width:100%;height:auto}
+  header .menu{margin-left:auto;padding:10px 4px;font-size:11px;letter-spacing:.12em}
+  header .nav.open{top:68px;max-height:calc(100dvh - 68px);overflow-y:auto}
+  .heroic-home-hero{padding:16px 0 28px}
+  .heroic-stage{width:92vw;gap:12px}
+  .heroic-center{padding:28px 20px 24px;outline-offset:-8px}
+  .heroic-center:before{font-size:20px;margin-bottom:10px}
+  .heroic-center .eyebrow{font-size:9px;letter-spacing:.08em;margin-bottom:8px}
+  .heroic-center h1{font-size:clamp(38px,10vw,48px);margin:8px 0 16px}
+  .heroic-invocation{font-size:clamp(18px,4.8vw,21px);line-height:1.28}
+  .heroic-mission{margin:18px auto!important;padding-top:14px;font-size:10px}
+  .heroic-mantra{margin-top:18px!important;line-height:1.5}
+}
