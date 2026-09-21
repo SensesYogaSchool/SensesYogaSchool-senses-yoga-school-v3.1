@@ -26,3 +26,23 @@ Photography/watermark attribution visible in source imagery: Twisted Muse.
 - `selected-19.jpg` ← `SensesYoga_ShermanPhoenix_FreeAssistAnyssaCamacho_TwistedMuse_HealthWellness_Set (87)_websize.jpg`
 - `selected-20.jpg` ← `SensesYoga_TonedBodyFitness_SummerSeries_FreeAssistAnyssaCamacho_TwistedMuse_HealthWellness (68)_websize.jpg`
 - `selected-21.jpg` ← `YogaSenses_TwistedMuse_LuanSeguim_AnyssaCamacho (261)_websize.jpg`
+
+## Page opening photographs
+
+The full photographs appear as dedicated banners alongside the separate traditional artwork and manuscript sections. The selected images come from the V3 website visual archive; the originals remain in Drive.
+
+| Page | Photograph | Subject |
+| --- | --- | --- |
+| Home | `selected-12.jpg` | Outdoor yoga practice |
+| Practice | `selected-08.jpg` | Sherman Phoenix community class |
+| Learn | `selected-07.jpg` | Embodied study in practice |
+| Schools | `selected-16.jpg` | Group practice in a public space |
+| Serve | `selected-14.jpg` | Seedling care |
+| Teach & Lead | `selected-15.jpg` | Guided community practice |
+| Partner | `selected-11.jpg` | Outdoor group practice |
+| Impact | `selected-01.jpg` | Early garden site |
+| About | `selected-02.jpg` | Founder's yoga practice |
+| Calendar | `selected-09.jpg` | Outdoor summer class |
+| Support | `selected-17.jpg` | Sherman Phoenix gathering |
+| Field Notes | `yagi-early-beds.webp` | Early YAGI beds; Senses/YAGI archive |
+| Page Not Found | `selected-10.jpg` | Quiet studio practice |

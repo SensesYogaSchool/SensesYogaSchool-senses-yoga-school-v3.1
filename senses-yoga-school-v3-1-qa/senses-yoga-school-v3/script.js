@@ -69,6 +69,106 @@ if (honorGate && honorOrb && honorText && honorEnter) {
   });
 }
 
+// Photographs from the V3 website archive accompany each page's opening.
+// Keep the complete image visible; the illustrations and manuscripts remain in their study sections.
+const pagePhotographs = {
+  'index.html': {
+    image: 'assets/selected-12.jpg',
+    alt: 'Outdoor yoga practice beside Lake Michigan',
+    caption: 'Practice across the living campus',
+    credit: 'Twisted Muse'
+  },
+  'practice.html': {
+    image: 'assets/selected-08.jpg',
+    alt: 'Community members practicing yoga together at Sherman Phoenix',
+    caption: 'Yoga For Life in community',
+    credit: 'Twisted Muse'
+  },
+  'learn.html': {
+    image: 'assets/selected-07.jpg',
+    alt: 'Luan practicing an arm balance in a bright studio',
+    caption: 'Embodied inquiry and continuing practice',
+    credit: 'Twisted Muse'
+  },
+  'schools.html': {
+    image: 'assets/selected-16.jpg',
+    alt: 'A group practicing yoga together in a Milwaukee public space',
+    caption: 'Many learning paths meet in community',
+    credit: 'Twisted Muse'
+  },
+  'serve.html': {
+    image: 'assets/selected-14.jpg',
+    alt: 'Hands tending seedling trays during garden work',
+    caption: 'Learning through care for living things',
+    credit: 'Twisted Muse'
+  },
+  'lead.html': {
+    image: 'assets/selected-15.jpg',
+    alt: 'A teacher guiding participants through yoga practice in a community room',
+    caption: 'Teaching grows through practice and relationship',
+    credit: 'Twisted Muse'
+  },
+  'partner.html': {
+    image: 'assets/selected-11.jpg',
+    alt: 'Community yoga participants practicing together outdoors',
+    caption: 'Programs carried into shared spaces',
+    credit: 'Twisted Muse'
+  },
+  'impact.html': {
+    image: 'assets/selected-01.jpg',
+    alt: 'The garden site at Neighborhood House before YAGI stewardship developed',
+    caption: 'A place whose story continues through stewardship',
+    credit: 'Twisted Muse'
+  },
+  'about.html': {
+    image: 'assets/selected-02.jpg',
+    alt: 'Luan practicing yoga in a sunlit studio',
+    caption: 'A school rooted in lived practice',
+    credit: 'Twisted Muse'
+  },
+  'calendar.html': {
+    image: 'assets/selected-09.jpg',
+    alt: 'A yoga instructor leading an outdoor summer class',
+    caption: 'Gather for public practice',
+    credit: 'Twisted Muse'
+  },
+  'support.html': {
+    image: 'assets/selected-17.jpg',
+    alt: 'A community yoga gathering at Sherman Phoenix',
+    caption: 'Community support keeps practice accessible',
+    credit: 'Twisted Muse'
+  },
+  'field-notes.html': {
+    image: 'assets/yagi-early-beds.webp',
+    alt: 'Early garden beds and materials at the YAGI site',
+    caption: 'The site as a living record',
+    credit: 'Senses / YAGI archive'
+  },
+  '404.html': {
+    image: 'assets/selected-10.jpg',
+    alt: 'A quiet yoga practice in a bright studio',
+    caption: 'Return to the living campus',
+    credit: 'Twisted Muse'
+  }
+};
+
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const pagePhoto = pagePhotographs[currentPage];
+const pageOpening = document.querySelector('main > .pagehero, main > .impact-hero, main > .field-hero, main > .heroic-home-hero');
+if (pagePhoto && pageOpening) {
+  const banner = document.createElement('section');
+  banner.className = 'site-photo-section';
+  banner.setAttribute('aria-label', 'Photograph from the Senses Yoga School archive');
+  banner.innerHTML = `
+    <figure class="site-photo-banner">
+      <div class="site-photo-matte">
+        <img src="${pagePhoto.image}" alt="${pagePhoto.alt}" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span>${pagePhoto.caption}</span><small>Photography · ${pagePhoto.credit}</small></figcaption>
+    </figure>`;
+  pageOpening.after(banner);
+}
+
 const livingSources = [
   {
     image: 'assets/hatha-pradipika-manuscript.webp',

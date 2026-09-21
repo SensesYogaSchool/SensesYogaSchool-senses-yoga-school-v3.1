@@ -159,4 +159,14 @@ main:before{content:"SĀDHANĀ  ·  SVĀDHYĀYA  ·  SEVĀ  ·  SAṄGHA";displa
 /* V3.14 · keep primary actions in the compact navigation */
 .mobile-nav-link{display:none!important}
 @media(max-width:980px){.nav.open .mobile-nav-link{display:block!important;font-weight:600}}
+
+/* V3.15 · complete photographic banners from the V3 visual archive */
+.site-photo-section{padding:0;border-top:4px double #b78312;background:#161320;color:#f5ead5}
+.site-photo-banner{margin:0}
+.site-photo-matte{min-height:260px;display:flex;justify-content:center;align-items:center;background:radial-gradient(circle at center,#38313a,#161320 72%);overflow:hidden}
+.site-photo-matte img{display:block;width:auto;height:auto;max-width:100%;max-height:min(58vw,580px);object-fit:contain}
+.site-photo-banner figcaption{width:min(1180px,88vw);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 0 18px;border-top:1px solid rgba(232,199,102,.3)}
+.site-photo-banner figcaption span{font:500 11px/1.5 "Cinzel",serif;letter-spacing:.1em;text-transform:uppercase}
+.site-photo-banner figcaption small{color:#d7c8ae;font:italic 15px/1.4 "Crimson Text",serif}
+@media(max-width:650px){.site-photo-matte{min-height:0}.site-photo-matte img{max-height:72vh}.site-photo-banner figcaption{display:block}.site-photo-banner figcaption small{display:block;margin-top:4px}}
 @media(prefers-reduced-motion:reduce){.honor-orb:before,.honor-orb:after{animation:none}.honor-text{animation:none}}
