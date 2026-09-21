@@ -24,14 +24,78 @@ const honorOrb = document.querySelector('#honor-orb');
 const honorText = document.querySelector('#honor-text');
 const honorEnter = document.querySelector('#honor-enter');
 
+// An original, short welcome tone starts only after the visitor taps the orb.
+let welcomeContext;
+let welcomeVoices = [];
+let welcomeTimer;
+let soundButton;
+let soundPlaying = false;
+function stopWelcomeTone() {
+  clearTimeout(welcomeTimer);
+  for (const voice of welcomeVoices) {
+    try { voice.stop(); } catch (_) {}
+  }
+  welcomeVoices = [];
+  soundPlaying = false;
+  if (soundButton) {
+    soundButton.textContent = 'Play welcome sound';
+    soundButton.setAttribute('aria-pressed', 'false');
+  }
+}
+async function playWelcomeTone() {
+  stopWelcomeTone();
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) {
+    if (soundButton) soundButton.textContent = 'Sound unavailable';
+    return;
+  }
+  try {
+    welcomeContext ||= new AudioContextClass();
+    await welcomeContext.resume();
+    const now = welcomeContext.currentTime;
+    const notes = [196, 294, 392];
+    notes.forEach((frequency, index) => {
+      const voice = welcomeContext.createOscillator();
+      const volume = welcomeContext.createGain();
+      voice.type = 'sine';
+      voice.frequency.value = frequency;
+      volume.gain.setValueAtTime(0.0001, now);
+      volume.gain.exponentialRampToValueAtTime(index === 0 ? 0.025 : 0.012, now + 0.7 + index * 0.4);
+      volume.gain.exponentialRampToValueAtTime(0.0001, now + 7);
+      voice.connect(volume).connect(welcomeContext.destination);
+      voice.start(now);
+      voice.stop(now + 7.1);
+      welcomeVoices.push(voice);
+    });
+    soundPlaying = true;
+    if (soundButton) {
+      soundButton.textContent = 'Sound off';
+      soundButton.setAttribute('aria-pressed', 'true');
+    }
+    welcomeTimer = setTimeout(stopWelcomeTone, 7300);
+  } catch (_) {
+    stopWelcomeTone();
+    if (soundButton) soundButton.textContent = 'Sound unavailable';
+  }
+}
+
 if (honorGate && honorOrb && honorText && honorEnter) {
   document.body.classList.add('honor-open');
   honorGate.setAttribute('aria-label', 'Enter Senses Yoga School');
   const background = [...document.body.children].filter(el => el !== honorGate);
   background.forEach(el => { el.inert = true; });
   honorOrb.focus();
+  soundButton = document.createElement('button');
+  soundButton.type = 'button';
+  soundButton.className = 'welcome-sound-control';
+  soundButton.textContent = 'Play welcome sound';
+  soundButton.setAttribute('aria-label', 'Toggle welcome sound');
+  soundButton.setAttribute('aria-pressed', 'false');
+  soundButton.addEventListener('click', () => soundPlaying ? stopWelcomeTone() : playWelcomeTone());
+  honorText.append(soundButton);
 
   honorOrb.addEventListener('click', () => {
+    playWelcomeTone();
     honorText.hidden = false;
     honorGate.classList.add('revealed');
     honorGate.removeAttribute('aria-label');
@@ -45,6 +109,7 @@ if (honorGate && honorOrb && honorText && honorEnter) {
     document.body.classList.remove('honor-open');
     window.setTimeout(() => {
       honorGate.hidden = true;
+      document.body.append(soundButton);
       background.forEach(el => { el.inert = false; });
       document.querySelector('header a, main a, main button')?.focus();
     }, 520);
@@ -56,7 +121,7 @@ if (honorGate && honorOrb && honorText && honorEnter) {
       enterSchool();
     }
     if (event.key === 'Tab') {
-      const controls = honorText.hidden ? [honorOrb] : [honorOrb, honorEnter];
+      const controls = honorText.hidden ? [honorOrb] : [honorOrb, honorEnter, soundButton];
       const current = controls.indexOf(document.activeElement);
       if (event.shiftKey && current <= 0) {
         event.preventDefault();
