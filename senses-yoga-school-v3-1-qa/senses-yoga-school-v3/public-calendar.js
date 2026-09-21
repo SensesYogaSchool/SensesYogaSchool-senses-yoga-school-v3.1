@@ -7,6 +7,57 @@
     { title: "YAGI Community Wellness Session", place: "2713 W Richardson Pl, Milwaukee, WI 53208", first: "2026-09-23", count: 4, hour: 10, minute: 0, duration: 180, kind: "YAGI" },
     { title: "Yoga For Life · Darius Simmons Garden", place: "2571 N 2nd St, Milwaukee, WI 53212", first: "2026-09-25", count: 4, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" }
   ];
+  const venues = [
+    { name: "Sherman Park", address: "Sherman Park, 3000 N Sherman Blvd, Milwaukee, WI 53210", lat: 43.0733764, lon: -87.9658620 },
+    { name: "YAGI Legacy Garden", address: "2713 W Richardson Pl, Milwaukee, WI 53208", lat: 43.0427251, lon: -87.9479783 },
+    { name: "Darius Simmons Garden / All Peoples", address: "2571 N 2nd St, Milwaukee, WI 53212", lat: 43.0651514, lon: -87.9127075 },
+    { name: "Sherman Phoenix Marketplace", address: "Milwaukee, WI", lat: 43.0760668, lon: -87.9580842 },
+    { name: "Gordon Park", address: "Milwaukee, WI", lat: 43.0688793, lon: -87.8959559 },
+    { name: "Lakeshore State Park", address: "Milwaukee, WI", lat: 43.0326963, lon: -87.8954344 }
+  ];
+  const locationList = document.getElementById("map-location-list");
+  const directions = place => "https://www.openstreetmap.org/directions?to=" + encodeURIComponent(place.lat + "," + place.lon);
+  if (locationList) {
+    for (const place of venues) {
+      const link = document.createElement("a");
+      link.href = directions(place);
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = place.name + " · Directions ↗";
+      locationList.append(link);
+    }
+  }
+  if (window.L && document.getElementById("community-map")) {
+    const map = L.map("community-map", { scrollWheelZoom: false }).setView([43.055, -87.932], 12);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+      maxZoom: 18
+    }).addTo(map);
+    const pins = venues.map(place => {
+      const popup = document.createElement("div");
+      const heading = document.createElement("strong");
+      heading.textContent = place.name;
+      const address = document.createElement("p");
+      address.textContent = place.address;
+      const link = document.createElement("a");
+      link.href = directions(place);
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = "Directions ↗";
+      popup.append(heading, address, link);
+      if (["Sherman Park", "YAGI Legacy Garden", "Darius Simmons Garden / All Peoples"].includes(place.name)) {
+        const rsvp = document.createElement("a");
+        rsvp.href = place.name === "YAGI Legacy Garden"
+          ? "https://www.signupgenius.com/go/10C054DA5A92BA3F9C16-61993676-yoga#/"
+          : "mailto:luan@sensesyoga.org?subject=" + encodeURIComponent("RSVP: " + place.name);
+        rsvp.textContent = "RSVP ↗";
+        rsvp.style.marginLeft = "12px";
+        popup.append(rsvp);
+      }
+      return L.marker([place.lat, place.lon]).addTo(map).bindPopup(popup);
+    });
+    map.fitBounds(L.featureGroup(pins).getBounds().pad(0.12));
+  }
   const events = series.flatMap(item => Array.from({ length: item.count }, (_, week) => {
     const day = new Date(item.first + "T12:00:00Z");
     day.setUTCDate(day.getUTCDate() + week * 7);
@@ -51,6 +102,13 @@
     details.append(category, title, info);
     const actions = document.createElement("div");
     actions.className = "public-event-actions";
+    const rsvp = document.createElement("a");
+    rsvp.href = event.kind === "YAGI"
+      ? "https://www.signupgenius.com/go/10C054DA5A92BA3F9C16-61993676-yoga#/"
+      : "mailto:luan@sensesyoga.org?subject=" + encodeURIComponent("RSVP: " + event.title + " · " + dateText.format(event.start));
+    rsvp.target = "_blank";
+    rsvp.rel = "noopener";
+    rsvp.textContent = "RSVP";
     const google = document.createElement("a");
     google.href = googleLink(event);
     google.target = "_blank";
@@ -60,7 +118,7 @@
     apple.href = appleLink(event);
     apple.download = "senses-yoga-" + stamp(event.start) + ".ics";
     apple.textContent = "Add to Apple";
-    actions.append(google, apple);
+    actions.append(rsvp, google, apple);
     card.append(date, details, actions);
     mount.append(card);
   }
