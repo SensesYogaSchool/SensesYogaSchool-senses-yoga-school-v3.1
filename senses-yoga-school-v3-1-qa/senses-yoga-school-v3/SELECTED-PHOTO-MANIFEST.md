@@ -33,13 +33,13 @@ The full photographs appear as dedicated banners alongside the separate traditio
 
 | Page | Photograph | Subject |
 | --- | --- | --- |
-| Home | `selected-12.jpg` | Outdoor yoga practice |
+| Home | `selected-11.jpg` | Large outdoor community class |
 | Practice | `selected-08.jpg` | Sherman Phoenix community class |
 | Learn | `selected-07.jpg` | Embodied study in practice |
 | Schools | `selected-16.jpg` | Group practice in a public space |
 | Serve | `selected-14.jpg` | Seedling care |
 | Teach & Lead | `selected-15.jpg` | Guided community practice |
-| Partner | `selected-11.jpg` | Outdoor group practice |
+| Partner | `selected-12.jpg` | Outdoor group practice beside the lake |
 | Impact | `selected-01.jpg` | Early garden site |
 | About | `selected-02.jpg` | Founder's yoga practice |
 | Calendar | `selected-09.jpg` | Outdoor summer class |

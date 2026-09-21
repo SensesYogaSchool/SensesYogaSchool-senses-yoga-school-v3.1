@@ -73,9 +73,9 @@ if (honorGate && honorOrb && honorText && honorEnter) {
 // Keep the complete image visible; the illustrations and manuscripts remain in their study sections.
 const pagePhotographs = {
   'index.html': {
-    image: 'assets/selected-12.jpg',
-    alt: 'Outdoor yoga practice beside Lake Michigan',
-    caption: 'Practice across the living campus',
+    image: 'assets/selected-11.jpg',
+    alt: 'A large group practicing yoga together outdoors in Milwaukee',
+    caption: 'Our community is our campus',
     credit: 'Twisted Muse'
   },
   'practice.html': {
@@ -109,8 +109,8 @@ const pagePhotographs = {
     credit: 'Twisted Muse'
   },
   'partner.html': {
-    image: 'assets/selected-11.jpg',
-    alt: 'Community yoga participants practicing together outdoors',
+    image: 'assets/selected-12.jpg',
+    alt: 'A group practicing yoga outdoors beside Lake Michigan',
     caption: 'Programs carried into shared spaces',
     credit: 'Twisted Muse'
   },
@@ -158,15 +158,17 @@ const pageOpening = document.querySelector('main > .pagehero, main > .impact-her
 if (pagePhoto && pageOpening) {
   const banner = document.createElement('section');
   banner.className = 'site-photo-section';
+  if (currentPage === 'index.html') banner.classList.add('photo-home');
   banner.setAttribute('aria-label', 'Photograph from the Senses Yoga School archive');
   banner.innerHTML = `
     <figure class="site-photo-banner">
       <div class="site-photo-matte">
-        <img src="${pagePhoto.image}" alt="${pagePhoto.alt}" loading="lazy" decoding="async">
+        <img src="${pagePhoto.image}" alt="${pagePhoto.alt}" loading="eager" fetchpriority="high" decoding="async">
       </div>
       <figcaption><span>${pagePhoto.caption}</span><small>Photography · ${pagePhoto.credit}</small></figcaption>
     </figure>`;
-  pageOpening.after(banner);
+  const breadcrumb = document.querySelector('main > .crumb');
+  (breadcrumb || pageOpening).before(banner);
 }
 
 const livingSources = [
