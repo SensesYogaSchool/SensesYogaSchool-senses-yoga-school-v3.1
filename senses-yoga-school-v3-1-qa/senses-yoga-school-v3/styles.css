@@ -196,3 +196,18 @@ main:before{content:"SĀDHANĀ  ·  SVĀDHYĀYA  ·  SEVĀ  ·  SAṄGHA";displa
   .heroic-mission{margin:18px auto!important;padding-top:14px;font-size:10px}
   .heroic-mantra{margin-top:18px!important;line-height:1.5}
 }
+
+/* Visitor entry and opt-in welcome sound */
+.home-doors{padding:55px 0 60px;background:var(--paper)}
+.home-doors h2{margin:0 0 25px}
+.home-door-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.home-door-grid a{display:flex;flex-direction:column;gap:12px;padding:24px;background:var(--cream);border:1px solid var(--gold);text-decoration:none;min-height:180px}
+.home-door-grid a:hover,.home-door-grid a:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+.home-door-grid strong{font:600 16px/1.3 "Cinzel",serif;color:var(--purple)}
+.home-door-grid span{font-size:17px}.home-door-grid em{margin-top:auto;font:600 11px "Cinzel",serif;font-style:normal;color:var(--purple)}
+.dream-connections-band{background:var(--manuscript);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.honor-sound-note{font-size:14px!important;color:#e8d9bd}
+.welcome-sound-control{position:fixed;right:18px;bottom:18px;z-index:80;padding:11px 15px;border:1px solid var(--gold);background:var(--deep-purple);color:#fff;font:600 10px/1.3 "Cinzel",serif;text-transform:uppercase;letter-spacing:.07em;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.honor-text .welcome-sound-control{position:static;margin:4px auto 0;background:transparent;color:#f8eedb;box-shadow:none}
+.welcome-sound-control:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+@media(max-width:720px){.home-door-grid{grid-template-columns:1fr}.home-door-grid a{min-height:0}.welcome-sound-control{right:10px;bottom:10px;padding:9px 11px}}
