@@ -6,6 +6,7 @@
 <meta content="See current public Senses Yoga School classes, programs, garden activities, and community events in Milwaukee." name="description"/>
 <title>Calendar | Senses Yoga School</title>
 <link href="styles.css" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 <meta content="#320840" name="theme-color"/>
 </head>
 <body>
@@ -37,7 +38,17 @@
 <div class="wrap">
 <div class="eyebrow">Public Calendar · Central Time</div>
 <h1>Practice where the school is alive.</h1>
-<p>Find public classes and garden gatherings, then save the ones you plan to attend to your own calendar.</p>
+<p>Find public classes and garden gatherings throughout Milwaukee. Chess club and community partner events can join the map as their dates are confirmed.</p>
+</div>
+</section>
+<section>
+<div class="wrap">
+<div class="calendar-heading">
+<div><div class="eyebrow">Community Is Our Campus</div><h2>Find us across Milwaukee.</h2></div>
+<p>Select a marker for the address and directions. Locations without a confirmed upcoming gathering remain part of our wider community map.</p>
+</div>
+<div class="community-map" id="community-map" role="region" aria-label="Map of Senses Yoga School public gathering locations"></div>
+<div class="map-location-list" id="map-location-list"></div>
 </div>
 </section>
 <section>
@@ -53,6 +64,17 @@
 <p>Loading public gatherings…</p>
 </div>
 <p class="calendar-note">Public schedule reviewed September 21, 2026. Please confirm event details before attending. Internal meetings and training do not appear here.</p>
+</div>
+</section>
+<section class="manuscript">
+<div class="wrap">
+<div class="eyebrow">Once You Arrive</div>
+<h2>Check in at your session.</h2>
+<p class="lead">Use the session check-in at the YAGI garden when you arrive. After any school gathering, you may also share your experience with us.</p>
+<div class="hero-actions">
+<a class="button" href="https://forms.gle/63SwjEBb9azhoiEW8" target="_blank" rel="noopener">YAGI Session Check-In</a>
+<a class="text-link" href="https://form.typeform.com/to/Q9WLheLO" target="_blank" rel="noopener">Share Your Session Experience →</a>
+</div>
 </div>
 </section>
 <section class="accent-band">
@@ -80,6 +102,7 @@
 </footer>
 <script src="script.js">
 </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="public-calendar.js"></script>
 </body>
 </html>
