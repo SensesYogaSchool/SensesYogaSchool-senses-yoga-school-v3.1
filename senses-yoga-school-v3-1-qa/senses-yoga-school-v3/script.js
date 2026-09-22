@@ -24,60 +24,27 @@ const honorOrb = document.querySelector('#honor-orb');
 const honorText = document.querySelector('#honor-text');
 const honorEnter = document.querySelector('#honor-enter');
 
-// An original, short welcome tone starts only after the visitor taps the orb.
-let welcomeContext;
-let welcomeVoices = [];
-let welcomeTimer;
+// CC BY 4.0: Placid Ambient by MusicLFiles, via Wikimedia Commons.
+// Playback begins only when a visitor chooses to enter.
+const backgroundSong = new Audio('https://upload.wikimedia.org/wikipedia/commons/transcoded/5/53/Placid_Ambient_by_MusicLFiles.ogg/Placid_Ambient_by_MusicLFiles.ogg.mp3');
+backgroundSong.loop = true;
+backgroundSong.volume = 0.07;
+backgroundSong.preload = 'none';
 let soundButton;
-let soundPlaying = false;
-function stopWelcomeTone() {
-  clearTimeout(welcomeTimer);
-  for (const voice of welcomeVoices) {
-    try { voice.stop(); } catch (_) {}
-  }
-  welcomeVoices = [];
-  soundPlaying = false;
+function syncMusicButton() {
   if (soundButton) {
-    soundButton.textContent = 'Play welcome sound';
-    soundButton.setAttribute('aria-pressed', 'false');
+    const playing = !backgroundSong.paused;
+    soundButton.textContent = playing ? 'Music off' : 'Play music';
+    soundButton.setAttribute('aria-pressed', String(playing));
   }
 }
-async function playWelcomeTone() {
-  stopWelcomeTone();
-  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContextClass) {
-    if (soundButton) soundButton.textContent = 'Sound unavailable';
-    return;
-  }
-  try {
-    welcomeContext ||= new AudioContextClass();
-    await welcomeContext.resume();
-    const now = welcomeContext.currentTime;
-    const notes = [196, 294, 392];
-    notes.forEach((frequency, index) => {
-      const voice = welcomeContext.createOscillator();
-      const volume = welcomeContext.createGain();
-      voice.type = 'sine';
-      voice.frequency.value = frequency;
-      volume.gain.setValueAtTime(0.0001, now);
-      volume.gain.exponentialRampToValueAtTime(index === 0 ? 0.025 : 0.012, now + 0.7 + index * 0.4);
-      volume.gain.exponentialRampToValueAtTime(0.0001, now + 7);
-      voice.connect(volume).connect(welcomeContext.destination);
-      voice.start(now);
-      voice.stop(now + 7.1);
-      welcomeVoices.push(voice);
-    });
-    soundPlaying = true;
-    if (soundButton) {
-      soundButton.textContent = 'Sound off';
-      soundButton.setAttribute('aria-pressed', 'true');
-    }
-    welcomeTimer = setTimeout(stopWelcomeTone, 7300);
-  } catch (_) {
-    stopWelcomeTone();
-    if (soundButton) soundButton.textContent = 'Sound unavailable';
-  }
+function playBackgroundSong() {
+  backgroundSong.play().then(syncMusicButton).catch(() => {
+    if (soundButton) soundButton.textContent = 'Tap to play music';
+  });
 }
+backgroundSong.addEventListener('play', syncMusicButton);
+backgroundSong.addEventListener('pause', syncMusicButton);
 
 if (honorGate && honorOrb && honorText && honorEnter) {
   document.body.classList.add('honor-open');
@@ -88,14 +55,16 @@ if (honorGate && honorOrb && honorText && honorEnter) {
   soundButton = document.createElement('button');
   soundButton.type = 'button';
   soundButton.className = 'welcome-sound-control';
-  soundButton.textContent = 'Play welcome sound';
-  soundButton.setAttribute('aria-label', 'Toggle welcome sound');
+  soundButton.textContent = 'Play music';
+  soundButton.setAttribute('aria-label', 'Toggle background music');
   soundButton.setAttribute('aria-pressed', 'false');
-  soundButton.addEventListener('click', () => soundPlaying ? stopWelcomeTone() : playWelcomeTone());
-  honorText.append(soundButton);
+  soundButton.title = 'Placid Ambient by MusicLFiles · CC BY 4.0';
+  soundButton.addEventListener('click', () => {
+    if (backgroundSong.paused) playBackgroundSong();
+    else backgroundSong.pause();
+  });
 
   honorOrb.addEventListener('click', () => {
-    playWelcomeTone();
     honorText.hidden = false;
     honorGate.classList.add('revealed');
     honorGate.removeAttribute('aria-label');
@@ -105,6 +74,7 @@ if (honorGate && honorOrb && honorText && honorEnter) {
 
   const enterSchool = () => {
     if (honorGate.classList.contains('departing')) return;
+    if (document.querySelector('#honor-music-choice')?.checked) playBackgroundSong();
     honorGate.classList.add('departing');
     document.body.classList.remove('honor-open');
     window.setTimeout(() => {
@@ -121,7 +91,7 @@ if (honorGate && honorOrb && honorText && honorEnter) {
       enterSchool();
     }
     if (event.key === 'Tab') {
-      const controls = honorText.hidden ? [honorOrb] : [honorOrb, honorEnter, soundButton];
+      const controls = honorText.hidden ? [honorOrb] : [honorOrb, honorEnter, document.querySelector('#honor-music-choice')];
       const current = controls.indexOf(document.activeElement);
       if (event.shiftKey && current <= 0) {
         event.preventDefault();
