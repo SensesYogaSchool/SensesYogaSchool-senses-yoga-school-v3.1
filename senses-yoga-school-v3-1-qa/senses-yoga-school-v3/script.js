@@ -28,6 +28,10 @@ if (menu && nav) {
     fieldNotes.href = 'field-notes.html';
     fieldNotes.textContent = 'Field Notes';
     connectMenu.append(fieldNotes);
+    const resources = document.createElement('a');
+    resources.href = 'resources.html';
+    resources.textContent = 'Free Resources';
+    connectMenu.append(resources);
     const aboutLink = nav.querySelector('a[href="about.html"]');
     if (aboutLink) aboutLink.before(connect);
     else nav.append(connect);
