@@ -46,6 +46,22 @@ if (menu && nav) {
     nav.classList.toggle('open');
     menu.setAttribute('aria-expanded', nav.classList.contains('open'));
     document.body.classList.toggle('menu-open', nav.classList.contains('open'));
+    menu.textContent = nav.classList.contains('open') ? 'Close' : 'Menu';
+  });
+  nav.addEventListener('click', event => {
+    if (!event.target.closest('a')) return;
+    nav.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.textContent = 'Menu';
+    document.body.classList.remove('menu-open');
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !nav.classList.contains('open')) return;
+    nav.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.textContent = 'Menu';
+    document.body.classList.remove('menu-open');
+    menu.focus();
   });
 }
 

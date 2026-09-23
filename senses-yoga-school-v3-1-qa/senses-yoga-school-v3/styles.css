@@ -289,3 +289,50 @@ header .menu{color:#f1dfbd}.menu-open{overflow:hidden}
 @media(max-width:1100px){header .nav{gap:13px}.brand-wordmark small{display:none}.guide-name-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:980px){header .navbar{min-height:70px}header .brand img{width:38px;height:38px}.brand-wordmark strong{font-size:13px}.nav.open{position:fixed;inset:70px 0 0;display:flex;padding:34px 8vw 50px;background:radial-gradient(circle at 80% 20%,rgba(82,37,102,.5),transparent 32%),#151020;overflow-y:auto;align-items:stretch;gap:0;border-top:1px solid rgba(210,168,79,.45);border-bottom:0}.nav.open>a,.nav.open .mobile-nav-link{display:block!important;padding:16px 0;border-bottom:1px solid rgba(210,168,79,.22);color:#f4e7d2;font:400 clamp(24px,6vw,34px)/1.15 "Playfair Display SC",serif;letter-spacing:.02em;text-transform:none}.nav.open .nav-connect{display:block;order:6}.nav.open .nav-connect summary{height:auto;padding:16px 0;border-bottom:1px solid rgba(210,168,79,.22);font:400 clamp(24px,6vw,34px)/1.15 "Playfair Display SC",serif;letter-spacing:.02em;text-transform:none}.nav.open .nav-connect-menu{position:static;padding:5px 0 12px;border:0;border-bottom:1px solid rgba(210,168,79,.22);background:transparent;box-shadow:none}.nav.open .nav-connect-menu a{padding:10px 18px;color:#d8c7a8;font-size:11px}.guide-constellation-heading{grid-template-columns:1fr}.guide-name-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:580px){header .navbar{width:90vw}.brand-wordmark strong{font-size:11px;letter-spacing:.11em}.guide-constellation{padding:25px 20px}.guide-name-grid{grid-template-columns:1fr}.guide-name-grid span{min-height:0}.guide-constellation-heading p{font-size:17px}}
+
+/* V3.19 · deliberate phone composition and collision fixes */
+@media(max-width:980px){
+  header{z-index:100}
+  header .navbar{position:relative;width:min(92vw,760px);min-height:68px;gap:14px}
+  header .brand{display:flex;width:auto;max-width:none;flex:1 1 auto;min-width:0;overflow:visible;align-items:center;gap:10px}
+  header .brand img{flex:0 0 36px;width:36px;max-width:36px;height:36px;object-fit:contain}
+  .brand-wordmark{display:flex;min-width:0;align-items:center}
+  .brand-wordmark strong{display:block;white-space:nowrap;font-size:12px;line-height:1.1;letter-spacing:.12em}
+  .brand-wordmark small{display:none}
+  header .menu{display:block;flex:0 0 auto;margin:0;padding:12px 0 12px 16px;color:#f4e7d2;font-size:11px;letter-spacing:.15em}
+  header .nav.open{z-index:110;inset:68px 0 0;padding:20px 7vw 40px;background:radial-gradient(circle at 90% 10%,rgba(93,48,112,.38),transparent 30%),#151020}
+  header .nav.open>a,header .nav.open .mobile-nav-link,header .nav.open .nav-connect summary{padding:13px 0;font-size:clamp(22px,6vw,30px);line-height:1.1}
+  header .nav.open .nav-connect{order:initial}
+  header .nav.open .nav-connect-menu a{padding:10px 14px;font-size:10px}
+}
+@media(max-width:580px){
+  body{overflow-x:hidden}
+  header .navbar{width:88vw;min-height:64px}
+  header .brand{display:flex;width:auto;max-width:none;flex-basis:auto;overflow:visible}
+  header .brand img{width:34px;max-width:34px;height:34px}
+  .brand-wordmark strong{font-size:10px;letter-spacing:.09em}
+  header .menu{font-size:10px}
+  header .nav.open{inset:64px 0 0;padding-top:16px}
+  .photo-home .site-photo-matte{padding:10px 0;background:#12101a}
+  .photo-home .site-photo-matte img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+  .photo-home .site-photo-banner figcaption{width:88vw;padding:14px 0 16px}
+  .heroic-home-hero{padding:18px 0 26px;overflow:hidden}
+  .heroic-stage{display:grid;width:88vw;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:16px 12px;align-items:start}
+  .heroic-center{grid-column:1/-1!important;grid-row:1!important;width:100%;min-width:0;padding:32px 17px 26px;outline-offset:-7px;overflow:hidden}
+  .heroic-center:before{margin-bottom:8px}
+  .heroic-center .eyebrow{max-width:100%;font-size:8px;letter-spacing:.06em;white-space:normal}
+  .heroic-center h1{max-width:100%;font-size:clamp(32px,9vw,42px);line-height:1.02;overflow-wrap:anywhere}
+  .heroic-invocation{font-size:17px;line-height:1.3}
+  .heroic-mission{max-width:100%;font-size:9px;letter-spacing:.045em}
+  .heroic-center .hero-actions{width:100%;gap:11px}
+  .heroic-center .button,.heroic-center .text-link{max-width:100%;font-size:9px;text-align:center}
+  .heroic-mantra{font-size:8px;letter-spacing:.035em}
+  .heroic-portrait,.portrait-ganesha,.portrait-shiva,.portrait-shakti,.portrait-krishna,.portrait-hanuman,.portrait-rama,.portrait-sita{grid-column:auto!important;grid-row:auto!important;width:100%!important;min-width:0;justify-self:stretch}
+  .heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{display:block;width:100%;height:clamp(190px,53vw,250px);object-fit:contain;object-position:center bottom}
+  .heroic-portrait figcaption{min-height:58px;padding:8px 2px 0;overflow:visible}
+  .heroic-portrait strong{font-size:11px;line-height:1.2;overflow-wrap:anywhere}
+  .heroic-portrait span{font-size:14px;line-height:1.15}
+  .portrait-sita{grid-column:1/-1!important;width:calc(50% - 6px)!important;justify-self:center}
+  .welcome-sound-control{position:fixed;right:8px;bottom:8px;z-index:80;padding:7px 9px;font-size:8px;letter-spacing:.07em;opacity:.86}
+  .guide-constellation{padding:22px 16px}
+}
