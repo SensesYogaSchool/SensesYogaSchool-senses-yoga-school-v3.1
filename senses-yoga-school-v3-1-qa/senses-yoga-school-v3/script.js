@@ -4,6 +4,35 @@ const nav = document.querySelector('.nav');
 if (menu && nav) {
   nav.id ||= 'site-navigation';
   menu.setAttribute('aria-controls', nav.id);
+
+  const brand = document.querySelector('.brand');
+  const brandImage = brand?.querySelector('img');
+  if (brand && brandImage && !brand.querySelector('.brand-wordmark')) {
+    brandImage.src = 'assets/senses-sun.png';
+    brandImage.alt = '';
+    const wordmark = document.createElement('span');
+    wordmark.className = 'brand-wordmark';
+    wordmark.innerHTML = '<strong>Senses Yoga School</strong><small>Community is our campus</small>';
+    brand.append(wordmark);
+  }
+
+  if (!nav.querySelector('.nav-connect')) {
+    const secondaryHrefs = ['lead.html', 'partner.html'];
+    const secondaryLinks = secondaryHrefs.map(href => nav.querySelector(`a[href="${href}"]`)).filter(Boolean);
+    const connect = document.createElement('details');
+    connect.className = 'nav-connect';
+    connect.innerHTML = '<summary>Connect</summary><div class="nav-connect-menu"></div>';
+    const connectMenu = connect.querySelector('.nav-connect-menu');
+    secondaryLinks.forEach(link => connectMenu.append(link));
+    const fieldNotes = document.createElement('a');
+    fieldNotes.href = 'field-notes.html';
+    fieldNotes.textContent = 'Field Notes';
+    connectMenu.append(fieldNotes);
+    const aboutLink = nav.querySelector('a[href="about.html"]');
+    if (aboutLink) aboutLink.before(connect);
+    else nav.append(connect);
+  }
+
   for (const [href, label] of [['calendar.html', 'Calendar'], ['support.html', 'Support']]) {
     if (!nav.querySelector(`a[href="${href}"]`)) {
       const link = document.createElement('a');
@@ -16,6 +45,7 @@ if (menu && nav) {
   menu.addEventListener('click', () => {
     nav.classList.toggle('open');
     menu.setAttribute('aria-expanded', nav.classList.contains('open'));
+    document.body.classList.toggle('menu-open', nav.classList.contains('open'));
   });
 }
 
