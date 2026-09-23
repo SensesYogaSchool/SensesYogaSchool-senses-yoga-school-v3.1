@@ -249,3 +249,23 @@ header .nav a:hover:after,header .nav a:focus-visible:after{right:0}
 @media(max-width:980px){header .navbar{min-height:72px}header .brand img{height:60px;max-width:92px}header .nav a{padding:0}header .nav a:after{display:none}}
 @media(max-width:760px){.honor-gate{padding:14px;overflow:auto}.honor-gate.revealed{place-items:start center}.honor-gate.revealed .honor-gate-inner{display:block;width:min(600px,92vw);padding:20px 0}.honor-gate.revealed .honor-orb{width:64px;height:64px;margin:0 auto 14px}.honor-text{max-height:none;padding:24px 20px}.honor-text h2{font-size:30px}.honor-text p{font-size:16px}.honor-blessing{grid-template-columns:1fr}.archetype-gallery-complete{grid-template-columns:1fr}.archetype-gallery-complete .archetype-card figure{min-height:0}.archetype-roster{grid-template-columns:1fr 1fr}.archetype-roster>div,.archetype-roster>div:nth-child(4){border-right:1px solid rgba(183,131,18,.45);border-bottom:1px solid rgba(183,131,18,.45)}.archetype-roster>div:nth-child(even){border-right:0}.archetype-roster>div:last-child{grid-column:1/-1;border-right:0;border-bottom:0;min-height:118px}}
 @media(max-width:580px){header .brand{width:54px;max-width:54px;flex-basis:54px}header .brand img{width:auto;max-width:54px;height:52px}}
+
+/* V3.17 · homepage viewport and framing cleanup */
+.photo-home .site-photo-matte{min-height:0;padding:24px 5vw;background:radial-gradient(circle at center,#302a34,#12101a 74%)}
+.photo-home .site-photo-matte img{width:auto;max-width:min(100%,980px);max-height:min(54vh,560px);box-shadow:0 18px 55px rgba(0,0,0,.28)}
+.photo-home .site-photo-banner figcaption{max-width:980px}
+.heroic-home-hero{padding:28px 0 22px}
+.heroic-stage{width:min(1320px,94vw);grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(350px,2.15fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:310px 285px;gap:14px}
+.heroic-portrait img{height:252px;border-radius:38% 38% 2px 2px}
+.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:232px}
+.heroic-portrait figcaption{padding:7px 2px}.heroic-portrait strong{font-size:12px}.heroic-portrait span{font-size:14px}
+.heroic-center{padding:30px 28px;outline-offset:-9px}
+.heroic-center:before{font-size:21px;margin-bottom:12px}
+.heroic-center h1{font-size:clamp(40px,4vw,62px);margin:8px 0 18px}
+.heroic-invocation{font-size:clamp(19px,1.7vw,25px);line-height:1.28}
+.heroic-mission{margin:22px auto!important;padding-top:17px;font-size:10px;line-height:1.55}
+.heroic-mantra{margin-top:24px!important;font-size:9px;line-height:1.5}
+.heroic-art-note{margin-top:15px!important}
+@media(max-width:1100px) and (min-width:851px){.heroic-stage{width:min(960px,94vw);grid-template-rows:290px 270px}.heroic-portrait img{height:230px}.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:215px}.heroic-center{padding:28px 20px}.heroic-center h1{font-size:44px}.heroic-invocation{font-size:19px}.heroic-mission{margin:17px auto!important}.heroic-mantra{margin-top:17px!important}}
+@media(max-width:850px){.photo-home .site-photo-matte{padding:18px 4vw}.photo-home .site-photo-matte img{max-height:50vh}.heroic-stage{width:min(740px,92vw);grid-template-rows:auto}.heroic-center{min-height:0;padding:38px 28px}.heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:220px}}
+@media(max-width:580px){.photo-home .site-photo-matte{padding:12px 3vw}.photo-home .site-photo-matte img{max-height:44vh;max-width:100%}.photo-home .site-photo-banner figcaption{padding:12px 0 14px}.heroic-stage{gap:11px}.heroic-center{padding:30px 20px 27px}.heroic-center h1{font-size:clamp(37px,10vw,46px);margin:7px 0 14px}.heroic-invocation{font-size:18px}.heroic-mission{margin:16px auto!important;padding-top:13px}.heroic-mantra{margin-top:15px!important}.heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:clamp(160px,45vw,210px)}.portrait-sita{grid-column:1/-1!important;width:calc(50% - 6px)!important;justify-self:center}.heroic-art-note{font-size:13px!important}}
