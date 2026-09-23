@@ -336,3 +336,47 @@ header .menu{color:#f1dfbd}.menu-open{overflow:hidden}
   .welcome-sound-control{position:fixed;right:8px;bottom:8px;z-index:80;padding:7px 9px;font-size:8px;letter-spacing:.07em;opacity:.86}
   .guide-constellation{padding:22px 16px}
 }
+
+/* V3.20 · mobile drawer, calm focus treatment, and global overflow guard */
+header .brand:focus-visible{outline:0;box-shadow:0 2px 0 #d2a84f}
+@media(max-width:980px){
+  header .nav,header .nav.open{
+    position:fixed;
+    inset:68px auto 0 0;
+    z-index:110;
+    display:flex;
+    width:min(84vw,380px);
+    padding:22px 28px 42px;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    overflow-y:auto;
+    border-top:1px solid rgba(210,168,79,.45);
+    border-right:1px solid rgba(210,168,79,.45);
+    border-bottom:0;
+    background:radial-gradient(circle at 20% 10%,rgba(93,48,112,.42),transparent 32%),#151020;
+    box-shadow:20px 0 55px rgba(0,0,0,.36);
+    transform:translateX(-105%);
+    visibility:hidden;
+    transition:transform .32s ease,visibility 0s linear .32s;
+  }
+  header .nav.open{transform:translateX(0);visibility:visible;transition:transform .32s ease}
+  body.menu-open:before{content:"";position:fixed;inset:68px 0 0;z-index:90;background:rgba(8,5,12,.58);backdrop-filter:blur(2px)}
+  header .nav.open>a,header .nav.open .mobile-nav-link,header .nav.open .nav-connect summary{font-size:clamp(21px,5.6vw,28px)}
+}
+@media(max-width:580px){
+  header .nav,header .nav.open{inset:64px auto 0 0;width:min(86vw,360px);padding:17px 24px 36px}
+  body.menu-open:before{inset:64px 0 0}
+  main,section,.wrap,.living-source-grid,.living-source-grid>*,.pagehero .wrap{min-width:0;max-width:100%}
+  main{overflow:hidden}
+  h1,h2,h3,.pagehero h1,.living-source h2{max-width:100%;overflow-wrap:anywhere;word-break:normal}
+  .living-source{padding:48px 0}
+  .living-source-grid{gap:30px}
+  .living-source figure{max-width:100%;padding:8px}
+  .living-source img{max-width:100%;height:auto}
+  .living-source h2{font-size:clamp(31px,10vw,43px);line-height:1.05}
+  .living-source p,.source-principle{font-size:18px;line-height:1.48}
+  .source-credit{font-size:8px;letter-spacing:.035em}
+  section>.wrap,.pagehero>.wrap{width:88vw}
+}
+@media(prefers-reduced-motion:reduce){header .nav,header .nav.open{transition:none}}

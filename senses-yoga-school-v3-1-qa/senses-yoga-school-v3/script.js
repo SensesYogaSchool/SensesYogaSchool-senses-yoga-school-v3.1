@@ -63,6 +63,13 @@ if (menu && nav) {
     document.body.classList.remove('menu-open');
     menu.focus();
   });
+  document.addEventListener('click', event => {
+    if (!nav.classList.contains('open') || event.target.closest('header')) return;
+    nav.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.textContent = 'Menu';
+    document.body.classList.remove('menu-open');
+  });
 }
 
 const honorGate = document.querySelector('#honor-gate');
