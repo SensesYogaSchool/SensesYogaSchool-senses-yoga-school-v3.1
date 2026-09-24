@@ -32,6 +32,10 @@ if (menu && nav) {
     resources.href = 'resources.html';
     resources.textContent = 'Free Resources';
     connectMenu.append(resources);
+    const catalog = document.createElement('a');
+    catalog.href = 'catalog.html';
+    catalog.textContent = 'Academic Catalog';
+    connectMenu.append(catalog);
     const aboutLink = nav.querySelector('a[href="about.html"]');
     if (aboutLink) aboutLink.before(connect);
     else nav.append(connect);

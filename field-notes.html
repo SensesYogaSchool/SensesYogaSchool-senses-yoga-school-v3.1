@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <title>Field Notes · The Living YAGI Archive | Senses Yoga School</title>
-<link href="styles.css?v=20260923-library" rel="stylesheet"/>
+<link href="styles.css?v=20260924-catalog" rel="stylesheet"/>
   <meta content="A living journal of YAGI field observations, steward narratives, yogic reflections, site restoration, and community knowledge at Garden Park." name="description"/>
 <meta content="#320840" name="theme-color"/>
 </head>
@@ -216,7 +216,7 @@
 </div>
 </div>
 </footer>
-<script src="script.js?v=20260923-library">
+<script src="script.js?v=20260924-catalog">
 </script>
 <script>document.querySelectorAll('.archive-filter').forEach(function(button){button.addEventListener('click',function(){var filter=button.dataset.filter,visible=0;document.querySelectorAll('.archive-filter').forEach(function(item){var active=item===button;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active));});document.querySelectorAll('.journal-entry').forEach(function(entry){var show=filter==='all'||entry.dataset.kind.split(' ').includes(filter);entry.hidden=!show;if(show)visible++;});document.querySelector('.archive-empty').hidden=visible!==0;});});</script>
 </body>
