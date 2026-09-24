@@ -1,0 +1,115 @@
+/* Mobile photography + structural pass — calm navigation, readable type, generous images. */
+
+@media (max-width: 760px) {
+  /* The header becomes one quiet row. Navigation only appears after Menu is touched. */
+  header{position:sticky;top:0;z-index:900;background:rgba(250,199,0,.97)}
+  .navbar{position:relative;width:90vw;min-height:76px;margin:0 auto;display:grid!important;grid-template-columns:1fr auto!important;align-items:center;gap:18px;padding:10px 0!important}
+  .brand{width:104px;max-width:104px;display:block}
+  .brand img{width:100%;height:auto;display:block}
+  .menu{display:block!important;justify-self:end;border:0;background:transparent;padding:12px 0;font:600 11px/1.2 "Cinzel",serif;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);cursor:pointer}
+  .nav{display:none!important;position:absolute!important;top:100%;left:50%;transform:translateX(-50%);width:100vw;background:#FAC700!important;border-top:1px solid rgba(50,8,64,.25);border-bottom:1px solid rgba(50,8,64,.25);padding:10px 7vw 18px;box-sizing:border-box;z-index:999}
+  .nav.open{display:grid!important;grid-template-columns:1fr!important;gap:0!important}
+  .nav a{display:block!important;width:100%;padding:15px 0!important;border-bottom:1px solid rgba(50,8,64,.18);font:600 12px/1.25 "Cinzel",serif!important;letter-spacing:.08em!important;text-transform:uppercase;text-align:left;white-space:normal!important}
+  .nav a:last-child{border-bottom:0}
+  .actions{display:none!important}
+
+  /* Never fracture display words on a phone. */
+  h1,h2,h3,.quote,.journal-quote,.mission-statement{overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+  .pagehero h1{font-size:clamp(40px,11vw,62px);line-height:.98;text-wrap:balance}
+
+  .image-split,.tradition-grid,.founder-grid,.two,.journey-line{grid-template-columns:1fr!important;gap:36px}
+  .grid3{grid-template-columns:1fr!important;gap:0!important}
+  .grid3>p,.grid3>div{padding:34px 0;border-bottom:1px solid rgba(50,8,64,.22)}
+
+  /* Primary documentary images become generous, cinematic frames. */
+  .photo-wide{width:100vw;max-width:none;height:clamp(420px,112vw,680px);margin-left:calc(50% - 50vw);object-fit:cover}
+  .photo-card{width:100%;aspect-ratio:4/5;object-fit:cover}
+
+  .gallery-grid{columns:1;column-gap:0}
+  .gallery-item{margin:0 0 34px}
+  .gallery-item img{width:100vw;max-width:none;height:auto;margin-left:calc(50% - 50vw);display:block}
+  .gallery-item figcaption{padding-top:11px}
+
+  .photo-strip{grid-template-columns:1fr;gap:26px}
+  .photo-strip img{width:100vw;max-width:none;height:auto;max-height:78vh;margin-left:calc(50% - 50vw);object-fit:cover}
+
+  .founder-grid{grid-template-columns:1fr}
+  .founder-portrait{width:min(94vw,620px);margin-left:auto;margin-right:auto}
+  .founder-portrait img{width:100%;max-height:none;aspect-ratio:4/5;object-fit:cover;object-position:center top}
+
+  .journey-gallery{grid-template-columns:1fr;gap:28px}
+  .journey-gallery figure{padding:0;border:0;background:transparent}
+  .journey-gallery img{width:100vw;max-width:none;height:auto;max-height:80vh;margin-left:calc(50% - 50vw);object-fit:cover}
+  .journey-gallery figcaption{padding:12px 0 0}
+
+  .hero-grid .hero-visual{min-height:520px;margin-top:18px}
+  .hero-visual .present-image{width:100%;height:clamp(470px,128vw,640px);margin-left:0;border-radius:140px 140px 0 0;object-fit:cover}
+  .hero-visual .tradition-image{width:38%;bottom:-14px;left:-2vw;border-width:6px}
+
+  .tradition-frame{padding:10px}
+  .tradition-frame img{width:100%;height:auto}
+
+  footer .wrap{display:grid!important;grid-template-columns:1fr!important;gap:28px}
+}
+
+@media (max-width: 480px) {
+  section{padding-top:68px;padding-bottom:68px}
+  .hero-grid .hero-visual{min-height:500px}
+  .hero-visual .present-image{height:min(132vw,590px)}
+  .navbar{min-height:70px}
+}
+
+
+/* V3.8 · full-width mobile navigation */
+@media (max-width:760px){
+  html.menu-open,body.menu-open{overflow:hidden!important;overscroll-behavior:none}
+  .navbar{min-height:76px!important}
+  .brand{width:58px!important;max-width:58px!important}
+  .brand img{content:url("assets/senses-sun.png");width:58px!important;height:58px!important;object-fit:contain}
+  .menu{position:relative;z-index:1002;min-width:68px;text-align:right}
+  .nav{
+    position:fixed!important;
+    inset:76px 0 0!important;
+    transform:none!important;
+    width:100%!important;
+    max-width:none!important;
+    height:calc(100dvh - 76px)!important;
+    padding:20px 7vw 132px!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain;
+    background:#FAC700!important;
+    border:0!important;
+    border-top:1px solid rgba(50,8,64,.25)!important;
+    z-index:1000!important
+  }
+  .nav.open{display:grid!important;align-content:start}
+  .navbar.menu-open .actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:1001;
+    padding:16px 7vw calc(16px + env(safe-area-inset-bottom));
+    background:#FAC700;
+    border-top:1px solid rgba(50,8,64,.25)
+  }
+  .navbar.menu-open .actions a{
+    display:grid;
+    place-items:center;
+    min-height:48px;
+    padding:12px;
+    border:1px solid var(--purple);
+    font:600 11px/1.2 "Cinzel",serif;
+    letter-spacing:.1em;
+    text-decoration:none;
+    text-transform:uppercase
+  }
+  .navbar.menu-open .actions .button{background:var(--purple);color:#fff}
+}
+@media (max-width:480px){
+  .navbar{min-height:70px!important}
+  .nav{inset:70px 0 0!important;height:calc(100dvh - 70px)!important}
+}

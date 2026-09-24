@@ -1,0 +1,388 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display+SC:wght@400;700&display=swap');
+:root{--purple:#320840;--deep-purple:#1F0044;--yellow:#FAC700;--gold:#b78312;--cream:#f7f1e5;--paper:#fffaf0;--earth:#6f5743;--sage:#aab5a2;--charcoal:#241f25;--line:#ded2bd;--forest:#320840;--manuscript:#efe0bd}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--charcoal);font:19px/1.58 "Crimson Text",Georgia,serif}
+a{color:inherit}.wrap{width:min(1180px,88vw);margin:auto}.eyebrow,.nav a,.button,.kicker{font:500 11px/1.2 "Cinzel",serif;text-transform:uppercase;letter-spacing:.13em}.eyebrow{color:var(--earth);margin-bottom:18px}
+header{position:sticky;top:0;z-index:20;background:rgba(251,248,241,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.navbar{min-height:76px;display:flex;align-items:center;gap:28px}.brand{text-decoration:none;margin-right:auto}.brand strong{display:block;font:700 20px/1 "Playfair Display SC";letter-spacing:.06em}.brand small{font:500 9px "Cinzel";letter-spacing:.22em}.nav{display:flex;gap:21px}.nav a{text-decoration:none}.actions{display:flex;gap:12px;align-items:center}.button{display:inline-block;text-decoration:none;padding:13px 18px;border:1px solid var(--forest);background:var(--forest);color:#fff}.button.ghost{background:transparent;color:var(--forest)}.menu{display:none}
+.hero{padding:105px 0 70px;min-height:76vh;background:linear-gradient(125deg,var(--cream),var(--paper))}.hero h1,h1,h2{font-family:"Playfair Display SC";line-height:1.04;margin:0}.hero h1{font-size:clamp(48px,7.4vw,104px);letter-spacing:-.025em;max-width:1080px}.hero p{font-size:26px;max-width:730px;margin:30px 0}.hero .kicker{margin-top:72px}
+section{padding:85px 0;border-top:1px solid var(--line)}h1{font-size:clamp(45px,6vw,80px)}h2{font-size:clamp(35px,4.4vw,62px);margin-bottom:24px}h3{font:600 23px "Cinzel";line-height:1.25}.lead{font-size:25px;max-width:800px}.two{display:grid;grid-template-columns:1fr 1fr;gap:8vw}.cards{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:45px}.card{padding:38px 30px;min-height:300px;border-right:1px solid var(--line)}.card:last-child{border:0}.card .num{font:400 10px "Cinzel";letter-spacing:.15em}.card b{font-weight:400;font-style:italic}.dark{background:var(--forest);color:var(--cream)}.dark .eyebrow{color:var(--sage)}.quote{font:400 clamp(40px,6vw,76px)/1.12 "Playfair Display SC";border-left:1px solid var(--sage);padding-left:7vw}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 50px;margin:40px 0}.grid3 b{font-family:"Cinzel";font-size:14px}.panel{padding:36px;background:var(--cream);border:1px solid var(--line)}.crumb{padding:28px 0 0;font:500 10px "Cinzel";text-transform:uppercase;letter-spacing:.12em}.pagehero{padding:65px 0 70px}.pagehero p{font-size:25px;max-width:780px}.program{padding:35px 0;border-top:1px solid var(--line)}.program h3{margin-bottom:8px}.support{background:var(--cream)}footer{background:var(--charcoal);color:var(--cream);padding:48px 0;font-size:16px}footer .wrap{display:flex;justify-content:space-between;gap:30px}footer strong{font:700 18px "Playfair Display SC"}footer a{text-decoration:none}
+@media(max-width:900px){.nav,.actions{display:none}.menu{display:block;background:none;border:0;font:500 11px "Cinzel";text-transform:uppercase}.nav.open{display:flex;position:absolute;top:76px;left:0;right:0;padding:28px 6vw;background:var(--paper);flex-direction:column;border-bottom:1px solid var(--line)}.two{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){body{font-size:18px}.wrap{width:88vw}.hero{padding-top:70px}.hero h1{font-size:43px}.hero p,.lead,.pagehero p{font-size:22px}.cards,.grid3{grid-template-columns:1fr}.card{min-height:0;border-right:0;border-bottom:1px solid var(--line)}footer .wrap{flex-direction:column}}
+
+.brand img{display:block;width:142px;height:auto}
+.hero{position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-8vw;bottom:-17vw;width:46vw;height:46vw;border:1px solid rgba(50,8,64,.12);border-radius:50%;pointer-events:none}
+.sun-rule{height:5px;background:var(--yellow);width:72px;margin:22px 0}
+.accent-band{background:var(--yellow);color:var(--purple)}
+.accent-band .eyebrow{color:var(--purple)}
+
+.photo-wide{width:100%;height:clamp(320px,48vw,650px);object-fit:cover;display:block}
+.photo-card{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.figure{margin:0}.figure figcaption{font:400 12px/1.4 "Cinzel";letter-spacing:.06em;padding-top:10px;color:var(--earth)}
+.image-split{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center}
+@media(max-width:760px){.image-split{grid-template-columns:1fr}}
+
+.gallery-grid{columns:3 280px;column-gap:22px}
+.gallery-item{break-inside:avoid;margin:0 0 22px}
+.gallery-item img{width:100%;height:auto;display:block}
+.gallery-item figcaption{font:400 11px/1.5 "Cinzel";letter-spacing:.05em;color:var(--earth);padding:8px 0 2px}
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.photo-strip img{width:100%;height:360px;object-fit:cover;display:block}
+@media(max-width:760px){.photo-strip{grid-template-columns:1fr}.photo-strip img{height:auto}}
+
+/* V3.1 QA */
+a:focus-visible,button:focus-visible{outline:3px solid #FAC700;outline-offset:4px}
+img{max-width:100%}
+@media(max-width:900px){
+  .nav{align-items:flex-start;gap:16px}
+  .nav nav{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:flex-end}
+}
+@media(max-width:620px){
+  .nav{display:block}
+  .nav nav{justify-content:flex-start;margin-top:14px}
+  .nav nav a{padding:5px 0}
+  h1{overflow-wrap:break-word}
+}
+
+/* V3.2 · Vedic manuscript / Milwaukee field-journal system */
+.eyebrow{display:flex;align-items:center;gap:12px}.eyebrow:before{content:"";width:34px;height:1px;background:var(--gold);flex:0 0 auto}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(300px,.72fr);gap:6vw;align-items:center}.hero-copy{position:relative;z-index:2}.hero-grid .hero-visual{position:relative;min-height:570px}.hero-visual .present-image{width:88%;height:520px;object-fit:cover;display:block;margin-left:auto;border-radius:180px 180px 0 0;filter:saturate(.88) contrast(1.02)}.hero-visual .tradition-image{position:absolute;left:0;bottom:24px;width:45%;aspect-ratio:1/1;object-fit:cover;border:9px solid var(--paper);box-shadow:0 18px 60px rgba(31,0,68,.18)}.hero-visual:after{content:"";position:absolute;right:-20px;top:-24px;width:110px;height:110px;border:1px solid rgba(183,131,18,.55);border-radius:50%}
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.text-link{font-family:"Cinzel";font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-underline-offset:5px}.sanskrit-note{margin-top:20px!important;font:500 11px/1.5 "Cinzel"!important;letter-spacing:.13em;text-transform:uppercase;color:var(--earth)}
+.vedic-rule{height:14px;background:var(--purple);position:relative;border-top:3px solid var(--yellow);border-bottom:3px solid var(--yellow)}.vedic-rule:after{content:"◆   ◇   ◆   ◇   ◆";position:absolute;inset:0;text-align:center;color:var(--yellow);font-size:7px;line-height:8px;letter-spacing:2.2em;overflow:hidden}
+.four-foundations{display:grid;grid-template-columns:repeat(4,1fr);background:var(--deep-purple);color:var(--cream);border-top:1px solid rgba(250,199,0,.45);border-bottom:1px solid rgba(250,199,0,.45)}.foundation{padding:32px 28px;border-right:1px solid rgba(250,199,0,.28)}.foundation:last-child{border-right:0}.foundation span{display:block;color:var(--yellow);font:600 12px/1.3 "Cinzel";letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}.foundation p{margin:0;font-size:17px;color:#eee1cd}
+.manuscript{background:linear-gradient(90deg,rgba(183,131,18,.07) 1px,transparent 1px),linear-gradient(var(--manuscript),#f7edd6);background-size:48px 48px,auto}.tradition-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:7vw;align-items:center}.tradition-frame{position:relative;padding:22px;border:1px solid rgba(183,131,18,.6);background:rgba(255,250,240,.75)}.tradition-frame:before,.tradition-frame:after{content:"◆";position:absolute;color:var(--gold);background:var(--manuscript);padding:0 8px;left:50%;transform:translateX(-50%)}.tradition-frame:before{top:-12px}.tradition-frame:after{bottom:-12px}.tradition-frame img{display:block;width:100%;height:auto}.tradition-frame figcaption{padding:14px 4px 0;color:var(--earth);font:500 10px/1.5 "Cinzel";letter-spacing:.08em;text-transform:uppercase}
+.status{display:inline-block;margin-bottom:12px;padding:5px 9px;border:1px solid currentColor;font:600 9px/1 "Cinzel";letter-spacing:.12em;text-transform:uppercase}.status.active{color:var(--purple);background:rgba(250,199,0,.3)}.status.developing{color:var(--earth)}
+.journey-line{display:grid;grid-template-columns:repeat(5,1fr);margin:44px 0 0;border-top:1px solid var(--gold)}.journey-step{position:relative;padding:25px 22px 10px}.journey-step:before{content:"";position:absolute;top:-6px;left:22px;width:11px;height:11px;background:var(--yellow);border:2px solid var(--purple);transform:rotate(45deg)}.journey-step b{display:block;font:600 12px "Cinzel";text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px}.journey-step p{margin:0;font-size:16px}
+.pull-verse{font:400 clamp(29px,4vw,52px)/1.25 "Playfair Display SC";color:var(--purple);max-width:940px;text-align:center;margin:0 auto}.pull-verse small{display:block;margin-top:22px;font:500 10px/1.5 "Cinzel";letter-spacing:.14em;text-transform:uppercase;color:var(--earth)}
+.cards a.card{text-decoration:none;color:inherit}.cards a.card:hover{background:var(--cream)}
+.pagehero{position:relative;overflow:hidden}.pagehero:after{content:"";position:absolute;right:4vw;bottom:-120px;width:310px;height:310px;border:1px solid rgba(183,131,18,.25);border-radius:50%;pointer-events:none}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-grid .hero-visual{min-height:440px}.hero-visual .present-image{height:420px}.four-foundations{grid-template-columns:1fr 1fr}.foundation:nth-child(2){border-right:0}.journey-line{grid-template-columns:1fr 1fr}.journey-step:last-child{grid-column:1/-1}}
+@media(max-width:760px){.tradition-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.hero-grid .hero-visual{min-height:370px}.hero-visual .present-image{height:350px;width:92%}.hero-visual .tradition-image{width:48%;border-width:6px}.four-foundations,.journey-line{grid-template-columns:1fr}.foundation{border-right:0;border-bottom:1px solid rgba(250,199,0,.28)}.journey-step:last-child{grid-column:auto}.vedic-rule:after{letter-spacing:1em}}
+
+/* V3.3 · people, pathways and living-site documentation */
+.founder-section{background:linear-gradient(135deg,var(--paper),var(--cream))}.founder-grid{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:7vw;align-items:center}.founder-portrait{margin:0;position:relative}.founder-portrait:before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--gold);z-index:0}.founder-portrait img{display:block;width:100%;max-height:720px;object-fit:cover;object-position:center top;position:relative;z-index:1}.founder-portrait figcaption{position:relative;z-index:1;padding-top:10px;color:var(--earth);font:500 10px/1.4 "Cinzel";letter-spacing:.08em;text-transform:uppercase}.founder-role{margin:-10px 0 22px;color:var(--gold);font:600 11px/1.4 "Cinzel";letter-spacing:.13em;text-transform:uppercase}.journey-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}.journey-gallery figure{margin:0;background:var(--paper);border:1px solid rgba(183,131,18,.45);padding:10px}.journey-gallery img{display:block;width:100%;height:360px;object-fit:cover}.journey-gallery figcaption,.gallery-credit{color:var(--earth);font:500 10px/1.5 "Cinzel";letter-spacing:.08em;text-transform:uppercase}.journey-gallery figcaption{padding:12px 5px 4px}.gallery-credit{text-align:center;margin:20px auto 0;max-width:760px}.center-actions{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin-top:30px}
+@media(max-width:760px){.founder-grid,.journey-gallery{grid-template-columns:1fr}.founder-portrait{max-width:520px}.journey-gallery img{height:auto}}
+
+/* V3.4 · interactive Living YAGI Archive */
+.field-hero{padding:65px 0 80px;background:linear-gradient(125deg,var(--cream),var(--paper));overflow:hidden}.field-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:7vw;align-items:center}.field-cover{margin:0;transform:rotate(1.5deg);padding:13px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 70px rgba(50,8,64,.13)}.field-cover img{display:block;width:100%;height:500px;object-fit:cover}.field-cover figcaption{padding:11px 3px 2px;color:var(--earth);font:500 10px/1.4 "Cinzel";letter-spacing:.08em;text-transform:uppercase}.field-principle{background:var(--yellow);border:0}.field-principle blockquote{margin:0 auto;max-width:980px;text-align:center;color:var(--purple);font:400 clamp(28px,4.2vw,54px)/1.2 "Playfair Display SC"}.field-principle cite{display:block;margin-top:24px;font:600 11px/1.5 "Cinzel";letter-spacing:.12em;text-transform:uppercase}.archive-section{background:linear-gradient(90deg,rgba(183,131,18,.055) 1px,transparent 1px),var(--paper);background-size:42px 42px}.archive-intro{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:end}.archive-filters{position:sticky;top:77px;z-index:8;display:flex;gap:9px;flex-wrap:wrap;margin:42px 0 54px;padding:13px;background:rgba(255,250,240,.93);border:1px solid var(--line);backdrop-filter:blur(10px)}.archive-filter{cursor:pointer;padding:11px 14px;border:1px solid var(--line);background:transparent;color:var(--purple);font:600 11px/1 "Cinzel";letter-spacing:.06em;text-transform:uppercase}.archive-filter:hover,.archive-filter.active{background:var(--purple);border-color:var(--purple);color:#fff}.journal-thread{position:relative;max-width:1060px;margin:auto}.journal-thread:before{content:"";position:absolute;left:28px;top:0;bottom:0;width:1px;background:var(--gold)}.journal-entry{position:relative;padding:0 0 92px 86px}.journal-entry[hidden]{display:none}.thread-marker{position:absolute;left:0;top:0;width:57px;height:57px;display:grid;place-items:center;background:var(--paper);color:var(--purple);border:1px solid var(--gold);border-radius:50%;font:600 11px "Cinzel"}.journal-date{margin-bottom:18px;color:var(--earth);font:600 11px/1.4 "Cinzel";letter-spacing:.13em;text-transform:uppercase}.journal-layout{display:grid;grid-template-columns:1.04fr .96fr;gap:4vw;align-items:center}.journal-layout.reverse .journal-copy{order:2}.journal-layout.reverse figure{order:1}.journal-layout figure{margin:0;position:relative;padding:10px;background:#fff;border:1px solid var(--line);box-shadow:0 16px 44px rgba(31,0,68,.08)}.journal-layout figure:after{content:"✦";position:absolute;right:-13px;top:-17px;color:var(--gold);font-size:24px}.journal-layout img{display:block;width:100%;height:390px;object-fit:cover}.journal-layout figcaption{padding:10px 4px 3px;color:var(--earth);font:500 10px/1.4 "Cinzel";letter-spacing:.06em;text-transform:uppercase}.note-type{display:inline-block;margin-bottom:15px;padding-bottom:4px;border-bottom:2px solid var(--yellow);color:var(--purple);font:600 10px/1.2 "Cinzel";letter-spacing:.14em;text-transform:uppercase}.journal-copy h3{font:600 clamp(24px,3vw,38px)/1.15 "Playfair Display SC";margin:0 0 20px}.journal-copy blockquote{margin:0;color:var(--purple);font:italic 26px/1.35 "Crimson Text"}.attribution{margin-top:18px;color:var(--earth);font:600 10px/1.5 "Cinzel";letter-spacing:.08em;text-transform:uppercase}.journal-copy details{margin-top:25px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0}.journal-copy summary{cursor:pointer;color:var(--purple);font:600 11px/1.4 "Cinzel";letter-spacing:.08em;text-transform:uppercase}.journal-copy details p{margin:15px 0 4px}.text-entry .journal-copy.full{padding:48px;background:var(--manuscript);border:1px solid rgba(183,131,18,.5)}.large-quote{font-size:clamp(28px,4vw,48px)!important}.archive-empty{text-align:center;font-style:italic}.archive-filter:focus-visible,.journal-copy summary:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+@media(max-width:850px){.field-hero-grid,.archive-intro,.journal-layout{grid-template-columns:1fr}.field-cover img{height:auto}.journal-layout.reverse .journal-copy,.journal-layout.reverse figure{order:initial}.archive-filters{position:static}.journal-layout img{height:auto}}
+@media(max-width:560px){.journal-thread:before{left:18px}.journal-entry{padding-left:57px;padding-bottom:68px}.thread-marker{width:38px;height:38px}.text-entry .journal-copy.full{padding:28px 23px}.archive-filter{font-size:10px;padding:10px}.field-principle blockquote{font-size:28px}}
+
+/* V3.5 · public calendar and stewardship impact */
+.calendar-heading{display:grid;grid-template-columns:1.2fr .8fr;gap:6vw;align-items:end;margin-bottom:32px}.calendar-heading h2{margin-bottom:0}.calendar-frame{overflow:hidden;border:1px solid var(--gold);background:var(--cream);box-shadow:0 18px 55px rgba(31,0,68,.1)}.calendar-frame iframe{display:block;width:100%;height:720px;border:0}.calendar-note,.reporting-note{color:var(--earth);font-size:16px}.calendar-note{margin:17px 0 0}.reporting-note{padding:17px 20px;border-left:3px solid var(--yellow);background:rgba(250,199,0,.1)}
+.impact-hero{padding:72px 0 92px;background:linear-gradient(125deg,var(--cream),var(--paper));overflow:hidden}.impact-hero-grid{display:grid;grid-template-columns:1fr .9fr;gap:7vw;align-items:center}.impact-collage{position:relative;margin:0;padding-bottom:55px}.impact-main{display:block;width:88%;height:560px;margin-left:auto;object-fit:cover;border-radius:190px 190px 0 0}.impact-inset{position:absolute;left:0;bottom:38px;width:46%;aspect-ratio:1/1;object-fit:cover;border:9px solid var(--paper);box-shadow:0 16px 55px rgba(31,0,68,.18)}.impact-collage figcaption{position:absolute;right:0;bottom:0;width:48%;color:var(--earth);font:500 10px/1.5 "Cinzel";letter-spacing:.07em;text-transform:uppercase}.impact-pathways{display:grid;grid-template-columns:repeat(5,1fr);margin-top:52px;border:1px solid var(--line)}.impact-pathways article{padding:30px 24px;border-right:1px solid var(--line)}.impact-pathways article:last-child{border:0}.impact-pathways span{color:var(--gold);font:600 10px "Cinzel";letter-spacing:.13em}.impact-pathways h3{font-size:18px}.impact-pathways p{font-size:16px}.impact-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}.impact-gallery figure{margin:0;padding:10px;background:var(--paper);border:1px solid rgba(183,131,18,.45)}.impact-gallery img{display:block;width:100%;height:390px;object-fit:cover}.impact-gallery figcaption{padding:12px 5px 3px;color:var(--earth);font:500 10px/1.5 "Cinzel";letter-spacing:.07em;text-transform:uppercase}.impact-actions .card{min-height:270px}
+@media(max-width:980px){.impact-pathways{grid-template-columns:repeat(2,1fr)}.impact-pathways article{border-bottom:1px solid var(--line)}.impact-pathways article:nth-child(even){border-right:0}.impact-pathways article:last-child{grid-column:1/-1}}
+@media(max-width:760px){.calendar-heading,.impact-hero-grid,.impact-gallery{grid-template-columns:1fr}.calendar-frame iframe{height:650px}.impact-main{height:450px}.impact-gallery img{height:auto}}
+@media(max-width:560px){.calendar-frame iframe{height:580px}.impact-pathways{grid-template-columns:1fr}.impact-pathways article{border-right:0}.impact-pathways article:last-child{grid-column:auto}.impact-main{height:370px}}
+
+/* V3.6 · dated public impact evidence */
+.metrics-section{background:var(--deep-purple);color:var(--cream)}.metrics-heading{display:grid;grid-template-columns:1.15fr .85fr;gap:6vw;align-items:end;margin-bottom:42px}.metrics-heading h2{margin:0}.metrics-heading>p{color:#dccfb8;font-style:italic}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(250,199,0,.4)}.metric-grid article{padding:30px 27px;border-right:1px solid rgba(250,199,0,.28);border-bottom:1px solid rgba(250,199,0,.28)}.metric-grid article:nth-child(3n){border-right:0}.metric-grid article:nth-last-child(-n+3){border-bottom:0}.metric-grid strong{display:block;color:var(--yellow);font:400 clamp(38px,5vw,66px)/1 "Playfair Display SC"}.metric-grid strong span{font-size:.48em}.metric-grid h3{font-size:15px;color:#fff}.metric-grid p{font-size:16px;color:#ddcfba}.metric-primary{background:rgba(250,199,0,.08)}.evidence-note{max-width:950px;margin:24px 0 0;color:#d8cab5;font-size:15px;font-style:italic}
+@media(max-width:760px){.metrics-heading{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.metric-grid article:nth-child(3n){border-right:1px solid rgba(250,199,0,.28)}.metric-grid article:nth-child(even){border-right:0}.metric-grid article:nth-last-child(-n+3){border-bottom:1px solid rgba(250,199,0,.28)}.metric-grid article:nth-last-child(-n+2){border-bottom:0}}
+@media(max-width:560px){.metric-grid{grid-template-columns:1fr}.metric-grid article,.metric-grid article:nth-child(3n),.metric-grid article:nth-child(even){border-right:0}.metric-grid article:nth-last-child(-n+2){border-bottom:1px solid rgba(250,199,0,.28)}.metric-grid article:last-child{border-bottom:0}}
+
+/* V3.7 · full-frame photography and balanced navigation */
+.navbar{width:min(1360px,94vw);gap:18px;min-height:72px}.brand{flex:0 0 auto}.brand img{width:118px}.nav{gap:14px;align-items:center;white-space:nowrap}.nav a{font-size:10px;letter-spacing:.09em}.actions{gap:9px;white-space:nowrap}.actions>a:not(.button){font:500 10px/1.2 "Cinzel",serif;text-transform:uppercase;letter-spacing:.09em}.actions .button{padding:11px 14px;font-size:10px}
+.photo-wide,.photo-card,.photo-strip img,.hero-visual .present-image,.hero-visual .tradition-image,.founder-portrait img,.journey-gallery img,.field-cover img,.journal-layout img,.impact-main,.impact-inset,.impact-gallery img{height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center}
+.hero-visual .present-image{width:88%;margin-left:auto}.hero-visual .tradition-image{height:auto}.field-cover img,.journal-layout img,.impact-gallery img{background:var(--cream)}
+@media(max-width:1120px){.navbar{width:min(1180px,92vw)}.nav{gap:10px}.nav a{font-size:9px;letter-spacing:.06em}.brand img{width:105px}.actions .button{padding:10px 11px}}
+@media(max-width:980px){.nav,.actions{display:none}.menu{display:block}.nav.open{display:flex;position:absolute;top:72px;left:0;right:0;padding:26px 6vw;background:var(--paper);flex-direction:column;align-items:flex-start;gap:14px;border-bottom:1px solid var(--line);white-space:normal}.nav.open a{font-size:12px;letter-spacing:.1em}.navbar{min-height:72px}.brand img{width:118px}}
+
+/* V3.8 · photographic homepage opening */
+.home-photo-hero{position:relative;isolation:isolate;min-height:clamp(620px,78vh,820px);padding:0;background:var(--deep-purple);color:#fff;display:grid;align-items:end}.home-photo-hero:after{display:none}.home-hero-media{position:absolute;inset:0;z-index:-3;display:grid;grid-template-columns:1fr 1fr;background:#160020;overflow:hidden}.home-hero-media img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}.home-hero-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(20,0,35,.9) 0%,rgba(31,0,68,.7) 42%,rgba(31,0,68,.38) 72%,rgba(20,0,35,.55) 100%)}.home-hero-content{padding-top:clamp(90px,12vh,140px);padding-bottom:clamp(70px,10vh,110px)}.home-photo-hero .hero-copy{max-width:850px;text-shadow:0 2px 24px rgba(0,0,0,.48)}.home-photo-hero h1{font-size:clamp(54px,8vw,112px)}.home-photo-hero .hero-copy>p{max-width:680px}.home-photo-hero .eyebrow,.home-photo-hero .sanskrit-note{color:#f5ead7}.home-photo-hero .eyebrow:before{background:var(--yellow)}.home-photo-hero .button{background:#fff;color:var(--purple);border-color:#fff}.home-photo-hero .text-link{color:#fff}.home-photo-hero .sanskrit-note{margin-top:54px!important}
+@media(max-width:760px){.home-photo-hero{min-height:720px;align-items:end}.home-hero-media{grid-template-columns:1fr;grid-template-rows:1fr 1fr}.home-hero-media img{height:100%;object-fit:contain}.home-hero-shade{background:linear-gradient(0deg,rgba(20,0,35,.94) 0%,rgba(31,0,68,.66) 60%,rgba(20,0,35,.38) 100%)}.home-hero-content{padding-top:100px;padding-bottom:62px}.home-photo-hero h1{font-size:clamp(48px,14vw,70px)}.home-photo-hero .sanskrit-note{margin-top:36px!important}}
+
+/* V3.9 · original-site inspired single-image hero */
+.home-photo-hero{min-height:clamp(680px,78vw,920px);align-items:center;text-align:center}.home-hero-media{display:block;background:#160020}.home-hero-media img{width:100%;height:100%;object-fit:contain}.home-hero-shade{background:linear-gradient(180deg,rgba(22,0,32,.54),rgba(31,0,68,.72))}.home-hero-content{padding:110px 0}.home-photo-hero .hero-copy{max-width:1040px;margin:auto}.home-photo-hero .hero-copy>p{max-width:720px;margin:28px auto}.home-photo-hero .eyebrow{justify-content:center}.home-photo-hero .hero-actions{justify-content:center}.home-photo-hero h1{font-size:clamp(45px,6.4vw,88px);line-height:1.08}.home-photo-hero .sanskrit-note{margin-top:58px!important;letter-spacing:.2em}
+@media(max-width:760px){.home-photo-hero{min-height:680px;text-align:left}.home-hero-media{display:block}.home-hero-media img{height:100%;object-fit:contain}.home-hero-content{padding:90px 0 60px}.home-photo-hero .hero-copy,.home-photo-hero .hero-copy>p{margin-left:0}.home-photo-hero .eyebrow,.home-photo-hero .hero-actions{justify-content:flex-start}.home-photo-hero h1{font-size:clamp(38px,11vw,58px)}.home-photo-hero .sanskrit-note{margin-top:42px!important}}
+
+/* V3.10 · restore the schools, sacred arts and Heroic Yogi archetypes */
+main:before{content:"SĀDHANĀ  ·  SVĀDHYĀYA  ·  SEVĀ  ·  SAṄGHA";display:block;padding:8px 5vw;text-align:center;background:var(--deep-purple);color:#e8c766;border-bottom:1px solid rgba(250,199,0,.6);font:500 9px/1.4 "Cinzel",serif;letter-spacing:.35em}
+.pagehero{background:radial-gradient(circle at 84% 48%,transparent 0 72px,rgba(183,131,18,.18) 73px 74px,transparent 75px 103px,rgba(183,131,18,.11) 104px 105px,transparent 106px),linear-gradient(135deg,var(--paper),var(--cream))}
+.pagehero .wrap:before{content:"✦";display:block;margin-bottom:14px;color:var(--gold);font-size:22px}
+.school-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:42px 0;border:1px solid var(--line);background:rgba(255,250,240,.72)}
+.school-grid>div{position:relative;padding:38px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.school-grid>div:nth-child(even){border-right:0}.school-grid>div:nth-last-child(-n+2){border-bottom:0}
+.school-grid h3{margin:8px 0 14px}.school-grid p{margin:0 0 12px}.school-featured{background:linear-gradient(135deg,rgba(50,8,64,.97),rgba(31,0,68,.97));color:var(--cream)}
+.school-featured h3,.school-featured .status{color:var(--yellow)}.school-featured .status{background:transparent}.school-featured .school-path{color:#e4d4bc}
+.school-seal{display:grid;place-items:center;width:74px;height:74px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font:500 18px "Crimson Text",serif;background:radial-gradient(circle,rgba(250,199,0,.1),transparent 67%)}
+.school-path{color:var(--earth);font-style:italic}.nada-band{background:var(--deep-purple);color:var(--cream);border-top:4px double var(--gold)}.nada-band .eyebrow,.nada-band .text-link{color:var(--yellow)}.nada-band .lead{color:#f1e3cc}.nada-program{padding:45px 38px!important;margin:25px 0;background:linear-gradient(120deg,var(--deep-purple),var(--purple));color:var(--cream);border:1px solid var(--gold)!important}.nada-program h3,.nada-program .status{color:var(--yellow)}.nada-program .school-path{color:#e5d7c1}
+.archetype-section{background:linear-gradient(90deg,rgba(183,131,18,.06) 1px,transparent 1px),linear-gradient(var(--manuscript),#f8eed7);background-size:44px 44px,auto}.archetype-intro{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:end;margin-bottom:50px}.archetype-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.archetype-card{display:flex;flex-direction:column;background:var(--paper);border:1px solid rgba(183,131,18,.55);box-shadow:0 18px 46px rgba(50,8,64,.1)}.archetype-card figure{margin:0;padding:12px 12px 0}.archetype-card img{display:block;width:100%;height:auto;object-fit:contain;background:#eadfca}.archetype-copy{padding:25px 25px 30px}.archetype-copy h3{margin:9px 0 13px;font-family:"Playfair Display SC"}.sanskrit-label{color:var(--gold);font:600 10px/1.4 "Cinzel";letter-spacing:.12em;text-transform:uppercase}.archetype-dark{background:var(--deep-purple);color:var(--cream)}.archetype-dark .archetype-copy p{color:#e3d5c0}.art-credit{margin-top:22px;color:var(--earth);font:500 10px/1.5 "Cinzel";letter-spacing:.06em;text-transform:uppercase}.inline-link{display:inline-block;margin:14px 0 0 18px}
+@media(max-width:850px){.archetype-intro{grid-template-columns:1fr}.archetype-gallery{grid-template-columns:1fr 1fr}.archetype-card:last-child{grid-column:1/-1}.archetype-card:last-child figure{max-width:540px;margin:auto}}
+@media(max-width:650px){main:before{letter-spacing:.16em;font-size:8px}.school-grid,.archetype-gallery{grid-template-columns:1fr}.school-grid>div,.school-grid>div:nth-child(even),.school-grid>div:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}.school-grid>div:last-child{border-bottom:0}.archetype-card:last-child{grid-column:auto}.inline-link{display:block;margin-left:0}}
+
+/* V3.11 · Creative game development and Dream Master */
+.dream-master-section{background:#071725;color:#f6ead4;border-top:4px double var(--gold)}.dream-master-heading{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;align-items:end}.dream-master-section .eyebrow,.dream-master-section .status,.creator-credit{color:#e8c766}.creator-credit{margin:18px 0 0;font:600 11px/1.6 "Cinzel";letter-spacing:.08em;text-transform:uppercase}.dream-master-section .lead{color:#f3e7d3}.dream-master-copy{margin:58px 0 38px}.dream-master-copy h3{color:#e8c766}.dream-master-loop{display:grid;grid-template-columns:repeat(7,1fr);margin:30px 0 48px;border:1px solid rgba(232,199,102,.45)}.dream-master-loop span{position:relative;padding:17px 10px;text-align:center;border-right:1px solid rgba(232,199,102,.3);color:#f5e8d0;font:600 9px/1.3 "Cinzel";letter-spacing:.1em;text-transform:uppercase}.dream-master-loop span:last-child{border-right:0}.concept-gallery{display:grid;grid-template-columns:1fr;gap:30px}.concept-gallery figure{margin:0;padding:12px;background:#0d2232;border:1px solid rgba(232,199,102,.45)}.concept-gallery img{display:block;width:100%;height:auto;object-fit:contain}.concept-gallery figcaption{padding:12px 5px 3px;color:#d9c79f;font:500 10px/1.5 "Cinzel";letter-spacing:.08em;text-transform:uppercase}.development-note{margin:28px 0 0;padding:20px 22px;border-left:3px solid #e8c766;background:rgba(255,255,255,.05);color:#ddcfb8;font-style:italic}.concept-note{padding-top:14px;border-top:1px solid rgba(232,199,102,.35);color:#d8c9ad!important;font-size:16px;font-style:italic}
+@media(max-width:900px){.dream-master-heading{grid-template-columns:1fr}.dream-master-loop{grid-template-columns:repeat(4,1fr)}.dream-master-loop span:nth-child(4){border-right:0}.dream-master-loop span:nth-child(-n+4){border-bottom:1px solid rgba(232,199,102,.3)}}
+@media(max-width:560px){.dream-master-loop{grid-template-columns:1fr 1fr}.dream-master-loop span,.dream-master-loop span:nth-child(4){border-right:1px solid rgba(232,199,102,.3);border-bottom:1px solid rgba(232,199,102,.3)}.dream-master-loop span:nth-child(even){border-right:0}.dream-master-loop span:last-child{grid-column:1/-1;border-right:0;border-bottom:0}}
+
+/* V3.12 · A Bow Before Study, archetypal gallery and living textual sources */
+.honor-open{overflow:hidden}.honor-gate[hidden],.honor-text[hidden]{display:none}.honor-gate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:auto;padding:40px 20px;background:radial-gradient(circle at 50% 42%,rgba(105,56,125,.58),transparent 26%),linear-gradient(145deg,#09020d,#1f0044 58%,#100018);color:#f8eedb;transition:opacity .5s ease,visibility .5s ease}.honor-gate:before{content:"";position:fixed;inset:22px;border:1px solid rgba(232,199,102,.36);pointer-events:none}.honor-gate-inner{width:min(860px,92vw);text-align:center}.honor-orb{position:relative;width:190px;height:190px;margin:auto;border:1px solid rgba(250,199,0,.78);border-radius:50%;background:radial-gradient(circle at 38% 30%,#fff7c2 0,#f0cb58 13%,#b78312 35%,#4f1c68 62%,#1f0044 100%);color:#fff;box-shadow:0 0 0 17px rgba(250,199,0,.06),0 0 70px rgba(250,199,0,.38),inset 0 0 32px rgba(255,255,255,.35);cursor:pointer;transition:transform .45s ease,box-shadow .45s ease}.honor-orb:before,.honor-orb:after{content:"";position:absolute;inset:-27px;border:1px solid rgba(232,199,102,.38);border-radius:50%;animation:orbreathe 4s ease-in-out infinite}.honor-orb:after{inset:-47px;border-style:dotted;animation-duration:8s}.honor-orb:hover,.honor-orb:focus-visible{transform:scale(1.04);box-shadow:0 0 0 23px rgba(250,199,0,.08),0 0 95px rgba(250,199,0,.55),inset 0 0 32px rgba(255,255,255,.42)}.honor-orb span{display:block}.honor-orb-mark{font:400 54px/1 "Crimson Text"}.honor-orb span:last-child{margin-top:14px;font:600 10px/1 "Cinzel";letter-spacing:.25em;text-transform:uppercase}.honor-gate.revealed{place-items:start center}.honor-gate.revealed .honor-orb{width:112px;height:112px;margin-bottom:38px}.honor-gate.revealed .honor-orb-mark{font-size:34px}.honor-gate.revealed .honor-orb span:last-child{display:none}.honor-text{max-width:800px;margin:auto;padding:38px 42px 44px;border:1px solid rgba(232,199,102,.5);background:rgba(9,2,13,.78);box-shadow:0 25px 90px rgba(0,0,0,.42);animation:honorreveal .7s ease both}.honor-text .eyebrow{color:#e8c766}.honor-text h2{font-size:clamp(34px,5vw,58px);color:#fff}.honor-text p{font-size:20px}.honor-distinction{color:#d7c8ae;font-style:italic}.honor-blessing{margin:28px 0;display:grid;gap:5px;color:#f3d87c;font:500 12px/1.6 "Cinzel";letter-spacing:.07em}.honor-enter{border-color:#e8c766;background:#e8c766;color:#1f0044}.honor-gate.departing{opacity:0;visibility:hidden}@keyframes orbreathe{50%{transform:scale(1.08);opacity:.62}}@keyframes honorreveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.home-archetypes{background:linear-gradient(90deg,rgba(183,131,18,.055) 1px,transparent 1px),#f3e5c7;background-size:48px 48px,auto}.home-archetype-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.home-archetype-grid article{display:flex;flex-direction:column;background:var(--paper);border:1px solid rgba(183,131,18,.58);box-shadow:0 14px 38px rgba(31,0,68,.09)}.home-archetype-grid img{display:block;width:100%;height:auto;object-fit:contain;background:#eadfc8}.home-archetype-grid article>div{padding:22px}.home-archetype-grid span{color:var(--gold);font:600 10px/1.4 "Cinzel";letter-spacing:.13em;text-transform:uppercase}.home-archetype-grid h3{margin:9px 0 12px;font-size:18px}.home-archetype-grid p{margin:0;font-size:16px}.archetype-credit{max-width:900px;margin:24px auto 0;text-align:center}
+.living-source{padding:68px 0;background:linear-gradient(135deg,#efe0bd,#fff8e9);border-top:4px double var(--gold)}.living-source-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:6vw;align-items:center}.living-source figure{margin:0;padding:12px;background:rgba(255,250,240,.72);border:1px solid rgba(183,131,18,.55);box-shadow:0 16px 44px rgba(31,0,68,.08)}.living-source img{display:block;width:100%;height:auto;object-fit:contain}.source-credit{color:var(--earth);font:500 10px/1.5 "Cinzel";letter-spacing:.06em;text-transform:uppercase}.source-credit a{text-underline-offset:4px}.source-principle{padding:15px 18px;border-left:3px solid var(--gold);background:rgba(255,250,240,.65);font-style:italic;color:var(--earth)}
+@media(max-width:1050px){.home-archetype-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.living-source-grid{grid-template-columns:1fr}.honor-gate{padding:28px 14px}.honor-gate:before{inset:10px}.honor-text{padding:30px 22px}.honor-text p{font-size:18px}.honor-orb{width:154px;height:154px}.honor-gate.revealed .honor-orb{width:88px;height:88px;margin-bottom:26px}.honor-gate.revealed .honor-orb-mark{font-size:28px}}
+@media(max-width:560px){.home-archetype-grid{grid-template-columns:1fr}.honor-blessing{font-size:10px}.honor-text h2{font-size:32px}}
+
+/* V3.13 · Heroic Yogi constellation */
+.heroic-home-hero{padding:44px 0 20px;min-height:0;background:radial-gradient(circle at 50% 41%,#382b47 0,#171626 58%,#100e1d 100%);color:#f8eedb;overflow:hidden}
+.heroic-home-hero:after{display:none}
+.heroic-stage{width:min(1440px,96vw);margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(380px,2.34fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:400px 370px;gap:18px;align-items:start}
+.heroic-portrait{margin:0;min-width:0;text-align:center;align-self:start;transition:transform .3s ease}
+.heroic-portrait:hover{transform:translateY(-7px)}
+.heroic-portrait img{display:block;width:100%;height:340px;object-fit:contain;object-position:center bottom;border:1px solid rgba(214,173,88,.55);border-radius:42% 42% 3px 3px;background:#232333;box-shadow:0 14px 38px rgba(0,0,0,.35)}
+.heroic-portrait figcaption{display:grid;gap:2px;padding:10px 2px;color:#e5d1a6}
+.heroic-portrait strong{font:600 14px/1.2 "Cinzel",serif;letter-spacing:.1em}
+.heroic-portrait span{font:italic 16px/1.2 "Crimson Text",serif}
+.portrait-ganesha{grid-column:1;grid-row:1}.portrait-shiva{grid-column:2;grid-row:1}.portrait-shakti{grid-column:4;grid-row:1}.portrait-krishna{grid-column:5;grid-row:1}
+.portrait-hanuman{grid-column:1/3;grid-row:2;justify-self:center;width:min(100%,380px)}.portrait-hanuman img{height:315px;border-radius:42% 42% 3px 3px}
+.portrait-rama{grid-column:4;grid-row:2}.portrait-sita{grid-column:5;grid-row:2}.portrait-rama img,.portrait-sita img{height:315px}
+.heroic-center{grid-column:3;grid-row:1/3;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;text-align:center;padding:54px 35px;background:radial-gradient(circle at 50% 92%,rgba(177,135,67,.2),transparent 36%),linear-gradient(135deg,#f6ead2,#fff5de 58%,#ead3aa);border:1px solid #b58d50;outline:1px solid rgba(208,170,102,.5);outline-offset:-12px;color:#25202a;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.heroic-center:before{content:"✦";font-size:29px;color:#9c743d;margin-bottom:25px}
+.heroic-center .eyebrow{justify-content:center;color:#705538;font-size:10px;line-height:1.5}
+.heroic-center .eyebrow:before{width:21px}
+.heroic-center h1{font-size:clamp(44px,4.5vw,76px);line-height:1.05;margin:12px 0 27px;letter-spacing:0}
+.heroic-center p{margin:0}
+.heroic-invocation{font-size:clamp(21px,2vw,30px);line-height:1.35}
+.heroic-mission{max-width:340px;margin:32px auto!important;padding-top:23px;border-top:1px solid #bfa375;font:500 12px/1.7 "Cinzel",serif;letter-spacing:.07em;text-transform:uppercase}
+.heroic-center .hero-actions{justify-content:center;gap:17px}
+.heroic-center .button{background:#241d31;color:#fff;border-color:#241d31}
+.heroic-center .text-link{font-size:11px}
+.heroic-mantra{margin-top:40px!important;color:#705538;font:500 10px/1.8 "Cinzel",serif;letter-spacing:.13em}
+.heroic-art-note{text-align:center;margin:22px auto 0!important;max-width:680px;color:#d7c8ae;font:italic 15px/1.4 "Crimson Text",serif!important}
+@media(max-width:1100px){.heroic-stage{width:min(960px,96vw);grid-template-columns:1fr 1fr minmax(330px,2.5fr) 1fr 1fr;grid-template-rows:345px 330px;gap:12px}.heroic-portrait img{height:285px}.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:275px}.heroic-center{padding:42px 24px}.heroic-center h1{font-size:51px}.heroic-invocation{font-size:22px}.heroic-mission{margin:23px auto!important}.heroic-mantra{margin-top:24px!important}}
+@media(max-width:850px){.heroic-stage{width:min(740px,92vw);grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto;gap:18px}.heroic-center{grid-column:1/-1;grid-row:1;min-height:460px}.heroic-portrait,.portrait-ganesha,.portrait-shiva,.portrait-shakti,.portrait-krishna,.portrait-hanuman,.portrait-rama,.portrait-sita{grid-column:auto;grid-row:auto;width:100%}.heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:250px}.heroic-portrait figcaption{min-height:54px}.heroic-center h1{font-size:58px}}
+@media(max-width:580px){.heroic-home-hero{padding:20px 0}.heroic-stage{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.heroic-center{padding:47px 22px;min-height:0}.heroic-center h1{font-size:clamp(42px,12vw,58px)}.heroic-invocation{font-size:21px}.heroic-center .hero-actions{flex-direction:column}.heroic-mantra{font-size:9px;letter-spacing:.05em}.heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:clamp(215px,57vw,310px)}.heroic-portrait strong{font-size:12px}.heroic-portrait span{font-size:14px}.heroic-art-note{padding:0 5vw}}
+@media(prefers-reduced-motion:reduce){.heroic-portrait{transition:none}}
+
+/* V3.14 · keep primary actions in the compact navigation */
+.mobile-nav-link{display:none!important}
+@media(max-width:980px){.nav.open .mobile-nav-link{display:block!important;font-weight:600}}
+
+/* V3.15 · complete photographic banners from the V3 visual archive */
+.site-photo-section{padding:0;border-top:4px double #b78312;background:#161320;color:#f5ead5}
+.site-photo-banner{margin:0}
+.site-photo-matte{min-height:260px;display:flex;justify-content:center;align-items:center;background:radial-gradient(circle at center,#38313a,#161320 72%);overflow:hidden}
+.site-photo-matte img{display:block;width:auto;height:auto;max-width:100%;max-height:min(58vw,580px);object-fit:contain}
+.photo-home .site-photo-matte img{max-height:min(70vw,760px)}
+.site-photo-banner figcaption{width:min(1180px,88vw);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 0 18px;border-top:1px solid rgba(232,199,102,.3)}
+.site-photo-banner figcaption span{font:500 11px/1.5 "Cinzel",serif;letter-spacing:.1em;text-transform:uppercase}
+.site-photo-banner figcaption small{color:#d7c8ae;font:italic 15px/1.4 "Crimson Text",serif}
+@media(max-width:650px){.site-photo-matte{min-height:0}.site-photo-matte img,.photo-home .site-photo-matte img{max-height:72vh}.site-photo-banner figcaption{display:block}.site-photo-banner figcaption small{display:block;margin-top:4px}}
+@media(prefers-reduced-motion:reduce){.honor-orb:before,.honor-orb:after{animation:none}.honor-text{animation:none}}
+
+/* Community gathering map */
+.calendar-hero{position:relative;isolation:isolate;overflow:hidden;background:#210735;color:#fff8ea;min-height:440px;display:flex;align-items:center}.calendar-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#210735 2%,rgba(33,7,53,.97) 38%,rgba(33,7,53,.24) 100%),url("assets/ramayana-traditional.webp") right center/auto 100% no-repeat;z-index:-1}.calendar-hero .wrap{position:relative}.calendar-hero .eyebrow,.calendar-hero p{color:#fff3da}.calendar-hero h1,.calendar-hero>p{max-width:670px}.calendar-art-credit{font-size:13px!important;margin-top:30px;color:#efd7ac!important}.calendar-art-credit a{text-underline-offset:3px}
+.community-map .leaflet-tile-pane{filter:sepia(.45) saturate(.55) hue-rotate(235deg) contrast(.92)}.community-map .leaflet-container{font-family:"Crimson Text",Georgia,serif}.senses-map-pin{background:#fac700;border:3px solid #320840;border-radius:50%;color:#320840;box-shadow:0 3px 0 rgba(31,0,68,.28),0 0 0 3px rgba(255,255,255,.85);display:grid;place-items:center;font:700 23px/1 Georgia,serif}.senses-map-pin span{position:relative;top:-1px}
+.community-map{height:min(66vh,520px);min-height:350px;border:1px solid var(--line);background:#e7e7dc;z-index:0}.map-location-list{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}.map-location-list a{font:500 11px/1.4 "Cinzel",serif;text-decoration:none;border:1px solid var(--line);padding:10px 13px;background:var(--paper)}.map-location-list a:hover{border-color:var(--purple)}.leaflet-popup-content p{margin:6px 0;font-size:14px}
+@media(max-width:760px){.calendar-hero{min-height:490px;align-items:end}.calendar-hero:before{background:linear-gradient(0deg,#210735 5%,rgba(33,7,53,.95) 45%,rgba(33,7,53,.33) 100%),url("assets/ramayana-traditional.webp") center top/auto 100% no-repeat}.calendar-hero .wrap{padding:160px 0 20px}.calendar-hero h1{font-size:clamp(40px,10vw,58px)}.calendar-hero p{font-size:20px}.calendar-art-credit{font-size:11px!important}}
+/* Compact mobile masthead and opening tableau */
+.public-events{display:grid;gap:14px;margin:28px 0}.public-event{display:grid;grid-template-columns:135px 1fr auto;align-items:center;gap:24px;padding:24px;border:1px solid var(--line);background:var(--paper)}.public-event-date{font:600 16px "Cinzel",serif;color:var(--purple)}.public-event .eyebrow{display:block;margin-bottom:8px;font-size:10px}.public-event h3{margin:0;font-size:20px}.public-event p{margin:8px 0 0;font-size:17px}.public-event-actions{display:flex;gap:8px;flex-wrap:wrap}.public-event-actions a{border:1px solid var(--purple);padding:9px 12px;text-decoration:none;font:500 10px "Cinzel",serif;text-transform:uppercase;white-space:nowrap}.public-event-actions a:hover{background:var(--purple);color:#fff}
+@media(max-width:760px){.public-event{grid-template-columns:1fr;gap:10px}.public-event-actions{margin-top:5px}}
+@media(max-width:580px){
+  header .navbar{width:90vw;min-height:68px;gap:12px}
+  header .brand{display:block;width:60px;max-width:60px;flex:0 0 60px;overflow:hidden}
+  header .brand img{display:block;width:60px;max-width:60px;height:58px;object-fit:contain}
+  header .menu{margin-left:auto;padding:10px 4px;font-size:11px;letter-spacing:.12em}
+  header .nav.open{top:68px;max-height:calc(100dvh - 68px);overflow-y:auto}
+  .heroic-home-hero{padding:16px 0 28px}
+  .heroic-stage{width:92vw;gap:12px}
+  .heroic-center{padding:28px 20px 24px;outline-offset:-8px}
+  .heroic-center:before{font-size:20px;margin-bottom:10px}
+  .heroic-center .eyebrow{font-size:9px;letter-spacing:.08em;margin-bottom:8px}
+  .heroic-center h1{font-size:clamp(38px,10vw,48px);margin:8px 0 16px}
+  .heroic-invocation{font-size:clamp(18px,4.8vw,21px);line-height:1.28}
+  .heroic-mission{margin:18px auto!important;padding-top:14px;font-size:10px}
+  .heroic-mantra{margin-top:18px!important;line-height:1.5}
+}
+
+/* Visitor entry and opt-in welcome sound */
+.home-doors{padding:55px 0 60px;background:var(--paper)}
+.home-doors h2{margin:0 0 25px}
+.home-door-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.home-door-grid a{display:flex;flex-direction:column;gap:12px;padding:24px;background:var(--cream);border:1px solid var(--gold);text-decoration:none;min-height:180px}
+.home-door-grid a:hover,.home-door-grid a:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+.home-door-grid strong{font:600 16px/1.3 "Cinzel",serif;color:var(--purple)}
+.home-door-grid span{font-size:17px}.home-door-grid em{margin-top:auto;font:600 11px "Cinzel",serif;font-style:normal;color:var(--purple)}
+.dream-connections-band{background:var(--manuscript);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.honor-sound-note{font-size:14px!important;color:#e8d9bd}
+.honor-music-choice{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px auto 0;color:#f3d87c;font:600 11px/1.4 "Cinzel",serif;letter-spacing:.05em;cursor:pointer}
+.honor-music-choice input{width:17px;height:17px;accent-color:#e8c766}
+.welcome-sound-control{position:fixed;right:18px;bottom:18px;z-index:80;padding:11px 15px;border:1px solid var(--gold);background:var(--deep-purple);color:#fff;font:600 10px/1.3 "Cinzel",serif;text-transform:uppercase;letter-spacing:.07em;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.honor-text .welcome-sound-control{position:static;margin:4px auto 0;background:transparent;color:#f8eedb;box-shadow:none}
+.welcome-sound-control:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+@media(max-width:720px){.home-door-grid{grid-template-columns:1fr}.home-door-grid a{min-height:0}.welcome-sound-control{right:10px;bottom:10px;padding:9px 11px}}
+
+/* V3.16 · luxury refinement: calmer framing and complete Heroic Yogi roster */
+header .navbar{min-height:82px}
+header .brand{display:flex;align-items:center;align-self:stretch}
+header .brand img{width:auto;height:68px;max-width:104px;object-fit:contain}
+header .nav a{position:relative;padding:31px 0 27px}
+header .nav a:after{content:"";position:absolute;left:0;right:100%;bottom:22px;height:1px;background:var(--gold);transition:right .25s ease}
+header .nav a:hover:after,header .nav a:focus-visible:after{right:0}
+.honor-gate{padding:24px;overflow:hidden}
+.honor-gate:before{inset:16px}
+.honor-gate.revealed{place-items:center}
+.honor-gate.revealed .honor-gate-inner{display:grid;grid-template-columns:92px minmax(0,720px);gap:24px;align-items:center;justify-content:center;width:min(920px,92vw)}
+.honor-gate.revealed .honor-orb{width:82px;height:82px;margin:0}
+.honor-gate.revealed .honor-orb-mark{font-size:28px}
+.honor-text{max-height:calc(100dvh - 64px);overflow:auto;padding:30px 38px 32px;background:rgba(9,2,13,.9);box-shadow:0 24px 70px rgba(0,0,0,.34)}
+.honor-text h2{font-size:clamp(31px,4vw,48px);margin:8px 0 16px;line-height:1.05}
+.honor-text p{font-size:17px;line-height:1.42;margin:10px 0}
+.honor-blessing{margin:20px 0 18px;grid-template-columns:1fr 1fr;gap:4px 20px;font-size:10px}
+.honor-music-choice{margin-top:12px}.honor-sound-note{font-size:12px!important;margin-bottom:0!important}
+.archetype-gallery-complete{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.archetype-gallery-complete .archetype-card{box-shadow:0 12px 32px rgba(50,8,64,.08)}
+.archetype-gallery-complete .archetype-card figure{display:flex;align-items:center;justify-content:center;min-height:310px;padding:14px;background:#e7dbc3}
+.archetype-gallery-complete .archetype-card img{max-height:360px;background:transparent}
+.archetype-gallery-complete .archetype-copy{padding:23px 22px 28px}
+.archetype-gallery-complete .archetype-copy h3{font-size:20px}
+.archetype-gallery-complete .archetype-copy p{font-size:17px;line-height:1.48}
+.archetype-roster{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));margin-top:48px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.archetype-roster>div{display:flex;flex-direction:column;gap:6px;min-height:154px;padding:21px 15px;border-right:1px solid rgba(183,131,18,.45)}
+.archetype-roster>div:last-child{border-right:0}
+.archetype-roster span{color:var(--gold);font:600 9px/1 "Cinzel";letter-spacing:.12em}
+.archetype-roster strong{color:var(--purple);font:600 17px/1.25 "Cinzel"}
+.archetype-roster small{margin-top:auto;color:var(--earth);font:italic 15px/1.25 "Crimson Text"}
+@media(max-width:1100px){.archetype-gallery-complete{grid-template-columns:1fr 1fr}.archetype-gallery-complete .archetype-card:last-child{grid-column:auto}.archetype-roster{grid-template-columns:repeat(4,1fr)}.archetype-roster>div{border-bottom:1px solid rgba(183,131,18,.45)}.archetype-roster>div:nth-child(4){border-right:0}.archetype-roster>div:nth-last-child(-n+3){border-bottom:0}}
+@media(max-width:980px){header .navbar{min-height:72px}header .brand img{height:60px;max-width:92px}header .nav a{padding:0}header .nav a:after{display:none}}
+@media(max-width:760px){.honor-gate{padding:14px;overflow:auto}.honor-gate.revealed{place-items:start center}.honor-gate.revealed .honor-gate-inner{display:block;width:min(600px,92vw);padding:20px 0}.honor-gate.revealed .honor-orb{width:64px;height:64px;margin:0 auto 14px}.honor-text{max-height:none;padding:24px 20px}.honor-text h2{font-size:30px}.honor-text p{font-size:16px}.honor-blessing{grid-template-columns:1fr}.archetype-gallery-complete{grid-template-columns:1fr}.archetype-gallery-complete .archetype-card figure{min-height:0}.archetype-roster{grid-template-columns:1fr 1fr}.archetype-roster>div,.archetype-roster>div:nth-child(4){border-right:1px solid rgba(183,131,18,.45);border-bottom:1px solid rgba(183,131,18,.45)}.archetype-roster>div:nth-child(even){border-right:0}.archetype-roster>div:last-child{grid-column:1/-1;border-right:0;border-bottom:0;min-height:118px}}
+@media(max-width:580px){header .brand{width:54px;max-width:54px;flex-basis:54px}header .brand img{width:auto;max-width:54px;height:52px}}
+
+/* V3.17 · homepage viewport and framing cleanup */
+.photo-home .site-photo-matte{min-height:0;padding:24px 5vw;background:radial-gradient(circle at center,#302a34,#12101a 74%)}
+.photo-home .site-photo-matte img{width:auto;max-width:min(100%,980px);max-height:min(54vh,560px);box-shadow:0 18px 55px rgba(0,0,0,.28)}
+.photo-home .site-photo-banner figcaption{max-width:980px}
+.heroic-home-hero{padding:28px 0 22px}
+.heroic-stage{width:min(1320px,94vw);grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(350px,2.15fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:310px 285px;gap:14px}
+.heroic-portrait img{height:252px;border-radius:38% 38% 2px 2px}
+.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:232px}
+.heroic-portrait figcaption{padding:7px 2px}.heroic-portrait strong{font-size:12px}.heroic-portrait span{font-size:14px}
+.heroic-center{padding:30px 28px;outline-offset:-9px}
+.heroic-center:before{font-size:21px;margin-bottom:12px}
+.heroic-center h1{font-size:clamp(40px,4vw,62px);margin:8px 0 18px}
+.heroic-invocation{font-size:clamp(19px,1.7vw,25px);line-height:1.28}
+.heroic-mission{margin:22px auto!important;padding-top:17px;font-size:10px;line-height:1.55}
+.heroic-mantra{margin-top:24px!important;font-size:9px;line-height:1.5}
+.heroic-art-note{margin-top:15px!important}
+@media(max-width:1100px) and (min-width:851px){.heroic-stage{width:min(960px,94vw);grid-template-rows:290px 270px}.heroic-portrait img{height:230px}.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:215px}.heroic-center{padding:28px 20px}.heroic-center h1{font-size:44px}.heroic-invocation{font-size:19px}.heroic-mission{margin:17px auto!important}.heroic-mantra{margin-top:17px!important}}
+@media(max-width:850px){.photo-home .site-photo-matte{padding:18px 4vw}.photo-home .site-photo-matte img{max-height:50vh}.heroic-stage{width:min(740px,92vw);grid-template-rows:auto}.heroic-center{min-height:0;padding:38px 28px}.heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:220px}}
+@media(max-width:580px){.photo-home .site-photo-matte{padding:12px 3vw}.photo-home .site-photo-matte img{max-height:44vh;max-width:100%}.photo-home .site-photo-banner figcaption{padding:12px 0 14px}.heroic-stage{gap:11px}.heroic-center{padding:30px 20px 27px}.heroic-center h1{font-size:clamp(37px,10vw,46px);margin:7px 0 14px}.heroic-invocation{font-size:18px}.heroic-mission{margin:16px auto!important;padding-top:13px}.heroic-mantra{margin-top:15px!important}.heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{height:clamp(160px,45vw,210px)}.portrait-sita{grid-column:1/-1!important;width:calc(50% - 6px)!important;justify-self:center}.heroic-art-note{font-size:13px!important}}
+
+/* V3.18 · manuscript navigation and complete apprenticeship constellation */
+header{background:rgba(18,15,29,.97);border-bottom:1px solid rgba(213,173,91,.48);color:#f4e7d2}
+header .navbar{min-height:76px;width:min(1280px,92vw)}
+header .brand{gap:12px;margin-right:auto;color:#f4e7d2}
+header .brand img{width:42px;height:42px;max-width:none;filter:brightness(0) invert(88%) sepia(22%) saturate(821%) hue-rotate(352deg) brightness(97%)}
+.brand-wordmark{display:grid;gap:3px}.brand-wordmark strong{font:500 15px/1.1 "Cinzel",serif;letter-spacing:.16em}.brand-wordmark small{color:#c9b58e;font:500 8px/1.2 "Cinzel",serif;letter-spacing:.13em;text-transform:uppercase}
+header .nav{gap:20px}header .nav>a,header .nav summary,.actions>a:not(.button){color:#eadcc5;font:500 9px/1.2 "Cinzel",serif;letter-spacing:.12em;text-transform:uppercase}
+header .nav>a{padding:29px 0 25px}header .nav a:after{bottom:20px;background:#d2a84f}
+.nav-connect{position:relative;align-self:stretch;display:flex;align-items:center}.nav-connect summary{display:flex;align-items:center;height:100%;list-style:none;cursor:pointer}.nav-connect summary::-webkit-details-marker{display:none}.nav-connect summary:after{content:"＋";margin-left:6px;color:#d2a84f}.nav-connect[open] summary:after{content:"−"}
+.nav-connect-menu{position:absolute;right:0;top:calc(100% - 8px);min-width:190px;padding:10px;background:#171221;border:1px solid rgba(210,168,79,.55);box-shadow:0 20px 45px rgba(0,0,0,.32)}.nav-connect-menu a{display:block;padding:12px 14px;color:#f2e5cf;text-decoration:none;font:500 9px/1.3 "Cinzel",serif;letter-spacing:.1em;text-transform:uppercase}.nav-connect-menu a:hover{background:rgba(210,168,79,.12);color:#f6d77e}
+header .actions .button{border-color:#d2a84f;background:transparent;color:#f6df9b}header .actions .button:hover{background:#d2a84f;color:#171221}
+header .menu{color:#f1dfbd}.menu-open{overflow:hidden}
+.guide-constellation{margin:45px 0 0;padding:34px;border:1px solid rgba(183,131,18,.52);background:rgba(255,250,240,.68)}
+.guide-constellation-heading{display:grid;grid-template-columns:.8fr 1.2fr;gap:6vw;align-items:end;margin-bottom:27px}.guide-constellation-heading h3{margin:0;font:500 clamp(24px,2.5vw,34px)/1.15 "Playfair Display SC",serif}.guide-constellation-heading p{margin:0;font-size:18px}
+.guide-name-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(183,131,18,.45);border-left:1px solid rgba(183,131,18,.45)}.guide-name-grid span{display:flex;flex-direction:column;gap:7px;min-height:105px;padding:18px;border-right:1px solid rgba(183,131,18,.45);border-bottom:1px solid rgba(183,131,18,.45)}.guide-name-grid strong{color:var(--purple);font:600 14px/1.25 "Cinzel",serif}.guide-name-grid small{color:var(--earth);font:italic 15px/1.25 "Crimson Text",serif}
+.guide-constellation-learn{background:rgba(255,250,240,.5)}
+@media(max-width:1100px){header .nav{gap:13px}.brand-wordmark small{display:none}.guide-name-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:980px){header .navbar{min-height:70px}header .brand img{width:38px;height:38px}.brand-wordmark strong{font-size:13px}.nav.open{position:fixed;inset:70px 0 0;display:flex;padding:34px 8vw 50px;background:radial-gradient(circle at 80% 20%,rgba(82,37,102,.5),transparent 32%),#151020;overflow-y:auto;align-items:stretch;gap:0;border-top:1px solid rgba(210,168,79,.45);border-bottom:0}.nav.open>a,.nav.open .mobile-nav-link{display:block!important;padding:16px 0;border-bottom:1px solid rgba(210,168,79,.22);color:#f4e7d2;font:400 clamp(24px,6vw,34px)/1.15 "Playfair Display SC",serif;letter-spacing:.02em;text-transform:none}.nav.open .nav-connect{display:block;order:6}.nav.open .nav-connect summary{height:auto;padding:16px 0;border-bottom:1px solid rgba(210,168,79,.22);font:400 clamp(24px,6vw,34px)/1.15 "Playfair Display SC",serif;letter-spacing:.02em;text-transform:none}.nav.open .nav-connect-menu{position:static;padding:5px 0 12px;border:0;border-bottom:1px solid rgba(210,168,79,.22);background:transparent;box-shadow:none}.nav.open .nav-connect-menu a{padding:10px 18px;color:#d8c7a8;font-size:11px}.guide-constellation-heading{grid-template-columns:1fr}.guide-name-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){header .navbar{width:90vw}.brand-wordmark strong{font-size:11px;letter-spacing:.11em}.guide-constellation{padding:25px 20px}.guide-name-grid{grid-template-columns:1fr}.guide-name-grid span{min-height:0}.guide-constellation-heading p{font-size:17px}}
+
+/* V3.19 · deliberate phone composition and collision fixes */
+@media(max-width:980px){
+  header{z-index:100}
+  header .navbar{position:relative;width:min(92vw,760px);min-height:68px;gap:14px}
+  header .brand{display:flex;width:auto;max-width:none;flex:1 1 auto;min-width:0;overflow:visible;align-items:center;gap:10px}
+  header .brand img{flex:0 0 36px;width:36px;max-width:36px;height:36px;object-fit:contain}
+  .brand-wordmark{display:flex;min-width:0;align-items:center}
+  .brand-wordmark strong{display:block;white-space:nowrap;font-size:12px;line-height:1.1;letter-spacing:.12em}
+  .brand-wordmark small{display:none}
+  header .menu{display:block;flex:0 0 auto;margin:0;padding:12px 0 12px 16px;color:#f4e7d2;font-size:11px;letter-spacing:.15em}
+  header .nav.open{z-index:110;inset:68px 0 0;padding:20px 7vw 40px;background:radial-gradient(circle at 90% 10%,rgba(93,48,112,.38),transparent 30%),#151020}
+  header .nav.open>a,header .nav.open .mobile-nav-link,header .nav.open .nav-connect summary{padding:13px 0;font-size:clamp(22px,6vw,30px);line-height:1.1}
+  header .nav.open .nav-connect{order:initial}
+  header .nav.open .nav-connect-menu a{padding:10px 14px;font-size:10px}
+}
+@media(max-width:580px){
+  body{overflow-x:hidden}
+  header .navbar{width:88vw;min-height:64px}
+  header .brand{display:flex;width:auto;max-width:none;flex-basis:auto;overflow:visible}
+  header .brand img{width:34px;max-width:34px;height:34px}
+  .brand-wordmark strong{font-size:10px;letter-spacing:.09em}
+  header .menu{font-size:10px}
+  header .nav.open{inset:64px 0 0;padding-top:16px}
+  .photo-home .site-photo-matte{padding:10px 0;background:#12101a}
+  .photo-home .site-photo-matte img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+  .photo-home .site-photo-banner figcaption{width:88vw;padding:14px 0 16px}
+  .heroic-home-hero{padding:18px 0 26px;overflow:hidden}
+  .heroic-stage{display:grid;width:88vw;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:16px 12px;align-items:start}
+  .heroic-center{grid-column:1/-1!important;grid-row:1!important;width:100%;min-width:0;padding:32px 17px 26px;outline-offset:-7px;overflow:hidden}
+  .heroic-center:before{margin-bottom:8px}
+  .heroic-center .eyebrow{max-width:100%;font-size:8px;letter-spacing:.06em;white-space:normal}
+  .heroic-center h1{max-width:100%;font-size:clamp(32px,9vw,42px);line-height:1.02;overflow-wrap:anywhere}
+  .heroic-invocation{font-size:17px;line-height:1.3}
+  .heroic-mission{max-width:100%;font-size:9px;letter-spacing:.045em}
+  .heroic-center .hero-actions{width:100%;gap:11px}
+  .heroic-center .button,.heroic-center .text-link{max-width:100%;font-size:9px;text-align:center}
+  .heroic-mantra{font-size:8px;letter-spacing:.035em}
+  .heroic-portrait,.portrait-ganesha,.portrait-shiva,.portrait-shakti,.portrait-krishna,.portrait-hanuman,.portrait-rama,.portrait-sita{grid-column:auto!important;grid-row:auto!important;width:100%!important;min-width:0;justify-self:stretch}
+  .heroic-portrait img,.portrait-hanuman img,.portrait-rama img,.portrait-sita img{display:block;width:100%;height:clamp(190px,53vw,250px);object-fit:contain;object-position:center bottom}
+  .heroic-portrait figcaption{min-height:58px;padding:8px 2px 0;overflow:visible}
+  .heroic-portrait strong{font-size:11px;line-height:1.2;overflow-wrap:anywhere}
+  .heroic-portrait span{font-size:14px;line-height:1.15}
+  .portrait-sita{grid-column:1/-1!important;width:calc(50% - 6px)!important;justify-self:center}
+  .welcome-sound-control{position:fixed;right:8px;bottom:8px;z-index:80;padding:7px 9px;font-size:8px;letter-spacing:.07em;opacity:.86}
+  .guide-constellation{padding:22px 16px}
+}
+
+/* V3.20 · mobile drawer, calm focus treatment, and global overflow guard */
+header .brand:focus-visible{outline:0;box-shadow:0 2px 0 #d2a84f}
+@media(max-width:980px){
+  header .nav,header .nav.open{
+    position:fixed;
+    inset:68px auto 0 0;
+    z-index:110;
+    display:flex;
+    width:min(84vw,380px);
+    padding:22px 28px 42px;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    overflow-y:auto;
+    border-top:1px solid rgba(210,168,79,.45);
+    border-right:1px solid rgba(210,168,79,.45);
+    border-bottom:0;
+    background:radial-gradient(circle at 20% 10%,rgba(93,48,112,.42),transparent 32%),#151020;
+    box-shadow:20px 0 55px rgba(0,0,0,.36);
+    transform:translateX(-105%);
+    visibility:hidden;
+    transition:transform .32s ease,visibility 0s linear .32s;
+  }
+  header .nav.open{transform:translateX(0);visibility:visible;transition:transform .32s ease}
+  body.menu-open:before{content:"";position:fixed;inset:68px 0 0;z-index:90;background:rgba(8,5,12,.58);backdrop-filter:blur(2px)}
+  header .nav.open>a,header .nav.open .mobile-nav-link,header .nav.open .nav-connect summary{font-size:clamp(21px,5.6vw,28px)}
+}
+@media(max-width:580px){
+  header .nav,header .nav.open{inset:64px auto 0 0;width:min(86vw,360px);padding:17px 24px 36px}
+  body.menu-open:before{inset:64px 0 0}
+  main,section,.wrap,.living-source-grid,.living-source-grid>*,.pagehero .wrap{min-width:0;max-width:100%}
+  main{overflow:hidden}
+  h1,h2,h3,.pagehero h1,.living-source h2{max-width:100%;overflow-wrap:anywhere;word-break:normal}
+  .living-source{padding:48px 0}
+  .living-source-grid{gap:30px}
+  .living-source figure{max-width:100%;padding:8px}
+  .living-source img{max-width:100%;height:auto}
+  .living-source h2{font-size:clamp(31px,10vw,43px);line-height:1.05}
+  .living-source p,.source-principle{font-size:18px;line-height:1.48}
+  .source-credit{font-size:8px;letter-spacing:.035em}
+  section>.wrap,.pagehero>.wrap{width:88vw}
+}
+@media(prefers-reduced-motion:reduce){header .nav,header .nav.open{transition:none}}
+
+/* V3.21 · Heroic Yogi journal and public Library of Consciousness */
+.heroic-blog-home{background:radial-gradient(circle at 82% 18%,rgba(116,68,132,.3),transparent 28%),#171221;color:#f5ead7}.heroic-blog-home .eyebrow{color:#d8bd79}.blog-heading,.resource-heading{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:end;margin-bottom:38px}.blog-heading h2,.resource-heading h2{margin-bottom:0}.blog-heading .lead{margin:0;color:#e1d4c0}.patreon-post-grid,.resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(210,168,79,.52);border-left:1px solid rgba(210,168,79,.52)}.patreon-post-grid a,.resource-grid a{display:flex;min-width:0;min-height:310px;padding:28px;flex-direction:column;color:inherit;text-decoration:none;border-right:1px solid rgba(210,168,79,.52);border-bottom:1px solid rgba(210,168,79,.52);transition:background .25s ease,transform .25s ease}.patreon-post-grid a:hover,.patreon-post-grid a:focus-visible{background:rgba(232,199,102,.1);transform:translateY(-3px)}.patreon-post-grid span,.resource-grid span,.text-resource-list span{color:#d8bd79;font:600 9px/1.4 "Cinzel",serif;letter-spacing:.12em;text-transform:uppercase}.patreon-post-grid h3,.resource-grid h3{font:500 24px/1.15 "Playfair Display SC",serif}.patreon-post-grid p,.resource-grid p{font-size:17px}.patreon-post-grid b,.resource-grid b{margin-top:auto;font:600 10px/1.4 "Cinzel",serif;letter-spacing:.08em;text-transform:uppercase}.heroic-blog-home .center-actions{margin-top:28px}.heroic-blog-home .button{border-color:#d8bd79;background:#d8bd79;color:#171221}.library-doorway{background:linear-gradient(135deg,#efe0bd,#fff8e9)}.library-doorway .button{border-color:var(--purple)}
+.library-hero{background:radial-gradient(circle at 82% 44%,transparent 0 80px,rgba(183,131,18,.22) 81px 82px,transparent 83px),linear-gradient(135deg,#efe0bd,#fffaf0)}.library-hero h1{max-width:1000px}.resource-heading p{margin:0;font-size:20px}.resource-grid{color:var(--charcoal);border-color:rgba(183,131,18,.45)}.resource-grid a{border-color:rgba(183,131,18,.45);background:rgba(255,250,240,.58)}.resource-grid a:hover,.resource-grid a:focus-visible{background:#fff8e9}.resource-grid span{color:var(--gold)}.study-texts{background:#171221;color:#f5ead7}.study-texts .eyebrow{color:#d8bd79}.study-texts .resource-heading p{color:#dfd1bd}.text-resource-list{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(210,168,79,.45);border-left:1px solid rgba(210,168,79,.45)}.text-resource-list a{display:grid;grid-template-columns:130px 1fr auto;gap:18px;align-items:center;min-height:112px;padding:22px;color:inherit;text-decoration:none;border-right:1px solid rgba(210,168,79,.45);border-bottom:1px solid rgba(210,168,79,.45)}.text-resource-list a:hover{background:rgba(232,199,102,.1)}.text-resource-list strong{font:500 18px/1.25 "Cinzel",serif}.text-resource-list small{color:#d8bd79;font:600 9px/1.3 "Cinzel",serif;text-transform:uppercase}.resource-note{background:var(--manuscript)}
+@media(max-width:850px){.blog-heading,.resource-heading{grid-template-columns:1fr}.patreon-post-grid,.resource-grid{grid-template-columns:1fr}.patreon-post-grid a,.resource-grid a{min-height:0}.text-resource-list{grid-template-columns:1fr}}
+@media(max-width:580px){.patreon-post-grid a,.resource-grid a{padding:23px 20px}.patreon-post-grid h3,.resource-grid h3{font-size:21px}.text-resource-list a{grid-template-columns:1fr;gap:8px;padding:20px}.text-resource-list strong{font-size:16px}.resource-heading p{font-size:18px}}

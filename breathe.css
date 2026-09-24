@@ -1,0 +1,75 @@
+/* Breathe — calm spatial rhythm for the living journal */
+:root{--float-shadow:0 24px 70px rgba(50,8,64,.13),0 5px 18px rgba(50,8,64,.07)}
+
+/* Longer pauses between ideas. */
+section{padding-top:clamp(105px,11vw,170px);padding-bottom:clamp(105px,11vw,170px)}
+.pagehero{padding-top:clamp(90px,9vw,145px);padding-bottom:clamp(110px,11vw,175px)}
+.hero{padding-top:clamp(110px,11vw,175px);padding-bottom:clamp(110px,10vw,160px)}
+
+/* Text should feel placed in space rather than packed into containers. */
+.pagehero p,.lead,.two p,.image-split p,.program p{max-width:38rem}
+p{margin-top:0;margin-bottom:1.35em}
+h1,h2{max-width:14ch}
+h3{max-width:24ch}
+.eyebrow{margin-bottom:26px}
+.two{gap:clamp(52px,9vw,130px);align-items:start}
+.grid3{gap:clamp(46px,6vw,86px) clamp(52px,7vw,100px)}
+.program{padding:58px 0}
+
+/* A subtle paper lift. No hard cards. */
+.panel{box-shadow:0 18px 55px rgba(50,8,64,.08);border-color:rgba(50,8,64,.18);padding:clamp(34px,5vw,62px)}
+
+/* Photography floats just above the yellow field. */
+.photo-wide,.photo-card,.gallery-item img,.photo-strip img,.journey-gallery img,.founder-portrait img,.hero-visual .present-image,.tradition-image{
+  box-shadow:var(--float-shadow);
+}
+.photo-card,.gallery-item img,.photo-strip img,.journey-gallery img,.founder-portrait img{border-radius:3px}
+.figure,.gallery-item,.journey-gallery figure,.founder-portrait{position:relative}
+.figure{transform:translateY(-8px)}
+.image-split figure:nth-child(odd){transform:translateY(-18px)}
+
+/* Journal quotations hover in generous air. */
+.journal-moment .wrap,.heroic-fragment .wrap{padding-top:22px;padding-bottom:22px}
+.journal-quote{max-width:13ch;text-wrap:balance}
+.journal-source{margin-top:34px}
+.heroic-fragment{padding-top:clamp(110px,12vw,180px);padding-bottom:clamp(110px,12vw,180px)}
+.dark-journal{padding-top:clamp(125px,13vw,195px);padding-bottom:clamp(125px,13vw,195px)}
+
+/* Full photographs remain cinematic, but their content appears suspended above them. */
+.journal-moment.photo-journal{min-height:min(86vh,900px);padding-top:clamp(130px,15vw,220px);padding-bottom:clamp(90px,10vw,150px)}
+.journal-moment.photo-journal .wrap{filter:drop-shadow(0 8px 22px rgba(31,0,68,.22))}
+
+/* Soft lift only when a pointer exists. */
+@media(hover:hover) and (pointer:fine){
+  .photo-card,.gallery-item img,.photo-strip img,.journey-gallery img,.founder-portrait img,.panel,.button{transition:transform .7s cubic-bezier(.2,.65,.25,1),box-shadow .7s ease}
+  .photo-card:hover,.gallery-item img:hover,.photo-strip img:hover,.journey-gallery img:hover,.founder-portrait img:hover{transform:translateY(-7px);box-shadow:0 32px 84px rgba(50,8,64,.17),0 8px 24px rgba(50,8,64,.08)}
+  .button:hover{transform:translateY(-2px)}
+}
+
+@media(max-width:760px){
+  section{padding-top:92px;padding-bottom:92px}
+  .pagehero{padding-top:76px;padding-bottom:112px}
+  .hero{padding-top:82px;padding-bottom:105px}
+  .wrap{width:86vw}
+  .pagehero p,.lead,.two p,.image-split p,.program p{max-width:31rem}
+  .eyebrow{margin-bottom:22px}
+  .two{gap:44px}
+  .program{padding:44px 0}
+  .grid3{gap:0}
+  .grid3>p,.grid3>div{padding:42px 0}
+  .journey-step{padding:34px 0}
+  .figure,.image-split figure:nth-child(odd){transform:none}
+  .photo-card,.gallery-item img,.photo-strip img,.journey-gallery img,.founder-portrait img{box-shadow:0 20px 52px rgba(50,8,64,.13),0 4px 14px rgba(50,8,64,.06)}
+  .journal-moment.photo-journal{min-height:76vh;padding-top:120px;padding-bottom:82px}
+  .journal-quote{max-width:11ch}
+  .heroic-fragment,.dark-journal{padding-top:110px;padding-bottom:110px}
+  footer{padding-top:72px;padding-bottom:72px}
+}
+
+@media(max-width:480px){
+  section{padding-top:84px;padding-bottom:84px}
+  .pagehero{padding-top:70px;padding-bottom:102px}
+  .journal-moment.photo-journal{min-height:72vh}
+}
+
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
