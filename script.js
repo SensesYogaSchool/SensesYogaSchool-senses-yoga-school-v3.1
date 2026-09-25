@@ -28,6 +28,10 @@ if (menu && nav) {
     fieldNotes.href = 'field-notes.html';
     fieldNotes.textContent = 'Field Notes';
     connectMenu.append(fieldNotes);
+    const volunteer = document.createElement('a');
+    volunteer.href = 'volunteer.html';
+    volunteer.textContent = 'Volunteer & Community Service';
+    connectMenu.append(volunteer);
     const resources = document.createElement('a');
     resources.href = 'resources.html';
     resources.textContent = 'Free Resources';
