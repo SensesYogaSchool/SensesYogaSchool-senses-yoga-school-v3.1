@@ -3,82 +3,53 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Page not found at Senses Yoga School." name="description"/>
-<title>Page Not Found | Senses Yoga School</title>
-<link href="styles.css?v=20260925-sun" rel="stylesheet"/>
+<meta content="Page moved within Senses Yoga School." name="description"/>
+<title>Finding Your Page | Senses Yoga School</title>
+<script>
+(function(){
+  var p=(window.location.pathname||'/').toLowerCase().replace(/\/+$/,'');
+  var q=window.location.search||'';
+  var h=window.location.hash||'';
+  var exact={
+    '/about':'/about.html',
+    '/about/the-vedic-arts':'/schools.html',
+    '/about/educational-offerings':'/practice.html',
+    '/about/educational-offerings/yoga-for-life':'/practice.html#yoga-for-life',
+    '/join-the-community':'/join.html',
+    '/join-the-community/volunteer-opportunities':'/volunteer.html',
+    '/join-the-community/volunteer-opportunities/applied-initiatives':'/serve.html',
+    '/join-the-community/volunteer-opportunities/applied-initiatives/yoga-arts-garden-initiative':'/serve.html#yagi'
+  };
+  var target=exact[p];
+  if(!target){
+    if(p.indexOf('vedic')>-1 || p.indexOf('natya')>-1 || p.indexOf('nada')>-1 || p.indexOf('moga')>-1 || p.indexOf('creative-art')>-1) target='/schools.html';
+    else if(p.indexOf('yoga-for-life')>-1 || p.indexOf('breathwork')>-1 || p.indexOf('class')>-1 || p.indexOf('practice')>-1) target='/practice.html';
+    else if(p.indexOf('garden')>-1 || p.indexOf('yagi')>-1 || p.indexOf('ecology')>-1 || p.indexOf('volunteer')>-1 || p.indexOf('service')>-1 || p.indexOf('applied-initiative')>-1) target='/serve.html';
+    else if(p.indexOf('apprent')>-1 || p.indexOf('teacher')>-1 || p.indexOf('certif')>-1 || p.indexOf('leadership')>-1) target='/lead.html';
+    else if(p.indexOf('dream')>-1 || p.indexOf('specialized')>-1 || p.indexOf('study')>-1 || p.indexOf('education')>-1 || p.indexOf('learn')>-1) target='/learn.html';
+    else if(p.indexOf('partner')>-1 || p.indexOf('organization')>-1 || p.indexOf('workplace')>-1) target='/partner.html';
+    else if(p.indexOf('calendar')>-1 || p.indexOf('event')>-1 || p.indexOf('schedule')>-1) target='/calendar.html';
+    else if(p.indexOf('resource')>-1 || p.indexOf('library')>-1) target='/resources.html';
+    else if(p.indexOf('impact')>-1) target='/impact.html';
+    else if(p.indexOf('support')>-1 || p.indexOf('donat')>-1) target='/support.html';
+    else if(p.indexOf('about')>-1 || p.indexOf('mission')>-1 || p.indexOf('founder')>-1) target='/about.html';
+  }
+  if(target){ window.location.replace(target + (target.indexOf('#')>-1 ? '' : h) + q); }
+})();
+</script>
+<link href="/styles.css?v=20260925-sun" rel="stylesheet"/>
 <meta content="#320840" name="theme-color"/>
 </head>
 <body>
-<header>
-<div class="wrap navbar">
-<a aria-label="Senses Yoga School home" class="brand" href="index.html">
-<img alt="Senses Yoga School" decoding="async" src="assets/senses-yoga-logo.png"/>
-</a>
-<button aria-expanded="false" class="menu">Menu</button>
-<nav class="nav">
-<a href="practice.html">Practice</a>
-<a href="learn.html">Learn</a>
-<a href="schools.html">Schools</a>
-<a href="serve.html">Serve</a>
-<a href="lead.html">Teach &amp; Lead</a>
-<a href="partner.html">Partner</a>
-<a href="impact.html">Impact</a>
-<a href="about.html">About</a>
-</nav>
-<div class="actions">
-<a href="calendar.html">Calendar</a>
-<a class="button" href="support.html">Support</a>
-</div>
-</div>
-</header>
 <main>
 <section class="pagehero manuscript">
 <div class="wrap">
 <div class="eyebrow">The Path Continues</div>
-<h1>This page could not be found.</h1>
-<p>The page may have moved as the school has grown. Return to the campus map below and continue from the doorway that fits you.</p>
-<div class="hero-actions">
-<a class="button" href="index.html">Return Home</a>
-<a class="text-link" href="calendar.html">View the Public Calendar →</a>
-</div>
-</div>
-</section>
-<section>
-<div class="wrap cards">
-<a class="card" href="practice.html">
-<span class="num">01</span>
-<h3>Practice</h3>
-<p>Begin with movement, breath, meditation, and community practice.</p>
-</a>
-<a class="card" href="learn.html">
-<span class="num">02</span>
-<h3>Learn</h3>
-<p>Enter contemplative study, inquiry, story, and reflection.</p>
-</a>
-<a class="card" href="serve.html">
-<span class="num">03</span>
-<h3>Serve</h3>
-<p>Bring learning into relationship with community and land.</p>
-</a>
-<a class="card" href="partner.html">
-<span class="num">04</span>
-<h3>Partner</h3>
-<p>Build a program or learning environment with Senses.</p>
-</a>
+<h1>This page has moved.</h1>
+<p>Our website has been redesigned. If you are not redirected automatically, use the current campus map below.</p>
+<div class="hero-actions"><a class="button" href="/index.html">Current Home</a><a class="text-link" href="/schools.html">Schools of Practice →</a></div>
 </div>
 </section>
 </main>
-<footer>
-<div class="wrap">
-<div>
-<strong>Senses Yoga School</strong>
-<br/>Yoga · Ecology · Arts · Community Education<br/>Milwaukee, Wisconsin</div>
-<div>
-<a href="index.html">Home</a> · <a href="practice.html">Practice</a> · <a href="learn.html">Learn</a> · <a href="partner.html">Partner</a>
-</div>
-</div>
-</footer>
-<script src="script.js?v=20260924-catalog">
-</script>
 </body>
 </html>
