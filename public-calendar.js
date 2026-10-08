@@ -1,11 +1,12 @@
-/* Curated public events reviewed against Google Calendar September 21, 2026. */
+/* Curated public events reviewed against Google Calendar October 8, 2026. */
 (() => {
   const mount = document.getElementById("public-events");
   if (!mount) return;
   const series = [
-    { title: "Yoga For Life · Sherman Park", place: "Sherman Park, Milwaukee, WI", first: "2026-09-21", count: 8, hour: 14, minute: 45, duration: 60, kind: "Yoga For Life" },
-    { title: "YAGI Community Wellness Session", place: "2713 W Richardson Pl, Milwaukee, WI 53208", first: "2026-09-23", count: 8, hour: 10, minute: 0, duration: 180, kind: "YAGI" },
-    { title: "Yoga For Life · Darius Simmons Garden", place: "2571 N 2nd St, Milwaukee, WI 53212", first: "2026-09-25", count: 8, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" }
+    { title: "Yoga For Life · Sherman Park", place: "Sherman Park, Milwaukee, WI", first: "2026-09-21", count: 16, hour: 14, minute: 45, duration: 60, kind: "Yoga For Life" },
+    { title: "YAGI Community Wellness Session", place: "2713 W Richardson Pl, Milwaukee, WI 53208", first: "2026-09-23", count: 16, hour: 10, minute: 0, duration: 180, kind: "YAGI" },
+    { title: "Yoga For Life · Darius Simmons Garden", place: "2571 N 2nd St, Milwaukee, WI 53212", first: "2026-09-25", count: 16, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" },
+    { title: "Prāṇa Circle · Free Livestream", place: "Online · Patreon", first: "2026-10-12", count: 13, hour: 19, minute: 0, duration: 60, kind: "Prāṇa Circle", onlineUrl: "https://www.patreon.com/collection/1228721", description: "Free live stream for Patreon members. Join with your email; no paid membership is required." }
   ];
   const venues = [
     { name: "Sherman Park", address: "Sherman Park, 3000 N Sherman Blvd, Milwaukee, WI 53210", lat: 43.0733764, lon: -87.9658620 },
@@ -77,11 +78,11 @@
   const stamp = date => date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
   const escapeIcs = value => value.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/,/g, "\\,").replace(/;/g, "\\;");
   function googleLink(event) {
-    const params = new URLSearchParams({ action: "TEMPLATE", text: event.title, dates: stamp(event.start) + "/" + stamp(event.end), details: "Senses Yoga School public gathering. Confirm current details before traveling.", location: event.place, ctz: "America/Chicago" });
+    const params = new URLSearchParams({ action: "TEMPLATE", text: event.title, dates: stamp(event.start) + "/" + stamp(event.end), details: event.description || "Senses Yoga School public gathering. Confirm current details before traveling.", location: event.place, ctz: "America/Chicago" });
     return "https://calendar.google.com/calendar/render?" + params;
   }
   function appleLink(event) {
-    const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Senses Yoga School//Public Schedule//EN", "BEGIN:VEVENT", "UID:" + stamp(event.start) + "-" + event.title.toLowerCase().replace(/[^a-z0-9]/g, "-") + "@sensesyoga.org", "DTSTAMP:" + stamp(new Date()), "DTSTART:" + stamp(event.start), "DTEND:" + stamp(event.end), "SUMMARY:" + escapeIcs(event.title), "LOCATION:" + escapeIcs(event.place), "DESCRIPTION:Confirm current details before traveling.", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+    const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Senses Yoga School//Public Schedule//EN", "BEGIN:VEVENT", "UID:" + stamp(event.start) + "-" + event.title.toLowerCase().replace(/[^a-z0-9]/g, "-") + "@sensesyoga.org", "DTSTAMP:" + stamp(new Date()), "DTSTART:" + stamp(event.start), "DTEND:" + stamp(event.end), "SUMMARY:" + escapeIcs(event.title), "LOCATION:" + escapeIcs(event.place), "DESCRIPTION:" + escapeIcs(event.description || "Confirm current details before traveling."), "END:VEVENT", "END:VCALENDAR"].join("\r\n");
     return URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
   }
   mount.replaceChildren();
@@ -106,13 +107,26 @@
     const info = document.createElement("p");
     info.textContent = timeText.format(event.start) + "–" + timeText.format(event.end) + " · " + event.place;
     details.append(category, title, info);
+    if (event.description) {
+      const note = document.createElement("p");
+      note.textContent = event.description;
+      details.append(note);
+    }
     const actions = document.createElement("div");
     actions.className = "public-event-actions";
-    const rsvp = document.createElement("a");
-    rsvp.href = "https://form.typeform.com/to/TTvNJuX1";
-    rsvp.target = "_blank";
-    rsvp.rel = "noopener";
-    rsvp.textContent = "RSVP";
+    if (event.onlineUrl) {
+      const join = document.createElement("a");
+      join.href = event.onlineUrl;
+      join.target = "_blank";
+      join.rel = "noopener";
+      join.textContent = "Join free on Patreon";
+      actions.append(join);
+    } else {
+      const rsvp = document.createElement("a");
+      rsvp.href = "https://form.typeform.com/to/TTvNJuX1";
+      rsvp.target = "_blank";
+      rsvp.rel = "noopener";
+      rsvp.textContent = "RSVP";
     const google = document.createElement("a");
     google.href = googleLink(event);
     google.target = "_blank";
@@ -127,7 +141,9 @@
     checkIn.target = "_blank";
     checkIn.rel = "noopener";
     checkIn.textContent = "Post-session check-in";
-    actions.append(rsvp, checkIn, google, apple);
+      actions.append(rsvp, checkIn);
+    }
+    actions.append(google, apple);
     card.append(date, details, actions);
     mount.append(card);
   }
