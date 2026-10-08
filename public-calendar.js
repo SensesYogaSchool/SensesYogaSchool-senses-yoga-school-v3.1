@@ -127,6 +127,13 @@
       rsvp.target = "_blank";
       rsvp.rel = "noopener";
       rsvp.textContent = "RSVP";
+      const checkIn = document.createElement("a");
+      checkIn.href = "https://docs.google.com/forms/d/10vaQVnl1i0eFEc3cvkKUmjn59J7oKTLXx4l5YYctV_A/viewform";
+      checkIn.target = "_blank";
+      checkIn.rel = "noopener";
+      checkIn.textContent = "Post-session check-in";
+      actions.append(rsvp, checkIn);
+    }
     const google = document.createElement("a");
     google.href = googleLink(event);
     google.target = "_blank";
@@ -136,13 +143,6 @@
     apple.href = appleLink(event);
     apple.download = "senses-yoga-" + stamp(event.start) + ".ics";
     apple.textContent = "Add to Apple";
-    const checkIn = document.createElement("a");
-    checkIn.href = "https://docs.google.com/forms/d/10vaQVnl1i0eFEc3cvkKUmjn59J7oKTLXx4l5YYctV_A/viewform";
-    checkIn.target = "_blank";
-    checkIn.rel = "noopener";
-    checkIn.textContent = "Post-session check-in";
-      actions.append(rsvp, checkIn);
-    }
     actions.append(google, apple);
     card.append(date, details, actions);
     mount.append(card);
