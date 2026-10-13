@@ -10,7 +10,7 @@
   ];
   const venues = [
     { name: "All Peoples campus · Church, Gathering Table & Darius Simmons Garden", address: "Church / Gathering Table: 2600 N 2nd St · Garden: 2571 N 2nd St, Milwaukee, WI 53212", destination: "All Peoples Gathering Lutheran Church, 2600 N 2nd St, Milwaukee, WI 53212", lat: 43.0651514, lon: -87.9127075, status: "Monday Yoga For Life; Monday/Wednesday volunteer service; Friday garden practice and optional Foodways. Campus marker uses the existing garden location; directions lead to the church." },
-    { name: "YAGI Legacy Garden", address: "2713 W Richardson Pl, Milwaukee, WI 53208", lat: 43.0427251, lon: -87.9479783, status: "Tuesday 11:00 AM–1:30 PM · Seasonal site maintenance and stewardship, followed by free meditation." },
+    { name: "YAGI Legacy Garden", address: "2713 W Richardson Pl, Milwaukee, WI 53208", lat: 43.0427251, lon: -87.9479783, status: "Tuesday stewardship and free meditation · Times may vary October 13–November 10; check dated events." },
     { name: "Sherman Phoenix Marketplace", address: "3536 W Fond du Lac Ave, Milwaukee, WI 53216", lat: 43.0760668, lon: -87.9580842, status: "Thursday pathway · Pending extension review. No confirmed class time; await announcement before attending." }
   ];
   const locationList = document.getElementById("map-location-list");
@@ -56,6 +56,7 @@
     const date = day.toISOString().slice(0, 10);
     const offset = date >= "2026-11-01" ? "-06:00" : "-05:00";
     const start = new Date(date + "T" + String(item.hour).padStart(2, "0") + ":" + String(item.minute).padStart(2, "0") + ":00" + offset);
+    if (item.kind === "Stewardship" && date === "2026-10-13") { const adjusted = new Date(date + "T14:30:00-05:00"); return { ...item, start: adjusted, end: new Date(adjusted.getTime() + 150 * 60000), description: item.description + " October 13 confirmed session: 2:30–5:00 PM Central." }; }
     return { ...item, start, end: new Date(start.getTime() + item.duration * 60000) };
   })).filter(event => event.end > new Date()).sort((a, b) => a.start - b.start);
 
