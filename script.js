@@ -16,6 +16,24 @@ if (menu && nav) {
     brand.append(wordmark);
   }
 
+  if (!nav.querySelector('a[href="library.html"]')) {
+    const library = document.createElement('a');
+    library.href = 'library.html';
+    library.textContent = 'Library';
+    const learn = nav.querySelector('a[href="learn.html"]');
+    if (learn) learn.after(library);
+    else nav.prepend(library);
+  }
+  const actions = document.querySelector('header .actions');
+  if (actions && !actions.querySelector('a[href="https://www.patreon.com/c/SensesYoga"]')) {
+    const updates = document.createElement('a');
+    updates.href = 'https://www.patreon.com/c/SensesYoga';
+    updates.textContent = 'School Updates ↗';
+    updates.target = '_blank';
+    updates.rel = 'noopener';
+    actions.prepend(updates);
+  }
+
   if (!nav.querySelector('.nav-connect')) {
     const secondaryHrefs = ['lead.html', 'partner.html'];
     const secondaryLinks = secondaryHrefs.map(href => nav.querySelector(`a[href="${href}"]`)).filter(Boolean);
@@ -45,12 +63,13 @@ if (menu && nav) {
     else nav.append(connect);
   }
 
-  for (const [href, label] of [['calendar.html', 'Calendar'], ['support.html', 'Support']]) {
+  for (const [href, label] of [['https://www.patreon.com/c/SensesYoga', 'School Updates ↗'], ['calendar.html', 'Calendar'], ['support.html', 'Support']]) {
     if (!nav.querySelector(`a[href="${href}"]`)) {
       const link = document.createElement('a');
       link.href = href;
       link.textContent = label;
       link.className = 'mobile-nav-link';
+      if (href.startsWith('https://')) { link.target = '_blank'; link.rel = 'noopener'; }
       nav.append(link);
     }
   }
