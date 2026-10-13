@@ -1,30 +1,27 @@
-/* Curated public events reviewed against Google Calendar October 8, 2026. */
+/* Founder-provided current weekly schedule, October 12, 2026. Google Calendar is not automatically synchronized. */
 (() => {
   const mount = document.getElementById("public-events");
   if (!mount) return;
   const series = [
-    { title: "Yoga For Life · Sherman Park", place: "Sherman Park, Milwaukee, WI", first: "2026-09-21", count: 16, hour: 14, minute: 45, duration: 60, kind: "Yoga For Life" },
-    { title: "YAGI Community Wellness Session", place: "2713 W Richardson Pl, Milwaukee, WI 53208", first: "2026-09-23", count: 16, hour: 10, minute: 0, duration: 180, kind: "YAGI" },
-    { title: "Yoga For Life · Darius Simmons Garden", place: "2571 N 2nd St, Milwaukee, WI 53212", first: "2026-09-25", count: 16, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" },
-    { title: "Prāṇa Circle · Free Livestream", place: "Online · Patreon", first: "2026-10-12", count: 13, hour: 19, minute: 0, duration: 60, kind: "Prāṇa Circle", onlineUrl: "https://www.patreon.com/collection/1228721", description: "Free live stream for Patreon members. Join with your email; no paid membership is required." }
+    { title: "Yoga For Life · All Peoples Church", place: "All Peoples Church · 2600 N 2nd St, Milwaukee, WI 53212", first: "2026-10-12", count: 5, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" },
+    { title: "YAGI Stewardship & Free Meditation", place: "YAGI Legacy Garden · 2713 W Richardson Pl, Milwaukee, WI 53208", first: "2026-10-13", count: 4, hour: 11, minute: 0, duration: 150, kind: "Stewardship", description: "Shoveling, snowblowing, and site maintenance, followed by free meditation. Meditation follows stewardship within this block; no separate start time is assigned. Activities follow site conditions and appropriate supervision." },
+    { title: "Yoga For Life · Darius Simmons Garden", place: "Darius Simmons Garden · 2571 N 2nd St, Milwaukee, WI 53212", first: "2026-10-16", count: 4, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" },
+    { title: "Prāṇa Circle · Free Livestream", place: "Online · Patreon", first: "2026-10-12", count: 5, hour: 19, minute: 0, duration: 60, kind: "Prāṇa Circle", onlineUrl: "https://www.patreon.com/collection/1228721", description: "Join with your email; no paid membership is required." }
   ];
   const venues = [
-    { name: "Sherman Park", address: "Sherman Park, 3000 N Sherman Blvd, Milwaukee, WI 53210", lat: 43.0733764, lon: -87.9658620 },
-    { name: "YAGI Legacy Garden", address: "2713 W Richardson Pl, Milwaukee, WI 53208", lat: 43.0427251, lon: -87.9479783 },
-    { name: "Darius Simmons Garden / All Peoples", address: "2571 N 2nd St, Milwaukee, WI 53212", lat: 43.0651514, lon: -87.9127075 },
-    { name: "Sherman Phoenix Marketplace", address: "Milwaukee, WI", lat: 43.0760668, lon: -87.9580842 },
-    { name: "Gordon Park", address: "Milwaukee, WI", lat: 43.0688793, lon: -87.8959559 },
-    { name: "Lakeshore State Park", address: "Milwaukee, WI", lat: 43.0326963, lon: -87.8954344 }
+    { name: "All Peoples campus · Church, Gathering Table & Darius Simmons Garden", address: "Church / Gathering Table: 2600 N 2nd St · Garden: 2571 N 2nd St, Milwaukee, WI 53212", destination: "All Peoples Gathering Lutheran Church, 2600 N 2nd St, Milwaukee, WI 53212", lat: 43.0651514, lon: -87.9127075, status: "Monday Yoga For Life; Monday/Wednesday volunteer service; Friday garden practice and optional Foodways. Campus marker uses the existing garden location; directions lead to the church." },
+    { name: "YAGI Legacy Garden", address: "2713 W Richardson Pl, Milwaukee, WI 53208", lat: 43.0427251, lon: -87.9479783, status: "Tuesday 11:00 AM–1:30 PM · Seasonal site maintenance and stewardship, followed by free meditation." },
+    { name: "Sherman Phoenix Marketplace", address: "3536 W Fond du Lac Ave, Milwaukee, WI 53216", lat: 43.0760668, lon: -87.9580842, status: "Thursday pathway · Pending extension review. No confirmed class time; await announcement before attending." }
   ];
   const locationList = document.getElementById("map-location-list");
-  const directions = place => "https://www.openstreetmap.org/directions?to=" + encodeURIComponent(place.lat + "," + place.lon);
+  const directions = place => "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(place.destination || place.address);
   if (locationList) {
     for (const place of venues) {
       const link = document.createElement("a");
       link.href = directions(place);
       link.target = "_blank";
       link.rel = "noopener";
-      link.textContent = place.name + " · Directions ↗";
+      link.textContent = place.name + " · " + place.status + " · Google Maps directions ↗";
       locationList.append(link);
     }
   }
@@ -45,20 +42,9 @@
       link.target = "_blank";
       link.rel = "noopener";
       link.textContent = "Directions ↗";
-      popup.append(heading, address, link);
-      const rsvp = document.createElement("a");
-      rsvp.href = "https://form.typeform.com/to/TTvNJuX1";
-      rsvp.target = "_blank";
-      rsvp.rel = "noopener";
-      rsvp.textContent = "RSVP ↗";
-      rsvp.style.marginLeft = "12px";
-      const checkIn = document.createElement("a");
-      checkIn.href = "https://docs.google.com/forms/d/10vaQVnl1i0eFEc3cvkKUmjn59J7oKTLXx4l5YYctV_A/viewform";
-      checkIn.target = "_blank";
-      checkIn.rel = "noopener";
-      checkIn.textContent = "Post-session check-in ↗";
-      checkIn.style.marginLeft = "12px";
-      popup.append(rsvp, checkIn);
+      const status = document.createElement("p");
+      status.textContent = place.status;
+      popup.append(heading, address, status, link);
       const icon = L.divIcon({ className: "senses-map-pin", html: '<span aria-hidden="true">✦</span>', iconSize: [34, 34], iconAnchor: [17, 17] });
       return L.marker([place.lat, place.lon], { icon }).addTo(map).bindPopup(popup);
     });
