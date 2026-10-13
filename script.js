@@ -1,3 +1,6 @@
+// One shared masthead for every school page.
+const siteHeader = document.querySelector('header') || document.body.insertBefore(document.createElement('header'), document.body.firstChild);
+siteHeader.innerHTML = "<div class=\"wrap navbar\"><a aria-label=\"Senses Yoga School home\" class=\"brand\" href=\"/index.html\"><img alt=\"Senses Yoga School\" src=\"/assets/senses-sun.png\"></a><button aria-expanded=\"false\" class=\"menu\">Menu</button><nav class=\"nav\" aria-label=\"School navigation\"><a href=\"practice.html\">Practice</a><a href=\"learn.html\">Learn</a><a href=\"schools.html\">Schools</a><a href=\"serve.html\">Serve</a><a href=\"lead.html\">Teach &amp; Lead</a><a href=\"partner.html\">Partner</a><a href=\"impact.html\">Impact</a><a href=\"about.html\">About</a></nav><div class=\"actions\"><a href=\"calendar.html\">Calendar</a><a class=\"button\" href=\"support.html\">Support</a></div></div>";
 const menu = document.querySelector('.menu');
 const nav = document.querySelector('.nav');
 
@@ -8,7 +11,7 @@ if (menu && nav) {
   const brand = document.querySelector('.brand');
   const brandImage = brand?.querySelector('img');
   if (brand && brandImage && !brand.querySelector('.brand-wordmark')) {
-    brandImage.src = 'assets/senses-sun.png';
+    brandImage.src = '/assets/senses-sun.png';
     brandImage.alt = '';
     const wordmark = document.createElement('span');
     wordmark.className = 'brand-wordmark';
@@ -109,26 +112,57 @@ const honorText = document.querySelector('#honor-text');
 const honorEnter = document.querySelector('#honor-enter');
 
 // CC BY 4.0: Placid Ambient by MusicLFiles, via Wikimedia Commons.
-// Playback begins only when a visitor chooses to enter.
+// Session-only preference; no telemetry or visitor information is collected.
+document.querySelectorAll('header a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+  if (href && !href.startsWith('/') && !href.startsWith('https://')) link.setAttribute('href', '/' + href);
+});
 const backgroundSong = new Audio('https://upload.wikimedia.org/wikipedia/commons/transcoded/5/53/Placid_Ambient_by_MusicLFiles.ogg/Placid_Ambient_by_MusicLFiles.ogg.mp3');
 backgroundSong.loop = true;
 backgroundSong.volume = 0.07;
 backgroundSong.preload = 'none';
-let soundButton;
+let savedMusic = {};
+try { savedMusic = JSON.parse(sessionStorage.getItem('senses-music') || '{}'); } catch {}
+function saveMusic(playing = !backgroundSong.paused) {
+  try { sessionStorage.setItem('senses-music', JSON.stringify({playing, time:backgroundSong.currentTime || 0})); } catch {}
+}
+const soundButton = document.createElement('button');
+soundButton.type = 'button';
+soundButton.className = 'welcome-sound-control';
+soundButton.textContent = 'Play music';
+soundButton.setAttribute('aria-label', 'Play background music');
+soundButton.setAttribute('aria-pressed', 'false');
+soundButton.title = 'Placid Ambient by MusicLFiles · CC BY 4.0';
+document.body.append(soundButton);
 function syncMusicButton() {
-  if (soundButton) {
-    const playing = !backgroundSong.paused;
-    soundButton.textContent = playing ? 'Music off' : 'Play music';
-    soundButton.setAttribute('aria-pressed', String(playing));
-  }
+  const playing = !backgroundSong.paused;
+  soundButton.textContent = playing ? 'Pause music' : 'Play music';
+  soundButton.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
+  soundButton.setAttribute('aria-pressed', String(playing));
 }
 function playBackgroundSong() {
-  backgroundSong.play().then(syncMusicButton).catch(() => {
-    if (soundButton) soundButton.textContent = 'Tap to play music';
+  backgroundSong.play().then(() => { syncMusicButton(); saveMusic(true); }).catch(() => {
+    soundButton.textContent = 'Tap to resume music';
+    soundButton.setAttribute('aria-label', 'Tap to resume background music');
   });
 }
+backgroundSong.addEventListener('loadedmetadata', () => {
+  if (Number.isFinite(savedMusic.time) && savedMusic.time > 0 && Number.isFinite(backgroundSong.duration)) {
+    backgroundSong.currentTime = savedMusic.time % backgroundSong.duration;
+  }
+}, {once:true});
 backgroundSong.addEventListener('play', syncMusicButton);
 backgroundSong.addEventListener('pause', syncMusicButton);
+backgroundSong.addEventListener('error', () => { soundButton.textContent = 'Music unavailable'; });
+soundButton.addEventListener('click', () => {
+  if (backgroundSong.paused) playBackgroundSong();
+  else { backgroundSong.pause(); saveMusic(false); }
+});
+window.addEventListener('pagehide', () => saveMusic());
+const hasHonorGate = honorGate && honorOrb && honorText && honorEnter;
+if (!hasHonorGate && savedMusic.playing) playBackgroundSong();
+const musicChoice = document.querySelector('#honor-music-choice');
+if (musicChoice && savedMusic.playing) musicChoice.checked = true;
 
 if (honorGate && honorOrb && honorText && honorEnter) {
   document.body.classList.add('honor-open');
@@ -136,18 +170,6 @@ if (honorGate && honorOrb && honorText && honorEnter) {
   const background = [...document.body.children].filter(el => el !== honorGate);
   background.forEach(el => { el.inert = true; });
   honorOrb.focus();
-  soundButton = document.createElement('button');
-  soundButton.type = 'button';
-  soundButton.className = 'welcome-sound-control';
-  soundButton.textContent = 'Play music';
-  soundButton.setAttribute('aria-label', 'Toggle background music');
-  soundButton.setAttribute('aria-pressed', 'false');
-  soundButton.title = 'Placid Ambient by MusicLFiles · CC BY 4.0';
-  soundButton.addEventListener('click', () => {
-    if (backgroundSong.paused) playBackgroundSong();
-    else backgroundSong.pause();
-  });
-
   honorOrb.addEventListener('click', () => {
     honorText.hidden = false;
     honorGate.classList.add('revealed');
@@ -159,6 +181,7 @@ if (honorGate && honorOrb && honorText && honorEnter) {
   const enterSchool = () => {
     if (honorGate.classList.contains('departing')) return;
     if (document.querySelector('#honor-music-choice')?.checked) playBackgroundSong();
+    else { backgroundSong.pause(); saveMusic(false); }
     honorGate.classList.add('departing');
     document.body.classList.remove('honor-open');
     window.setTimeout(() => {
@@ -192,79 +215,79 @@ if (honorGate && honorOrb && honorText && honorEnter) {
 // Keep the complete image visible; the illustrations and manuscripts remain in their study sections.
 const pagePhotographs = {
   'index.html': {
-    image: 'assets/selected-11.jpg',
+    image: '/assets/selected-11.jpg',
     alt: 'A large group practicing yoga together outdoors in Milwaukee',
     caption: 'Our community is our campus',
     credit: 'Twisted Muse'
   },
   'practice.html': {
-    image: 'assets/selected-08.jpg',
+    image: '/assets/selected-08.jpg',
     alt: 'Community members practicing yoga together at Sherman Phoenix',
     caption: 'Yoga For Life in community',
     credit: 'Twisted Muse'
   },
   'learn.html': {
-    image: 'assets/selected-07.jpg',
+    image: '/assets/selected-07.jpg',
     alt: 'Luan practicing an arm balance in a bright studio',
     caption: 'Embodied inquiry and continuing practice',
     credit: 'Twisted Muse'
   },
   'schools.html': {
-    image: 'assets/selected-16.jpg',
+    image: '/assets/selected-16.jpg',
     alt: 'A group practicing yoga together in a Milwaukee public space',
     caption: 'Many learning paths meet in community',
     credit: 'Twisted Muse'
   },
   'serve.html': {
-    image: 'assets/selected-14.jpg',
+    image: '/assets/selected-14.jpg',
     alt: 'Hands tending seedling trays during garden work',
     caption: 'Learning through care for living things',
     credit: 'Twisted Muse'
   },
   'lead.html': {
-    image: 'assets/selected-15.jpg',
+    image: '/assets/selected-15.jpg',
     alt: 'A teacher guiding participants through yoga practice in a community room',
     caption: 'Teaching grows through practice and relationship',
     credit: 'Twisted Muse'
   },
   'partner.html': {
-    image: 'assets/selected-12.jpg',
+    image: '/assets/selected-12.jpg',
     alt: 'A group practicing yoga outdoors beside Lake Michigan',
     caption: 'Programs carried into shared spaces',
     credit: 'Twisted Muse'
   },
   'impact.html': {
-    image: 'assets/selected-01.jpg',
+    image: '/assets/selected-01.jpg',
     alt: 'The garden site at Neighborhood House before YAGI stewardship developed',
     caption: 'A place whose story continues through stewardship',
     credit: 'Twisted Muse'
   },
   'about.html': {
-    image: 'assets/selected-02.jpg',
+    image: '/assets/selected-02.jpg',
     alt: 'Luan practicing yoga in a sunlit studio',
     caption: 'A school rooted in lived practice',
     credit: 'Twisted Muse'
   },
   'calendar.html': {
-    image: 'assets/selected-09.jpg',
+    image: '/assets/selected-09.jpg',
     alt: 'A yoga instructor leading an outdoor summer class',
     caption: 'Gather for public practice',
     credit: 'Twisted Muse'
   },
   'support.html': {
-    image: 'assets/selected-17.jpg',
+    image: '/assets/selected-17.jpg',
     alt: 'A community yoga gathering at Sherman Phoenix',
     caption: 'Community support keeps practice accessible',
     credit: 'Twisted Muse'
   },
   'field-notes.html': {
-    image: 'assets/yagi-early-beds.webp',
+    image: '/assets/yagi-early-beds.webp',
     alt: 'Early garden beds and materials at the YAGI site',
     caption: 'The site as a living record',
     credit: 'Senses / YAGI archive'
   },
   '404.html': {
-    image: 'assets/selected-10.jpg',
+    image: '/assets/selected-10.jpg',
     alt: 'A quiet yoga practice in a bright studio',
     caption: 'Return to the living campus',
     credit: 'Twisted Muse'
@@ -292,7 +315,7 @@ if (pagePhoto && pageOpening) {
 
 const livingSources = [
   {
-    image: 'assets/hatha-pradipika-manuscript.webp',
+    image: '/assets/hatha-pradipika-manuscript.webp',
     alt: 'A nineteenth-century manuscript copy of the Hatha Yoga Pradipika',
     title: 'Haṭha Yoga Pradīpikā',
     text: 'A manuscript witness to the wider discipline of Haṭha Yoga: posture, breath, mudrā, concentration, preparation, and liberation.',
@@ -300,7 +323,7 @@ const livingSources = [
     credit: 'Ms Sarah Welch · CC BY-SA 4.0'
   },
   {
-    image: 'assets/bhagavad-gita-manuscript.webp',
+    image: '/assets/bhagavad-gita-manuscript.webp',
     alt: 'A sixteenth-century Sanskrit Bhagavad Gita palm-leaf manuscript from Kerala',
     title: 'Bhagavad Gītā',
     text: 'A palm-leaf record of an enduring dialogue on action, devotion, knowledge, discernment, and responsibility.',
@@ -308,7 +331,7 @@ const livingSources = [
     credit: 'Ms Sarah Welch · CC BY-SA 4.0'
   },
   {
-    image: 'assets/patanjali-yogabhasya-manuscript.webp',
+    image: '/assets/patanjali-yogabhasya-manuscript.webp',
     alt: 'Sanskrit Devanagari manuscript pages from Patanjali’s Yogabhasya',
     title: 'Pātañjalayogaśāstra',
     text: 'Text and commentary preserve a disciplined inquiry into practice, attention, transformation, and freedom.',
