@@ -1,6 +1,9 @@
 // One shared masthead for every school page.
 const siteHeader = document.querySelector('header') || document.body.insertBefore(document.createElement('header'), document.body.firstChild);
-siteHeader.innerHTML = "<div class=\"wrap navbar\"><a aria-label=\"Senses Yoga School home\" class=\"brand\" href=\"/index.html\"><img alt=\"Senses Yoga School\" src=\"/assets/senses-sun.png\"></a><button aria-expanded=\"false\" class=\"menu\">Menu</button><nav class=\"nav\" aria-label=\"School navigation\"><a href=\"practice.html\">Practice</a><a href=\"learn.html\">Learn</a><a href=\"schools.html\">Schools</a><a href=\"serve.html\">Serve</a><a href=\"lead.html\">Teach &amp; Lead</a><a href=\"partner.html\">Partner</a><a href=\"impact.html\">Impact</a><a href=\"about.html\">About</a></nav><div class=\"actions\"><a href=\"calendar.html\">Calendar</a><a class=\"button\" href=\"support.html\">Support</a></div></div>";
+// Preserve each page's authored header; only provide a fallback if one is absent.
+if (!siteHeader.querySelector('.navbar')) {
+  siteHeader.innerHTML = '<div class="wrap navbar"><a class="brand" href="index.html" aria-label="Senses Yoga School home"><img src="assets/senses-sun.png" alt=""></a><button class="menu" aria-expanded="false">Menu</button><nav class="nav" aria-label="School navigation"><a href="practice.html">Practice</a><a href="schools.html">Schools</a><a href="serve.html">Community</a><a href="impact.html">Impact</a><a href="about.html">About</a></nav><div class="actions"><a href="calendar.html">Calendar</a><a class="button" href="support.html">Support</a></div></div>';
+}
 const menu = document.querySelector('.menu');
 const nav = document.querySelector('.nav');
 
