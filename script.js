@@ -22,14 +22,6 @@ if (menu && nav) {
     brand.append(wordmark);
   }
 
-  if (!nav.querySelector('a[href="library.html"]')) {
-    const library = document.createElement('a');
-    library.href = 'library.html';
-    library.textContent = 'Library';
-    const learn = nav.querySelector('a[href="learn.html"]');
-    if (learn) learn.after(library);
-    else nav.prepend(library);
-  }
   const actions = document.querySelector('header .actions');
   if (actions && !actions.querySelector('a[href="https://www.patreon.com/c/SensesYoga"]')) {
     const updates = document.createElement('a');
@@ -60,6 +52,10 @@ if (menu && nav) {
     resources.href = 'resources.html';
     resources.textContent = 'Free Resources';
     connectMenu.append(resources);
+    const library = document.createElement('a');
+    library.href = 'library.html';
+    library.textContent = 'Library of Consciousness';
+    connectMenu.append(library);
     const catalog = document.createElement('a');
     catalog.href = 'catalog.html';
     catalog.textContent = 'Academic Catalog';
