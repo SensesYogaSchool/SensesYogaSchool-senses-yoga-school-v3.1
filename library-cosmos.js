@@ -4,6 +4,15 @@
   const map=root.querySelector('#celestial-map');
   const filters=root.querySelector('#constellation-filters');
   const card=root.querySelector('#celestial-card');
+  const fullscreen=root.querySelector('#cosmos-fullscreen');
+  function setFullscreen(open){
+    root.classList.toggle('is-fullscreen',open);
+    document.body.classList.toggle('cosmos-open',open);
+    fullscreen?.setAttribute('aria-pressed',String(open));
+    if(fullscreen) fullscreen.textContent=open?'Exit full screen':'Full screen';
+  }
+  fullscreen?.addEventListener('click',()=>setFullscreen(!root.classList.contains('is-fullscreen')));
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&root.classList.contains('is-fullscreen'))setFullscreen(false);});
   const constellationById={
     'yoga-sutras':'Foundations','hatha':'Foundations','light-on-pranayama':'Foundations',
     'bhagavad-gita':'Epics & Dharma','ramayana':'Epics & Dharma',
