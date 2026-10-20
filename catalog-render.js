@@ -3,6 +3,7 @@
   const reader = document.querySelector('#catalog-reader');
   const toc = document.querySelector('#catalog-toc');
   const mobileToc = document.querySelector('#catalog-mobile-toc');
+  const chapterJump = document.querySelector('#catalog-chapter-jump');
   if (!source || !reader || !toc || !mobileToc) return;
 
   const chapterNames = [
@@ -59,6 +60,19 @@
   const makeLink = (chapter, index) => '<a href="#chapter-' + chapter.key + '"><span>' + String(index + 1).padStart(2, '0') + '</span>' + escape(chapter.title) + '</a>';
   toc.innerHTML = chapters.map(makeLink).join('') + '<a href="#catalog-conclusion"><span>∞</span>Conclusion</a>';
   mobileToc.innerHTML = chapters.map(makeLink).join('') + '<a href="#catalog-conclusion"><span>∞</span>Conclusion</a>';
+  if (chapterJump) {
+    chapterJump.innerHTML = '<option value="">Choose a section…</option>' +
+      chapters.map((chapter, index) => '<option value="#chapter-' + chapter.key + '">Chapter ' + String(index + 1).padStart(2, '0') + ' · ' + escape(chapter.title) + '</option>').join('') +
+      '<option value="#catalog-conclusion">Conclusion</option>';
+    chapterJump.addEventListener('change', event => {
+      if (!event.target.value) return;
+      document.querySelector(event.target.value)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', event.target.value);
+    });
+  }
+  mobileToc.addEventListener('click', event => {
+    if (event.target.closest('a')) mobileToc.closest('details')?.removeAttribute('open');
+  });
 
   reader.innerHTML = '<section class="catalog-preface"><div class="eyebrow">A developing public record</div><p class="lead">This catalog is shared as the School’s journey unfolds: we grow when we all grow, and our community is our campus. Present offerings, pilots, developing work, and past field tests are named as such in the source text.</p><details><summary>Opening acknowledgments &amp; image index</summary><div class="catalog-source-text">' + paragraphs(preface) + '</div></details></section>' +
     chapters.map((chapter, index) => {
@@ -68,6 +82,7 @@
         '<p class="catalog-number">Chapter ' + String(index + 1).padStart(2, '0') + '</p><h2>' + escape(chapter.title) + '</h2>' +
         (chapter.guiding ? '<blockquote class="catalog-guiding"><span>Guiding Principle</span>' + escape(chapter.guiding) + '</blockquote>' : '') +
         '<div class="catalog-source-text">' + paragraphs(chapter.body) + '</div>' +
+        '<a class="catalog-section-return" href="#catalog-chapter-jump">Browse another chapter ↑</a>' +
         '<nav class="catalog-pager" aria-label="Chapter navigation">' +
         (previous ? '<a href="#chapter-' + previous.key + '">← ' + escape(previous.title) + '</a>' : '<span></span>') +
         (next ? '<a href="#chapter-' + next.key + '">' + escape(next.title) + ' →</a>' : '<a href="#catalog-conclusion">Conclusion →</a>') +
