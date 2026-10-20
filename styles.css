@@ -576,3 +576,23 @@ header a[aria-current="page"]{text-decoration:underline;text-underline-offset:5p
 .catalog-reading>div a{display:inline-block;padding:9px 12px;background:#fffaf0;border:1px solid rgba(50,8,64,.2);color:var(--purple);font:700 9px/1.3 "Cinzel",serif;letter-spacing:.05em;text-decoration:none;text-transform:uppercase}
 .catalog-reading-all{display:inline-block;margin-top:15px;color:var(--purple);font:700 9px/1.3 "Cinzel",serif;letter-spacing:.07em;text-underline-offset:4px;text-transform:uppercase}
 @media(max-width:580px){.catalog-reading{padding:20px 18px}.catalog-reading>div{display:grid}.catalog-reading>div a{padding:12px}}
+
+
+/* V3.26 · Mobile catalog reading polish */
+.catalog-reader{min-width:0}
+.catalog-chapter{scroll-margin-top:118px}
+@media(max-width:900px){
+  .catalog-jump{top:86px;z-index:18}
+  .catalog-reader-section{overflow:visible}
+  .catalog-reader{padding-bottom:76px}
+  .welcome-sound-control{bottom:max(10px,env(safe-area-inset-bottom));max-width:calc(100vw - 20px)}
+}
+@media(max-width:580px){
+  .catalog-hero h1{font-size:clamp(38px,12vw,56px);line-height:.98}
+  .catalog-hero-meta{align-items:flex-start;flex-direction:column}
+  .catalog-mobile-toc nav a{padding:12px 4px}
+  .catalog-pager{grid-template-columns:1fr}
+  .catalog-pager a{display:block;min-height:44px;padding:12px 0}
+  .catalog-pager a:last-child{text-align:left}
+  .catalog-section-return{min-height:44px;padding:13px 0}
+}
