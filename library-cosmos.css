@@ -95,3 +95,11 @@ linear-gradient(145deg,#0e0718 0%,#1d0929 48%,#090712 100%);color:#fff8dc;border
  .constellation-filter{padding:7px 9px}
  .celestial-card{max-height:32%}
 }
+
+@media(min-width:981px){.celestial-library{height:calc(100svh - 115px)}}
+.cosmos-fullscreen{position:absolute;right:0;top:0;z-index:12;border:1px solid rgba(250,199,0,.55);background:rgba(9,5,18,.72);color:#fff0ab;padding:9px 12px;font:600 8px/1 "Cinzel",serif;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
+.cosmos-fullscreen:hover,.cosmos-fullscreen:focus-visible{background:#fac700;color:#320840}
+body.cosmos-open{overflow:hidden}
+.celestial-library.is-fullscreen{position:fixed;inset:0;z-index:300;height:100svh!important;min-height:0!important;padding-top:15px}
+.celestial-library.is-fullscreen .cosmos-fullscreen{position:fixed;right:14px;top:14px}
+@media(max-width:980px){.cosmos-fullscreen{right:0;top:0}.celestial-library.is-fullscreen{padding-top:10px}}
