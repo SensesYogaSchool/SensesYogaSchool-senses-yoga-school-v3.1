@@ -22,7 +22,8 @@
     five: [['yoga-sutras','Yoga Sūtras'],['bhagavad-gita','Bhagavad Gītā'],['ramayana','Rāmāyaṇa'],['hatha','Haṭha Yoga Pradīpikā'],['mandukya','Māṇḍūkya Upaniṣad'],['light-on-pranayama','Light on Prāṇāyāma']],
     eight: [['hatha','Haṭha Yoga Pradīpikā'],['light-on-pranayama','Light on Prāṇāyāma']],
     nine: [['yagi','YAGI Field Guide']],
-    eleven: [['natya','Nāṭyaśāstra · Volume I']]
+    six: [['gospel-ramakrishna','The Gospel of Sri Ramakrishna'],['vivekananda-bhakti','Bhakti-Yoga'],['nada-bindu','Nāda-Bindu Upaniṣad'],['sangita-ratnakara','Saṅgīta Ratnākara · Volume I']],
+    eleven: [['natya','Nāṭyaśāstra · Volume I'],['vivekananda-bhakti','Bhakti-Yoga'],['nada-bindu','Nāda-Bindu Upaniṣad'],['sangita-ratnakara','Saṅgīta Ratnākara · Volume I']]
   };
   const slug = value => value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   const escape = value => value.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
