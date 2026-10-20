@@ -35,19 +35,24 @@
   }
   const chapterPattern = /^Chapter (One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Eleven|Twelve|Thirteen|Fourteen|Fifteen|Sixteen)\s*$/gm;
   const matches = [...source.matchAll(chapterPattern)];
-  const conclusionStart = source.search(/^Conclusion\s*$/m);
   const firstChapter = matches[0]?.index ?? 0;
+  const lastChapterEnd = matches[matches.length - 1]?.index ?? firstChapter;
+  const conclusionMatch = [...source.matchAll(/^Conclusion\s*$/gm)].find(match => match.index > lastChapterEnd);
+  const conclusionStart = conclusionMatch?.index ?? -1;
   const preface = source.slice(0, firstChapter).replace(/^Contents[\s\S]*?(?=Chapter One\s*$)/m, '').trim();
   const chapters = matches.map((match, index) => {
     const key = match[1].toLowerCase();
     const end = index + 1 < matches.length ? matches[index + 1].index : (conclusionStart > -1 ? conclusionStart : source.length);
-    const blocks = source.slice(match.index, end).trim().split(/\n\s*\n+/);
-    const firstLines = blocks.shift().split('\n').map(line => line.trim()).filter(Boolean);
-    const title = firstLines[1] || chapterNames[indexByName[key]][1];
-    const content = blocks.join('\n\n');
-    const guidingMatch = content.match(/^Guiding Principle\s*\n([\s\S]*?)(?=\n\s*\n|$)/);
-    const body = guidingMatch ? content.slice(guidingMatch[0].length).trim() : content;
-    return { key, title, guiding: guidingMatch?.[1]?.trim(), body };
+    const blocks = source.slice(match.index + match[0].length, end).trim().split(/\n\s*\n+/).map(block => block.trim()).filter(Boolean);
+    const fallbackTitle = chapterNames[indexByName[key]][1];
+    const title = blocks[0] && !/^Guiding Principle$/i.test(blocks[0]) ? blocks.shift() : fallbackTitle;
+    let guiding = '';
+    if (/^Guiding Principle$/i.test(blocks[0] || '')) {
+      blocks.shift();
+      guiding = blocks.shift() || '';
+    }
+    const body = blocks.join('\n\n');
+    return { key, title, guiding, body };
   });
   const conclusion = conclusionStart > -1 ? source.slice(conclusionStart).replace(/^Conclusion\s*\n?/,'').trim() : '';
 
