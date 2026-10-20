@@ -344,6 +344,172 @@
       "imageChanges": "Displayed without cropping; existing school working images retain their prior credits.",
       "access": "public-domain",
       "catalogText": false
+    },
+    {
+      "id": "gospel-ramakrishna",
+      "title": "The Gospel of Sri Ramakrishna",
+      "sanskrit": "",
+      "collection": "Modern Vedānta & Interfaith Study",
+      "summary": "Mahendranath Gupta’s record of Sri Ramakrishna’s conversations, studied through Swami Nikhilananda’s English translation in relation to devotion, direct spiritual practice, and respectful encounter among religious paths.",
+      "tags": [
+        "devotion",
+        "vedanta",
+        "interfaith",
+        "ramakrishna"
+      ],
+      "edition": "Mahendranath Gupta (M), The Gospel of Sri Ramakrishna, translated by Swami Nikhilananda (Ramakrishna-Vivekananda Center; modern copyrighted translation).",
+      "question": "How can deep commitment to one path coexist with sincere respect for other approaches to the Divine?",
+      "image": "assets/senses-sun.png",
+      "status": "Copyrighted modern translation · borrow or purchase",
+      "url": "https://openlibrary.org/works/OL8659949W/The_Gospel_of_Sri_Ramakrishna",
+      "linkLabel": "Find or borrow through Open Library",
+      "rights": "Swami Nikhilananda’s English translation is a modern copyrighted work. The School links to lawful borrowing and the official Ramakrishna Order publisher rather than reproducing a PDF.",
+      "curriculum": "Reserved for broader contemplative and interfaith study. Use the edition assigned by the course or facilitator.",
+      "provenance": "Title, translator, publisher pathway, and Open Library borrowing record verified October 20, 2026.",
+      "imageAlt": "Senses Yoga School sun mark used as a neutral study image; not the book cover.",
+      "imageCaption": "Senses Yoga School sun mark; neutral study image, not the edition cover.",
+      "imageCredit": "Senses Yoga School",
+      "imageSource": "https://www.sensesyoga.org/",
+      "imageLicense": null,
+      "imageChanges": "Displayed as a neutral school mark.",
+      "links": [
+        {
+          "label": "Find or borrow legally",
+          "url": "https://openlibrary.org/works/OL8659949W/The_Gospel_of_Sri_Ramakrishna",
+          "type": "Library access"
+        },
+        {
+          "label": "Official Ramakrishna Order book page",
+          "url": "https://englishbooks.rkmm.org/s/tsr/m/gospel-of-sri-ramakrishna",
+          "type": "Publisher"
+        }
+      ],
+      "access": "copyrighted",
+      "catalogText": true
+    },
+    {
+      "id": "vivekananda-bhakti",
+      "title": "Bhakti-Yoga",
+      "sanskrit": "भक्तियोग",
+      "collection": "Modern Vedānta & Devotional Study",
+      "summary": "Swami Vivekananda’s lectures on devotion, love, sacred word, Oṃ, teachers, symbols, and the means of spiritual practice, used as a modern Ramakrishna-lineage bridge into Nāda study.",
+      "tags": [
+        "bhakti",
+        "devotion",
+        "om",
+        "sacred word",
+        "vivekananda"
+      ],
+      "edition": "Swami Vivekananda, Bhakti-Yoga / lectures and addresses delivered in New York in 1895–1896; public-domain historical texts.",
+      "question": "How might devotion become disciplined attention, relationship, and care?",
+      "image": "assets/senses-sun.png",
+      "status": "Open public-domain lectures · free reading",
+      "url": "https://www.loc.gov/item/18027498/",
+      "linkLabel": "Read or download from the Library of Congress",
+      "rights": "The Library of Congress identifies its 1896 Vivekananda volume as public domain and free to use and reuse. Wikisource also provides public reading access to the Bhakti-Yoga lectures.",
+      "curriculum": "Reserved as a modern bridge into devotion, mantra, sacred word, Oṃ, and Nāda inquiry within Creative Arts.",
+      "provenance": "Author, 1896 publication record, public-domain status, and online reading access verified October 20, 2026 through the Library of Congress and Wikisource.",
+      "imageAlt": "Senses Yoga School sun mark used as a neutral study image; not the book cover.",
+      "imageCaption": "Senses Yoga School sun mark; neutral study image, not the edition cover.",
+      "imageCredit": "Senses Yoga School",
+      "imageSource": "https://www.sensesyoga.org/",
+      "imageLicense": null,
+      "imageChanges": "Displayed as a neutral school mark.",
+      "links": [
+        {
+          "label": "Library of Congress edition",
+          "url": "https://www.loc.gov/item/18027498/",
+          "type": "Public-domain scan"
+        },
+        {
+          "label": "Read Bhakti-Yoga online",
+          "url": "https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda/Volume_9/Lectures_and_Discourses/Bhakti-Yoga",
+          "type": "Web text"
+        }
+      ],
+      "access": "public-domain",
+      "catalogText": true
+    },
+    {
+      "id": "nada-bindu",
+      "title": "Nāda-Bindu Upaniṣad",
+      "sanskrit": "नादबिन्दूपनिषद्",
+      "collection": "Upaniṣadic & Sacred Sound Study",
+      "summary": "A Yoga Upaniṣad used for inquiry into Oṃ, nāda, inner sound, concentration, and contemplative absorption. Its historical translation should be read with attention to variant textual traditions.",
+      "tags": [
+        "nada",
+        "sound",
+        "om",
+        "concentration",
+        "upanishad"
+      ],
+      "edition": "Nāda-Bindu Upaniṣad in K. Narayanasvami Aiyar, trans., Thirty Minor Upanishads (Vasanta Press, 1914).",
+      "question": "What changes when listening becomes the central object of contemplative attention?",
+      "image": "assets/senses-sun.png",
+      "status": "Open public-domain edition · free PDF and web text",
+      "url": "https://oll.libertyfund.org/titles/aiyar-thirty-minor-upanishads",
+      "linkLabel": "Read or download Thirty Minor Upanishads",
+      "rights": "The 1914 Aiyar translation is identified as public domain by the Online Library of Liberty. It is a historical translation and may differ from later editions and manuscript traditions.",
+      "curriculum": "Reserved as a direct classical source for developing Nāda and sacred-sound study.",
+      "provenance": "Translator, publication year, collection contents, public-domain status, and downloadable edition verified October 20, 2026.",
+      "imageAlt": "Senses Yoga School sun mark used as a neutral study image; not a manuscript image.",
+      "imageCaption": "Senses Yoga School sun mark; neutral study image.",
+      "imageCredit": "Senses Yoga School",
+      "imageSource": "https://www.sensesyoga.org/",
+      "imageLicense": null,
+      "imageChanges": "Displayed as a neutral school mark.",
+      "links": [
+        {
+          "label": "Read and download free",
+          "url": "https://oll.libertyfund.org/titles/aiyar-thirty-minor-upanishads",
+          "type": "Public-domain edition"
+        },
+        {
+          "label": "Internet Archive scan",
+          "url": "https://archive.org/details/thirtyminorupani00xxxxuoft",
+          "type": "Source scan"
+        }
+      ],
+      "access": "public-domain",
+      "catalogText": true
+    },
+    {
+      "id": "sangita-ratnakara",
+      "title": "Saṅgīta Ratnākara · Volume I",
+      "sanskrit": "सङ्गीतरत्नाकर",
+      "collection": "Music, Performance & Nāda Study",
+      "summary": "Śārṅgadeva’s foundational treatise on Indian music and performance, reserved as a deeper source as the School’s Nāda pathway develops.",
+      "tags": [
+        "music",
+        "nada",
+        "performance",
+        "sangita",
+        "theory"
+      ],
+      "edition": "Śārṅgadeva, Saṅgīta-Ratnākara, Volume I, English translation and notes by R. K. Shringy under the supervision of Prem Lata Sharma (Motilal Banarsidass).",
+      "question": "How can musical structure deepen listening without replacing direct experience?",
+      "image": "assets/senses-sun.png",
+      "status": "Provider-hosted study scan · rights require care",
+      "url": "https://archive.org/details/sangitaratnakaraofsankasangaradevashringyr.k.vol1mlbd",
+      "linkLabel": "Read through Internet Archive",
+      "rights": "Internet Archive hosts a publicly readable scan. Online availability does not by itself establish public-domain status for this modern translation, so the School links to the provider record and does not redistribute the PDF.",
+      "curriculum": "A developing advanced source for Nāda, Indian music, and performance study; not yet a universal required text.",
+      "provenance": "Title, volume, translators, publisher context, and provider-hosted scan verified October 20, 2026.",
+      "imageAlt": "Senses Yoga School sun mark used as a neutral study image; not the book cover.",
+      "imageCaption": "Senses Yoga School sun mark; neutral study image, not the edition cover.",
+      "imageCredit": "Senses Yoga School",
+      "imageSource": "https://www.sensesyoga.org/",
+      "imageLicense": null,
+      "imageChanges": "Displayed as a neutral school mark.",
+      "links": [
+        {
+          "label": "Read through Internet Archive",
+          "url": "https://archive.org/details/sangitaratnakaraofsankasangaradevashringyr.k.vol1mlbd",
+          "type": "Provider-hosted scan"
+        }
+      ],
+      "access": "open-access",
+      "catalogText": true
     }
   ]
 }
