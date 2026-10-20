@@ -17,6 +17,13 @@
     ['fifteen', 'Leadership Formation & Communal Stewardship'], ['sixteen', 'Entering the Educational Community']
   ];
   const indexByName = Object.fromEntries(chapterNames.map(([key], index) => [key, index]));
+  const chapterReading = {
+    two: [['yoga-sutras','Yoga Sūtras'],['bhagavad-gita','Bhagavad Gītā'],['ramayana','Rāmāyaṇa'],['mandukya','Māṇḍūkya Upaniṣad']],
+    five: [['yoga-sutras','Yoga Sūtras'],['bhagavad-gita','Bhagavad Gītā'],['ramayana','Rāmāyaṇa'],['hatha','Haṭha Yoga Pradīpikā'],['mandukya','Māṇḍūkya Upaniṣad'],['light-on-pranayama','Light on Prāṇāyāma']],
+    eight: [['hatha','Haṭha Yoga Pradīpikā'],['light-on-pranayama','Light on Prāṇāyāma']],
+    nine: [['yagi','YAGI Field Guide']],
+    eleven: [['natya','Nāṭyaśāstra · Volume I']]
+  };
   const slug = value => value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   const escape = value => value.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
@@ -95,6 +102,7 @@
         '<p class="catalog-number">Chapter ' + String(index + 1).padStart(2, '0') + '</p><h2>' + escape(chapter.title) + '</h2>' +
         (chapter.guiding ? '<blockquote class="catalog-guiding"><span>Guiding Principle</span>' + escape(chapter.guiding) + '</blockquote>' : '') +
         '<div class="catalog-source-text">' + paragraphs(chapter.body) + '</div>' +
+        (chapterReading[chapter.key] ? '<aside class="catalog-reading"><p class="eyebrow">Read alongside this chapter</p><div>' + chapterReading[chapter.key].map(item => '<a href="library.html?text=' + item[0] + '#texts">' + escape(item[1]) + ' ↗</a>').join('') + '</div><a class="catalog-reading-all" href="library.html?access=catalog#texts">View all catalog texts →</a></aside>' : '') +
         '<a class="catalog-section-return" href="#catalog-chapter-jump">Browse another chapter ↑</a>' +
         '<nav class="catalog-pager" aria-label="Chapter navigation">' +
         (previous ? '<a href="#chapter-' + previous.key + '">← ' + escape(previous.title) + '</a>' : '<span></span>') +
