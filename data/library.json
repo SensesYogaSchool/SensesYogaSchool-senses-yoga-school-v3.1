@@ -39,7 +39,9 @@
           "url": "https://archive.org/details/yogasystemofpata00wooduoft",
           "type": "Source record"
         }
-      ]
+      ],
+      "access": "public-domain",
+      "catalogText": true
     },
     {
       "id": "bhagavad-gita",
@@ -80,7 +82,9 @@
           "url": "https://archive.org/details/bhagavad_gita_0803_librivox",
           "type": "Audio"
         }
-      ]
+      ],
+      "access": "public-domain",
+      "catalogText": true
     },
     {
       "id": "hatha",
@@ -119,7 +123,9 @@
           "url": "https://www.rarebooksocietyofindia.org/book_archive/196174216674_10153340826096675.pdf",
           "type": "PDF"
         }
-      ]
+      ],
+      "access": "public-domain",
+      "catalogText": true
     },
     {
       "id": "light-on-pranayama",
@@ -159,7 +165,9 @@
           "url": "https://harpercollins.co.uk/products/light-on-pranayama-the-definitive-guide-to-the-art-of-breathing-bks-iyengar",
           "type": "Publisher"
         }
-      ]
+      ],
+      "access": "copyrighted",
+      "catalogText": true
     },
     {
       "id": "ramayana",
@@ -198,7 +206,9 @@
           "url": "https://www.gutenberg.org/ebooks/25965",
           "type": "Free eBook"
         }
-      ]
+      ],
+      "access": "public-domain",
+      "catalogText": true
     },
     {
       "id": "mandukya",
@@ -237,7 +247,9 @@
           "url": "https://commons.wikimedia.org/wiki/File:The_Vedic_philosophy,_or,_An_exposition_of_the_sacred_and_mysterious_monosyllable_(Aum)_;_The_M%C3%A2ndukya_Upanishad_(text)_(IA_cu31924086366741).pdf",
           "type": "Source record"
         }
-      ]
+      ],
+      "access": "public-domain",
+      "catalogText": true
     },
     {
       "id": "natya",
@@ -271,7 +283,9 @@
           "url": "https://archive.org/details/NatyaShastra",
           "type": "Open-access scan"
         }
-      ]
+      ],
+      "access": "open-access",
+      "catalogText": true
     },
     {
       "id": "yagi",
@@ -298,7 +312,9 @@
       "imageCredit": "Senses Yoga School · existing approved website photograph",
       "imageSource": "https://www.sensesyoga.org/serve.html",
       "imageLicense": null,
-      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits."
+      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits.",
+      "access": "school-created",
+      "catalogText": true
     },
     {
       "id": "katha-paramananda",
@@ -325,7 +341,9 @@
       "imageCredit": "Ms Sarah Welch · CC BY-SA 4.0",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Katha_Upanishad,_Sanskrit,_Grantha_script,_Whish_Manuscript_Collection_acquired_1836_CE.jpg",
       "imageLicense": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits."
+      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits.",
+      "access": "public-domain",
+      "catalogText": false
     }
   ]
 }
