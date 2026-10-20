@@ -26,11 +26,24 @@
     'Education Through Partnership', 'One Practice. Many Places. One Community.', 'The Meaning of "Heroic"'
   ]);
   function paragraphs(text) {
-    return text.trim().split(/\n\s*\n+/).map(block => block.trim()).filter(Boolean).map(block => {
+    const blocks = text.trim().split(/\n\s*\n+/).map(block => block.trim()).filter(Boolean);
+    let listMode = false;
+    return blocks.map(block => {
       const clean = block.replace(/\n+/g, ' ').trim();
-      if (/^_______________+$/.test(clean)) return '<hr class="catalog-rule">';
-      if (headings.has(clean) || (/^[A-Z][A-Za-zĀāĪīŪūṚṛṂṃṄṅÑñṬṭḌḍṆṇŚśṢṣ\-–—&'’ ]{2,78}$/.test(clean) && !/[.!?]$/.test(clean))) return '<h3>' + escape(clean) + '</h3>';
-      if (/^(•|–|—|\d+[.)])\s/.test(clean)) return '<p class="catalog-list-item">' + escape(clean) + '</p>';
+      if (/^_______________+$/.test(clean)) {
+        listMode = false;
+        return '<hr class="catalog-rule">';
+      }
+      const explicitList = /^(•|–|—|\d+[.)])\s/.test(clean);
+      const shortListContinuation = listMode && clean.length < 120 && !/[.!?]$/.test(clean);
+      if (explicitList || shortListContinuation) {
+        return '<p class="catalog-list-item">' + escape(clean) + '</p>';
+      }
+      if (headings.has(clean) || (/^[A-Z][A-Za-zĀāĪīŪūṚṛṂṃṄṅÑñṬṭḌḍṆṇŚśṢṣ\-–—&'’ ]{2,78}$/.test(clean) && !/[.!?:]$/.test(clean))) {
+        listMode = false;
+        return '<h3>' + escape(clean) + '</h3>';
+      }
+      listMode = /:\s*$/.test(clean);
       return '<p>' + escape(clean) + '</p>';
     }).join('');
   }
