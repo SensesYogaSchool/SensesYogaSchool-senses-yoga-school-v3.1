@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-10-12",
+  "reviewed": "2026-10-20",
   "records": [
     {
       "id": "yoga-sutras",
@@ -13,21 +13,74 @@
         "practice",
         "discernment"
       ],
-      "edition": "Patañjali; translator and edition of the current public listing require verification.",
+      "edition": "Patañjali, The Yoga-System of Patañjali, translated by James Haughton Woods (Harvard University Press, 1914).",
       "question": "What changes when I observe before responding?",
       "image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Patanjali_Yoga_Sutras_manuscript.jpg",
-      "status": "Listed school resource · edition review pending",
-      "url": "https://www.sensesyoga.org/resources.html",
-      "linkLabel": "School resource directory",
-      "rights": "Link-only in this prototype. Redistribution rights are not verified; no PDF is bundled.",
+      "status": "Open public-domain edition · free PDF",
+      "url": "https://archive.org/download/yogasystemofpata00wooduoft/yogasystemofpata00wooduoft.pdf",
+      "linkLabel": "Download the 1914 public-domain PDF",
+      "rights": "Published in 1914 and available as a public-domain scan through Internet Archive. This historical translation may differ from the edition assigned in a specific course.",
       "curriculum": "Follow the approved cohort reference sheet; no page or verse assignment is supplied here.",
-      "provenance": "Title and collection pathway grounded in the current school resource page, reviewed October 12, 2026. Summary is school-facing editorial description, not a quotation from the text.",
+      "provenance": "Edition and PDF verified October 20, 2026 through the Internet Archive scan of the University of Toronto copy.",
       "imageAlt": "Yoga Sūtras manuscript, National Library of India; historical study image, not the assigned edition cover.",
       "imageCaption": "Yoga Sūtras manuscript, National Library of India; historical study image, not the assigned edition cover.",
       "imageCredit": "Wikimedia Commons · public domain",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Patanjali_Yoga_Sutras_manuscript.jpg",
       "imageLicense": "https://creativecommons.org/publicdomain/mark/1.0/",
-      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits."
+      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits.",
+      "links": [
+        {
+          "label": "Download public-domain PDF",
+          "url": "https://archive.org/download/yogasystemofpata00wooduoft/yogasystemofpata00wooduoft.pdf",
+          "type": "PDF"
+        },
+        {
+          "label": "View archive record",
+          "url": "https://archive.org/details/yogasystemofpata00wooduoft",
+          "type": "Source record"
+        }
+      ]
+    },
+    {
+      "id": "bhagavad-gita",
+      "title": "Bhagavad Gītā",
+      "sanskrit": "भगवद्गीता",
+      "collection": "Epic & Yogic Philosophy",
+      "summary": "A dialogue between Kṛṣṇa and Arjuna studied in relation to action, discernment, devotion, knowledge, responsibility, and liberation. Use the edition named in a course when completing assigned passages.",
+      "tags": [
+        "dharma",
+        "action",
+        "devotion",
+        "discernment",
+        "knowledge"
+      ],
+      "edition": "The Song Celestial; or, Bhagavad-Gîtâ, translated by Sir Edwin Arnold (1885), Project Gutenberg eBook 2388.",
+      "question": "How might disciplined action remain responsible without becoming attached to recognition or outcome?",
+      "image": "assets/senses-sun.png",
+      "status": "Open public-domain edition · free eBook and audio",
+      "url": "https://www.gutenberg.org/ebooks/2388",
+      "linkLabel": "Read or download from Project Gutenberg",
+      "rights": "Sir Edwin Arnold’s 1885 translation is public domain in the United States. Project Gutenberg provides free HTML and downloadable eBook formats. This historical poetic rendering may differ from a course-assigned translation.",
+      "curriculum": "Consult the approved cohort reference sheet for the assigned translation, chapter, and verse. This public-domain edition supports general reading alongside the School.",
+      "provenance": "Project Gutenberg title, translator, edition, and public access verified October 20, 2026.",
+      "imageAlt": "Senses Yoga School sun mark used as a neutral study image; not a book cover or manuscript image.",
+      "imageCaption": "Senses Yoga School sun mark; neutral study image, not the edition cover.",
+      "imageCredit": "Senses Yoga School",
+      "imageSource": "https://www.sensesyoga.org/",
+      "imageLicense": null,
+      "imageChanges": "Displayed as a neutral school mark.",
+      "links": [
+        {
+          "label": "Read and download free",
+          "url": "https://www.gutenberg.org/ebooks/2388",
+          "type": "Public-domain eBook"
+        },
+        {
+          "label": "Listen to public-domain audio",
+          "url": "https://archive.org/details/bhagavad_gita_0803_librivox",
+          "type": "Audio"
+        }
+      ]
     },
     {
       "id": "hatha",
@@ -40,21 +93,73 @@
         "practice",
         "discipline"
       ],
-      "edition": "Traditional attribution: Svātmārāma; listed school-copy edition requires verification.",
+      "edition": "Svātmārāma, Haṭha Yoga Pradīpikā, translated by Pancham Sinh (1914).",
       "question": "How do preparation and repetition shape practice?",
       "image": "assets/hatha-pradipika-manuscript.webp",
-      "status": "Listed school resource · edition review pending",
-      "url": "https://www.sensesyoga.org/resources.html",
-      "linkLabel": "School resource directory",
-      "rights": "Link-only in this prototype. Redistribution rights are not verified; no PDF is bundled.",
+      "status": "Open public-domain edition · free text and PDF",
+      "url": "https://sacred-texts.com/hin/hyp/index.htm",
+      "linkLabel": "Read the 1914 Pancham Sinh edition",
+      "rights": "The Pancham Sinh translation was published in 1914 and is public domain in the United States. Links lead to the Internet Sacred Text Archive and a public rare-book PDF.",
       "curriculum": "Follow the approved cohort reference sheet; no page or verse assignment is supplied here.",
-      "provenance": "Title and collection pathway grounded in the current school resource page, reviewed October 12, 2026. Summary is school-facing editorial description, not a quotation from the text.",
+      "provenance": "Edition, translator, publication year, online text, and PDF access verified October 20, 2026.",
       "imageAlt": "Haṭha Yoga Pradīpikā manuscript, Schøyen Collection; nineteenth-century copy.",
       "imageCaption": "Haṭha Yoga Pradīpikā manuscript, Schøyen Collection; nineteenth-century copy.",
       "imageCredit": "Ms Sarah Welch · CC BY-SA 4.0",
       "imageSource": "https://commons.wikimedia.org/wiki/File:19th_century_manuscript_copy,_15th_century_Hatha_yoga_pradipika,_Schoyen_Collection_Norway.jpg",
       "imageLicense": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits."
+      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits.",
+      "links": [
+        {
+          "label": "Read free online",
+          "url": "https://sacred-texts.com/hin/hyp/index.htm",
+          "type": "Web text"
+        },
+        {
+          "label": "Download public-domain PDF",
+          "url": "https://www.rarebooksocietyofindia.org/book_archive/196174216674_10153340826096675.pdf",
+          "type": "PDF"
+        }
+      ]
+    },
+    {
+      "id": "light-on-pranayama",
+      "title": "Light on Prāṇāyāma",
+      "sanskrit": "प्राणायाम दीपिका",
+      "collection": "Modern Practice Literature",
+      "summary": "B.K.S. Iyengar’s modern study of prāṇāyāma, used by the School for selected breath-study references. It remains copyrighted and should be borrowed or purchased through lawful channels.",
+      "tags": [
+        "breath",
+        "pranayama",
+        "practice",
+        "modern yoga"
+      ],
+      "edition": "B.K.S. Iyengar, Light on Prāṇāyāma: The Definitive Guide to the Art of Breathing. First published 1981; current editions vary.",
+      "question": "How do precision, preparation, and observation shape a responsible breath practice?",
+      "image": "assets/hatha-pradipika-manuscript.webp",
+      "status": "Copyrighted modern work · borrow or purchase",
+      "url": "https://openlibrary.org/books/OL58926183M/Light_on_Pranayama",
+      "linkLabel": "Find or borrow through Open Library",
+      "rights": "This work is copyrighted. The School does not host or link to unauthorized free PDFs. Use a library borrowing service, the official publisher, or a lawful purchased copy.",
+      "curriculum": "When a course assigns a chapter or page, use the named edition because pagination varies. Practice breath retention and advanced techniques only with appropriate instruction.",
+      "provenance": "Publication history checked October 20, 2026 against B.K.S. Iyengar’s official bibliography, HarperCollins, and Open Library.",
+      "imageAlt": "Historical Haṭha Yoga manuscript used as contextual breath-study artwork; not the cover of Light on Prāṇāyāma.",
+      "imageCaption": "Historical Haṭha Yoga manuscript; contextual image, not the book cover.",
+      "imageCredit": "Ms Sarah Welch · CC BY-SA 4.0",
+      "imageSource": "https://commons.wikimedia.org/wiki/File:19th_century_manuscript_copy,_15th_century_Hatha_yoga_pradipika,_Schoyen_Collection_Norway.jpg",
+      "imageLicense": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "imageChanges": "Displayed as contextual study art without implying it is the book cover.",
+      "links": [
+        {
+          "label": "Find or borrow legally",
+          "url": "https://openlibrary.org/books/OL58926183M/Light_on_Pranayama",
+          "type": "Library access"
+        },
+        {
+          "label": "Official publisher page",
+          "url": "https://harpercollins.co.uk/products/light-on-pranayama-the-definitive-guide-to-the-art-of-breathing-bks-iyengar",
+          "type": "Publisher"
+        }
+      ]
     },
     {
       "id": "ramayana",
@@ -67,21 +172,33 @@
         "dharma",
         "relationship"
       ],
-      "edition": "Current public listing names an English translation without identifying its edition. This provisional listing must be split into separate Goldman and Shastri edition records after verification.",
+      "edition": "Vālmīki, The Rámáyan of Válmíki, translated by Ralph T. H. Griffith (public-domain historical edition).",
       "question": "What information, pressures, and responsibilities shape a choice?",
       "image": "assets/ramayana-traditional.webp",
-      "status": "Listed school resource · edition review pending",
-      "url": "https://www.sensesyoga.org/resources.html",
-      "linkLabel": "School resource directory",
-      "rights": "Link-only in this prototype. Redistribution rights are not verified; no PDF is bundled.",
+      "status": "Open public-domain edition · free PDF",
+      "url": "https://archive.org/download/ramayanamahabhar0000valm/ramayanamahabhar0000valm.pdf",
+      "linkLabel": "Download a public-domain Griffith edition",
+      "rights": "The linked historical English translation is public domain in the United States. It is a supplemental edition and does not replace the separate Goldman or Shastri readings named in internal assignments.",
       "curriculum": "Semester I Week 12 reference sheet names separate Goldman and Shastri readings. Their pagination must remain separate. Exact assignments are retained in the internal reference sheet.",
-      "provenance": "Title and collection pathway grounded in the current school resource page, reviewed October 12, 2026. Summary is school-facing editorial description, not a quotation from the text.",
+      "provenance": "Public-domain Griffith access verified October 20, 2026 through Internet Archive. The School preserves edition distinctions for assigned passages.",
       "imageAlt": "Traditional painting of Rāma, Sītā, Lakṣmaṇa and Hanumān; contextual study artwork.",
       "imageCaption": "Traditional painting of Rāma, Sītā, Lakṣmaṇa and Hanumān; contextual study artwork.",
       "imageCredit": "Public-domain artwork via Wikimedia Commons",
       "imageSource": "https://www.sensesyoga.org/#archetypes",
       "imageLicense": "https://creativecommons.org/publicdomain/mark/1.0/",
-      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits."
+      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits.",
+      "links": [
+        {
+          "label": "Download public-domain PDF",
+          "url": "https://archive.org/download/ramayanamahabhar0000valm/ramayanamahabhar0000valm.pdf",
+          "type": "PDF"
+        },
+        {
+          "label": "Project Gutenberg Rāmāyaṇa selection",
+          "url": "https://www.gutenberg.org/ebooks/25965",
+          "type": "Free eBook"
+        }
+      ]
     },
     {
       "id": "mandukya",
@@ -94,21 +211,33 @@
         "dream",
         "meditation"
       ],
-      "edition": "Current public listing confirms the title; translator and edition remain to be checked.",
+      "edition": "Māṇḍūkya Upaniṣad in The Vedic Philosophy, or An Exposition of the Sacred and Mysterious Monosyllable (Aum), nineteenth-century public-domain scan.",
       "question": "How does this source describe consciousness, and what can I personally observe?",
       "image": "https://upload.wikimedia.org/wikipedia/commons/0/01/Gaudapada_Mandukya_Karika_manuscript_page_sample_i%2C_Sanskrit%2C_Devanagari_script.jpg",
-      "status": "Listed school resource · edition review pending",
-      "url": "https://www.sensesyoga.org/resources.html",
-      "linkLabel": "School resource directory",
-      "rights": "Link-only in this prototype. Redistribution rights are not verified; no PDF is bundled.",
+      "status": "Open public-domain edition · free PDF",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/The_Vedic_philosophy%2C_or%2C_An_exposition_of_the_sacred_and_mysterious_monosyllable_%28Aum%29_%3B_The_M%C3%A2ndukya_Upanishad_%28text%29_%28IA_cu31924086366741%29.pdf",
+      "linkLabel": "Download the public-domain PDF",
+      "rights": "Wikimedia Commons identifies the scanned nineteenth-century volume as public domain. Students should keep this historical edition distinct from later translations and commentaries.",
       "curriculum": "Follow the approved cohort reference sheet; no page or verse assignment is supplied here.",
-      "provenance": "Title and collection pathway grounded in the current school resource page, reviewed October 12, 2026. Summary is school-facing editorial description, not a quotation from the text.",
+      "provenance": "Public-domain file and Internet Archive provenance verified October 20, 2026 through Wikimedia Commons.",
       "imageAlt": "Gauḍapāda Māṇḍūkya Kārikā manuscript; related commentary, not the school translation cover.",
       "imageCaption": "Gauḍapāda Māṇḍūkya Kārikā manuscript; related commentary, not the school translation cover.",
       "imageCredit": "Ms Sarah Welch · CC BY-SA 4.0",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Gaudapada_Mandukya_Karika_manuscript_page_sample_i,_Sanskrit,_Devanagari_script.jpg",
       "imageLicense": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits."
+      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits.",
+      "links": [
+        {
+          "label": "Download public-domain PDF",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/The_Vedic_philosophy%2C_or%2C_An_exposition_of_the_sacred_and_mysterious_monosyllable_%28Aum%29_%3B_The_M%C3%A2ndukya_Upanishad_%28text%29_%28IA_cu31924086366741%29.pdf",
+          "type": "PDF"
+        },
+        {
+          "label": "View rights and source record",
+          "url": "https://commons.wikimedia.org/wiki/File:The_Vedic_philosophy,_or,_An_exposition_of_the_sacred_and_mysterious_monosyllable_(Aum)_;_The_M%C3%A2ndukya_Upanishad_(text)_(IA_cu31924086366741).pdf",
+          "type": "Source record"
+        }
+      ]
     },
     {
       "id": "natya",
@@ -121,21 +250,28 @@
         "performance",
         "expression"
       ],
-      "edition": "Volume I is named in the public listing; translator, publisher and edition require verification.",
+      "edition": "Bharata Muni, The Nāṭyaśāstra, Volume I, translated by Manomohan Ghosh (Asiatic Society of Bengal, 1951).",
       "question": "How can expressive practice deepen attention and relationship?",
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Shiva_Nataraja%2C_Tamil_Nadu%2C_India%2C_Chola_dynasty%2C_1000s_AD%2C_bronze_-_Dallas_Museum_of_Art_-_DSC05064.jpg/500px-Shiva_Nataraja%2C_Tamil_Nadu%2C_India%2C_Chola_dynasty%2C_1000s_AD%2C_bronze_-_Dallas_Museum_of_Art_-_DSC05064.jpg",
-      "status": "Listed school resource · edition review pending",
-      "url": "https://www.sensesyoga.org/resources.html",
-      "linkLabel": "School resource directory",
-      "rights": "Link-only in this prototype. Redistribution rights are not verified; no PDF is bundled.",
+      "status": "Open-access historical scan · provider terms apply",
+      "url": "https://archive.org/details/NatyaShastra",
+      "linkLabel": "Read the Internet Archive edition",
+      "rights": "An open-access scan is available through Internet Archive under the provider’s stated terms. The School does not label this 1951 translation public domain or redistribute it.",
       "curriculum": "Follow the approved cohort reference sheet; no page or verse assignment is supplied here.",
-      "provenance": "Title and collection pathway grounded in the current school resource page, reviewed October 12, 2026. Summary is school-facing editorial description, not a quotation from the text.",
+      "provenance": "Edition and open-access scan verified October 20, 2026. Rights are described conservatively because online availability alone does not establish public-domain status.",
       "imageAlt": "Śiva Naṭarāja bronze, Chola dynasty, Dallas Museum of Art; contextual dance artwork, not a Nāṭyaśāstra illustration.",
       "imageCaption": "Śiva Naṭarāja bronze, Chola dynasty, Dallas Museum of Art; contextual dance artwork, not a Nāṭyaśāstra illustration.",
       "imageCredit": "Daderot · CC0",
       "imageSource": "https://commons.wikimedia.org/wiki/File:Shiva_Nataraja,_Tamil_Nadu,_India,_Chola_dynasty,_1000s_AD,_bronze_-_Dallas_Museum_of_Art_-_DSC05064.jpg",
       "imageLicense": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits."
+      "imageChanges": "Displayed without cropping; existing school working images retain their prior credits.",
+      "links": [
+        {
+          "label": "Read or download through Internet Archive",
+          "url": "https://archive.org/details/NatyaShastra",
+          "type": "Open-access scan"
+        }
+      ]
     },
     {
       "id": "yagi",
