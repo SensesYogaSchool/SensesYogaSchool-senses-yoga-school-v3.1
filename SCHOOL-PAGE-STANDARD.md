@@ -11,3 +11,7 @@ All four Schools of Practice share this structure while retaining school-specifi
 Shared presentation: school-pages.css. Prakriti also uses health-fair-gallery.css for its gallery and service-area detail.
 
 Image selection pending: Creative Arts community banner. Current credited Ragamala artwork remains until a suitable original photo is selected. Other school banners can also be replaced by founder-selected photographs without changing the structure.
+
+## Inquiry-led openings
+
+Lead with lived practice and an invitation to inquiry. Prakriti opens with the living-curriculum field lesson; other schools introduce a school-specific question beneath the banner. Link to Heroic Yogi reflections as a doorway into participation. Avoid repeating a hero/group photograph across cards, placement details, and gallery on the same page; Photo 2 appears once in the Prakriti community banner.
