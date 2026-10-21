@@ -56,3 +56,7 @@ User-supplied Neighborhood House / MCW Saturday Clinic Milwaukee / Senses Yoga p
 - `assets/health-fair-2026/photo-295.webp`: original photo (295); A conversation at an information table.
 - `assets/health-fair-2026/photo-319.webp`: original photo (319); A welcome from Neighborhood House.
 - `assets/health-fair-2026/photo-186.webp`: original photo (186); Preparing fresh produce for the shared meal.
+
+## YAGI living curriculum video
+
+User-authorized field lesson excerpt: 09:11–10:11, 60 seconds. Optimized muted H.264 background, 854×480 at 20fps, approximately 1 MB. Original unchanged. Poster extracted from first frame. Original storage identifiers are omitted from the public source record.
