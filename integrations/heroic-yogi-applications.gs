@@ -17,7 +17,7 @@ function doPost(e) {
     if (p.website) throw Error('Invalid submission.'); // Honeypot
     if (!p.fullName || !p.email || !p.motivation || !p.practice || !p.learning || !p.weeklyAvailability || !p.inPerson || p.adult !== 'Yes' || p.acknowledged !== 'on') throw Error('Required fields missing.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p.email)) throw Error('Invalid email.');
-    const values = EXPECTED_FIELDS.map(k => String(p[k] || '').trim());
+    const values = EXPECTED_FIELDS.map(k => k === 'interests' ? (e.parameters.interests || []).join('; ').trim() : String(p[k] || '').trim());
     EXPECTED_FIELDS.forEach((k,i)=>{ if (values[i].length > (MAX_LENGTHS[k] || 500)) throw Error('A response exceeds its length limit.'); });
     const lock = LockService.getScriptLock();
     if (!lock.tryLock(15000)) throw Error('Please try again shortly.');
