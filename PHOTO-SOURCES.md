@@ -38,3 +38,21 @@ These works are presented as contextual study images, not decorative substitutes
 5. `patanjali-yogabhasya-manuscript.webp`
    Source: [Patañjali's Yogabhāṣya, Sanskrit, Devanagari script, sample pages](https://commons.wikimedia.org/wiki/File:Patanjali%27s_Yogabhasya,_Sanskrit,_Devanagari_script,_sample_pages.jpg)
    Credit: Ms Sarah Welch, CC BY-SA 4.0, via Wikimedia Commons.
+
+## September 2026 Community Health Fair
+
+User-supplied Neighborhood House / MCW Saturday Clinic Milwaukee / Senses Yoga photographs. Photography credit: Twisted Muse / Anyssa Camacho. Original files preserved; website uses resized WebP derivatives with metadata removed.
+
+- `assets/health-fair-2026/photo-2.webp`: original photo (2); Foodways team gathered around the prepared dishes.
+- `assets/health-fair-2026/photo-104.webp`: original photo (104); Preparing dishes together in the kitchen.
+- `assets/health-fair-2026/photo-145.webp`: original photo (145); A meal served with vegetables, rice, and bread.
+- `assets/health-fair-2026/photo-302.webp`: original photo (302); A close look at one of the shared dishes.
+- `assets/health-fair-2026/photo-340.webp`: original photo (340); Passing a freshly served meal across the table.
+- `assets/health-fair-2026/photo-372.webp`: original photo (372); Food and printed nutrition education shared side by side.
+- `assets/health-fair-2026/photo-241.webp`: original photo (241); Community program information available at the fair.
+- `assets/health-fair-2026/photo-261.webp`: original photo (261); A smiling welcome at a community information table.
+- `assets/health-fair-2026/photo-282.webp`: original photo (282); Conversation and hands-on activity at a community table.
+- `assets/health-fair-2026/photo-368.webp`: original photo (368); Smiling conversation between community exhibitors.
+- `assets/health-fair-2026/photo-295.webp`: original photo (295); A conversation at an information table.
+- `assets/health-fair-2026/photo-319.webp`: original photo (319); A welcome from Neighborhood House.
+- `assets/health-fair-2026/photo-186.webp`: original photo (186); Preparing fresh produce for the shared meal.
