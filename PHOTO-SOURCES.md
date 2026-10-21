@@ -60,3 +60,9 @@ User-supplied Neighborhood House / MCW Saturday Clinic Milwaukee / Senses Yoga p
 ## YAGI living curriculum video
 
 User-authorized field lesson excerpt: 09:11–10:11, 60 seconds. Optimized muted H.264 background, 854×480 at 20fps, approximately 1 MB. Original unchanged. Poster extracted from first frame. Original storage identifiers are omitted from the public source record.
+
+## Nāda / Sherman Phoenix sound-bowl photographs
+
+User-provided original photographs, credited to Twisted Muse / Anyssa Camacho. Originals unchanged; full-frame WebP derivatives preserve visible photography marks.
+- `assets/nada/sound-bowls-practice.webp`: `SensesYoga_ShermanPhoenix_FreeAssistAnyssaCamacho_TwistedMuse_HealthWellness_ (7)_websize.jpg`.
+- `assets/nada/sherman-phoenix-sound-circle.webp`: `SensesYoga_ShermanPhoenix_FreeAssistAnyssaCamacho_TwistedMuse_HealthWellness_Set (120)_websize.jpg`.
