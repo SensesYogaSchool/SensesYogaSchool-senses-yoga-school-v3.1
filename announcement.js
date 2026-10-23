@@ -1,6 +1,6 @@
 /* Senses Yoga School · reusable homepage announcement */
 (() => {
-  const a = window.SENSES_ANNOUNCEMENT;
+  const render = (a) => {
   if (!a || !a.enabled || !a.id || (a.expiresAt && Date.now() >= Date.parse(a.expiresAt))) return;
   const key = "senses-announcement-seen:" + a.id;
   try { if (localStorage.getItem(key)) return; } catch (_) {}
@@ -42,4 +42,16 @@
     panel.hidden = false;
     markSeen();
   }, Math.max(0, Number(a.delayMs) || 10000));
+  };
+  const endpoint = window.SENSES_ANNOUNCEMENT_FEED_URL;
+  if (!endpoint || !/^https:\/\/script\.google\.com\/macros\/s\//.test(endpoint)) { render(window.SENSES_ANNOUNCEMENT); return; }
+  const cb = "SensesAnnouncementFeed_" + Math.random().toString(36).slice(2);
+  const script = document.createElement("script");
+  let settled = false;
+  const fallback = () => { if (settled) return; settled = true; delete window[cb]; script.remove(); render(window.SENSES_ANNOUNCEMENT); };
+  window[cb] = (data) => { if (settled) return; settled = true; delete window[cb]; script.remove(); render(data); };
+  script.onerror = fallback;
+  script.src = endpoint + (endpoint.includes("?") ? "&" : "?") + "callback=" + encodeURIComponent(cb);
+  document.head.append(script);
+  window.setTimeout(fallback, 5000);
 })();
