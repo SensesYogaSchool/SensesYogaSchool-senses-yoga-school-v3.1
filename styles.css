@@ -624,3 +624,14 @@ header a[aria-current="page"]{text-decoration:underline;text-underline-offset:5p
 .voices-gallery .voice-feature{animation:voiceReveal 1.2s ease-out both;animation-timeline:view();animation-range:entry 0% entry 65%}
 .voices-gallery .voice-feature:nth-child(even){animation-range:entry 8% entry 75%}
 @media(prefers-reduced-motion:reduce){.voices-gallery .voice-feature{animation:none;opacity:1;transform:none}}
+
+/* Wellness voices: school palette of gold, cream, earth and sage alongside purple. */
+.community-voices--feature{background:linear-gradient(135deg,#efe0bd 0%,#f7f1e5 50%,#e5e9dc 100%);color:#30233a;border-top:5px solid var(--gold)}
+.community-voices--feature .voices-label{color:#755521;opacity:1}
+.community-voices--feature .voices-heading h2{color:var(--deep-purple)}
+.community-voices--feature .voice-feature{background:rgba(255,250,240,.9);color:var(--charcoal);border:1px solid #d5c5a8;box-shadow:0 8px 24px rgba(52,37,31,.09)}
+.community-voices--feature .voice-feature:nth-child(3n+2){background:#e4e9dc;border-color:#aab5a2}
+.community-voices--feature .voice-feature:nth-child(3n){background:#f5e9c9;border-color:#c9a95c}
+.community-voices--feature .voice-feature blockquote{color:#30233a}
+.community-voices--feature .voice-feature figcaption strong{color:var(--deep-purple)}
+.community-voices--feature .voice-feature figcaption span{color:#6f5743;opacity:1}
