@@ -12,3 +12,8 @@
 
 /* Wellness banner: video only, no overlapping still photograph. */
 .school-page-standard.school-hero--wellness .school-hero-media{position:absolute;inset:0;overflow:hidden;background:#1c1224;z-index:0}.school-page-standard.school-hero--wellness .wellness-banner-film{position:absolute;top:50%;left:50%;width:max(100%,746px);height:max(100%,420px);transform:translate(-50%,-50%);border:0;opacity:1;filter:none;pointer-events:none}.school-page-standard.school-hero--wellness .school-banner-scene::after{background:linear-gradient(180deg,rgba(20,15,25,.03) 0%,rgba(20,15,25,.12) 45%,rgba(20,15,25,.76) 100%)}@media(max-width:700px){.school-page-standard.school-hero--wellness .wellness-banner-film{width:max(100%,570px);height:max(100%,320px)}}
+
+/* Correct Wellness 16:9 video coverage on narrow screens; center the player, never letterbox. */
+.school-page-standard.school-hero--wellness .school-hero-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important;background:#201527!important}
+.school-page-standard.school-hero--wellness iframe.wellness-banner-film{position:absolute!important;top:50%!important;left:50%!important;width:max(100%,calc(420px * 16 / 9))!important;height:max(420px,calc(100vw * 9 / 16))!important;max-width:none!important;max-height:none!important;transform:translate(-50%,-50%)!important;opacity:1!important;filter:none!important;display:block!important;pointer-events:none!important;border:0!important}
+@media(max-width:700px){.school-page-standard.school-hero--wellness iframe.wellness-banner-film{width:max(100vw,calc(320px * 16 / 9))!important;height:max(320px,calc(100vw * 9 / 16))!important}}
