@@ -25,3 +25,8 @@
 .school-page-standard.school-hero--wellness .school-hero-title h1,.school-page-standard.school-hero--wellness .school-kicker{text-shadow:0 2px 14px rgba(0,0,0,.75)}
 .school-page-standard.school-hero--wellness iframe.wellness-banner-film{width:max(100%,calc(420px * 16 / 9))!important;height:max(420px,calc(100vw * 9 / 16))!important;opacity:1!important;filter:none!important}
 @media(max-width:700px){.school-page-standard.school-hero--wellness iframe.wellness-banner-film{width:max(100vw,calc(320px * 16 / 9))!important;height:max(320px,calc(100vw * 9 / 16))!important}}
+
+/* Wellness film: fill frame and crop embedded playback chrome; retain title contrast. */
+.school-page-standard.school-hero--wellness .school-hero-media{background:#201a22 url("https://i.ytimg.com/vi/Cb1bAesUFPc/hqdefault.jpg") center/cover no-repeat!important}
+.school-page-standard.school-hero--wellness iframe.wellness-banner-film{width:max(120%,calc(540px * 16 / 9))!important;height:max(540px,calc(120vw * 9 / 16))!important}
+@media(max-width:700px){.school-page-standard.school-hero--wellness iframe.wellness-banner-film{width:max(165vw,850px)!important;height:max(478px,calc(165vw * 9 / 16))!important}}
