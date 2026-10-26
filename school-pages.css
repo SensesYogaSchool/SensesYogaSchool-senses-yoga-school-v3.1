@@ -17,3 +17,11 @@
 .school-page-standard.school-hero--wellness .school-hero-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important;background:#201527!important}
 .school-page-standard.school-hero--wellness iframe.wellness-banner-film{position:absolute!important;top:50%!important;left:50%!important;width:max(100%,calc(420px * 16 / 9))!important;height:max(420px,calc(100vw * 9 / 16))!important;max-width:none!important;max-height:none!important;transform:translate(-50%,-50%)!important;opacity:1!important;filter:none!important;display:block!important;pointer-events:none!important;border:0!important}
 @media(max-width:700px){.school-page-standard.school-hero--wellness iframe.wellness-banner-film{width:max(100vw,calc(320px * 16 / 9))!important;height:max(320px,calc(100vw * 9 / 16))!important}}
+
+/* Wellness: cinematic YouTube cover with legible title. Native 16:9 embed is oversized to cover the banner at every breakpoint. */
+.school-page-standard.school-hero--wellness .school-banner-scene{background:#17111c}
+.school-page-standard.school-hero--wellness .school-banner-scene::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(13,8,18,.06) 0%,rgba(13,8,18,.16) 35%,rgba(13,8,18,.48) 65%,rgba(13,8,18,.84) 100%)}
+.school-page-standard.school-hero--wellness .school-hero-title{z-index:2}
+.school-page-standard.school-hero--wellness .school-hero-title h1,.school-page-standard.school-hero--wellness .school-kicker{text-shadow:0 2px 14px rgba(0,0,0,.75)}
+.school-page-standard.school-hero--wellness iframe.wellness-banner-film{width:max(100%,calc(420px * 16 / 9))!important;height:max(420px,calc(100vw * 9 / 16))!important;opacity:1!important;filter:none!important}
+@media(max-width:700px){.school-page-standard.school-hero--wellness iframe.wellness-banner-film{width:max(100vw,calc(320px * 16 / 9))!important;height:max(320px,calc(100vw * 9 / 16))!important}}
