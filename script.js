@@ -172,6 +172,16 @@ if (honorGate && honorOrb && honorText && honorEnter) {
   honorOrb.addEventListener('click', () => {
     honorText.hidden = false;
     honorGate.classList.add('revealed');
+    const invocationFilm = document.querySelector('#honor-film');
+    if (invocationFilm && !invocationFilm.firstElementChild) {
+      const frame = document.createElement('iframe');
+      frame.title = 'Invocation of Sages background film';
+      frame.src = 'https://www.youtube-nocookie.com/embed/AMwfGnEdgno?autoplay=1&mute=1&loop=1&playlist=AMwfGnEdgno&controls=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&rel=0';
+      frame.allow = 'autoplay; encrypted-media';
+      frame.tabIndex = -1;
+      frame.setAttribute('aria-hidden', 'true');
+      invocationFilm.append(frame);
+    }
     honorGate.removeAttribute('aria-label');
     honorOrb.setAttribute('aria-expanded', 'true');
     honorEnter.focus();
