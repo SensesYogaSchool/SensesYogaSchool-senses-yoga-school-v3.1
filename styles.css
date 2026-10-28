@@ -671,3 +671,12 @@ header a[aria-current="page"]{text-decoration:underline;text-underline-offset:5p
 .popcorn-steps{display:grid;gap:11px}.popcorn-steps span{display:block;padding:16px 20px;background:#320840;color:#fff8e5;font:600 13px/1.4 Cinzel,serif;letter-spacing:.03em;border-left:5px solid #fff8e5}
 .popcorn-pathway .button{background:#320840;border-color:#320840;color:#fff8e5}
 @media(max-width:760px){.popcorn-heading,.popcorn-history,.popcorn-pathway{grid-template-columns:1fr}.popcorn-heading h2{font-size:clamp(44px,13vw,70px)}.popcorn-video{border-width:4px;box-shadow:7px 8px 0 #fff8e5}.popcorn-film-note{margin-bottom:40px}.popcorn-history{padding:25px;box-shadow:5px 5px 0 #320840}.popcorn-cities{flex-direction:row;flex-wrap:wrap}.popcorn-cities span{font-size:10px;flex:1}.popcorn-pathway{margin-top:45px}}
+
+/* Specialized Studies: meditation, sleep and Māṇḍūkya research */
+.mandukya-research-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(22px,4vw,56px);align-items:center;margin:42px 0 34px;padding:clamp(22px,4vw,48px);background:linear-gradient(135deg,#f8f0dc,#e9e8df);border:1px solid rgba(183,131,18,.45);border-left:5px solid #b78312;box-shadow:0 14px 40px rgba(31,0,68,.08)}
+.mandukya-research-copy h3{font:700 clamp(28px,3.6vw,45px)/1.12 'Playfair Display SC',serif;color:#320840;margin:12px 0 22px}
+.mandukya-research-copy p{font-size:18px;line-height:1.65;color:#30233a}
+.mandukya-research-video{position:relative;aspect-ratio:16/9;background:#140d24;border:5px solid #320840;box-shadow:10px 10px 0 #e3be54;overflow:hidden}
+.mandukya-research-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mandukya-research-caption{font-size:14px;line-height:1.5;margin:20px 0 0;color:#59475a}.mandukya-research-caption a{color:#320840;text-underline-offset:3px}
+@media(max-width:800px){.mandukya-research-feature{grid-template-columns:1fr}.mandukya-research-video{box-shadow:6px 6px 0 #e3be54}}
