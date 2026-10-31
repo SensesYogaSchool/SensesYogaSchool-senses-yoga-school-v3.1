@@ -106,3 +106,60 @@ body.cosmos-open{overflow:hidden}
 
 /* Single immersive canvas: clickable constellations over moving nebula */
 .library-cosmos-layered{isolation:isolate;overflow:hidden}.library-cosmos-layered .library-cosmos-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;pointer-events:none}.library-cosmos-layered .library-cosmos-shade{position:absolute;inset:0;z-index:-2;pointer-events:none;background:linear-gradient(180deg,rgba(9,4,24,.75),rgba(12,4,31,.52) 42%,rgba(10,3,28,.73))}.library-cosmos-layered:before{opacity:.16;z-index:-4}.library-cosmos-layered:after{opacity:.18;z-index:-1;pointer-events:none}.library-cosmos-layered .celestial-inner{position:relative;z-index:1}.library-cosmos-intro{text-align:center;padding:4px 30px 12px}.library-cosmos-intro .eyebrow{font-size:10px;color:#f7d58d;letter-spacing:.16em}.library-cosmos-intro h2{font:700 clamp(26px,3.3vw,45px)/1.1 'Playfair Display SC',serif;color:#fff8e9;margin:8px 0}.library-cosmos-intro>p:last-child{font-size:14px;color:#f4e5f7;margin:0}.library-cosmos-layered .celestial-map,.library-cosmos-layered .cosmos-node,.library-cosmos-layered .constellation-filter,.library-cosmos-layered .celestial-card{pointer-events:auto}.library-cosmos-video-credit{font:500 9px/1.5 'Crimson Text',serif;color:#f0dce7;text-align:center;margin:7px auto 2px;position:relative;z-index:2}.library-cosmos-video-credit a{color:#f5d480;text-underline-offset:2px}.library-cosmos-layered .space-credit{position:static;transform:none;font-size:7px;white-space:normal}.library-cosmos-layered .celestial-list-link{bottom:24px}@media(max-width:980px){.library-cosmos-intro{padding:0 24px 6px}.library-cosmos-intro h2{font-size:clamp(21px,5vw,30px);margin:4px 0}.library-cosmos-intro>p:last-child{display:none}.library-cosmos-video-credit{font-size:8px;line-height:1.2;margin:4px auto}.library-cosmos-layered .space-credit{font-size:6px}.library-cosmos-layered .celestial-card{background:rgba(249,243,227,.96)}}@media(max-width:620px){.library-cosmos-intro h2{font-size:22px}.library-cosmos-intro .eyebrow{font-size:8px}.library-cosmos-layered .celestial-head h2{font-size:22px}.library-cosmos-layered .celestial-head{margin-bottom:2px}.library-cosmos-video-credit{max-width:94%;font-size:7px}}@media(prefers-reduced-motion:reduce){.library-cosmos-video{display:none}}
+
+/* 2026-10-30 Celestial Reading Room: authoritative responsive layout */
+.celestial-library.library-cosmos-layered{height:auto!important;min-height:0!important;padding:clamp(52px,7vw,92px) 0 35px;overflow:hidden}
+.library-cosmos-layered .celestial-inner{height:auto;display:block}
+.library-cosmos-layered .celestial-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,.65fr);gap:35px;align-items:end;margin:0 0 25px;padding-right:120px}
+.library-cosmos-layered .celestial-head h2{font-size:clamp(31px,4.5vw,58px);line-height:1.12}
+.library-cosmos-layered .celestial-head>p{display:block;font-size:17px;line-height:1.5;color:#f2e8f3}
+.library-cosmos-layered .constellation-filters{display:flex;flex-wrap:wrap;overflow:visible;gap:9px;margin:0 0 22px}
+.library-cosmos-layered .constellation-filter{min-height:44px;font-size:10px}
+.library-cosmos-layered .celestial-stage{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.8fr);gap:0;height:auto;min-height:650px;align-items:stretch}
+.library-cosmos-layered .celestial-map{height:auto;min-height:650px;position:relative;overflow:hidden}
+.library-cosmos-layered .celestial-card{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;z-index:3;transform:none!important;max-height:none!important;min-height:0!important;height:auto;overflow:visible;padding:clamp(24px,3vw,40px);background:rgba(249,243,227,.97);box-shadow:none;border:0;border-left:1px solid rgba(250,199,0,.5);display:flex;flex-direction:column;justify-content:center}
+.library-cosmos-layered .celestial-card .celestial-summary,.library-cosmos-layered .celestial-card .celestial-question{display:block;font-size:17px;line-height:1.5}
+.library-cosmos-layered .celestial-card .button{font-size:10px;line-height:1.4;white-space:normal;text-align:center;margin:12px 0 0}
+.library-cosmos-layered .celestial-card .edition-details{background:transparent;color:#320840;border:1px solid #320840;cursor:pointer;padding:12px 16px;font:600 10px/1.4 Cinzel,serif;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.library-cosmos-layered .cosmos-node{z-index:4}
+.library-cosmos-layered .celestial-legend{display:flex;gap:15px;flex-wrap:wrap;margin:15px 0}
+.library-cosmos-layered .celestial-list-link{display:inline-block;position:static;margin:8px 0 16px;color:#f8e4a0}
+.library-cosmos-layered .cosmos-fullscreen{top:0;right:0;min-height:44px;font-size:10px}
+.library-cosmos-layered .cosmos-motion{position:absolute;top:0;right:115px;z-index:13;min-height:44px;border:1px solid rgba(250,199,0,.55);background:rgba(9,5,18,.84);color:#fff0ab;padding:9px 12px;font:600 10px/1 Cinzel,serif;cursor:pointer}
+.library-cosmos-layered .cosmos-motion:hover,.library-cosmos-layered .cosmos-motion:focus-visible{background:#fac700;color:#320840}
+.library-cosmos-layered .library-cosmos-shade{background:linear-gradient(180deg,rgba(9,4,24,.85),rgba(12,4,31,.72) 42%,rgba(10,3,28,.85))}
+.library-cosmos-layered .library-cosmos-video{opacity:.38}
+.library-cosmos-layered .library-cosmos-video-credit{font-size:12px;line-height:1.5}
+.library-cosmos-layered .space-credit{font-size:10px;line-height:1.4}
+@media(max-width:980px){
+ .celestial-library.library-cosmos-layered{height:auto!important;min-height:0!important;padding:65px 0 30px}
+ .library-cosmos-layered .celestial-head{display:block;padding-right:0;margin-bottom:18px}
+ .library-cosmos-layered .celestial-head>p{display:block;font-size:15px;line-height:1.5;margin:10px 0 0}
+ .library-cosmos-layered .celestial-stage{display:flex;flex-direction:column;min-height:0;height:auto}
+ .library-cosmos-layered .celestial-map{height:clamp(430px,95vw,640px);min-height:0;flex:none}
+ .library-cosmos-layered .celestial-card{width:100%;border-left:0;border-top:1px solid #b78312;max-height:none!important;min-height:230px!important;padding:25px 22px}
+ .library-cosmos-layered .celestial-card .celestial-summary,.library-cosmos-layered .celestial-card .celestial-question{display:block}
+ .library-cosmos-layered .constellation-filters{display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding-bottom:7px}
+ .library-cosmos-layered .constellation-filter{flex:none;min-height:44px;font-size:10px}
+ .library-cosmos-layered .celestial-legend{display:flex}
+ .library-cosmos-layered .celestial-list-link{display:inline-block}
+ .library-cosmos-layered .cosmos-fullscreen{top:-54px;right:0}
+ .library-cosmos-layered .cosmos-motion{top:-54px;right:115px}
+}
+@media(max-width:620px){
+ .celestial-library.library-cosmos-layered{padding:65px 0 26px}
+ .library-cosmos-layered .celestial-head h2{font-size:clamp(27px,7vw,36px)}
+ .library-cosmos-layered .celestial-map{height:clamp(400px,112vw,540px)}
+ .library-cosmos-layered .celestial-card{padding:22px 18px}
+ .library-cosmos-layered .celestial-card h3{font-size:clamp(25px,7vw,33px)}
+ .library-cosmos-layered .celestial-card .celestial-summary,.library-cosmos-layered .celestial-card .celestial-question{font-size:16px}
+ .library-cosmos-layered .celestial-card .button{width:100%}
+ .library-cosmos-layered .cosmos-motion,.library-cosmos-layered .cosmos-fullscreen{font-size:9px;padding:8px}
+ .library-cosmos-layered .cosmos-motion{right:105px}
+ .library-cosmos-layered .library-cosmos-video-credit{font-size:11px}
+ .library-cosmos-layered .space-credit{font-size:9px}
+}
+.library-cosmos-layered.is-fullscreen{position:fixed!important;inset:0!important;height:100dvh!important;overflow-y:auto;padding:65px 0 30px}
+.library-cosmos-layered.is-fullscreen .cosmos-fullscreen{position:absolute;right:0;top:-54px}
+.library-cosmos-layered.is-fullscreen .cosmos-motion{top:-54px}
+@media(prefers-reduced-motion:reduce){.library-cosmos-layered .library-cosmos-video{display:none!important}.library-cosmos-layered .cosmos-node{animation:none!important}}
