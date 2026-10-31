@@ -5,6 +5,16 @@
   const filters=root.querySelector('#constellation-filters');
   const card=root.querySelector('#celestial-card');
   const fullscreen=root.querySelector('#cosmos-fullscreen');
+  const motion=root.querySelector('#cosmos-motion');
+  const video=root.querySelector('.library-cosmos-video');
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function setMotion(playing){
+    if(!video||reduceMotion.matches){video?.pause();if(motion){motion.disabled=reduceMotion.matches;motion.textContent=reduceMotion.matches?'Reduced motion':'Play background';}return;}
+    if(playing){video.preload='metadata';video.play().then(()=>{motion.textContent='Pause background';motion.setAttribute('aria-pressed','true');}).catch(()=>{motion.textContent='Play background';motion.setAttribute('aria-pressed','false');});}
+    else{video.pause();motion.textContent='Play background';motion.setAttribute('aria-pressed','false');}
+  }
+  motion?.addEventListener('click',()=>setMotion(video.paused));
+  reduceMotion.addEventListener?.('change',()=>setMotion(false));
   function setFullscreen(open){
     root.classList.toggle('is-fullscreen',open);
     document.body.classList.toggle('cosmos-open',open);
@@ -33,7 +43,8 @@
       '<p class="celestial-sanskrit" lang="sa">'+escape(record.sanskrit||'')+'</p>'+
       '<p class="celestial-summary">'+escape(record.summary)+'</p>'+
       '<p class="celestial-question">“'+escape(record.question)+'”</p>'+
-      '<a class="button" href="'+escape(record.url)+'" target="_blank" rel="noopener">'+escape(record.linkLabel||'Read the text')+' ↗</a>';
+      '<a class="button" href="'+escape((record.links?.[0]?.url)||record.url)+'" target="_blank" rel="noopener noreferrer">'+escape((record.links?.[0]?.label)||record.linkLabel||'Read the text')+' ↗</a>'+ 
+      '<a class="edition-details" href="#text-'+escape(record.id)+'">View edition details in full catalog ↓</a>';
   }
   function positionNodes(){
     const nodes=[...map.querySelectorAll('.cosmos-node')];
@@ -69,6 +80,7 @@
       button.addEventListener('click',()=>show(record));map.appendChild(button);
     });
     positionNodes();
+    card.addEventListener('click',event=>{const link=event.target.closest('.edition-details');if(!link)return;const id=link.getAttribute('href')?.slice(6);if(!id)return;const target=document.getElementById('text-'+id);if(target){event.preventDefault();target.scrollIntoView({behavior:reduceMotion.matches?'instant':'smooth',block:'center'});target.querySelector('[data-record]')?.click();}});
     const requested=new URLSearchParams(location.search).get('text');
     show(records.find(record=>record.id===requested)||records.find(record=>record.id==='bhagavad-gita')||records[0]);
   }).catch(()=>{
