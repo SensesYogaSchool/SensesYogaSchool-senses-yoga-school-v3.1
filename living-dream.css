@@ -29,3 +29,17 @@ main .pagehero .lead,main .pagehero p{max-width:70ch}
 .atlas-page .atlas-top nav{display:flex;gap:clamp(.5rem,1.8vw,1.2rem);flex-wrap:wrap;align-items:center}
 .atlas-page .atlas-top nav a{min-height:44px;display:inline-flex;align-items:center}
 @media(max-width:650px){.living-dream-doorway{margin-inline:12px}.atlas-page .atlas-top{align-items:flex-start;flex-wrap:wrap}.atlas-page .atlas-top nav{width:100%;justify-content:flex-start}}
+
+/* The Living Dream: consistent academic learning pathway */
+.living-curriculum{padding:clamp(3rem,7vw,6rem) 0;background:linear-gradient(150deg,#220d38 0%,#37204d 70%,#294538 140%);color:#f7f0e2}
+.living-curriculum .living-curriculum-kicker{font:600 .78rem/1.5 var(--dream-label);letter-spacing:.12em;text-transform:uppercase;color:#ffe49b}
+.living-curriculum h2{font:700 clamp(2rem,4vw,3.5rem)/1.14 var(--dream-display);color:#f7f0e2;margin:.7rem 0 1rem}
+.living-curriculum .living-curriculum-intro{font-size:clamp(1.1rem,1.6vw,1.3rem);max-width:68ch;color:#f7f0e2}
+.living-curriculum-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:2rem 0}
+.living-curriculum-step{padding:1.4rem;background:rgba(255,255,255,.085);border:1px solid rgba(255,228,155,.35);border-radius:14px;display:flex;flex-direction:column;min-width:0}
+.living-curriculum-number{font:600 .78rem/1.4 var(--dream-label);letter-spacing:.08em;color:#ffe49b}
+.living-curriculum-step p{color:#f7f0e2;line-height:1.6;flex:1}
+.living-curriculum-step a{color:#ffe49b;text-decoration:underline;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.living-curriculum .living-curriculum-note{font-size:.95rem;max-width:75ch;color:#f7f0e2}
+@media(max-width:950px){.living-curriculum-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.living-curriculum-grid{grid-template-columns:1fr}.living-curriculum-step{padding:1.25rem}}
