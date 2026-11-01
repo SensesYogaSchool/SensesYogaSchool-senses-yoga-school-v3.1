@@ -109,3 +109,21 @@ main .pagehero .lead,main .pagehero p{max-width:70ch}
 .dream-mentorship-example h3{color:#220d38;font-family:var(--dream-label)}
 .dream-mentorship a{color:#4a285f;font-weight:700;text-underline-offset:4px}
 @media(max-width:680px){.dream-mentorship-grid{grid-template-columns:1fr}.dream-mentorship-grid article,.dream-mentorship-example{padding:1rem}}
+
+/* Celestial Atlas: one campus header and Earth-centred cosmic reading */
+.atlas-page .atlas-campus-header{background:#f5c400!important;color:#21102f;border-bottom:1px solid #a98013}
+.atlas-page .atlas-header-inner{max-width:1150px;margin:auto;min-height:102px;padding:12px clamp(20px,5vw,38px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.atlas-page .atlas-home{display:flex;align-items:center;justify-content:center;min-width:64px;min-height:64px}
+.atlas-page .atlas-home img{display:block;width:54px;height:54px;object-fit:contain}
+.atlas-page .atlas-mobile-menu{position:relative}
+.atlas-page .atlas-mobile-menu summary{color:#24102e;border:0;background:transparent;border-radius:4px;font:600 .94rem/1.3 var(--dream-label);text-transform:uppercase;letter-spacing:.2em;padding:12px;min-height:44px;cursor:pointer}
+.atlas-page .atlas-mobile-menu nav{background:#f5c400;padding:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;border-radius:8px}
+.atlas-page .atlas-mobile-menu nav a{color:#24102e;min-height:44px;display:flex;align-items:center;padding:8px;font-size:.95rem}
+.atlas-page main{background:radial-gradient(ellipse at 72% 18%,rgba(52,111,133,.24),transparent 45%),linear-gradient(150deg,#0c1024,#211333 60%,#0a1020)!important;overflow:hidden}
+.atlas-page main:before{opacity:.26!important;background-size:89px 93px!important}
+.atlas-page .atlas-earth-scene{position:absolute;inset:0 0 auto 0;height:min(1000px,85vh);z-index:-1;pointer-events:none;overflow:hidden}
+.atlas-page .atlas-earth{position:absolute;width:clamp(420px,74vw,800px);height:auto;top:clamp(35px,6vw,90px);right:clamp(-290px,-16vw,-50px);opacity:.52;filter:drop-shadow(0 0 35px rgba(85,175,207,.28))}
+.atlas-page .atlas-intro,.atlas-page .atlas-layout{position:relative;z-index:1}
+.atlas-page .atlas-intro{max-width:760px}
+.atlas-page .atlas-intro p{max-width:62ch;text-shadow:0 1px 10px #0b1024}
+@media(max-width:760px){.atlas-page .atlas-header-inner{min-height:94px;padding:10px 24px}.atlas-page .atlas-home img{width:46px;height:46px}.atlas-page .atlas-mobile-menu[open]{width:auto}.atlas-page .atlas-mobile-menu nav{position:absolute;right:0;top:100%;width:min(300px,calc(100vw - 48px));grid-template-columns:repeat(2,minmax(0,1fr));box-shadow:0 12px 25px rgba(0,0,0,.3);z-index:10}.atlas-page .atlas-earth-scene{height:780px}.atlas-page .atlas-earth{width:570px;right:-295px;top:65px;opacity:.4}.atlas-page .atlas-intro{padding-top:40px}.atlas-page .atlas-intro p{font-size:1.05rem;line-height:1.55}.atlas-page .atlas-kicker{font-size:.7rem;letter-spacing:.12em}}
