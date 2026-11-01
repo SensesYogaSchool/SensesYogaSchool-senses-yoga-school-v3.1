@@ -1,0 +1,14 @@
+/* The Living Dream V1.0 — shared campus foundations; deliberately additive */
+:root{--dream-plum:#220d38;--dream-violet:#4a285f;--dream-gold:#e3b94f;--dream-ivory:#f7f0e2;--dream-green:#456a50;--dream-ink:#21162b;--dream-reading: "Crimson Text",Georgia,serif;--dream-display:"Playfair Display SC",Georgia,serif;--dream-label:"Cinzel",Georgia,serif}
+html{scroll-padding-top:5rem}
+body{overflow-wrap:break-word}
+main p,main li{line-height:1.6}
+main .pagehero h1{font-family:var(--dream-display);font-size:clamp(2.4rem,5vw,5rem);line-height:1.08;overflow-wrap:break-word}
+main .pagehero .lead,main .pagehero p{max-width:70ch}
+.nav a,.actions a{min-height:44px;display:inline-flex;align-items:center}
+:where(a,button,input,select,textarea):focus-visible{outline:3px solid var(--dream-gold);outline-offset:3px}
+.school-discovery-card .school-discovery-copy h3{color:var(--dream-ivory)!important}
+.school-discovery-card .school-discovery-copy p{color:var(--dream-ivory)!important}
+.school-discovery-card .school-discovery-copy strong{color:var(--dream-ivory)!important}
+@media(max-width:650px){main .pagehero h1{font-size:clamp(2rem,10vw,3.5rem)}.school-discovery-copy{padding:22px}.school-discovery-card .school-discovery-copy h3{line-height:1.15}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
