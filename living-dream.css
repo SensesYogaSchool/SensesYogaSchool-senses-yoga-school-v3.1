@@ -94,3 +94,18 @@ main .pagehero .lead,main .pagehero p{max-width:70ch}
 .dream-journey-steps a{display:inline-flex;min-height:44px;align-items:center;color:#4a285f;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 .dream-journey-note{max-width:80ch;font-size:.94rem;line-height:1.55}
 @media(max-width:760px){.dream-journey-steps{grid-template-columns:1fr}.dream-journey-steps li{padding:1rem}.dream-journey h2{font-size:clamp(1.8rem,7vw,2.6rem)}}
+
+/* Mentored Community Learning Model: accessible cross-school progression */
+.dream-mentorship{padding:clamp(3rem,6vw,5rem) 0;background:#f7f0e2;color:#21162b}
+.dream-mentorship .dream-journey-eyebrow{font:600 .8rem/1.5 var(--dream-label);letter-spacing:.1em;text-transform:uppercase;color:#674616}
+.dream-mentorship h2{font:700 clamp(1.9rem,3.6vw,3.2rem)/1.16 var(--dream-display);color:#220d38;max-width:25ch}
+.dream-mentorship-intro{max-width:76ch;font-size:clamp(1.08rem,1.6vw,1.24rem);line-height:1.6}
+.dream-mentorship-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:2rem 0}
+.dream-mentorship-grid article{padding:1.4rem;background:#fffdf8;border:1px solid #cdbd9e;border-radius:14px;min-width:0}
+.dream-mentorship-grid span{font:600 .8rem/1.5 var(--dream-label);color:#674616}
+.dream-mentorship-grid h3{font:600 clamp(1.1rem,1.7vw,1.4rem)/1.3 var(--dream-label);color:#220d38;margin:.5rem 0}
+.dream-mentorship-grid p,.dream-mentorship-example p{line-height:1.6}
+.dream-mentorship-example{border-left:4px solid #9c742b;background:#fffdf8;padding:1.4rem;max-width:85ch}
+.dream-mentorship-example h3{color:#220d38;font-family:var(--dream-label)}
+.dream-mentorship a{color:#4a285f;font-weight:700;text-underline-offset:4px}
+@media(max-width:680px){.dream-mentorship-grid{grid-template-columns:1fr}.dream-mentorship-grid article,.dream-mentorship-example{padding:1rem}}
