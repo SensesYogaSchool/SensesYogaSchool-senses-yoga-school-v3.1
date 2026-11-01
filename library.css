@@ -64,3 +64,12 @@
 @media(max-width:760px){.celestial-shelf .section-head{display:block}.celestial-shelf .tools{grid-template-columns:1fr}.celestial-shelf .books{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.celestial-shelf .book{padding:9px}.celestial-shelf .book>img{height:175px;padding:4px}.celestial-shelf .book h3{font-size:12px}.celestial-shelf .book>p:not(.image-credit){font-size:12px}.celestial-shelf .book .image-credit{font-size:9px}}
 @media(max-width:370px){.celestial-shelf .books{grid-template-columns:1fr}.celestial-shelf .book>img{height:230px}}
 @media(prefers-reduced-motion:reduce){.celestial-shelf .shelf-backdrop{background-attachment:scroll}}
+
+/* Optional nebula video, isolated behind readable shelf content */
+.celestial-shelf{isolation:isolate}
+.celestial-shelf .shelf-backdrop{z-index:-3}
+.celestial-shelf .shelf-nebula{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.19;z-index:-2;pointer-events:none}
+.celestial-shelf:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,7,20,.68),rgba(10,8,29,.78));pointer-events:none}
+.celestial-shelf .shelf-topline,.celestial-shelf .section-head,.celestial-shelf .tools,.celestial-shelf .books{position:relative;z-index:1}
+.celestial-shelf .shelf-sound button[aria-pressed="true"]{background:#fac700;color:#260b33}
+@media(prefers-reduced-motion:reduce){.celestial-shelf .shelf-nebula{display:none!important}}
