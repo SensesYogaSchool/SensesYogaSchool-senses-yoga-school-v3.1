@@ -12,3 +12,10 @@ main .pagehero .lead,main .pagehero p{max-width:70ch}
 .school-discovery-card .school-discovery-copy strong{color:var(--dream-ivory)!important}
 @media(max-width:650px){main .pagehero h1{font-size:clamp(2rem,10vw,3.5rem)}.school-discovery-copy{padding:22px}.school-discovery-card .school-discovery-copy h3{line-height:1.15}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Phase I shared footer and mobile campus navigation */
+.living-dream-footer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:start}
+.living-dream-footer p{margin:.5rem 0;line-height:1.5}
+.living-dream-footer nav{line-height:2;overflow-wrap:anywhere}
+.living-dream-footer a{display:inline-block;min-height:32px}
+@media(max-width:760px){.living-dream-footer{grid-template-columns:1fr;gap:1rem}.navbar .nav.open{max-height:calc(100dvh - 90px);overflow-y:auto}.navbar .nav a{min-height:44px}}
