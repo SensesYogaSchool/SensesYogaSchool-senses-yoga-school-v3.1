@@ -163,3 +163,12 @@ body.cosmos-open{overflow:hidden}
 .library-cosmos-layered.is-fullscreen .cosmos-fullscreen{position:absolute;right:0;top:-54px}
 .library-cosmos-layered.is-fullscreen .cosmos-motion{top:-54px}
 @media(prefers-reduced-motion:reduce){.library-cosmos-layered .library-cosmos-video{display:none!important}.library-cosmos-layered .cosmos-node{animation:none!important}}
+
+/* Reading room archival images and book action */
+.library-cosmos-layered .reading-room-art{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;margin:8px 0 18px}
+.library-cosmos-layered .reading-room-art img{width:96px;height:112px;object-fit:contain;background:#e8e0cd;border:1px solid #d7c69b;padding:5px}
+.library-cosmos-layered .reading-room-art p{font:400 13px/1.4 'Crimson Pro',Georgia,serif;color:#695b62;margin:0}
+.library-cosmos-layered .reading-room-link{display:inline-flex;gap:9px;align-items:center;justify-content:center}
+.library-cosmos-layered .reading-room-link svg{flex:none}
+.library-cosmos-layered .celestial-card .reading-room-art + h3{margin-top:5px}
+@media(max-width:620px){.library-cosmos-layered .reading-room-art{grid-template-columns:80px 1fr}.library-cosmos-layered .reading-room-art img{width:80px;height:96px}}
