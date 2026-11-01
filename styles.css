@@ -706,3 +706,14 @@ header a[aria-current="page"]{text-decoration:underline;text-underline-offset:5p
 
 /* Library of Consciousness · credited nebula film invitation */
 .library-nebula-film{position:relative;overflow:hidden;background:radial-gradient(ellipse at 73% 30%,rgba(125,74,191,.4),transparent 40%),radial-gradient(ellipse at 18% 72%,rgba(34,116,158,.28),transparent 44%),linear-gradient(135deg,#100823,#270c43 65%,#070a24);color:#fff7e7;padding:clamp(65px,9vw,130px) 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(250,199,0,.25)}.library-nebula-film:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.65;background-image:radial-gradient(circle,#fff 1px,transparent 1.6px),radial-gradient(circle,#d7c3f7 1px,transparent 1.5px);background-size:91px 83px,137px 121px;background-position:12px 23px,58px 71px}.library-nebula-inner{position:relative;z-index:1;text-align:center;max-width:920px}.library-nebula-film .eyebrow{color:#f4d58b}.library-nebula-film h2{font:700 clamp(35px,6vw,72px)/1.1 'Playfair Display SC',serif;color:#fff6e7;margin:20px 0}.library-nebula-film p:not(.library-nebula-credit){font-size:clamp(19px,2.4vw,27px);line-height:1.5;max-width:720px;margin:20px auto 30px}.library-nebula-film .button{background:#fac700;color:#260a39;border-color:#fac700}.library-nebula-credit{font-size:13px;line-height:1.6;color:#dfcdeb;margin:28px auto 0}.library-nebula-credit a{color:#f7d582;text-underline-offset:3px}
+
+/* School discovery readability and responsive contrast — 2026-11-01 */
+.school-discovery-card{isolation:isolate;color:#fff7e6!important;text-decoration:none}
+.school-discovery-card:before{background:linear-gradient(0deg,rgba(12,5,23,.96) 0%,rgba(12,5,23,.84) 43%,rgba(12,5,23,.32) 100%)}
+.school-discovery-card .school-discovery-copy,.school-discovery-card .school-discovery-copy h3,.school-discovery-card .school-discovery-copy p,.school-discovery-card .school-discovery-copy strong{color:#fff7e6!important;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.school-discovery-card .school-discovery-copy small{color:#ffe18a!important}
+.school-discovery-card .school-discovery-copy h3{font-size:clamp(1.65rem,3vw,2.7rem);line-height:1.13;overflow-wrap:break-word;hyphens:auto}
+.school-discovery-card .school-discovery-copy p{font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.55}
+.school-discovery-card .school-discovery-copy strong{text-decoration:underline;text-underline-offset:5px}
+@media(max-width:760px){.school-discovery-card{min-height:330px}.school-discovery-copy{padding:24px 22px}.school-discovery-card .school-discovery-copy h3{font-size:clamp(1.7rem,7vw,2.3rem)}.school-discovery-card .school-discovery-copy p{font-size:1.05rem;line-height:1.48}}
+@media(prefers-reduced-motion:reduce){.school-discovery-card img{transition:none!important;transform:none!important}}
