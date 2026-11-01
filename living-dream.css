@@ -80,3 +80,17 @@ main .pagehero .lead,main .pagehero p{max-width:70ch}
 .dream-partner-grid>p{margin:0!important;padding:clamp(1rem,2.5vw,1.4rem)!important;min-width:0;background:#fffdf7;border:1px solid #d8c9ac;border-radius:12px;font-size:clamp(1rem,1.5vw,1.13rem)!important;line-height:1.5!important;overflow-wrap:break-word}
 .dream-partner-grid>p b{display:inline-block;font-family:var(--dream-label);font-size:clamp(.94rem,1.4vw,1.1rem);line-height:1.35;color:var(--dream-plum);margin-bottom:.35rem}
 @media(max-width:760px){.dream-partner-grid{display:grid!important;grid-template-columns:1fr!important;gap:.75rem!important}.dream-partner-grid>p{padding:1rem!important;font-size:1.05rem!important;line-height:1.45!important}.dream-partner-grid>p b{font-size:.95rem}}
+
+/* Educational journey: clear progression without implying guaranteed outcomes */
+.dream-journey{padding:clamp(3rem,7vw,6rem) 0;background:#f7f0e2;color:#21162b}
+.dream-journey-eyebrow{font:600 .8rem/1.5 var(--dream-label);letter-spacing:.12em;text-transform:uppercase;color:#674616}
+.dream-journey h2{font:700 clamp(2rem,4vw,3.4rem)/1.16 var(--dream-display);color:#220d38;max-width:25ch;margin:.7rem 0 1rem}
+.dream-journey-intro{max-width:75ch;font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.6}
+.dream-journey-steps{list-style:none;padding:0;margin:2rem 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.dream-journey-steps li{display:flex;gap:1rem;background:#fffdf8;border:1px solid #cdbd9e;border-radius:14px;padding:1.3rem;min-width:0}
+.dream-journey-number{font:600 1rem/1.5 var(--dream-label);color:#664514;flex:none}
+.dream-journey-steps h3{font:600 clamp(1.1rem,1.7vw,1.4rem)/1.35 var(--dream-label);color:#220d38;margin:0 0 .5rem}
+.dream-journey-steps p{line-height:1.55;margin:.5rem 0}
+.dream-journey-steps a{display:inline-flex;min-height:44px;align-items:center;color:#4a285f;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.dream-journey-note{max-width:80ch;font-size:.94rem;line-height:1.55}
+@media(max-width:760px){.dream-journey-steps{grid-template-columns:1fr}.dream-journey-steps li{padding:1rem}.dream-journey h2{font-size:clamp(1.8rem,7vw,2.6rem)}}
