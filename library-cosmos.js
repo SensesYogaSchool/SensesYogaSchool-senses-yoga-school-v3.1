@@ -39,11 +39,12 @@
     root.querySelectorAll('.cosmos-node').forEach(node=>node.setAttribute('aria-current',String(node.dataset.id===record.id)));
     card.innerHTML='<span class="catalog-state">'+escape(accessLabel[record.access]||record.status)+'</span>'+
       '<p class="celestial-collection">'+escape(constellationById[record.id]||record.collection)+'</p>'+
+      '<div class="reading-room-art"><img loading="lazy" src="'+escape(record.image||'assets/senses-sun.png')+'" alt="'+escape(record.imageAlt||'Historical study image')+'"><p>'+escape(record.imageCredit||'Senses Yoga School')+'</p></div>'+ 
       '<h3>'+escape(record.title)+'</h3>'+
       '<p class="celestial-sanskrit" lang="sa">'+escape(record.sanskrit||'')+'</p>'+
       '<p class="celestial-summary">'+escape(record.summary)+'</p>'+
       '<p class="celestial-question">“'+escape(record.question)+'”</p>'+
-      '<a class="button" href="'+escape((record.links?.[0]?.url)||record.url)+'" target="_blank" rel="noopener noreferrer">'+escape((record.links?.[0]?.label)||record.linkLabel||'Read the text')+' ↗</a>'+ 
+      '<a class="button reading-room-link" href="'+escape((record.links?.[0]?.url)||record.url)+'" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 7v14m0-14C9 5 5 5 2 6v14c3-1 7-1 10 1m0-14c3-2 7-2 10-1v14c-3-1-7-1-10 1"/></svg> '+escape((record.links?.[0]?.label)||record.linkLabel||'Read the text')+' ↗</a>'+ 
       '<a class="edition-details" href="#text-'+escape(record.id)+'">View edition details in full catalog ↓</a>';
   }
   function positionNodes(){
