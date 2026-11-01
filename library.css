@@ -30,3 +30,37 @@
  .books .book .image-credit{font-size:12px}
  .books .book .book-actions a{font-size:10px;line-height:1.5}
 }
+
+/* Celestial bookshelf: dark visual collection, original source metadata retained */
+.celestial-shelf{position:relative;isolation:isolate;background:#090a18;color:#f8f0e2;overflow:hidden;padding:50px 0 75px}
+.celestial-shelf .shelf-backdrop{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,9,24,.83),rgba(17,11,40,.87)),url('https://upload.wikimedia.org/wikipedia/commons/c/c1/The_Hubble_Ultra_Deep_Field_%282006-12-1870%29.jpg') center top/cover fixed}
+.celestial-shelf .shelf-topline{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+.celestial-shelf .shelf-topline .eyebrow{margin:0;color:#f6d478}
+.celestial-shelf .shelf-sound{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font:11px Cinzel,serif}
+.celestial-shelf .shelf-sound button{min-height:44px;background:rgba(250,199,0,.1);color:#ffe6a0;border:1px solid #b78312;padding:9px 14px;cursor:pointer}
+.celestial-shelf .shelf-sound label{font-size:11px}
+.celestial-shelf .shelf-sound input{width:85px;accent-color:#fac700}
+.celestial-shelf .section-head{grid-template-columns:1fr 1fr;align-items:end}
+.celestial-shelf .section-head h2{color:#fff4d6}
+.celestial-shelf .section-head p{color:#e6d8ea}
+.celestial-shelf .tools{display:grid;grid-template-columns:minmax(220px,1.5fr) repeat(2,minmax(150px,1fr));gap:14px;background:rgba(15,15,34,.85);padding:20px;border:1px solid rgba(250,199,0,.2)}
+.celestial-shelf .tools label{color:#e8ddec;font:11px Cinzel,serif}
+.celestial-shelf .tools input,.celestial-shelf .tools select{color:#fff8ed;background:#17182a;border:1px solid #5c4a70;min-height:46px;padding:10px;font-size:16px}
+.celestial-shelf .tools option{background:#17182a;color:white}
+.celestial-shelf #count{font:12px Cinzel,serif;color:#dfc87e}
+.celestial-shelf .books{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:26px 18px;align-items:stretch}
+.celestial-shelf .book{min-width:0;display:flex;flex-direction:column;overflow:hidden;background:rgba(13,14,29,.94);border:1px solid rgba(250,199,0,.18);border-radius:9px;padding:12px;box-shadow:0 12px 28px rgba(0,0,0,.3)}
+.celestial-shelf .book>img{width:100%;height:215px;object-fit:contain;background:#211d2b;padding:6px;border-radius:4px}
+.celestial-shelf .book h3{color:#fff0d3;font:500 15px/1.35 Cinzel,serif;margin:10px 0 4px}
+.celestial-shelf .book .label{font-size:9px;color:#f5c84e}
+.celestial-shelf .book>p:not(.image-credit){font-size:14px;line-height:1.35;color:#e4dce8;margin:7px 0}
+.celestial-shelf .book>p.note{color:#cbb8cf}
+.celestial-shelf .book .image-credit{font-size:10px;line-height:1.3;color:#d1bfcf;overflow-wrap:anywhere;margin:9px 0}
+.celestial-shelf .book .image-credit a{color:#ffe3a0}
+.celestial-shelf .book .book-actions{margin-top:auto;display:flex;flex-direction:column;gap:7px}
+.celestial-shelf .book .book-actions button,.celestial-shelf .book .book-actions a{width:100%;justify-content:center;min-height:42px;font-size:9px;line-height:1.4;border:1px solid #a67e37;color:#fff5d9;background:#241334;white-space:normal}
+.celestial-shelf .book .book-actions a{background:#fac700;color:#290b36}
+.celestial-shelf .shelf-audio-credit{font:11px/1.5 'Crimson Pro',Georgia,serif;color:#d1c4d8;margin:35px 0 0}
+@media(max-width:760px){.celestial-shelf .section-head{display:block}.celestial-shelf .tools{grid-template-columns:1fr}.celestial-shelf .books{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.celestial-shelf .book{padding:9px}.celestial-shelf .book>img{height:175px;padding:4px}.celestial-shelf .book h3{font-size:12px}.celestial-shelf .book>p:not(.image-credit){font-size:12px}.celestial-shelf .book .image-credit{font-size:9px}}
+@media(max-width:370px){.celestial-shelf .books{grid-template-columns:1fr}.celestial-shelf .book>img{height:230px}}
+@media(prefers-reduced-motion:reduce){.celestial-shelf .shelf-backdrop{background-attachment:scroll}}
