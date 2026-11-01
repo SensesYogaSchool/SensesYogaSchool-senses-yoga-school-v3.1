@@ -127,3 +127,36 @@ main .pagehero .lead,main .pagehero p{max-width:70ch}
 .atlas-page .atlas-intro{max-width:760px}
 .atlas-page .atlas-intro p{max-width:62ch;text-shadow:0 1px 10px #0b1024}
 @media(max-width:760px){.atlas-page .atlas-header-inner{min-height:94px;padding:10px 24px}.atlas-page .atlas-home img{width:46px;height:46px}.atlas-page .atlas-mobile-menu[open]{width:auto}.atlas-page .atlas-mobile-menu nav{position:absolute;right:0;top:100%;width:min(300px,calc(100vw - 48px));grid-template-columns:repeat(2,minmax(0,1fr));box-shadow:0 12px 25px rgba(0,0,0,.3);z-index:10}.atlas-page .atlas-earth-scene{height:780px}.atlas-page .atlas-earth{width:570px;right:-295px;top:65px;opacity:.4}.atlas-page .atlas-intro{padding-top:40px}.atlas-page .atlas-intro p{font-size:1.05rem;line-height:1.55}.atlas-page .atlas-kicker{font-size:.7rem;letter-spacing:.12em}}
+
+/* Living Dream Atlas v2 — transparent full-bleed cosmic presentation */
+body.atlas-page{background:#070d20!important}
+.atlas-page .atlas-campus-header{position:relative;z-index:20;background:transparent!important;border:0!important;margin-bottom:-94px;color:#ffe7a3!important}
+.atlas-page .atlas-header-inner{min-height:94px}
+.atlas-page .atlas-mobile-menu summary{color:#ffe6a2!important;border:1px solid rgba(247,212,124,.75)!important;background:rgba(13,9,34,.42)!important;border-radius:12px!important;letter-spacing:.09em!important}
+.atlas-page .atlas-mobile-menu nav{background:rgba(16,11,36,.96)!important;border:1px solid rgba(247,212,124,.6)}
+.atlas-page .atlas-mobile-menu nav a{color:#ffe7a3!important}
+.atlas-page main{padding-top:94px!important;background:radial-gradient(ellipse at 85% 18%,rgba(93,52,135,.45),transparent 36%),radial-gradient(ellipse at 28% 45%,rgba(18,68,118,.5),transparent 55%),linear-gradient(180deg,#061226 0%,#080d21 56%,#120b27 100%)!important}
+.atlas-page main:before{z-index:0!important;opacity:.6!important;background-image:radial-gradient(circle,#f7e8bb 1px,transparent 1.7px),radial-gradient(circle,#b9d9ff 1px,transparent 1.8px)!important;background-size:89px 93px,157px 131px!important;background-position:0 0,47px 29px!important}
+.atlas-page .atlas-earth-scene{z-index:0!important;top:160px!important;height:1000px!important}
+.atlas-page .atlas-earth{width:clamp(540px,80vw,1000px)!important;right:clamp(-330px,-7vw,-50px)!important;top:125px!important;opacity:.86!important;filter:drop-shadow(0 0 46px rgba(89,182,228,.55))!important}
+.atlas-page .atlas-intro,.atlas-page .atlas-layout{position:relative;z-index:2}
+.atlas-page .atlas-intro{padding-top:70px!important;max-width:780px}
+.atlas-page .atlas-intro h1{font-size:clamp(2.6rem,6vw,5rem);text-shadow:0 3px 22px rgba(0,0,0,.85)}
+.atlas-page .atlas-intro p{color:#fff3d9;text-shadow:0 2px 12px #050b1b,0 2px 22px #050b1b}
+.atlas-page .atlas-layout{gap:24px}
+.atlas-page .atlas-star{background:rgba(18,10,39,.78)!important;border:1px solid #dfb65e!important;color:#ffebbc!important;border-radius:15px!important;min-height:70px!important}
+.atlas-page .atlas-star:hover,.atlas-page .atlas-star[aria-pressed=true]{background:rgba(92,45,112,.87)!important;border-color:#ffe2a1!important}
+.atlas-page .atlas-reading{background:rgba(16,10,38,.9)!important}
+@media(max-width:760px){
+ .atlas-page .atlas-campus-header{margin-bottom:-86px}
+ .atlas-page .atlas-header-inner{min-height:86px!important;padding:10px 18px!important}
+ .atlas-page main{padding-top:86px!important}
+ .atlas-page .atlas-intro{padding-top:50px!important;padding-bottom:36px}
+ .atlas-page .atlas-intro h1{font-size:clamp(2.5rem,10vw,4rem)!important}
+ .atlas-page .atlas-earth-scene{top:170px!important;height:900px!important}
+ .atlas-page .atlas-earth{width:650px!important;right:-335px!important;top:170px!important;opacity:.73!important}
+ .atlas-page .atlas-layout{grid-template-columns:1fr!important}
+ .atlas-page .atlas-stars{grid-template-columns:1fr!important;gap:12px!important}
+ .atlas-page .atlas-star{font-size:1.05rem!important;padding:16px!important;min-height:66px!important}
+ .atlas-page .atlas-reading{min-height:0}
+}
