@@ -55,3 +55,16 @@ main .pagehero .lead,main .pagehero p{max-width:70ch}
 .living-campus-next-grid a{color:#4b285f;font-weight:700;min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:4px}
 .living-campus-caveat{font-size:.95rem;margin-top:1.4rem;max-width:72ch}
 @media(max-width:760px){.living-campus-next-grid{grid-template-columns:1fr}}
+
+/* Contribution pathways — an accessible gateway to real participation */
+.living-contribute{background:linear-gradient(145deg,var(--dream-plum),#3d2450);color:var(--dream-ivory);padding:clamp(3rem,6vw,5rem) 0}
+.living-contribute .living-curriculum-kicker{font:600 .8rem/1.5 var(--dream-label);letter-spacing:.1em;color:#ffe49b}
+.living-contribute h2{font:700 clamp(1.9rem,3.6vw,3.2rem)/1.15 var(--dream-display);color:var(--dream-ivory);max-width:24ch}
+.living-contribute p{color:var(--dream-ivory);max-width:72ch;line-height:1.65}
+.living-contribute-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:2rem 0}
+.living-contribute-grid a{border:1px solid rgba(255,228,155,.5);border-radius:14px;background:rgba(255,255,255,.09);padding:1.3rem;min-height:135px;display:flex;flex-direction:column;gap:.8rem;color:var(--dream-ivory);text-decoration:none}
+.living-contribute-grid a strong{font-family:var(--dream-label);color:#ffe49b}
+.living-contribute-grid a span{line-height:1.5}
+.living-contribute a:not(.living-contribute-grid a){color:#ffe49b;text-underline-offset:4px}
+@media(max-width:950px){.living-contribute-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.living-contribute-grid{grid-template-columns:1fr}.living-contribute-grid a{min-height:110px}}
