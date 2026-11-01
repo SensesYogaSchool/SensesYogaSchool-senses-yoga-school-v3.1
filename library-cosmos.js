@@ -63,7 +63,7 @@
     filters.querySelectorAll('button').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
     map.querySelectorAll('.cosmos-node').forEach(node=>node.classList.toggle('is-dim',name!=='All paths'&&node.dataset.constellation!==name));
   }
-  fetch('data/library.json?v=20261020-cosmos').then(response=>response.json()).then(data=>{
+  fetch('data/library.json?v=20261101-artwork').then(response=>response.json()).then(data=>{
     records=data.records.filter(record=>record.catalogText);
     labels.forEach((label,index)=>{
       const button=document.createElement('button');
