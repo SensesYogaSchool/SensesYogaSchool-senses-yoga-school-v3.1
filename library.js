@@ -38,3 +38,20 @@ fetch('data/library.json?v=20261101-artwork').then(r=>{if(!r.ok)throw Error('Lib
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&ctx)stop();});
  window.addEventListener('pagehide',()=>{if(ctx)stop();});
 }());
+
+/* Visitor-controlled cosmic motion; silent by default and respectful of reduced motion */
+(function(){
+ const video=document.getElementById('shelf-nebula'),button=document.getElementById('shelf-motion-toggle');
+ if(!video||!button)return;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ function stop(){video.pause();button.setAttribute('aria-pressed','false');button.textContent='▶ Play nebula';}
+ button.addEventListener('click',async()=>{
+  if(!video.paused){stop();return;}
+  video.preload='metadata';
+  try{await video.play();button.setAttribute('aria-pressed','true');button.textContent='Ⅱ Pause nebula';}
+  catch(e){stop();button.textContent='Nebula video unavailable';}
+ });
+ reduced.addEventListener?.('change',()=>{if(reduced.matches)stop()});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+ window.addEventListener('pagehide',stop);
+}());
