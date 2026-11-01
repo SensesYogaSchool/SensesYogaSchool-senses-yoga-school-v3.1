@@ -161,7 +161,7 @@ body.atlas-page{background:#070d20!important}
  .atlas-page .atlas-reading{min-height:0}
 }
 
-/* Photorealistic Earth: NASA Blue Marble satellite composite, sourced via Carleton SERC. */
-.atlas-page .atlas-earth-scene{background-image:url("https://serc.carleton.edu/download/images/202256/nasas_blue_marble_true_color_image_.webp");background-repeat:no-repeat;background-size:clamp(540px,80vw,1000px) auto;background-position:right -75px top 125px;opacity:.92;filter:drop-shadow(0 0 40px rgba(92,183,220,.32))}
+/* Photorealistic Earth: NASA Apollo 17 Blue Marble photograph, Wikimedia Commons hosted. */
+.atlas-page .atlas-earth-scene{background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");background-repeat:no-repeat;background-size:clamp(540px,80vw,1000px) auto;background-position:right -75px top 125px;opacity:.92;filter:drop-shadow(0 0 40px rgba(92,183,220,.32))}
 .atlas-page .atlas-earth-scene .atlas-earth{display:none!important}
 @media(max-width:760px){.atlas-page .atlas-earth-scene{background-size:650px auto;background-position:right -335px top 170px;opacity:.75}}
