@@ -19,3 +19,13 @@ main .pagehero .lead,main .pagehero p{max-width:70ch}
 .living-dream-footer nav{line-height:2;overflow-wrap:anywhere}
 .living-dream-footer a{display:inline-block;min-height:32px}
 @media(max-width:760px){.living-dream-footer{grid-template-columns:1fr;gap:1rem}.navbar .nav.open{max-height:calc(100dvh - 90px);overflow-y:auto}.navbar .nav a{min-height:44px}}
+
+/* Library-to-Atlas doorway: an accessible invitation, not an overlay on sacred art */
+.living-dream-doorway{margin-block:clamp(1.5rem,4vw,3rem);padding:clamp(1.5rem,4vw,3rem);border:1px solid rgba(227,185,79,.45);border-radius:18px;background:linear-gradient(125deg,var(--dream-plum),var(--dream-violet));color:var(--dream-ivory);box-shadow:0 18px 44px rgba(34,13,56,.18)}
+.living-dream-doorway h2{font-family:var(--dream-display);font-size:clamp(1.8rem,3.4vw,3rem);line-height:1.16;color:var(--dream-ivory);margin:.5rem 0 1rem}
+.living-dream-doorway p{max-width:65ch;color:var(--dream-ivory);line-height:1.6}
+.living-dream-doorway a:not(.button){color:#ffe49b;text-decoration:underline;text-underline-offset:4px}
+.living-dream-doorway .button{margin-right:1rem;margin-bottom:.6rem}
+.atlas-page .atlas-top nav{display:flex;gap:clamp(.5rem,1.8vw,1.2rem);flex-wrap:wrap;align-items:center}
+.atlas-page .atlas-top nav a{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:650px){.living-dream-doorway{margin-inline:12px}.atlas-page .atlas-top{align-items:flex-start;flex-wrap:wrap}.atlas-page .atlas-top nav{width:100%;justify-content:flex-start}}
