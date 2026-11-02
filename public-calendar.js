@@ -1,4 +1,4 @@
-/* Founder-provided current weekly schedule, October 12, 2026. Google Calendar is not automatically synchronized. */
+/* Historical venue reference. Confirm current dates in the embedded Google Calendar; this map is not automatically synchronized. */
 (() => {
   const mount = document.getElementById("public-events");
   if (!mount) return;
@@ -9,9 +9,9 @@
     { title: "Prāṇa Circle · Free Livestream", place: "Online · Patreon", first: "2026-10-12", count: 5, hour: 19, minute: 0, duration: 60, kind: "Prāṇa Circle", onlineUrl: "https://www.patreon.com/collection/1228721", description: "Join with your email; no paid membership is required." }
   ];
   const venues = [
-    { name: "All Peoples campus · Church, Gathering Table & Darius Simmons Garden", address: "Church / Gathering Table: 2600 N 2nd St · Garden: 2571 N 2nd St, Milwaukee, WI 53212", destination: "All Peoples Gathering Lutheran Church, 2600 N 2nd St, Milwaukee, WI 53212", lat: 43.0651514, lon: -87.9127075, status: "Monday Yoga For Life; Monday/Wednesday volunteer service; Friday garden practice and optional Foodways. Campus marker uses the existing garden location; directions lead to the church." },
-    { name: "YAGI Legacy Garden", address: "2713 W Richardson Pl, Milwaukee, WI 53208", lat: 43.0427251, lon: -87.9479783, status: "Tuesday stewardship and free meditation · Times may vary October 13–November 10; check dated events." },
-    { name: "Sherman Phoenix Marketplace", address: "3536 W Fond du Lac Ave, Milwaukee, WI 53216", lat: 43.0760668, lon: -87.9580842, status: "Thursday pathway · Pending extension review. No confirmed class time; await announcement before attending." }
+    { name: "All Peoples campus · Church, Gathering Table & Darius Simmons Garden", address: "Church / Gathering Table: 2600 N 2nd St · Garden: 2571 N 2nd St, Milwaukee, WI 53212", destination: "All Peoples Gathering Lutheran Church, 2600 N 2nd St, Milwaukee, WI 53212", lat: 43.0651514, lon: -87.9127075, status: "Community campus and historical/recurring practice location. Verify the current class and entrance in the live calendar before traveling." },
+    { name: "YAGI Legacy Garden", address: "2713 W Richardson Pl, Milwaukee, WI 53208", lat: 43.0427251, lon: -87.9479783, status: "Garden stewardship venue. Confirm current public gatherings and weather-related changes in the live calendar." },
+    { name: "Sherman Phoenix Marketplace", address: "3536 W Fond du Lac Ave, Milwaukee, WI 53216", lat: 43.0760668, lon: -87.9580842, status: "Historical Yoga for Life venue; future sessions are not confirmed here. Check the live calendar before visiting." }
   ];
   const locationList = document.getElementById("map-location-list");
   const directions = place => "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(place.destination || place.address);
