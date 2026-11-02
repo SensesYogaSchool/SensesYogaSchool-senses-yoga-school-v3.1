@@ -1,7 +1,6 @@
 /* Historical venue reference. Confirm current dates in the embedded Google Calendar; this map is not automatically synchronized. */
 (() => {
-  const mount = document.getElementById("public-events");
-  if (!mount) return;
+  // The map and venue links must initialize independently of any legacy event-list mount.
   const series = [
     { title: "Yoga For Life · All Peoples Church", place: "All Peoples Church · 2600 N 2nd St, Milwaukee, WI 53212", first: "2026-10-12", count: 5, hour: 10, minute: 0, duration: 60, kind: "Yoga For Life" },
     { title: "YAGI Stewardship & Free Meditation", place: "YAGI Legacy Garden · 2713 W Richardson Pl, Milwaukee, WI 53208", first: "2026-10-13", count: 4, hour: 11, minute: 0, duration: 150, kind: "Stewardship", description: "Shoveling, snowblowing, and site maintenance, followed by free meditation. Meditation follows stewardship within this block; no separate start time is assigned. Activities follow site conditions and appropriate supervision." },
