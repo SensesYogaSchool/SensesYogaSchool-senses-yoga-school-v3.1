@@ -30,7 +30,7 @@ if (menu && nav) {
   const brand = document.querySelector('.brand');
   const brandImage = brand?.querySelector('img');
   if (brand && brandImage && !brand.querySelector('.brand-wordmark')) {
-    brandImage.src = '/assets/senses-sun.png';
+    brandImage.src = 'assets/senses-yoga-logo.png';
     brandImage.alt = '';
     const wordmark = document.createElement('span');
     wordmark.className = 'brand-wordmark';
