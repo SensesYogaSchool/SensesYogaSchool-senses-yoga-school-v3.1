@@ -1,24 +1,21 @@
-
-// Shared navigation: make the school's living history discoverable from every page using this script.
-(function(){
-  const header=document.querySelector('body > header');
-  if(!header)return;
-  const nav=header.querySelector('.nav');
-  if(nav&&!nav.querySelector('a[href*="community-in-practice.html"]')){
-    const link=document.createElement('a');
-    link.href='community-in-practice.html';
-    link.textContent='Our Journey';
-    const impact=[...nav.querySelectorAll('a')].find(a=>a.getAttribute('href')==='impact.html');
-    if(impact)impact.before(link);else nav.append(link);
-  }
-  const brand=header.querySelector('.brand img');
-  if(brand){brand.src='assets/senses-yoga-logo.png';brand.alt='Senses Yoga School';}
-})();
 // One shared masthead for every school page.
 const siteHeader = document.querySelector('header') || document.body.insertBefore(document.createElement('header'), document.body.firstChild);
 // Preserve each page's authored header; only provide a fallback if one is absent.
 if (!siteHeader.querySelector('.navbar')) {
-  siteHeader.innerHTML = '<div class="wrap navbar"><a class="brand" href="index.html" aria-label="Senses Yoga School home"><img src="assets/senses-sun.png" alt=""></a><button class="menu" aria-expanded="false">Menu</button><nav class="nav" aria-label="School navigation"><a href="practice.html">Practice</a><a href="schools.html">Schools</a><a href="serve.html">Community</a><a href="impact.html">Impact</a><a href="about.html">About</a></nav><div class="actions"><a href="calendar.html">Calendar</a><a class="button" href="support.html">Support</a></div></div>';
+  siteHeader.innerHTML = '<div class="wrap navbar"><a class="brand" href="index.html" aria-label="Senses Yoga School home"><img src="assets/senses-yoga-logo.png" alt=""></a><button class="menu" aria-expanded="false">Menu</button><nav class="nav" aria-label="School navigation"><a href="practice.html">Practice</a><a href="schools.html">Schools</a><a href="serve.html">Community</a><a href="impact.html">Impact</a><a href="about.html">About</a></nav><div class="actions"><a href="calendar.html">Calendar</a><a class="button" href="support.html">Support</a></div></div>';
+}
+// Normalize the main campus navigation after any fallback header is constructed.
+const primaryNav = siteHeader.querySelector('.nav');
+if (primaryNav) {
+  const journeyLinks = [...primaryNav.querySelectorAll('a[href="community-in-practice.html"]')];
+  journeyLinks.slice(1).forEach(a => a.remove());
+  if (!journeyLinks.length) {
+    const journey = document.createElement('a');
+    journey.href = 'community-in-practice.html';
+    journey.textContent = 'Our Journey';
+    const impact = [...primaryNav.querySelectorAll('a')].find(a => a.getAttribute('href') === 'impact.html');
+    if (impact) impact.before(journey); else primaryNav.append(journey);
+  }
 }
 const menu = document.querySelector('.menu');
 const nav = document.querySelector('.nav');
