@@ -181,3 +181,15 @@ body > header:not(.atlas-campus-header) .menu{min-height:44px;font-weight:700;cu
 body > header:not(.atlas-campus-header) .nav.open{background:#e3b94f!important;color:#21162b!important}
 body > header:not(.atlas-campus-header) .nav.open a{color:#21162b!important}
 }
+
+/* Unified two-tier campus masthead — November 2026 */
+body > header:not(.atlas-campus-header){background:#fac700!important;border-bottom:2px solid #3c2047!important;color:#21162b!important}
+body > header:not(.atlas-campus-header)::after{content:"SĀDHANĀ · SVĀDHYĀYA · SEVĀ · SAṄGHA";display:block;text-align:center;background:#fac700;color:#21162b;border-top:1px solid rgba(35,17,44,.45);font:500 clamp(9px,2.1vw,12px)/1.5 "Cinzel",serif;letter-spacing:.17em;padding:9px 10px}
+body > header:not(.atlas-campus-header) .navbar{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;min-height:76px!important;width:min(1280px,92vw)!important}
+body > header:not(.atlas-campus-header) .brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important;display:block!important;width:48px!important;height:48px!important;z-index:2}
+body > header:not(.atlas-campus-header) .brand img{display:block!important;width:48px!important;height:48px!important;max-width:48px!important;object-fit:contain!important;filter:brightness(0) saturate(100%)!important;opacity:1!important}
+body > header:not(.atlas-campus-header) .menu{display:block!important;position:absolute!important;right:0!important;top:50%!important;transform:translateY(-50%)!important;background:transparent!important;border:0!important;color:#21162b!important;letter-spacing:.18em!important;font:600 12px/1.2 "Cinzel",serif!important;cursor:pointer!important}
+body > header:not(.atlas-campus-header) .nav:not(.open),body > header:not(.atlas-campus-header) .actions{display:none!important}
+body > header:not(.atlas-campus-header) .nav.open{display:flex!important;position:absolute!important;top:100%!important;left:0!important;right:0!important;width:100%!important;max-height:calc(100dvh - 130px)!important;overflow:auto!important;flex-direction:column!important;gap:0!important;padding:16px 6vw!important;background:#fac700!important;border:1px solid #6b4b18!important;box-shadow:0 15px 30px rgba(0,0,0,.2)!important;z-index:100!important}
+body > header:not(.atlas-campus-header) .nav.open a{display:block!important;padding:13px 8px!important;color:#21162b!important;text-decoration:none!important;font:600 13px/1.4 "Cinzel",serif!important}
+body > header:not(.atlas-campus-header) .nav.open a:hover,body > header:not(.atlas-campus-header) .nav.open a:focus-visible{background:rgba(30,15,40,.1)!important}
