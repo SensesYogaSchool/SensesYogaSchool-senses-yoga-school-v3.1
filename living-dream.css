@@ -193,3 +193,13 @@ body > header:not(.atlas-campus-header) .nav:not(.open),body > header:not(.atlas
 body > header:not(.atlas-campus-header) .nav.open{display:flex!important;position:absolute!important;top:100%!important;left:0!important;right:0!important;width:100%!important;max-height:calc(100dvh - 130px)!important;overflow:auto!important;flex-direction:column!important;gap:0!important;padding:16px 6vw!important;background:#fac700!important;border:1px solid #6b4b18!important;box-shadow:0 15px 30px rgba(0,0,0,.2)!important;z-index:100!important}
 body > header:not(.atlas-campus-header) .nav.open a{display:block!important;padding:13px 8px!important;color:#21162b!important;text-decoration:none!important;font:600 13px/1.4 "Cinzel",serif!important}
 body > header:not(.atlas-campus-header) .nav.open a:hover,body > header:not(.atlas-campus-header) .nav.open a:focus-visible{background:rgba(30,15,40,.1)!important}
+
+/* November navigation QA: one motto strip only; legacy main pseudo-strip removed. */
+body > main::before{content:none!important;display:none!important}
+body.atlas-page main::before{content:none!important;display:none!important}
+body > header:not(.atlas-campus-header){background:#fac700!important}
+body > header:not(.atlas-campus-header)::after{background:#fac700!important}
+/* Atlas: one real Earth, no gold-filled scene or competing pseudo sky. */
+body.atlas-page main{background:#090e1b!important}
+body.atlas-page .atlas-earth-scene{background-color:transparent!important;filter:none!important;opacity:1!important}
+body.atlas-page .atlas-earth-scene .atlas-earth{display:none!important}
