@@ -2,7 +2,7 @@
 const siteHeader = document.querySelector('header') || document.body.insertBefore(document.createElement('header'), document.body.firstChild);
 // Preserve each page's authored header; only provide a fallback if one is absent.
 if (!siteHeader.querySelector('.navbar')) {
-  siteHeader.innerHTML = '<div class="wrap navbar"><a class="brand" href="index.html" aria-label="Senses Yoga School home"><img src="assets/senses-yoga-logo.png" alt=""></a><button class="menu" aria-expanded="false">Menu</button><nav class="nav" aria-label="School navigation"><a href="practice.html">Practice</a><a href="schools.html">Schools</a><a href="serve.html">Community</a><a href="impact.html">Impact</a><a href="about.html">About</a></nav><div class="actions"><a href="calendar.html">Calendar</a><a class="button" href="support.html">Support</a></div></div>';
+  siteHeader.innerHTML = '<div class="wrap navbar"><a class="brand" href="index.html" aria-label="Senses Yoga School home"><img src="assets/senses-sun.png" alt=""></a><button class="menu" aria-expanded="false">Menu</button><nav class="nav" aria-label="School navigation"><a href="practice.html">Practice</a><a href="schools.html">Schools</a><a href="serve.html">Community</a><a href="impact.html">Impact</a><a href="about.html">About</a></nav><div class="actions"><a href="calendar.html">Calendar</a><a class="button" href="support.html">Support</a></div></div>';
 }
 // Normalize the main campus navigation after any fallback header is constructed.
 const primaryNav = siteHeader.querySelector('.nav');
@@ -27,7 +27,7 @@ if (menu && nav) {
   const brand = document.querySelector('.brand');
   const brandImage = brand?.querySelector('img');
   if (brand && brandImage && !brand.querySelector('.brand-wordmark')) {
-    brandImage.src = 'assets/senses-yoga-logo.png';
+    brandImage.src = 'assets/senses-sun.png';
     brandImage.alt = '';
     const wordmark = document.createElement('span');
     wordmark.className = 'brand-wordmark';
