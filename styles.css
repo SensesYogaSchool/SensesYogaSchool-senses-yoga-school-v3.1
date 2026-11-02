@@ -98,7 +98,7 @@ img{max-width:100%}
 @media(max-width:760px){.home-photo-hero{min-height:680px;text-align:left}.home-hero-media{display:block}.home-hero-media img{height:100%;object-fit:contain}.home-hero-content{padding:90px 0 60px}.home-photo-hero .hero-copy,.home-photo-hero .hero-copy>p{margin-left:0}.home-photo-hero .eyebrow,.home-photo-hero .hero-actions{justify-content:flex-start}.home-photo-hero h1{font-size:clamp(38px,11vw,58px)}.home-photo-hero .sanskrit-note{margin-top:42px!important}}
 
 /* V3.10 · restore the schools, sacred arts and Heroic Yogi archetypes */
-main:before{content:"SĀDHANĀ  ·  SVĀDHYĀYA  ·  SEVĀ  ·  SAṄGHA";display:block;padding:8px 5vw;text-align:center;background:var(--deep-purple);color:#e8c766;border-bottom:1px solid rgba(250,199,0,.6);font:500 9px/1.4 "Cinzel",serif;letter-spacing:.35em}
+main:before{content:none;display:none}
 .pagehero{background:radial-gradient(circle at 84% 48%,transparent 0 72px,rgba(183,131,18,.18) 73px 74px,transparent 75px 103px,rgba(183,131,18,.11) 104px 105px,transparent 106px),linear-gradient(135deg,var(--paper),var(--cream))}
 .pagehero .wrap:before{content:"✦";display:block;margin-bottom:14px;color:var(--gold);font-size:22px}
 .school-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:42px 0;border:1px solid var(--line);background:rgba(255,250,240,.72)}
