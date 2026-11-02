@@ -81,6 +81,14 @@ body.community-page > header .nav.open a{color:#21162b!important}
 .community-page .documentary-chapter p{color:#fff!important}
 .community-page .documentary-chapter:before{content:"FIELD JOURNAL · 2026";position:absolute;top:1rem;left:1.5rem;font:600 .7rem "Cinzel",serif;letter-spacing:.14em;color:#ffe2a1}
 @media(prefers-reduced-motion:reduce){.community-page .documentary-chapter{background-attachment:scroll}}
+</style><style>
+/* Evidence-backed flyer artwork for expandable history capsules */
+.community-page .capsule[data-flyer]{position:relative;isolation:isolate;background:#30223b!important;overflow:hidden}
+.community-page .capsule[data-flyer]::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(18,11,29,.96) 0%,rgba(18,11,29,.84) 55%,rgba(18,11,29,.48) 100%),var(--capsule-flyer);background-position:center;background-size:cover;opacity:.76;z-index:-1;transition:opacity .35s ease,filter .35s ease}
+.community-page .capsule[data-flyer][open]::before{opacity:1;filter:saturate(1.15)}
+.community-page .capsule[data-flyer] .capsule-story{background:rgba(17,11,28,.82);border-radius:0 0 16px 16px;padding-top:1rem}
+.community-page .capsule[data-flyer] .capsule-title,.community-page .capsule[data-flyer] .capsule-date{color:#fff4d7!important;text-shadow:0 2px 7px #120b1b}
+@media(prefers-reduced-motion:reduce){.community-page .capsule[data-flyer]::before{transition:none}}
 </style></head><body class="community-page"><header>
 <div class="wrap navbar">
 <a aria-label="Senses Yoga School home" class="brand" href="index.html">
