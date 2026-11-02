@@ -222,3 +222,15 @@ body > header .brand img{filter:none!important;opacity:1!important;max-width:48p
 body > header .brand{left:50%!important;right:auto!important;margin:0!important;transform:translate(-50%,-50%)!important}
 body > header .brand::before,body > header .brand::after{content:none!important;display:none!important}
 body.community-page .capsule{scroll-margin-top:170px}
+
+/* Specificity fix: legacy page-qualified selectors were still blackening the sun. */
+html body > header .brand img,
+html body.community-page > header .brand img,
+html body.atlas-page > header .brand img,
+html body > header:not(.atlas-campus-header) .brand img{
+  filter:none!important;
+  -webkit-filter:none!important;
+  mix-blend-mode:normal!important;
+  opacity:1!important;
+  object-fit:contain!important;
+}
