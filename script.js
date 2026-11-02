@@ -1,3 +1,19 @@
+
+// Shared navigation: make the school's living history discoverable from every page using this script.
+(function(){
+  const header=document.querySelector('body > header');
+  if(!header)return;
+  const nav=header.querySelector('.nav');
+  if(nav&&!nav.querySelector('a[href*="community-in-practice.html"]')){
+    const link=document.createElement('a');
+    link.href='community-in-practice.html';
+    link.textContent='Our Journey';
+    const impact=[...nav.querySelectorAll('a')].find(a=>a.getAttribute('href')==='impact.html');
+    if(impact)impact.before(link);else nav.append(link);
+  }
+  const brand=header.querySelector('.brand img');
+  if(brand){brand.src='assets/senses-yoga-logo.png';brand.alt='Senses Yoga School';}
+})();
 // One shared masthead for every school page.
 const siteHeader = document.querySelector('header') || document.body.insertBefore(document.createElement('header'), document.body.firstChild);
 // Preserve each page's authored header; only provide a fallback if one is absent.
