@@ -2,6 +2,7 @@
    Add verified titles, dates, image URLs and cross-school affiliations as they become available.
    A missing thumbnail is intentionally not replaced with unrelated photography. */
 window.SENSES_MEDIA=[
+{id:"173584995",title:"Heroic Yogi · Day 130 — Community Is Our Campus: From Sādhana to Sevā",description:"School of Ecology · YAGI Garden at Garden Park, Milwaukee, Wisconsin",date:"2026-10-27",schools:["prakriti","specialized"],type:"post",duration:"",thumbnail:"https://www.patreon.com/ig/card-teaser-image/post/173584995/landscape.png?v=1793130869000",url:"https://www.patreon.com/posts/173584995",verifiedTitle:true},
 {id:"172479136",title:"Heroic Yogi · Day 128 — Mastering the Game: Steady Purpose, Creative Play",description:"Steady Purpose · garden field reflection",date:"",schools:["prakriti","specialized"],type:"video",duration:"4:16",thumbnail:"",url:"https://www.patreon.com/posts/172479136",verifiedTitle:true},
 {id:"172942397",title:"The Art of Life — A Gardener's Perspective",description:"A reflection on ecology, conscious technology, creative expression, devotion and the living soil",date:"",schools:["prakriti","specialized","arts"],type:"post",duration:"",thumbnail:"",url:"https://www.patreon.com/posts/172942397",verifiedTitle:true},
 {id:"172833168",title:"Day 129 — Returning Nourishment to the Earth",description:"Three-part field lesson on trench composting, transformation and sevā at Darius Simmons Garden",date:"",schools:["prakriti"],type:"post",duration:"",thumbnail:"",url:"https://www.patreon.com/posts/172833168",verifiedTitle:true},
