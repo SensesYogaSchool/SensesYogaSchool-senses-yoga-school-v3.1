@@ -176,7 +176,7 @@ if (!hasHonorGate && savedMusic.playing) playBackgroundSong();
 const musicChoice = document.querySelector('#honor-music-choice');
 if (musicChoice && savedMusic.playing) musicChoice.checked = true;
 
-if (honorGate && honorOrb && honorText && honorEnter) {
+if (honorGate && honorOrb && honorText && honorEnter && !document.querySelector('#invocation-open')) {
   document.body.classList.add('honor-open');
   honorGate.setAttribute('aria-label', 'Enter Senses Yoga School');
   const background = [...document.body.children].filter(el => el !== honorGate);
@@ -223,6 +223,39 @@ if (honorGate && honorOrb && honorText && honorEnter) {
   });
 }
 
+// Optional invocation on the living-journal homepage: never block entry or autoplay sound.
+const invocationOpen = document.querySelector('#invocation-open');
+if (invocationOpen && honorGate && honorText && honorEnter) {
+  honorGate.hidden = true;
+  honorGate.classList.add('invocation-optional', 'revealed');
+  honorGate.setAttribute('aria-modal', 'true');
+  honorGate.setAttribute('aria-label', 'Invocation and gratitude');
+  honorText.hidden = false;
+  honorOrb?.setAttribute('aria-expanded', 'true');
+  const dismissInvocation = () => {
+    honorGate.hidden = true;
+    honorGate.querySelector('iframe')?.setAttribute('src', honorGate.querySelector('iframe')?.getAttribute('src') || '');
+    document.body.classList.remove('invocation-visible');
+    document.querySelectorAll('body > header, body > main, body > footer').forEach(el => { el.inert = false; });
+    invocationOpen.focus();
+  };
+  invocationOpen.addEventListener('click', () => {
+    honorGate.hidden = false;
+    document.body.classList.add('invocation-visible');
+    document.querySelectorAll('body > header, body > main, body > footer').forEach(el => { el.inert = true; });
+    honorEnter.focus();
+  });
+  honorEnter.addEventListener('click', dismissInvocation);
+  honorGate.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { event.preventDefault(); dismissInvocation(); }
+    if (event.key === 'Tab') {
+      const controls = [honorOrb, honorEnter, musicChoice].filter(Boolean);
+      const current = controls.indexOf(document.activeElement);
+      if (event.shiftKey && current === 0) { event.preventDefault(); controls.at(-1).focus(); }
+      else if (!event.shiftKey && current === controls.length - 1) { event.preventDefault(); controls[0].focus(); }
+    }
+  });
+}
 // Photographs from the V3 website archive accompany each page's opening.
 // Keep the complete image visible; the illustrations and manuscripts remain in their study sections.
 const pagePhotographs = {
