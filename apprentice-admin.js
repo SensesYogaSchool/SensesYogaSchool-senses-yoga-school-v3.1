@@ -1,0 +1,13 @@
+// Public configuration only. Authorization is enforced by Supabase RLS and trusted app_metadata.
+const url="https://gqowglwyumkzyhwxtxng.supabase.co",key="sb_publishable_bCOv6eCVVhrIlDqR4MdNNA_tVW2fSCv";
+const status=document.getElementById("admin-status"),gate=document.getElementById("admin-gate"),workspace=document.getElementById("admin-workspace");
+const hash=new URLSearchParams(location.hash.slice(1));
+let token=hash.get("access_token")||sessionStorage.getItem("senses_admin_access");
+if(location.hash){history.replaceState(null,"",location.pathname);}
+if(hash.get("access_token"))sessionStorage.setItem("senses_admin_access",token);
+function denied(msg){status.textContent=msg;gate.hidden=false;workspace.hidden=true;sessionStorage.removeItem("senses_admin_access");}
+async function get(path){const response=await fetch(url+path,{headers:{apikey:key,Authorization:"Bearer "+token}});if(!response.ok)throw new Error("Access check failed ("+response.status+").");return response.json();}
+function cell(row,value){const td=document.createElement("td");td.textContent=String(value??"—");row.append(td);}
+async function start(){if(!token){denied("Administrator sign-in required.");return;}try{const user=await get("/auth/v1/user");if(user.app_metadata?.school_role!=="admin"){denied("This account does not have administrator authorization.");return;}const tables=["apprentice_profiles","apprentice_reflections","service_hours","lesson_assignments"];const data=await Promise.all(tables.map(t=>get("/rest/v1/"+t+"?select=*")));const ids=["people","reflections","hours","lessons"];data.forEach((rows,i)=>document.getElementById("count-"+ids[i]).textContent=rows.length.toLocaleString());const body=document.getElementById("admin-people");body.replaceChildren();data[0].forEach(p=>{const tr=document.createElement("tr");[p.display_name,p.cohort,p.role,p.active?"Yes":"No"].forEach(v=>cell(tr,v));body.append(tr);});if(!data[0].length){const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=4;td.textContent="No activated apprentice profiles yet.";tr.append(td);body.append(tr);}gate.hidden=true;workspace.hidden=false;status.textContent="Authorized administrator session."; }catch(e){denied("Unable to load the private dashboard. "+e.message);}}
+document.getElementById("admin-signout").addEventListener("click",()=>{sessionStorage.removeItem("senses_admin_access");token=null;denied("Signed out of this browser session.");});
+start();
