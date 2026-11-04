@@ -38,7 +38,7 @@ async function load(){
   gate.hidden=true;workspace.hidden=false;statusEl.textContent='Authorized administrator session.';
  }catch(e){clear();showGate('Unable to open the dashboard. '+e.message);}
 }
-form.addEventListener('submit',async event=>{
+form?.addEventListener('submit',async event=>{
  event.preventDefault();const button=form.querySelector('button');button.disabled=true;statusEl.textContent='Signing in…';
  try{
   const email=document.getElementById('admin-email').value.trim();
