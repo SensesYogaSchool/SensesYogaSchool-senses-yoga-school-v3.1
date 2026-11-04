@@ -12,6 +12,10 @@
 <meta content="website" property="og:type"/>
 <style>
 /* Living journal homepage preview: intentionally scoped to this page. */
+#honor-gate[hidden]{display:none!important}
+body.invocation-visible{overflow:hidden}
+body.invocation-visible #honor-gate{display:flex;position:fixed;inset:0;z-index:9999}
+
 .living-journal-home .home-community,.living-journal-home .home-open-learning,.living-journal-home .home-walk{padding:clamp(3rem,7vw,6rem) 0}
 .living-journal-home .home-community-links{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center;margin-top:1.5rem}
 .living-journal-home .home-walk .home-door-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:2rem}
