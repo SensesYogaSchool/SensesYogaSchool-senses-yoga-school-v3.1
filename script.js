@@ -227,13 +227,14 @@ if (honorGate && honorOrb && honorText && honorEnter && !document.querySelector(
 const invocationOpen = document.querySelector('#invocation-open');
 if (invocationOpen && honorGate && honorText && honorEnter) {
   honorGate.hidden = true;
-  honorGate.classList.add('invocation-optional');
+  honorGate.classList.add('invocation-optional', 'revealed');
   honorGate.setAttribute('aria-modal', 'true');
   honorGate.setAttribute('aria-label', 'Invocation and gratitude');
   honorText.hidden = false;
   honorOrb?.setAttribute('aria-expanded', 'true');
   const dismissInvocation = () => {
     honorGate.hidden = true;
+    honorGate.querySelector('iframe')?.setAttribute('src', honorGate.querySelector('iframe')?.getAttribute('src') || '');
     document.body.classList.remove('invocation-visible');
     document.querySelectorAll('body > header, body > main, body > footer').forEach(el => { el.inert = false; });
     invocationOpen.focus();
