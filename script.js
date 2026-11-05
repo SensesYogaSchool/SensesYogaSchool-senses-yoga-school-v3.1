@@ -286,7 +286,7 @@ const pagePhotographs = {
   'serve.html': {
     image: '/assets/selected-14.jpg',
     alt: 'Hands tending seedling trays during garden work',
-    caption: 'Learning through care for living things',
+    caption: 'Shared seed-starting demonstration hosted by Victory Garden Initiative',
     credit: 'Twisted Muse'
   },
   'lead.html': {
