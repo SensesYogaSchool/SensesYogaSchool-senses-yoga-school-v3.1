@@ -717,3 +717,18 @@ header a[aria-current="page"]{text-decoration:underline;text-underline-offset:5p
 .school-discovery-card .school-discovery-copy strong{text-decoration:underline;text-underline-offset:5px}
 @media(max-width:760px){.school-discovery-card{min-height:330px}.school-discovery-copy{padding:24px 22px}.school-discovery-card .school-discovery-copy h3{font-size:clamp(1.7rem,7vw,2.3rem)}.school-discovery-card .school-discovery-copy p{font-size:1.05rem;line-height:1.48}}
 @media(prefers-reduced-motion:reduce){.school-discovery-card img{transition:none!important;transform:none!important}}
+
+/* Heroic Yogi journal · sunlit earth palette, November 2026 */
+.heroic-blog-home{position:relative;isolation:isolate;background:linear-gradient(180deg,rgba(255,245,210,.92) 0%,rgba(255,238,173,.87) 46%,rgba(246,198,66,.25) 100%),url("assets/garden-park.jpg") center center/cover no-repeat!important;color:#34231b!important;padding-block:clamp(65px,9vw,125px)!important}
+.heroic-blog-home::before{content:"";position:absolute;inset:0 0 auto;height:12px;background:linear-gradient(90deg,#3f5835,#f6c827,#3f5835);pointer-events:none}
+.heroic-blog-home .blog-heading,.heroic-blog-home .blog-heading *{color:#34231b!important}
+.heroic-blog-home .blog-heading .eyebrow{color:#72541c!important;letter-spacing:.18em}
+.heroic-blog-home .blog-heading h2{color:#3a2318!important;text-shadow:0 2px 14px rgba(255,249,226,.5);font-size:clamp(42px,6vw,80px)}
+.heroic-blog-home .blog-heading h2::after{content:"";display:block;width:min(240px,50%);height:7px;margin:18px 0 8px;border-radius:100%;background:linear-gradient(90deg,#e8a900,#ffd83d,transparent);transform:rotate(-2deg)}
+.heroic-blog-home .blog-heading .lead{color:#382c23!important;line-height:1.65;max-width:760px}
+.heroic-blog-home .patreon-post-grid>a{background:#fff3c5!important;border:1px solid #c49a3e!important;color:#35241b!important;box-shadow:0 12px 30px rgba(69,54,20,.16)}
+.heroic-blog-home .patreon-post-grid>a:first-child{background:linear-gradient(135deg,#ffe78a,#ffcb34 85%)!important;border:3px solid #f1bc22!important}
+.heroic-blog-home .patreon-post-grid>a :is(h3,p,b,span){color:#35241b!important}
+.heroic-blog-home .patreon-post-grid>a .patreon-post-thumbnail{border-bottom:3px solid #e6b52b}
+.heroic-blog-home .button{background:#3c5637!important;border-color:#3c5637!important;color:#fff9df!important}
+@media(max-width:700px){.heroic-blog-home{background-position:center top!important;padding-block:55px 70px!important}.heroic-blog-home .blog-heading h2{font-size:clamp(37px,10vw,58px)}.heroic-blog-home .blog-heading .lead{font-size:clamp(19px,5vw,24px);line-height:1.5}.heroic-blog-home .patreon-post-grid>a{min-width:0}}
