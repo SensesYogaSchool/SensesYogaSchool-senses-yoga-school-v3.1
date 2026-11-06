@@ -42,7 +42,22 @@ body.invocation-visible #honor-gate{display:flex;position:fixed;inset:0;z-index:
 .living-journal-home .home-archive-content{padding-top:2rem}
 .living-journal-home .home-archive-content>section{margin-block:1.5rem}
 @media(max-width:700px){.living-journal-home .home-walk .home-door-grid{grid-template-columns:1fr}}
-</style><style>.institutional-stewardship{background:#261b2b;color:#fff5df;padding:clamp(36px,6vw,78px) 0;border-block:3px solid #dfc476}.institutional-stewardship .wrap{max-width:1020px}.institutional-stewardship h2{font-size:clamp(30px,5vw,54px);line-height:1.15;color:#fff5df}.institutional-stewardship h3{color:#f3d991;margin-top:1.4em}.institutional-stewardship p,.institutional-stewardship li{font-size:clamp(16px,1.8vw,19px);line-height:1.65}.institutional-stewardship li{margin:.55em 0}.institutional-stewardship .eyebrow{color:#f3d991}</style><link rel="stylesheet" href="site-navigation.css?v=20261105-a"></head>
+</style><style>.institutional-stewardship{background:#261b2b;color:#fff5df;padding:clamp(36px,6vw,78px) 0;border-block:3px solid #dfc476}.institutional-stewardship .wrap{max-width:1020px}.institutional-stewardship h2{font-size:clamp(30px,5vw,54px);line-height:1.15;color:#fff5df}.institutional-stewardship h3{color:#f3d991;margin-top:1.4em}.institutional-stewardship p,.institutional-stewardship li{font-size:clamp(16px,1.8vw,19px);line-height:1.65}.institutional-stewardship li{margin:.55em 0}.institutional-stewardship .eyebrow{color:#f3d991}</style><link rel="stylesheet" href="site-navigation.css?v=20261105-a"><style id="archetype-gallery-mobile">
+@media(max-width:760px){
+.heroic-home-hero .heroic-stage{display:flex!important;flex-direction:column;align-items:stretch;gap:1rem}
+.heroic-home-hero .heroic-center{order:-1}
+.heroic-home-hero .heroic-portrait{display:none!important}
+.heroic-home-hero .heroic-portrait.is-current{display:block!important;width:min(88vw,420px)!important;max-width:420px!important;margin:0 auto!important;position:relative!important;inset:auto!important;transform:none!important}
+.heroic-home-hero .heroic-portrait img{display:block;max-height:58vh;width:100%;object-fit:contain}
+.heroic-home-hero .heroic-portrait figcaption{position:relative!important;display:flex!important;flex-direction:column;align-items:center;gap:.35rem;padding:1rem!important;background:#21192b!important;border-radius:0 0 16px 16px}
+.heroic-home-hero .heroic-portrait figcaption strong{color:#fff4d2!important;font-size:clamp(1.4rem,5vw,2rem)!important;text-shadow:none!important;opacity:1!important}
+.heroic-home-hero .heroic-portrait figcaption span{color:#f1d28c!important;font-size:1.05rem!important;opacity:1!important}
+}
+.archetype-gallery-controls{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.1rem auto}
+.archetype-gallery-controls button{border:1px solid #8b6c31;background:#21192b;color:#fff3ce;border-radius:50%;width:44px;height:44px;font-size:1.4rem;cursor:pointer}
+.archetype-gallery-controls output{color:#33243b;font-weight:700;min-width:5rem;text-align:center}
+@media(min-width:761px){.archetype-gallery-controls{display:none}}
+</style></head>
 <body>
 <div class="honor-gate" id="honor-gate" hidden role="dialog" aria-modal="true" aria-labelledby="honor-title">
 <div class="honor-gate-inner">
@@ -344,5 +359,21 @@ body.invocation-visible #honor-gate{display:flex;position:fixed;inset:0;z-index:
 <script src="announcement-config.js"></script>
 <script src="announcement-feed-config.js"></script>
 <script src="announcement.js"></script>
-<script defer src="site-navigation.js?v=20261105-a"></script></body>
+<script defer src="site-navigation.js?v=20261105-a"></script><script>
+(function(){
+const stage=document.querySelector('.heroic-home-hero .heroic-stage');
+if(!stage)return;
+const slides=Array.from(stage.querySelectorAll('.heroic-portrait'));
+if(!slides.length)return;
+let active=0,startX=null;
+const controls=document.createElement('div');controls.className='archetype-gallery-controls';controls.setAttribute('aria-label','Explore archetypes');
+controls.innerHTML='<button type="button" aria-label="Previous archetype">‹</button><output aria-live="polite"></output><button type="button" aria-label="Next archetype">›</button>';
+stage.after(controls);
+function show(i){active=(i+slides.length)%slides.length;slides.forEach((el,j)=>{el.classList.toggle('is-current',j===active);el.setAttribute('aria-hidden',matchMedia('(max-width:760px)').matches&&j!==active?'true':'false')});controls.querySelector('output').textContent=(active+1)+' / '+slides.length;}
+const buttons=controls.querySelectorAll('button');buttons[0].addEventListener('click',()=>show(active-1));buttons[1].addEventListener('click',()=>show(active+1));
+stage.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX},{passive:true});
+stage.addEventListener('touchend',e=>{if(startX===null)return;const d=e.changedTouches[0].clientX-startX;startX=null;if(Math.abs(d)>45)show(active+(d<0?1:-1))},{passive:true});
+window.addEventListener('resize',()=>show(active));show(0);
+})();
+</script></body>
 </html>
