@@ -73,3 +73,13 @@
 .celestial-shelf .shelf-topline,.celestial-shelf .section-head,.celestial-shelf .tools,.celestial-shelf .books{position:relative;z-index:1}
 .celestial-shelf .shelf-sound button[aria-pressed="true"]{background:#fac700;color:#260b33}
 @media(prefers-reduced-motion:reduce){.celestial-shelf .shelf-nebula{display:none!important}}
+
+
+/* Readable book jackets and verified-edition cover images */
+.book-cover-frame{height:285px;display:flex;align-items:center;justify-content:center;background:#211b2b;border-radius:8px;overflow:hidden;margin-bottom:1rem}
+.book-cover-frame>img{display:block;width:100%;height:100%;object-fit:contain;position:relative;z-index:1}
+.book-title-jacket{display:none;box-sizing:border-box;width:75%;height:90%;padding:1.25rem;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;color:#fff2ce;background:linear-gradient(145deg,#403049,#1d1728);border:2px solid #d6b75c;box-shadow:5px 7px 12px #090611}
+.book-title-jacket strong{font-size:clamp(1.15rem,2vw,1.65rem);line-height:1.25;overflow-wrap:anywhere;color:#fff4d4}
+.book-title-jacket small,.jacket-kicker{font-size:.7rem;letter-spacing:.08em;color:#f4d77d}
+.cover-unavailable .book-title-jacket{display:flex}
+@media(max-width:700px){.book-cover-frame{height:225px}.book-title-jacket{padding:.75rem}.book-title-jacket strong{font-size:1.1rem}}
