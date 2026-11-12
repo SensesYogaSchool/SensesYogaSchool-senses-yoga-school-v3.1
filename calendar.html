@@ -2,178 +2,135 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="See current public Senses Yoga School classes, programs, garden activities, and community events in Milwaukee." name="description"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="View the Senses Yoga School public Google Calendar, RSVP or check in for a session, and find community gathering places across Milwaukee."/>
 <title>Calendar | Senses Yoga School</title>
-<link href="styles.css?v=20260925-sun" rel="stylesheet"/><link rel="stylesheet" href="living-dream.css?v=20261101-gold-campus">
+<link href="styles.css?v=20260925-sun" rel="stylesheet"/>
+<link rel="stylesheet" href="living-dream.css?v=20261101-gold-campus"/>
 <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
-<meta content="#320840" name="theme-color"/>
+<link rel="stylesheet" href="site-navigation.css?v=20261105-a"/>
+<meta name="theme-color" content="#320840"/>
 <style>
-.calendar-print-button{cursor:pointer;margin:18px 0}
-@media print{
- @page{size:landscape;margin:12mm}
- body{background:#fff!important;color:#000!important;font:11pt/1.3 Georgia,serif}
- header,footer,main>.crumb,main>section:not(.printable-weekly-schedule),.welcome-sound-control,.calendar-print-button{display:none!important}
- .printable-weekly-schedule{display:block!important;padding:0!important;border:0!important}
- .printable-weekly-schedule .wrap{width:100%!important;max-width:none!important}
- .printable-weekly-schedule h2{font:700 20pt/1.15 Georgia,serif;margin:0 0 10pt}
- .printable-weekly-schedule .eyebrow{font:10pt Georgia,serif;letter-spacing:0}
- .printable-weekly-schedule div[style*="overflow"]{overflow:visible!important}
- .printable-weekly-schedule table{font-size:10pt}
- .printable-weekly-schedule th,.printable-weekly-schedule td{padding:6pt!important;border-bottom:1px solid #aaa!important;vertical-align:top}
- .printable-weekly-schedule thead{display:table-header-group}
- .printable-weekly-schedule tr{break-inside:avoid}
- .printable-weekly-schedule p{margin:7pt 0}
- .monthly-schedule-note{border:1px solid #777;padding:8pt}
- .calendar-transition-notice{display:block!important;border:1px solid #777!important;padding:8pt!important;margin:0 0 12pt!important;color:#000!important;background:#fff!important}
- a{color:#000;text-decoration:none}
+/* A concise, mobile-first public calendar: schedule, participant links, and map. */
+.calendar-page-hero{
+  position:relative!important;isolation:isolate;overflow:hidden;
+  min-height:clamp(245px,35vw,390px);display:flex;align-items:center;
+  padding:clamp(2.5rem,6vw,4.5rem) 0!important;
+  background-image:linear-gradient(90deg,rgba(28,12,35,.78),rgba(28,12,35,.38)),url("https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/DowntownMilwaukeeWinter.jpg")!important;
+  background-position:center 52%!important;background-size:cover!important;background-repeat:no-repeat!important;
+  background-color:#320840!important;
 }
-
-/* Calendar page: sunlit editorial schedule */
-.calendar-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(90deg,rgba(24,28,31,.76) 0%,rgba(37,35,30,.58) 48%,rgba(42,35,27,.2) 100%),linear-gradient(0deg,rgba(35,29,23,.3),rgba(35,29,23,.08)),url("https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/DowntownMilwaukeeWinter.jpg") center 48%/cover no-repeat;padding:clamp(4.5rem,10vw,8rem) 0!important;min-height:440px;display:flex;align-items:center}.calendar-hero .wrap{position:relative;z-index:1}.calendar-hero .eyebrow{color:#f4d98c;text-shadow:0 1px 4px rgba(0,0,0,.35)}.calendar-hero h1{color:#fffaf0;text-shadow:0 2px 12px rgba(0,0,0,.42)}.calendar-hero p{color:#fff8e9;text-shadow:0 1px 6px rgba(0,0,0,.42)}.calendar-hero .calendar-update-notice{background:rgba(255,250,238,.94);color:#382d1e;text-shadow:none}.calendar-hero .calendar-update-notice a{color:#725017}.calendar-hero .calendar-art-credit{font-size:.88rem;color:rgba(255,250,238,.9);text-shadow:0 1px 5px rgba(0,0,0,.5)}.calendar-hero .calendar-art-credit a{color:#ffe5a2;text-decoration:underline;text-underline-offset:3px}@media(max-width:700px){.calendar-hero{min-height:390px;background-position:58% center;padding:3.5rem 0!important}.calendar-hero h1{max-width:12ch}}
-.calendar-hero .eyebrow,.calendar-schedule-panel .eyebrow{color:#8a641f;letter-spacing:.16em;font-weight:700}
-.calendar-hero h1{max-width:850px;color:#302719;font-family:"Playfair Display SC","Playfair Display",Georgia,serif;line-height:1.08;letter-spacing:-.025em}
-.calendar-hero p{max-width:760px;color:#514536;font-family:"Crimson Text",Georgia,serif;font-size:1.2rem;line-height:1.55}
-.calendar-update-notice{display:inline-block;background:rgba(255,255,255,.68);border-left:4px solid #d5a638;border-radius:0 10px 10px 0;padding:.75rem 1rem;font-size:1rem!important}
-.calendar-schedule-panel{padding:clamp(2rem,5vw,4rem) 0;background:#fffdf8}
-.calendar-schedule-panel h2,.calendar-schedule-panel h3,.calendar-heading h2{font-family:"Playfair Display SC","Playfair Display",Georgia,serif;color:#302719}
-.calendar-schedule-panel h2{font-size:clamp(1.8rem,3vw,2.6rem);margin:.4rem 0 1rem}
-.calendar-schedule-panel h3{font-size:clamp(1.45rem,2.4vw,2rem);margin:3rem 0 .5rem;padding-bottom:.75rem;border-bottom:2px solid #e6d5ad}
-.calendar-schedule-panel p{color:#554b3e;line-height:1.65}
-.calendar-schedule-panel .monthly-schedule-note{background:#f7efdF;border:1px solid #e7d5ad;border-left:5px solid #d9ad45;border-radius:8px;padding:1rem 1.2rem}
-.calendar-schedule-panel table{border-collapse:separate!important;border-spacing:0;width:100%;background:#fff;border:1px solid #e9dfca;border-radius:12px;overflow:hidden}
-.calendar-schedule-panel caption{font-family:"Cinzel",Georgia,serif;font-weight:600;color:#765b2d;padding:1rem!important}
-.calendar-schedule-panel th{background:#f4ead6;color:#403321;font-family:"Cinzel",Georgia,serif;font-size:.82rem;letter-spacing:.035em;text-align:left;padding:1rem!important;border-bottom:1px solid #e6d8bb}
-.calendar-schedule-panel td{padding:1rem!important;color:#453d33;border-bottom:1px solid #eee6d8;line-height:1.5}
-.calendar-schedule-panel tbody tr:last-child td,.calendar-schedule-panel tbody tr:last-child th{border-bottom:0}
-.calendar-schedule-panel tbody tr:hover{background:#fffbf1}
-.calendar-schedule-panel tbody td:first-child{font-weight:700;color:#302719}
-.calendar-schedule-panel .library-schedule-wrap{margin:1rem 0 1.5rem}
-.calendar-schedule-panel .library-schedule-wrap table{border-spacing:0 5px;border:0;background:transparent}
-.calendar-schedule-panel .library-schedule-wrap tbody tr{background:#fff;border:1px solid #e9dfca;box-shadow:0 2px 8px rgba(68,48,15,.045)}
-.calendar-schedule-panel .library-schedule-wrap tbody td{border-bottom:1px solid #f0e8d9}
-.calendar-schedule-panel .library-schedule-wrap tbody td:last-child{font-weight:700;color:#765b2d}
-.calendar-schedule-panel .calendar-print-button{background:#d9ad45;color:#302719;border:1px solid #c89b34;border-radius:999px;padding:.7rem 1.2rem;font-weight:700}
-.calendar-transition-notice{max-width:1100px!important;background:#f7efdF!important;color:#403321!important;border-left-color:#d9ad45!important;box-shadow:0 5px 18px rgba(65,47,19,.06)}
-.calendar-transition-notice h2{font-family:"Playfair Display SC","Playfair Display",Georgia,serif;color:#302719}
-.calendar-live-locations{background:#f7f0e3;border:1px solid #e7d8b9;border-radius:16px;padding:clamp(1rem,3vw,1.6rem);margin:1.25rem 0}
-.calendar-live-locations>p{color:#514536;line-height:1.6}
-.calendar-live-locations .community-map{border:1px solid #d7bd7d!important;border-radius:14px!important;box-shadow:0 8px 24px rgba(59,43,16,.08)}
-.map-location-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.65rem;margin:1rem 0}
-.map-location-list a{display:block;padding:.8rem 1rem;background:#fffdf8;border:1px solid #e5d7b8;border-radius:9px;color:#55401e;text-decoration:none;line-height:1.45}
+.calendar-page-hero .wrap{position:relative;z-index:1}
+.calendar-page-hero .eyebrow{color:#ffe29a;letter-spacing:.16em}
+.calendar-page-hero h1{
+  max-width:760px;margin:.55rem 0 1rem;color:#fffaf0!important;
+  font-family:"Playfair Display SC","Playfair Display",Georgia,serif;
+  font-size:clamp(2.25rem,6vw,4.5rem);line-height:1.04;letter-spacing:-.02em;
+  overflow-wrap:normal;word-break:normal;hyphens:none;
+  text-shadow:0 2px 14px rgba(0,0,0,.45)
+}
+.calendar-page-hero p{max-width:620px;margin:0;color:#fff8e9!important;font:clamp(1.05rem,2.2vw,1.3rem)/1.45 "Crimson Text",Georgia,serif;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.calendar-main{padding:clamp(1.5rem,4vw,3rem) 0;background:#fffdf8}
+.calendar-section-heading{margin:0 0 1rem}
+.calendar-section-heading .eyebrow{color:#8a641f;letter-spacing:.15em;font-weight:700}
+.calendar-section-heading h2{margin:.35rem 0 .45rem;color:#302719;font:700 clamp(1.65rem,3vw,2.35rem)/1.12 "Playfair Display SC","Playfair Display",Georgia,serif}
+.calendar-section-heading p{margin:0;color:#554b3e;font:1.08rem/1.5 "Crimson Text",Georgia,serif}
+.calendar-embed{overflow:hidden;border:1px solid #e2d3b5;border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(59,43,16,.07)}
+.calendar-embed iframe{display:block;width:100%;height:clamp(540px,75vh,760px);min-height:540px;border:0;background:#fff}
+.calendar-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:1rem 0 0}
+.calendar-action{display:flex;flex-direction:column;justify-content:center;gap:.3rem;min-height:94px;padding:1rem 1.15rem;border-radius:10px;text-decoration:none!important;border:1px solid #d9c79f;background:#f7efdf;color:#302719!important}
+.calendar-action strong{font:700 1.1rem/1.2 "Cinzel",Georgia,serif;color:#382b19}
+.calendar-action span{font:1rem/1.35 "Crimson Text",Georgia,serif;color:#5b4b35}
+.calendar-action.primary{background:#320840;border-color:#320840}
+.calendar-action.primary strong,.calendar-action.primary span{color:#fff8e8}
+.calendar-action:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(50,8,64,.12)}
+.calendar-map-section{padding:clamp(1.6rem,4vw,3rem) 0;background:#f4ecdc}
+.calendar-map-section .calendar-section-heading{margin-bottom:1rem}
+.calendar-map-shell{overflow:hidden;border:1px solid #d7bd7d;border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(59,43,16,.07)}
+#community-map{height:clamp(300px,55vw,440px);min-height:300px;width:100%}
+.map-location-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:.65rem;margin:1rem 0 0}
+.map-location-list a{display:block;padding:.85rem 1rem;background:#fffdf8;border:1px solid #e5d7b8;border-radius:9px;color:#55401e;text-decoration:none;line-height:1.45}
 .map-location-list a:hover{border-color:#c99d3c;background:#fff9e9}
-.calendar-live-locations a[href="#live-public-calendar"]{font-weight:700;color:#76551b}
-#live-public-calendar iframe{box-shadow:0 8px 24px rgba(59,43,16,.07)}
-.calendar-note{max-width:900px;margin:1rem auto;color:#645846;font-size:.98rem;line-height:1.65}
-.calendar-hero .calendar-art-credit{font-size:.95rem}
-@media(max-width:700px){
- .calendar-hero{padding:2.7rem 0!important}
- .calendar-schedule-panel table,.calendar-schedule-panel thead,.calendar-schedule-panel tbody,.calendar-schedule-panel tr,.calendar-schedule-panel th,.calendar-schedule-panel td{display:block}
- .calendar-schedule-panel thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
- .calendar-schedule-panel tbody tr{padding:.65rem .85rem;margin:.65rem 0;border:1px solid #e9dfca!important;border-radius:10px;box-shadow:0 2px 8px rgba(68,48,15,.045)}
- .calendar-schedule-panel tbody th,.calendar-schedule-panel tbody td{padding:.35rem 0!important;border:0!important;background:transparent!important}
- .calendar-schedule-panel tbody td:first-child{font-family:"Cinzel",Georgia,serif;font-size:1rem}
- .calendar-schedule-panel .library-schedule-wrap tbody td{padding:.25rem 0!important}
- .calendar-schedule-panel .library-schedule-wrap tbody td:last-child{padding-top:.55rem!important}
- .calendar-schedule-panel table{border:0;background:transparent}
- .calendar-schedule-panel caption{text-align:left}
+.calendar-footnote{margin:1rem 0 0;color:#665a49;font:1rem/1.5 "Crimson Text",Georgia,serif}
+@media(max-width:600px){
+ .calendar-page-hero{min-height:250px;background-position:58% center!important;padding:2.6rem 0!important}
+ .calendar-page-hero h1{max-width:13ch;font-size:clamp(2.05rem,10vw,3.1rem)}
+ .calendar-actions{grid-template-columns:1fr 1fr;gap:8px}
+ .calendar-action{min-height:100px;padding:.8rem}
+ .calendar-action strong{font-size:.92rem}
+ .calendar-action span{font-size:.95rem}
+ .calendar-embed iframe{height:590px;min-height:590px}
 }
-
-</style><link rel="stylesheet" href="site-navigation.css?v=20261105-a"></head>
+@media(prefers-reduced-motion:reduce){.calendar-action{transition:none}}
+</style>
+</head>
 <body>
 <header>
-<div class="wrap navbar">
-<a aria-label="Senses Yoga School home" class="brand" href="index.html">
-<img alt="Senses Yoga School" decoding="async" src="assets/senses-yoga-logo.png"/>
-</a>
-<button aria-expanded="false" class="menu">Menu</button>
-<nav class="nav" aria-label="Campus navigation"><a href="index.html">Discover</a><a href="schools.html">Academics</a><a href="library.html">Library</a><a href="calendar.html" aria-current="page">Calendar</a><a href="impact.html">Impact</a><a href="support.html">Support</a></nav>
-<div class="actions">
-<a href="calendar.html">Calendar</a>
-<a class="button" href="support.html">Support</a>
-</div>
-</div>
+  <div class="wrap navbar">
+    <a aria-label="Senses Yoga School home" class="brand" href="index.html"><img alt="Senses Yoga School" decoding="async" src="assets/senses-yoga-logo.png"/></a>
+    <button aria-expanded="false" class="menu">Menu</button>
+    <nav class="nav" aria-label="Campus navigation">
+      <a href="index.html">Discover</a><a href="schools.html">Academics</a><a href="library.html">Library</a><a href="calendar.html" aria-current="page">Calendar</a><a href="impact.html">Impact</a><a href="support.html">Support</a>
+    </nav>
+    <div class="actions"><a href="calendar.html" aria-current="page">Calendar</a><a class="button" href="support.html">Support</a></div>
+  </div>
 </header>
 <main>
-<div class="wrap crumb">Home / Calendar</div>
-<section class="pagehero manuscript calendar-hero">
-<div class="wrap">
-<div class="eyebrow">Public Calendar · Central Time</div>
-<h1>Practice where the school is alive.</h1>
-<p>Explore public classes, garden gatherings, and community learning across Milwaukee. The interactive map includes our East Branch and Center Street Library partners; dated events below distinguish approved gatherings from reservation requests still awaiting confirmation.</p>
-<p class="calendar-update-notice">For current announcements and schedule changes, visit <a href="https://www.patreon.com/c/SensesYoga" target="_blank" rel="noopener">School Updates on Patreon ↗</a>.</p>
-<p class="calendar-art-credit">Milwaukee winter waterfront photograph · U.S. Geological Survey · Public domain. <a href="https://www.usgs.gov/media/images/view-downtown-milwaukee-wisconsin-pier-wisconsin-cruise-dock-winter" target="_blank" rel="noopener">Photo source &amp; details →</a></p>
-</div>
-</section>
-<aside class="calendar-transition-notice" id="calendar-transition-notice" aria-label="Temporary schedule transition" style="background:#f5efe0;color:#284632;border-left:5px solid #496d4d;padding:1.25rem 1.5rem;margin:1.5rem auto;max-width:1100px;border-radius:6px"><div class="eyebrow">Winter Program Coordination · November 2026–January 2027</div><h2 style="font-size:1.4rem;margin:.4rem 0">Dated Events & Reservation Updates</h2><p>The school is coordinating a Tuesday evening Yoga For Life series at East Branch and Center Street Libraries, alongside the approved Monday Dream Connections gatherings at East Branch.</p><p><strong>Use the dated library schedule below for the latest planning information.</strong> Dream Connections dates are approved. Yoga For Life dates marked pending are on the school calendar while Milwaukee Public Library confirms room changes and additional reservations.</p></aside>
-<section class="printable-weekly-schedule calendar-schedule-panel"><div class="wrap"><div class="eyebrow">Current Weekly Rhythm · All times Central</div><h2>Senses Yoga School — Current Weekly Schedule</h2><button type="button" class="button calendar-print-button" id="print-calendar">Print Calendar</button><p class="monthly-schedule-note"><strong>This calendar changes monthly.</strong> Printed copies are a general weekly reference, not a live event schedule. Check sensesyoga.org/calendar.html and School Updates on Patreon for current times, locations, and cancellations.</p><p>This weekly overview describes the school’s recurring rhythm. Dated library gatherings are listed separately below and take precedence when planning a specific visit. Public classes, volunteer service, enrolled apprenticeship training, and internal planning are identified by participation status.</p><p class="patreon-posting-note"><strong>Patreon posting rhythm:</strong> If a scheduled post or class upload is delayed, it will be published no later than 48 hours after its scheduled day. Senses Yoga School remains primarily founder-led as we prepare to welcome new teachers and expand our teaching support.</p><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse"><caption style="text-align:left;padding:15px 0">Weekly schedule · Confirm changes through School Updates before attending.</caption><thead><tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Activity / Location</th><th scope="col">Participation / Status</th></tr></thead><tbody><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Monday</th><td style="padding:14px;border-bottom:1px solid #dccb89">10:00–11:00 AM</td><td style="padding:14px;border-bottom:1px solid #dccb89">Yoga For Life — All Peoples Church</td><td style="padding:14px;border-bottom:1px solid #dccb89">Public practice</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Monday</th><td style="padding:14px;border-bottom:1px solid #dccb89">11:30 AM–1:30 PM</td><td style="padding:14px;border-bottom:1px solid #dccb89">Volunteer service — The Gathering Table</td><td style="padding:14px;border-bottom:1px solid #dccb89">School volunteer service</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Tuesday</th><td style="padding:14px;border-bottom:1px solid #dccb89">Times vary during transition; see dated events</td><td style="padding:14px;border-bottom:1px solid #dccb89">YAGI stewardship: shoveling, snowblowing, and site maintenance, followed by free meditation</td><td style="padding:14px;border-bottom:1px solid #dccb89">Seasonal stewardship & public meditation</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Wednesday</th><td style="padding:14px;border-bottom:1px solid #dccb89">11:30 AM–1:30 PM</td><td style="padding:14px;border-bottom:1px solid #dccb89">Volunteer service — The Gathering Table</td><td style="padding:14px;border-bottom:1px solid #dccb89">School volunteer service</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Wednesday</th><td style="padding:14px;border-bottom:1px solid #dccb89">January 2027 · 8-week pilot; dates and session time to be confirmed</td><td style="padding:14px;border-bottom:1px solid #dccb89">Yoga For Life — Scaling Wellness in Milwaukee (SWIM), Concordia 27, 831 N 27th St</td><td style="padding:14px;border-bottom:1px solid #dccb89">In-kind hosted community pilot</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Wednesday</th><td style="padding:14px;border-bottom:1px solid #dccb89">5:30 PM</td><td style="padding:14px;border-bottom:1px solid #dccb89">Patreon Philosophy class uploaded</td><td style="padding:14px;border-bottom:1px solid #dccb89">Class upload; not a scheduled livestream</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Thursday</th><td style="padding:14px;border-bottom:1px solid #dccb89">12:30–3:30 PM</td><td style="padding:14px;border-bottom:1px solid #dccb89">Heroic Yogi Apprenticeship — training and lecture</td><td style="padding:14px;border-bottom:1px solid #dccb89">Enrolled apprentices; location provided through training communications</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Thursday</th><td style="padding:14px;border-bottom:1px solid #dccb89">Pending</td><td style="padding:14px;border-bottom:1px solid #dccb89">Sherman Phoenix Marketplace</td><td style="padding:14px;border-bottom:1px solid #dccb89">Under extension review; time unconfirmed</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Friday</th><td style="padding:14px;border-bottom:1px solid #dccb89">5:30–6:30 PM · Biweekly · Launch date pending</td><td style="padding:14px;border-bottom:1px solid #dccb89">Music Jam Sessions — All Peoples Church Sanctuary; Senses Yoga School of Creative Arts, MOGA &amp; Nāda Group</td><td style="padding:14px;border-bottom:1px solid #dccb89">Planned collaborative offering; date and public launch to be confirmed</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Saturday</th><td style="padding:14px;border-bottom:1px solid #dccb89">As scheduled</td><td style="padding:14px;border-bottom:1px solid #dccb89">Special events / workshops</td><td style="padding:14px;border-bottom:1px solid #dccb89">Dates announced through School Updates</td></tr><tr><th scope="row" style="text-align:left;padding:14px;border-bottom:1px solid #dccb89">Sunday</th><td style="padding:14px;border-bottom:1px solid #dccb89">5:00–6:00 PM</td><td style="padding:14px;border-bottom:1px solid #dccb89">Weekly review</td><td style="padding:14px;border-bottom:1px solid #dccb89">Internal planning; not a public class</td></tr></tbody></table></div>
-<h3 id="library-gatherings">Library Gatherings · November 2026–January 2027</h3>
-<p>Yoga For Life is planned for Tuesday evenings, alternating between East Branch and Center Street. Dream Connections meets on its approved Monday dates at East Branch. All sessions are listed in Central Time.</p>
-<div class="library-schedule-wrap" style="overflow-x:auto"><table class="library-gatherings-table" style="width:100%;border-collapse:collapse"><caption style="text-align:left;padding:10px 0">Approved Dream Connections gatherings and Yoga For Life library schedule under confirmation</caption><thead><tr><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Program / Location</th><th scope="col">Reservation status</th></tr></thead><tbody>
-<tr><td>Monday, November 23, 2026</td><td>6:30–7:30 PM</td><td>Dream Connections · East Branch, Study Room 115</td><td>Approved</td></tr>
-<tr><td>Monday, December 7, 2026</td><td>6:30–7:30 PM</td><td>Dream Connections · East Branch, Study Room 115</td><td>Approved</td></tr>
-<tr><td>Monday, December 21, 2026</td><td>6:30–7:30 PM</td><td>Dream Connections · East Branch, Study Room 115</td><td>Approved</td></tr>
-<tr><td>Monday, January 4, 2027</td><td>6:30–7:30 PM</td><td>Dream Connections · East Branch, Study Room 115</td><td>Approved</td></tr>
-<tr><td>Tuesday, November 17, 2026</td><td>6:30–7:30 PM</td><td>Yoga For Life · East Branch, Community Room</td><td>Reservation listed; library confirmation on file</td></tr>
-<tr><td>Tuesday, November 24, 2026</td><td>6:30–7:30 PM</td><td>Yoga For Life · Center Street, Community Room</td><td>Date change requested; awaiting library confirmation</td></tr>
-<tr><td>Tuesday, December 1, 2026</td><td>6:30–7:30 PM</td><td>Yoga For Life · East Branch, Community Room</td><td>Date change requested; awaiting library confirmation</td></tr>
-<tr><td>Tuesday, December 8, 2026</td><td>6:30–7:30 PM</td><td>Yoga For Life · Center Street, Community Room</td><td>Availability requested; awaiting library confirmation</td></tr>
-<tr><td>Tuesday, December 15, 2026</td><td>6:30–7:30 PM</td><td>Yoga For Life · East Branch, Community Room</td><td>Availability requested; awaiting library confirmation</td></tr>
-<tr><td>Tuesday, December 22, 2026</td><td>6:30–7:30 PM</td><td>Yoga For Life · Center Street, Community Room</td><td>Availability requested; awaiting library confirmation</td></tr>
-<tr><td>Tuesday, December 29, 2026</td><td>6:30–7:30 PM</td><td>Yoga For Life · East Branch, Community Room</td><td>Availability requested; awaiting library confirmation</td></tr>
-</tbody></table></div>
-<p><strong>Reservation key:</strong> Dream Connections dates are approved by East Branch. Yoga For Life dates are entered in the school calendar to support planning; November 24 and December 1 are requested date changes, and the remaining December dates are availability requests. These Yoga For Life reservations are not confirmed until the library responds.</p>
-<p><strong>Sherman Phoenix:</strong> retained as a pending location while extension review continues. A Thursday event time will be announced when confirmed.</p></div></section>
-<section>
-<div class="wrap">
-<div class="calendar-heading">
-<div><div class="eyebrow">Community Is Our Campus</div><h2>Find us across Milwaukee.</h2></div>
-<p>The interactive map now identifies both Milwaukee Public Library branches used for school gatherings. Select a marker for the branch address, directions, and a direct link to its dated gathering schedule. A map pin identifies a community venue, not a guarantee that a session is booked on a particular date.</p>
-</div>
-<div class="calendar-live-locations"><p><strong>Community campus map</strong> · Explore Senses Yoga School’s community venues, including East Branch and Center Street Libraries. Select a pin for directions, then check the dated schedule and live calendar for event status before traveling.</p><div class="community-map" id="community-map" role="region" aria-label="Interactive map of Senses Yoga School community venues" style="height:390px;min-height:390px;border:1px solid #d4b967;border-radius:12px;overflow:hidden"></div><div class="map-location-list" id="map-location-list"></div><p><a href="#live-public-calendar">Check current dates in the live calendar →</a></p></div>
-</div>
-</section>
-<section>
-<div class="wrap">
-<div class="calendar-heading">
-<div>
-<div class="eyebrow">Public Gatherings</div>
-<h2>Practice together in Milwaukee.</h2>
-</div>
-<p>Times are shown in Central Time. Special gatherings and new community programs are listed as their dates and venues are confirmed.</p>
-</div>
-<div class="public-events" id="live-public-calendar" style="display:block"><iframe title="Senses Yoga School live public Google Calendar" src="https://calendar.google.com/calendar/embed?src=adminsensesyogaschool%40gmail.com&amp;ctz=America%2FChicago&amp;mode=AGENDA" style="width:100%;min-height:650px;border:1px solid #dccb89;border-radius:8px;background:#fff" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><p><a class="button" href="https://calendar.google.com/calendar/u/0?cid=YWRtaW5zZW5zZXN5b2dhc2Nob29sQGdtYWlsLmNvbQ%3D%3D" target="_blank" rel="noopener">Open live Google Calendar ↗</a></p></div><p class="calendar-note">The embedded public Google Calendar is the authoritative source for confirmed event dates, times, and locations. Changes made to that calendar appear here automatically after Google's refresh. The printable schedule is a general weekly reference; the dated library schedule above provides event-specific details and reservation status. Sherman Phoenix remains pending extension review until a session is confirmed.</p>
-</div>
-</section>
-<section class="manuscript">
-<div class="wrap">
-<div class="eyebrow">Once You Arrive</div>
-<h2>Check in at your session.</h2>
-<p class="lead">RSVP before practice or complete your check-in afterward through the school’s community access page. Use the school community access page for RSVP and check-in; select an event in the live calendar for current details.</p>
-<div class="hero-actions">
-<a class="button" href="join.html">RSVP or Check In</a>
-<a class="text-link" href="https://form.typeform.com/to/Q9WLheLO" target="_blank" rel="noopener">Share Your Session Experience →</a>
-</div>
-</div>
-</section>
-<section class="accent-band">
-<div class="wrap two">
-<div>
-<div class="eyebrow">Before You Arrive</div>
-<h2>Come as you are.</h2>
-</div>
-<div>
-<p class="lead">Most public offerings welcome all experience levels. Check each event for what to bring, weather notes, accessibility information, and whether registration is required.</p>
-<a class="button ghost" href="practice.html">Explore Ways to Practice</a>
-</div>
-</div>
-</section>
+  <div class="wrap crumb">Home / Calendar</div>
+  <section class="pagehero manuscript calendar-page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Public Calendar · Central Time</div>
+      <h1>Practice where the school is alive.</h1>
+      <p>Find a gathering, RSVP before practice, or check in after your session. Our community is our campus.</p>
+    </div>
+  </section>
+
+  <section class="calendar-main" id="community-calendar">
+    <div class="wrap">
+      <div class="calendar-section-heading">
+        <div class="eyebrow">Live Schedule</div>
+        <h2>Upcoming Senses Yoga School Gatherings</h2>
+        <p>The live Google Calendar is the current source for event dates, times, and locations. Times are shown in Central Time.</p>
+      </div>
+      <div class="calendar-embed">
+        <iframe title="Senses Yoga School live public Google Calendar" src="https://calendar.google.com/calendar/embed?src=adminsensesyogaschool%40gmail.com&amp;ctz=America%2FChicago&amp;mode=AGENDA" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="calendar-actions" aria-label="Participant links">
+        <a class="calendar-action primary" href="https://form.typeform.com/to/TTvNJuX1" target="_blank" rel="noopener">
+          <strong>RSVP for a Session ↗</strong><span>Let us know you plan to attend.</span>
+        </a>
+        <a class="calendar-action" href="https://docs.google.com/forms/d/10vaQVnl1i0eFEc3cvkKUmjn59J7oKTLXx4l5YYctV_A/viewform" target="_blank" rel="noopener">
+          <strong>Session Check-In ↗</strong><span>Record your attendance after practice.</span>
+        </a>
+      </div>
+      <p class="calendar-footnote">You can also <a href="https://calendar.google.com/calendar/u/0?cid=YWRtaW5zZW5zZXN5b2dhc2Nob29sQGdtYWlsLmNvbQ%3D%3D" target="_blank" rel="noopener">open the Google Calendar directly ↗</a> or visit <a href="join.html">Community Access</a> for both participant links and additional ways to connect.</p>
+    </div>
+  </section>
+
+  <section class="calendar-map-section" id="community-map-section">
+    <div class="wrap">
+      <div class="calendar-section-heading">
+        <div class="eyebrow">Community Is Our Campus</div>
+        <h2>Find us across Milwaukee.</h2>
+        <p>Explore our community venues. Select a marker for the address, directions, and library gathering information.</p>
+      </div>
+      <div class="calendar-map-shell">
+        <div class="community-map" id="community-map" role="region" aria-label="Interactive map of Senses Yoga School community venues"></div>
+      </div>
+      <div class="map-location-list" id="map-location-list"></div>
+      <p class="calendar-footnote">A map pin identifies a community venue, not a guarantee that a session is booked on a particular date. Check the live calendar before traveling.</p>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap living-dream-footer"><div><strong>Senses Yoga School</strong><p>Community is our campus.</p><p>Yoga · Ecology · Arts · Community Education<br>Milwaukee, Wisconsin</p></div><nav aria-label="Footer navigation"><a href="index.html">Discover</a> · <a href="schools.html">Academics</a> · <a href="library.html">Library</a> · <a href="calendar.html" aria-current="page">Calendar</a> · <a href="impact.html">Impact</a> · <a href="support.html">Support</a><p><a href="about.html">About</a> · <a href="practice.html">Practice</a> · <a href="partner.html">Partnerships</a></p></nav></div></footer>
-<script src="script.js?v=20260924-catalog">
-</script>
+<footer>
+  <div class="wrap living-dream-footer">
+    <div><strong>Senses Yoga School</strong><p>Community is our campus.</p><p>Yoga · Ecology · Arts · Community Education<br/>Milwaukee, Wisconsin</p></div>
+    <nav aria-label="Footer navigation"><a href="index.html">Discover</a> · <a href="schools.html">Academics</a> · <a href="library.html">Library</a> · <a href="calendar.html" aria-current="page">Calendar</a> · <a href="impact.html">Impact</a> · <a href="support.html">Support</a><p><a href="about.html">About</a> · <a href="practice.html">Practice</a> · <a href="partner.html">Partnerships</a></p></nav>
+  </div>
+</footer>
+<script src="script.js?v=20260924-catalog"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="public-calendar.js?v=20261111-library-branches"></script>
-<script>document.getElementById("print-calendar").addEventListener("click",()=>window.print());if(new Date()>new Date("2026-11-11T00:00:00-06:00")){document.getElementById("calendar-transition-notice")?.remove();}</script>
-<script defer src="site-navigation.js?v=20261105-a"></script></body>
+<script src="public-calendar.js?v=20261111-simple-calendar"></script>
+<script defer src="site-navigation.js?v=20261105-a"></script>
+</body>
 </html>
