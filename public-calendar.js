@@ -50,8 +50,8 @@
       if (place.name.includes("Milwaukee Public Library")) {
         const schedule = document.createElement("p");
         const scheduleLink = document.createElement("a");
-        scheduleLink.href = "calendar.html#library-gatherings";
-        scheduleLink.textContent = "View dated library gatherings →";
+        scheduleLink.href = "calendar.html#community-calendar";
+        scheduleLink.textContent = "View the live calendar →";
         schedule.append(scheduleLink);
         popup.append(schedule);
       }
