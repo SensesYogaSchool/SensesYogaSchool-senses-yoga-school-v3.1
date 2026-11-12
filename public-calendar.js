@@ -47,6 +47,14 @@
       const status = document.createElement("p");
       status.textContent = place.status;
       popup.append(heading, address, status, link);
+      if (place.name.includes("Milwaukee Public Library")) {
+        const schedule = document.createElement("p");
+        const scheduleLink = document.createElement("a");
+        scheduleLink.href = "calendar.html#library-gatherings";
+        scheduleLink.textContent = "View dated library gatherings →";
+        schedule.append(scheduleLink);
+        popup.append(schedule);
+      }
       const icon = L.divIcon({ className: "senses-map-pin", html: '<span aria-hidden="true">✦</span>', iconSize: [34, 34], iconAnchor: [17, 17] });
       return L.marker([place.lat, place.lon], { icon }).addTo(map).bindPopup(popup);
     });
