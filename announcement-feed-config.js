@@ -1,5 +1,6 @@
-/* Senses Yoga School · Google Workspace announcements.
- * Once Apps Script is deployed, paste its /exec URL below.
- * Until configured, the existing announcement-config.js remains the fallback.
+/* Senses Yoga School · Homepage announcement source.
+ * The remote feed is temporarily paused while its contents are reviewed.
+ * Edit announcement-config.js to publish the current school announcement.
+ * Restore a verified Apps Script /exec URL here when the feed is ready.
  */
-window.SENSES_ANNOUNCEMENT_FEED_URL = "https://script.google.com/macros/s/AKfycbwrrPWr1EzCfuFGpWWZVuNEexkgGBrGEjkc9IwuHqA2Brs0ekbRU3LkGSmYprAwzBkB/exec";
+window.SENSES_ANNOUNCEMENT_FEED_URL = "";
