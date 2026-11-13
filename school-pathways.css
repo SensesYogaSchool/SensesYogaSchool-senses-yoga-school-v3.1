@@ -1,0 +1,43 @@
+/* Shared School Pathway Navigation — Senses Yoga School
+   Uses the established Playfair Display SC, Cinzel, Crimson Text and brand palette. */
+.school-pathway-shell{
+  position:sticky;top:0;z-index:40;
+  background:rgba(255,250,240,.96);
+  border-block:1px solid var(--line,#ded2bd);
+  box-shadow:0 8px 24px rgba(31,0,68,.07);
+  backdrop-filter:blur(12px);
+}
+.school-pathway-inner{width:min(1180px,94vw);margin:auto;padding:10px 0 12px}
+.school-switcher{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:thin;padding:2px 1px 9px}
+.school-switcher-label{flex:0 0 auto;margin-right:5px;color:var(--earth,#6f5743);font:500 10px/1.3 "Cinzel",serif;letter-spacing:.12em;text-transform:uppercase}
+.school-switcher a,.school-section-links a{
+  display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+  min-height:40px;padding:9px 15px;border:1px solid var(--line,#ded2bd);
+  border-radius:999px;background:var(--paper,#fffaf0);color:var(--purple,#320840);
+  text-decoration:none;font:500 10px/1.3 "Cinzel",serif;letter-spacing:.055em;
+  transition:background-color .18s ease,border-color .18s ease,color .18s ease;
+}
+.school-switcher a[aria-current="page"],.school-section-links a[aria-current="location"]{
+  background:var(--purple,#320840);border-color:var(--purple,#320840);color:var(--yellow,#FAC700)
+}
+.school-switcher a:hover,.school-section-links a:hover{border-color:var(--gold,#b78312);background:var(--cream,#f7f1e5)}
+.school-section-row{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(183,131,18,.22);padding-top:9px}
+.school-section-label{flex:0 0 auto;color:var(--gold,#b78312);font:600 9px/1.3 "Cinzel",serif;letter-spacing:.12em;text-transform:uppercase}
+.school-section-links{display:flex;gap:7px;overflow-x:auto;scrollbar-width:thin;min-width:0;padding:1px 1px 5px}
+.school-section-links a{min-height:36px;padding:8px 12px;font-size:9px}
+.school-pathway-shell a:focus-visible{outline:3px solid var(--yellow,#FAC700);outline-offset:3px}
+.school-pathway-shell [hidden]{display:none!important}
+.school-pathway-shell+.school-pathway-spacer{display:none}
+.school-pathway-target{scroll-margin-top:125px}
+@media(max-width:700px){
+ .school-pathway-inner{width:100%;padding:8px 0 9px}
+ .school-switcher,.school-section-row{padding-inline:4vw}
+ .school-switcher-label{display:none}
+ .school-switcher a{min-height:38px;padding:8px 12px;font-size:9px}
+ .school-section-row{display:block}
+ .school-section-label{display:block;margin:0 0 6px}
+ .school-section-links a{min-height:38px;padding:8px 11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .school-switcher a,.school-section-links a{transition:none}
+}
