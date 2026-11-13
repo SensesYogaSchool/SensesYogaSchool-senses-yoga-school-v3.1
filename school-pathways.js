@@ -21,6 +21,7 @@
         ["dream-master","Dream Master"],
         ["symbols-and-meditation","Symbols & Meditation"],
         ["dream-research","Dream Cognition"],
+        ["technology","Sustainable Technology"],
         ["contribute","Contribute"]
       ]
     }
@@ -38,9 +39,8 @@
   const schools = [
     ["wellness","Wellness","wellness.html"],
     ["ecology","Ecology","ecology.html"],
-    ["nada","Nāda · MOGA","creative-arts.html#nada-sound"],
     ["studies","Specialized Studies","specialized-studies.html"],
-    ["arts","Nāṭyaśāstra & Creative Arts","creative-arts.html"]
+    ["arts","Creative Arts","creative-arts.html"]
   ];
   const shell = document.createElement("nav");
   shell.className = "school-pathway-shell";
