@@ -62,6 +62,7 @@
 
   const links = [...shell.querySelectorAll(".school-section-links a")];
   const targets = links.map(link => document.getElementById(decodeURIComponent(link.hash.slice(1)))).filter(Boolean);
+  targets.forEach(target => target.classList.add("school-pathway-target"));
   const markActive = id => links.forEach(link => {
     if (link.hash === "#" + id) link.setAttribute("aria-current","location");
     else link.removeAttribute("aria-current");
