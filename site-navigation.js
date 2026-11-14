@@ -5,7 +5,7 @@
   const nav=header.querySelector(".nav");
   if(!nav)return;
   const root=location.pathname.split("/").filter(Boolean).length<=1?"":"../";
-  const links=[["Discover","index.html"],["Learn","schools.html"],["Explore","atlas.html"],["Connect","partner.html"]];
+  const links=[["Discover","index.html"],["Schools","schools.html"],["Practice","practice.html"],["Library","library.html"],["Calendar","calendar.html"],["Support","support.html"]];
   const current=location.pathname.split("/").pop()||"index.html";
   nav.innerHTML=links.map(([label,href])=>'<a href="'+root+href+'"'+(current===href?' aria-current="page"':'')+'>'+label+'</a>').join("");
   nav.setAttribute("aria-label","Main school navigation");
