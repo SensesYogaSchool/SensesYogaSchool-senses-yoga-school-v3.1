@@ -1,45 +1,39 @@
 # Website source-of-truth — Senses Yoga School V3
 
-This build is grounded in `Senses Yoga School Drive — V3`.
+## Organization
+Senses Yoga School is one founder-led, community-centered educational ecosystem. The community is its campus. The four Schools of Practice are connected disciplines within one school, not separate independently staffed institutions.
 
-Priority:
-1. Current V3 references and START HERE navigation documents.
-2. Current program / role / site / partnership references inside V3.
-3. Recent explicit founder decisions that supersede language not yet updated in V3.
-4. Older documents only for historical context.
+## Public navigation
+Discover · Academics · Library · Campus · Impact · Support
 
-V3 concepts now reflected publicly:
-- Senses Yoga School = decentralized community-centered educational ecosystem.
-- Mission centers contemplative education rooted in yoga and expressed through practice, inquiry, relationship, and service.
-- Heroic Yogi Apprenticeship is the common educational foundation.
-- Six learning environments: Practice, Study, Language, Reflection, Identity, Service.
-- Schools of Practice:
-  - Community Wellness
-  - Ecology
-  - Professional Wellness
-  - Specialized Studies
-  - Natyasāstra & Creative Arts
-- Developmental rhythm: Learn → Assist → Document → Coordinate → Lead.
-- Leadership depends on readiness, training, safety, role, and program needs.
-- YAGI is School of Ecology and its current operations use Program Oversight, lead role portals, Teacher-Steward Pool, Field Guide, evidence, meetings, and archive.
-- Historical/superseded material does not compete with current operating truth.
+## Participation categories
+1. **Learning:** structured education, practice, mentorship, and approved academic pathways.
+2. **Connection:** informal community activities that help students, apprentices, educators, and neighbors build relationships. Chess gatherings belong here.
+3. **Service:** volunteer contribution, foodways, ecological stewardship, and community care. Gathering Table and Darius Simmons Garden belong here.
 
-Founder updates after the current catalog:
-- Physical libraries are not a core outreach/growth channel.
-- Military bases are not a core growth channel.
-- Workforce / professional wellness remains valid.
-- Aging, disability accessibility, recreation/public programs, parks, schools, neighborhood/community programs, ecology and community education are priorities.
+These categories are distinct. A volunteer service activity is not automatically an academic course or apprenticeship placement. Apprenticeship fieldwork requires explicit approval, a defined learning purpose, supervision, and appropriate records.
 
-## Current-state correction — Aug 31, 2026
-The Academic Catalog describes the future/full educational architecture. It must not be treated as proof that every School is currently active.
-
-Active placements in 2026:
-- School of Community Wellness
-- School of Ecology
-- School of Professional Wellness
-
-Planned activation in 2027:
+## Schools of Practice
+- School of Wellness
+- School of Ecology / Prakṛti
 - School of Specialized Studies
-- School of Natyasāstra & Creative Arts
+- School of Nāṭyaśāstra & Creative Arts / MOGA
 
-Website rule: clearly label present operations versus future academic architecture.
+Program pages must identify whether work is active, a past pilot, developing, or proposed. Do not imply that a future proposal is an approved or funded offering.
+
+## Campus and calendar
+The Campus page is the public participation and schedule doorway. The designated public Google Calendar is the schedule source. Publish only events intended for public participation; keep personal, private, and staff-only events off the public calendar.
+
+## Impact reporting
+Historical totals must retain their reporting periods and source context. New totals are published only after records are reviewed and verified. Do not present historical figures as live or current participation totals.
+
+## Editorial rules
+- Use clear, human language; avoid generic institutional filler.
+- Preserve accurate partner names, roles, and site distinctions.
+- Distinguish YAGI at Garden Park from Darius Simmons Garden.
+- Distinguish Gathering Table service from informal community activities.
+- Keep pages focused on one visitor question and a clear next step.
+- Use the approved visual system and maintain responsive, accessible layouts.
+- Keep shared navigation and footer aligned with the six public sections.
+- Update the sitemap when public routes change.
+- A repository commit is not proof of live deployment; verify the deployed site separately.
