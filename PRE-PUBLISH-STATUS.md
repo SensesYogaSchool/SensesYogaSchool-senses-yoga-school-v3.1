@@ -1,23 +1,22 @@
-# Senses Yoga School — Pre-Publish Build
-Date: August 31, 2026
+# Senses Yoga School — Website Build Status
+Last reviewed: November 23, 2026
 
-This is today's finalized review build.
+## Current public navigation
+Discover · Academics · Library · Campus · Impact · Support
 
-Included:
-- Full multi-page school architecture
-- Official Senses logo asset already present in the working build
-- Crimson Text / Cinzel / Playfair Display SC typography
-- User-selected documentary photography library and Field Notes archive
-- Practice, Learn, Schools, Serve, Teach & Lead, Partner, About, Calendar, Support
-- Responsive navigation and mobile styling
-- Community-funded education framing
-- YAGI as School of Ecology / living outdoor campus
-- Workforce programming retained without positioning military bases as a core growth channel
-- Public-library outreach removed from the forward-facing core model
+## Participation pathways
+- Learning: structured programs and mentorship across the Schools of Practice.
+- Connection: informal community activities, including weekly chess gatherings.
+- Service: volunteer contribution and stewardship, including Gathering Table and Darius Simmons Garden.
 
-Held for live publication:
-- DNS/domain change
-- Unverified Givebutter public campaign URLs
-- Any final live calendar embed URL that could expose the wrong calendar
+## Current website model
+The site presents one founder-led, community-centered educational ecosystem. The four Schools of Practice are connected disciplines within one school, not separate independently staffed organizations. Program pages must distinguish active offerings, past pilots, developing work, and future proposals.
 
-No DNS has been changed.
+## Publication checks still required
+- Review the live site on desktop and mobile after GitHub Pages deployment.
+- Confirm the public Google Calendar contains only events intended for public viewing.
+- Verify public RSVP/check-in forms and third-party campaign destinations.
+- Check navigation, internal links, keyboard access, image loading, and page metadata.
+- Confirm the current reporting period and source records before publishing new impact totals.
+
+A repository commit does not by itself confirm that the live domain has deployed or rendered correctly.
