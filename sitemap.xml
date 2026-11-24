@@ -20,4 +20,8 @@
   <url><loc>https://www.sensesyoga.org/lead.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.sensesyoga.org/apprenticeship-placements.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.sensesyoga.org/field-notes.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.sensesyoga.org/privacy.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.sensesyoga.org/terms.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.sensesyoga.org/contributions.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.sensesyoga.org/participant-safety.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
